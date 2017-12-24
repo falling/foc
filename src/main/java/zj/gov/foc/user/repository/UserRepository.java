@@ -1,4 +1,4 @@
-package zj.gov.foc.user.dao;
+package zj.gov.foc.user.repository;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.Repository;
@@ -12,6 +12,6 @@ public interface UserRepository extends Repository<UserBean, Integer> {
      * @param password
      * @return user info or null
      */
-    @Query(value = "SELECT * FROM user WHERE username=?1 AND pwd=?2 AND del = '1'",nativeQuery = true)
+    @Query(value = "SELECT * FROM user WHERE username=?1 AND pwd=?2 AND del = '0'",nativeQuery = true)
     UserBean login(String username,String password);
 }
