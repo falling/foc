@@ -1,13 +1,11 @@
 package zj.gov.foc.login.cotroller;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
-@RequestMapping("/my")
+@RestController
 public class LoginController {
-    @ResponseBody
+    @RequestMapping("/greeting")
     public String login(){
         return "hello world";
     }
