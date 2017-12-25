@@ -17,9 +17,9 @@ public class UserService {
         if(userBean == null){
             return userVO;
         }
-        userVO.setId(userBean.getId());
+        userVO.setId(userBean.getUser_id());
         userVO.setName(userBean.getName());
-        userVO.setUsername(userBean.getUsername());
+        userVO.setUsername(userBean.getUser_name());
         userVO.setPower(userBean.getPower());
         return userVO;
     }
