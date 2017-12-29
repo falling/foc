@@ -2,8 +2,8 @@ package zj.gov.foc.user.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import zj.gov.foc.user.repository.UserRepository;
 import zj.gov.foc.user.po.UserBean;
+import zj.gov.foc.user.repository.UserRepository;
 import zj.gov.foc.user.vo.UserVO;
 
 import java.sql.Timestamp;
@@ -17,13 +17,14 @@ public class UserService {
         UserVO userVO = new UserVO();
         if((username==null)||(username.length()>10)|| "".equals(username)){
             userVO.setWarning("用户账号必须是1-10个字符");
+            userVO.setStatus(-1);
             return userVO;
         }
-        UserBean userBean = new UserBean();
 
-        userBean= userRepository.login(username,password);
+        UserBean userBean = userRepository.login(username,password);
         if(userBean == null){
             userVO.setWarning("用户名或密码错误");
+            userVO.setStatus(-1);
             return userVO;
         }
         userVO.setId(userBean.getUser_id());

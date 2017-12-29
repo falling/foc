@@ -7,4 +7,4 @@ create table user (
  reg_date         date                 NOT NULL,
  remarks             varchar(100)         DEFAULT ' ',
  del                 varchar(5)           DEFAULT ' ' 
-)
+) CHARSET = 'utf8';

@@ -1,0 +1,518 @@
+.btn:focus, .form-control:focus, input:focus {
+    outline: 0
+}
+
+.wfull {
+    width: 100%
+}
+
+.w150 {
+    width: 150px
+}
+
+.r0 {
+    right: 0;
+    left: initial
+}
+
+.pointer {
+    cursor: pointer
+}
+
+.del {
+    text-decoration: line-through
+}
+
+.m0 {
+    margin: 0 !important
+}
+
+.mt60 {
+    margin-top: 60px
+}
+
+.mr10 {
+    margin-right: 10px !important
+}
+
+.mb10 {
+    margin-bottom: 10px !important
+}
+
+.pb60 {
+    padding-bottom: 60px
+}
+
+.inline {
+    display: inline-block !important
+}
+
+@media screen and (max-width: 768px) {
+    .center-mobile {
+        text-align: center !important
+    }
+}
+
+.content {
+    margin-top: 30px
+}
+
+.section {
+    padding: 0 0 20px 0
+}
+
+.strong {
+    font-weight: 700;
+    font-size: 15px
+}
+
+.help-block .fa {
+    margin-right: 7px
+}
+
+.big-badge {
+    width: 200px;
+    height: 200px;
+    padding: 30px 0 0 0;
+    margin: 50px auto;
+    background: #ededed;
+    border-radius: 100px;
+    text-align: center;
+    color: #555;
+    font-size: 18px
+}
+
+.big-badge .fa {
+    color: #fff;
+    font-size: 100px;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, .15)
+}
+
+.login {
+    z-index: 9999;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: auto;
+    background: #ffc107;
+    background: linear-gradient(#ff6f00, #ffc107)
+}
+
+.particles-js-canvas-el {
+    z-index: 3;
+    position: absolute;
+    top: 0;
+    left: 0
+}
+
+.login-container {
+    z-index: 5;
+    position: absolute;
+    width: 350px;
+    top: 50px;
+    left: calc((100% - 350px) / 2);
+    margin-bottom: 30px;
+    text-align: center
+}
+
+.login-form {
+    width: 350px;
+    margin: 20px auto 0 auto;
+    padding: 40px;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 5px;
+    box-shadow: 0 10px 70px 0 rgba(0, 0, 0, .3)
+}
+
+@media screen and (max-width: 768px) {
+    .login-container {
+        width: 75%;
+        top: 50px;
+        left: 12%;
+        text-align: center
+    }
+
+    .login-form {
+        width: 100%;
+        padding: 25px
+    }
+}
+
+.login-password {
+    margin-top: 20px
+}
+
+.login-forgot {
+    margin-top: 10px;
+    text-align: right
+}
+
+.login-button {
+    margin-top: 20px
+}
+
+.facebook {
+    margin-top: 20px
+}
+
+.facebook p {
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, .4)
+}
+
+.welcome h2 {
+    padding: 30px 0 0 0
+}
+
+.welcome p {
+    margin: 25px 0 0 0;
+    font-size: 17px
+}
+
+.rocket {
+    width: 45%;
+    height: auto;
+    margin: 30px 0 0 0;
+    transform: rotate(-20deg);
+    animation: move-rocket 5s linear infinite
+}
+
+.header {
+    padding: 20px 0;
+    border-bottom: 1px solid #ddd
+}
+
+.header h1 {
+    padding: 0;
+    margin: 0;
+    font-size: 28px
+}
+
+.header .toolbar {
+    text-align: right
+}
+
+.header .btn, .header .dropdown {
+    display: inline-block
+}
+
+@media screen and (max-width: 768px) {
+    .header {
+        margin-top: 40px;
+        padding: 10px 0
+    }
+
+    .header h1 {
+        padding: 15px 0 0 0;
+        font-size: 16px;
+        text-align: center
+    }
+}
+
+.dahsboard-invoices {
+    max-height: 380px;
+    overflow-y: auto
+}
+
+.dahsboard-invoices table {
+    margin: 0
+}
+
+.clients-list p {
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+    line-height: 30px
+}
+
+.avatar {
+    width: 60px;
+    height: 60px;
+    background: #ddd;
+    text-align: center;
+    font-size: 30px;
+    line-height: 60px;
+    border-radius: 100px
+}
+
+@media screen and (max-width: 768px) {
+    .calendar-btn, .calendar-btn-right {
+        text-align: center
+    }
+
+    .calendar-btn-right {
+        padding-top: 15px
+    }
+}
+
+@media print {
+    .invoice-payments {
+        border: 1px solid #ccc
+    }
+
+    .invoice-payments .payments-title {
+        width: 40%;
+        float: left
+    }
+
+    .invoice-payments .statcard-panel {
+        width: 60%;
+        float: right;
+        font-size: 11px !important
+    }
+
+    .mt60 {
+        margin-top: 25px
+    }
+
+    .pb60 {
+        padding-bottom: 0
+    }
+}
+
+.support {
+    width: 100%;
+    height: 70vh;
+    border: none;
+    overflow: visible
+}
+
+.settings h4 {
+    margin: 30px 0 15px 0;
+    padding: 0
+}
+
+.color-accent {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    right: 15px;
+    margin-top: -35px;
+    border-radius: 0 5px 5px 0;
+    box-shadow: inset 1px 1px 3px 0 rgba(0, 0, 0, .3)
+}
+
+.articles-dropdown {
+    max-height: 200px;
+    overflow-y: auto
+}
+
+.form-control[readonly] {
+    background-color: #fff
+}
+
+.alert h3 {
+    padding: 5px 0 0 0;
+    margin: 0;
+    font-size: 20px
+}
+
+.space > div {
+    margin-top: 15px
+}
+
+.input-with-icon > .fa {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: #ccc
+}
+
+.section .input-with-icon {
+    width: 100%
+}
+
+.list-group a {
+    cursor: pointer
+}
+
+.btn {
+    transition: all 250ms
+}
+
+.btn-circle {
+    width: 45px;
+    height: 45px;
+    padding: 0 1px 1px 0;
+    font-size: 16px;
+    line-height: 42px;
+    text-align: center
+}
+
+.navbar-fixed-top {
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .3)
+}
+
+.navbar-fixed-top .navbar-nav li {
+    font-size: 18px
+}
+
+.navbar-fixed-bottom .navbar-collapse, .navbar-fixed-top .navbar-collapse, .pre-scrollable {
+    max-height: 425px
+}
+
+.p-a-cu {
+    padding: 3px 3px 3px 30px;
+    border-radius: 5px
+}
+
+.statcard-danger .statcard-desc, .statcard-info .statcard-desc, .statcard-primary .statcard-desc, .statcard-success .statcard-desc, .statcard-warning .statcard-desc {
+    color: rgba(255, 255, 255, .8)
+}
+
+.statcard h3 {
+    padding: 20px 0 0 0
+}
+
+.statcard-desc {
+    display: block;
+    margin: 5px 0 15px 0
+}
+
+.statcard-info {
+    background-color: #aaa
+}
+
+.statcard-panel {
+    min-height: 90px;
+    overflow: hidden;
+    margin: 0;
+    background: #fff;
+    border-radius: 5px;
+    color: #555
+}
+
+.statcard-content {
+    padding: 10px 10px 0 10px
+}
+
+.statcard-panel .table {
+    margin-bottom: 0
+}
+
+.statcard-panel .btn {
+    display: block;
+    margin: 12px auto
+}
+
+@media screen and (max-width: 768px) {
+    .p-a-cu {
+        padding: 3px 3px 3px 3px
+    }
+
+    .statcard h3, .statcard-desc {
+        text-align: center
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .table-responsive {
+        border: none
+    }
+}
+
+.nw-editor {
+    padding: 8px 3px;
+    height: 125px
+}
+
+.tall-editor .nw-editor {
+    padding: 8px 3px;
+    height: 250px
+}
+
+.ui-notification {
+    border-radius: 5px;
+    box-shadow: none;
+    text-align: center;
+    font-size: 16px
+}
+
+timeline-badge.primary {
+    background-color: #ffa000 !important
+}
+
+timeline-panel {
+    min-height: 100px;
+    border-radius: 5px
+}
+
+.ui-select-container .btn-default {
+    background: #fff
+}
+
+.ui-select-search {
+    padding-left: 30px
+}
+
+.ui-select-match-text, .ui-select-placeholder {
+    padding-left: 20px;
+    color: #555;
+    font-style: normal
+}
+
+.ui-select-bootstrap .ui-select-choices-row.active > span {
+    background: #ffa000
+}
+
+.ng-table th {
+    text-align: left;
+    font-weight: 700 !important
+}
+
+.ng-table th.sortable.sort-asc, .ng-table th.sortable.sort-desc {
+    background: #ddd
+}
+
+.ng-table-pager {
+    padding: 15px 0 0 0;
+    text-align: center
+}
+
+.bouce {
+    animation: bouce .5s
+}
+
+@keyframes bouce {
+    0% {
+        transform: translateX(0)
+    }
+    20% {
+        transform: translateX(-20px)
+    }
+    40% {
+        transform: translateX(20px)
+    }
+    60% {
+        transform: translateX(-10px)
+    }
+    80% {
+        transform: translateX(10px)
+    }
+    100% {
+        transform: translateX(0)
+    }
+}
+
+@-webkit-keyframes move-rocket {
+    0% {
+        transform: rotate(-20deg) translateY(0)
+    }
+    20% {
+        transform: rotate(-25deg) translateY(5px)
+    }
+    40% {
+        transform: rotate(-20deg) translateY(0)
+    }
+    60% {
+        transform: rotate(-15deg) translateY(-5px)
+    }
+    80% {
+        transform: rotate(-10deg) translateY(5px)
+    }
+    100% {
+        transform: rotate(-20deg) translateY(0)
+    }
+}
