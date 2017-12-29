@@ -8,6 +8,12 @@ public class UserVO {
     private String remarks;
     private String username;
 
+    public String getWarning() { return warning; }
+
+    public void setWarning(String warning) { this.warning = warning; }
+
+    private String warning;
+
     public Long getId() {
         return id;
     }
