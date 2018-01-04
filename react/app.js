@@ -1,8 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import "./css/toolkit-light.min.css";
 import "./css/app.css";
 import "./css/font-awesome.css"
+
+import "bootstrap/dist/css/bootstrap.min.css"
+import "./css/demo.css"
+import "./css/paper-dashboard.css"
+import "./css/themify-icons.css"
+import "./css/animate.min.css"
+
 import {Switch, Router, Route} from 'react-router-dom'
 import Login from "./components/Login";
 import Manager from "./components/Manager"
@@ -14,7 +20,6 @@ ReactDOM.render(
         <Switch>
             <Route exact path="/" component={Login}/>
             <Route path="/manager" component={Manager}/>
-            <Route path="/manager2" component={Login}/>
         </Switch>
     </Router>,
     document.getElementById('app')
