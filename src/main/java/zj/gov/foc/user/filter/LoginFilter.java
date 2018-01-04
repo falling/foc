@@ -12,7 +12,7 @@ import java.io.IOException;
  * Time: 下午9:06
  * Description: 过滤未登录
  */
-@WebFilter(filterName = "loginFilter", urlPatterns = "/manager")
+@WebFilter(filterName = "loginFilter", urlPatterns = {"/manager","/manager/*"})
 public class LoginFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) {

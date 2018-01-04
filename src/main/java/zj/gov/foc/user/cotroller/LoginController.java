@@ -25,6 +25,12 @@ public class LoginController {
         return "index";
     }
 
+    @RequestMapping("/manager/*")
+    public String managers() {
+        return "index";
+    }
+
+
     @RequestMapping("/userLogin")
     @ResponseBody
     public UserVO login(@RequestParam("username")String username, @RequestParam("password")String password,HttpSession httpSession) {

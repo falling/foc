@@ -20,7 +20,6 @@ export default class Login extends React.Component {
     }
 
     login(){
-        console.log(this.state.password);
         let formData = new FormData();
         formData.append("username",this.state.username);
         formData.append("password",this.state.password);
@@ -33,7 +32,6 @@ export default class Login extends React.Component {
              if (user.status>= 0){
                  //route
                  localStorage.setItem("user",JSON.stringify(user));
-                 console.log(user);
                  this.props.history.push("/manager");
              }else{
                  //pop

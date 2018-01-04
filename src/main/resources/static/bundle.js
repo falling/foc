@@ -77,7 +77,7 @@
 	
 	var _Login2 = _interopRequireDefault(_Login);
 	
-	var _Manager = __webpack_require__(/*! ./components/Manager */ 267);
+	var _Manager = __webpack_require__(/*! ./components/Manager */ 268);
 	
 	var _Manager2 = _interopRequireDefault(_Manager);
 	
@@ -96,7 +96,8 @@
 	        _reactRouterDom.Switch,
 	        null,
 	        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _Login2.default }),
-	        _react2.default.createElement(_reactRouterDom.Route, { path: '/manager', component: _Manager2.default })
+	        _react2.default.createElement(_reactRouterDom.Route, { path: '/manager', component: _Manager2.default }),
+	        _react2.default.createElement(_reactRouterDom.Route, { path: '/manager/:id', component: _Manager2.default })
 	    )
 	), document.getElementById('app'));
 
@@ -22510,7 +22511,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".btn:focus, .form-control:focus, input:focus {\n    outline: 0\n}\n\n.wfull {\n    width: 100%\n}\n\n.w150 {\n    width: 150px\n}\n\n.r0 {\n    right: 0;\n    left: initial\n}\n\n.pointer {\n    cursor: pointer\n}\n\n.del {\n    text-decoration: line-through\n}\n\n.m0 {\n    margin: 0 !important\n}\n\n.mt60 {\n    margin-top: 60px\n}\n\n.mr10 {\n    margin-right: 10px !important\n}\n\n.mb10 {\n    margin-bottom: 10px !important\n}\n\n.pb60 {\n    padding-bottom: 60px\n}\n\n.inline {\n    display: inline-block !important\n}\n\n@media screen and (max-width: 768px) {\n    .center-mobile {\n        text-align: center !important\n    }\n}\n\n.content {\n    margin-top: 30px\n}\n\n.section {\n    padding: 0 0 20px 0\n}\n\n.strong {\n    font-weight: 700;\n    font-size: 15px\n}\n\n.help-block .fa {\n    margin-right: 7px\n}\n\n.big-badge {\n    width: 200px;\n    height: 200px;\n    padding: 30px 0 0 0;\n    margin: 50px auto;\n    background: #ededed;\n    border-radius: 100px;\n    text-align: center;\n    color: #555;\n    font-size: 18px\n}\n\n.big-badge .fa {\n    color: #fff;\n    font-size: 100px;\n    text-shadow: 3px 3px 10px rgba(0, 0, 0, .15)\n}\n\n.login {\n    z-index: 9999;\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    top: 0;\n    left: 0;\n    overflow: auto;\n    background: #ffc107;\n    background: linear-gradient(#ff6f00, #ffc107)\n}\n\n.particles-js-canvas-el {\n    z-index: 3;\n    position: absolute;\n    top: 0;\n    left: 0\n}\n\n.login-container {\n    z-index: 5;\n    position: absolute;\n    width: 350px;\n    top: 50px;\n    left: calc((100% - 350px) / 2);\n    margin-bottom: 30px;\n    text-align: center\n}\n\n.login-form {\n    width: 350px;\n    margin: 20px auto 0 auto;\n    padding: 40px;\n    background: rgba(255, 255, 255, 1);\n    border-radius: 5px;\n    box-shadow: 0 10px 70px 0 rgba(0, 0, 0, .3)\n}\n\n@media screen and (max-width: 768px) {\n    .login-container {\n        width: 75%;\n        top: 50px;\n        left: 12%;\n        text-align: center\n    }\n\n    .login-form {\n        width: 100%;\n        padding: 25px\n    }\n}\n\n.login-password {\n    margin-top: 20px\n}\n\n.login-forgot {\n    margin-top: 10px;\n    text-align: right\n}\n\n.login-button {\n    margin-top: 20px\n}\n\n.facebook {\n    margin-top: 20px\n}\n\n.facebook p {\n    color: #fff;\n    text-shadow: 1px 1px 3px rgba(0, 0, 0, .4)\n}\n\n.welcome h2 {\n    padding: 30px 0 0 0\n}\n\n.welcome p {\n    margin: 25px 0 0 0;\n    font-size: 17px\n}\n\n.rocket {\n    width: 45%;\n    height: auto;\n    margin: 30px 0 0 0;\n    transform: rotate(-20deg);\n    animation: move-rocket 5s linear infinite\n}\n\n.header {\n    padding: 20px 0;\n    border-bottom: 1px solid #ddd\n}\n\n.header h1 {\n    padding: 0;\n    margin: 0;\n    font-size: 28px\n}\n\n.header .toolbar {\n    text-align: right\n}\n\n.header .btn, .header .dropdown {\n    display: inline-block\n}\n\n@media screen and (max-width: 768px) {\n    .header {\n        margin-top: 40px;\n        padding: 10px 0\n    }\n\n    .header h1 {\n        padding: 15px 0 0 0;\n        font-size: 16px;\n        text-align: center\n    }\n}\n\n.dahsboard-invoices {\n    max-height: 380px;\n    overflow-y: auto\n}\n\n.dahsboard-invoices table {\n    margin: 0\n}\n\n.clients-list p {\n    padding: 0;\n    margin: 0;\n    font-size: 16px;\n    line-height: 30px\n}\n\n.avatar {\n    width: 60px;\n    height: 60px;\n    background: #ddd;\n    text-align: center;\n    font-size: 30px;\n    line-height: 60px;\n    border-radius: 100px\n}\n\n@media screen and (max-width: 768px) {\n    .calendar-btn, .calendar-btn-right {\n        text-align: center\n    }\n\n    .calendar-btn-right {\n        padding-top: 15px\n    }\n}\n\n@media print {\n    .invoice-payments {\n        border: 1px solid #ccc\n    }\n\n    .invoice-payments .payments-title {\n        width: 40%;\n        float: left\n    }\n\n    .invoice-payments .statcard-panel {\n        width: 60%;\n        float: right;\n        font-size: 11px !important\n    }\n\n    .mt60 {\n        margin-top: 25px\n    }\n\n    .pb60 {\n        padding-bottom: 0\n    }\n}\n\n.support {\n    width: 100%;\n    height: 70vh;\n    border: none;\n    overflow: visible\n}\n\n.settings h4 {\n    margin: 30px 0 15px 0;\n    padding: 0\n}\n\n.color-accent {\n    position: absolute;\n    width: 35px;\n    height: 35px;\n    right: 15px;\n    margin-top: -35px;\n    border-radius: 0 5px 5px 0;\n    box-shadow: inset 1px 1px 3px 0 rgba(0, 0, 0, .3)\n}\n\n.articles-dropdown {\n    max-height: 200px;\n    overflow-y: auto\n}\n\n.form-control[readonly] {\n    background-color: #fff\n}\n\n.alert h3 {\n    padding: 5px 0 0 0;\n    margin: 0;\n    font-size: 20px\n}\n\n.space > div {\n    margin-top: 15px\n}\n\n.input-with-icon > .fa {\n    position: absolute;\n    top: 10px;\n    left: 10px;\n    color: #ccc\n}\n\n.section .input-with-icon {\n    width: 100%\n}\n\n.list-group a {\n    cursor: pointer\n}\n\n.btn {\n    transition: all 250ms\n}\n\n.btn-circle {\n    width: 45px;\n    height: 45px;\n    padding: 0 1px 1px 0;\n    font-size: 16px;\n    line-height: 42px;\n    text-align: center\n}\n\n.navbar-fixed-top {\n    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .3)\n}\n\n.navbar-fixed-top .navbar-nav li {\n    font-size: 18px\n}\n\n.navbar-fixed-bottom .navbar-collapse, .navbar-fixed-top .navbar-collapse, .pre-scrollable {\n    max-height: 425px\n}\n\n.p-a-cu {\n    padding: 3px 3px 3px 30px;\n    border-radius: 5px\n}\n\n.statcard-danger .statcard-desc, .statcard-info .statcard-desc, .statcard-primary .statcard-desc, .statcard-success .statcard-desc, .statcard-warning .statcard-desc {\n    color: rgba(255, 255, 255, .8)\n}\n\n.statcard h3 {\n    padding: 20px 0 0 0\n}\n\n.statcard-desc {\n    display: block;\n    margin: 5px 0 15px 0\n}\n\n.statcard-info {\n    background-color: #aaa\n}\n\n.statcard-panel {\n    min-height: 90px;\n    overflow: hidden;\n    margin: 0;\n    background: #fff;\n    border-radius: 5px;\n    color: #555\n}\n\n.statcard-content {\n    padding: 10px 10px 0 10px\n}\n\n.statcard-panel .table {\n    margin-bottom: 0\n}\n\n.statcard-panel .btn {\n    display: block;\n    margin: 12px auto\n}\n\n@media screen and (max-width: 768px) {\n    .p-a-cu {\n        padding: 3px 3px 3px 3px\n    }\n\n    .statcard h3, .statcard-desc {\n        text-align: center\n    }\n}\n\n@media screen and (max-width: 767px) {\n    .table-responsive {\n        border: none\n    }\n}\n\n.nw-editor {\n    padding: 8px 3px;\n    height: 125px\n}\n\n.tall-editor .nw-editor {\n    padding: 8px 3px;\n    height: 250px\n}\n\n.ui-notification {\n    border-radius: 5px;\n    box-shadow: none;\n    text-align: center;\n    font-size: 16px\n}\n\ntimeline-badge.primary {\n    background-color: #ffa000 !important\n}\n\ntimeline-panel {\n    min-height: 100px;\n    border-radius: 5px\n}\n\n.ui-select-container .btn-default {\n    background: #fff\n}\n\n.ui-select-search {\n    padding-left: 30px\n}\n\n.ui-select-match-text, .ui-select-placeholder {\n    padding-left: 20px;\n    color: #555;\n    font-style: normal\n}\n\n.ui-select-bootstrap .ui-select-choices-row.active > span {\n    background: #ffa000\n}\n\n.ng-table th {\n    text-align: left;\n    font-weight: 700 !important\n}\n\n.ng-table th.sortable.sort-asc, .ng-table th.sortable.sort-desc {\n    background: #ddd\n}\n\n.ng-table-pager {\n    padding: 15px 0 0 0;\n    text-align: center\n}\n\n.bouce {\n    animation: bouce .5s\n}\n\n@keyframes bouce {\n    0% {\n        transform: translateX(0)\n    }\n    20% {\n        transform: translateX(-20px)\n    }\n    40% {\n        transform: translateX(20px)\n    }\n    60% {\n        transform: translateX(-10px)\n    }\n    80% {\n        transform: translateX(10px)\n    }\n    100% {\n        transform: translateX(0)\n    }\n}\n\n@-webkit-keyframes move-rocket {\n    0% {\n        transform: rotate(-20deg) translateY(0)\n    }\n    20% {\n        transform: rotate(-25deg) translateY(5px)\n    }\n    40% {\n        transform: rotate(-20deg) translateY(0)\n    }\n    60% {\n        transform: rotate(-15deg) translateY(-5px)\n    }\n    80% {\n        transform: rotate(-10deg) translateY(5px)\n    }\n    100% {\n        transform: rotate(-20deg) translateY(0)\n    }\n}\n\nul.list{\n    padding-left: 60px;\n}\nul.list li{\n    padding: 5px 2px;\n    color: #66615B;\n}\nul.list li.active{\n    padding: 5px 2px;\n    color: #EB5E28;\n}", ""]);
+	exports.push([module.id, ".btn:focus, .form-control:focus, input:focus {\n    outline: 0\n}\n\n.wfull {\n    width: 100%\n}\n\n.w150 {\n    width: 150px\n}\n\n.r0 {\n    right: 0;\n    left: initial\n}\n\n.pointer {\n    cursor: pointer\n}\n\n.del {\n    text-decoration: line-through\n}\n\n.m0 {\n    margin: 0 !important\n}\n\n.mt60 {\n    margin-top: 60px\n}\n\n.mr10 {\n    margin-right: 10px !important\n}\n\n.mb10 {\n    margin-bottom: 10px !important\n}\n\n.pb60 {\n    padding-bottom: 60px\n}\n\n.inline {\n    display: inline-block !important\n}\n\n@media screen and (max-width: 768px) {\n    .center-mobile {\n        text-align: center !important\n    }\n}\n\n.content {\n    margin-top: 30px\n}\n\n.section {\n    padding: 0 0 20px 0\n}\n\n.strong {\n    font-weight: 700;\n    font-size: 15px\n}\n\n.help-block .fa {\n    margin-right: 7px\n}\n\n.big-badge {\n    width: 200px;\n    height: 200px;\n    padding: 30px 0 0 0;\n    margin: 50px auto;\n    background: #ededed;\n    border-radius: 100px;\n    text-align: center;\n    color: #555;\n    font-size: 18px\n}\n\n.big-badge .fa {\n    color: #fff;\n    font-size: 100px;\n    text-shadow: 3px 3px 10px rgba(0, 0, 0, .15)\n}\n\n.login {\n    z-index: 9999;\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    top: 0;\n    left: 0;\n    overflow: auto;\n    background: #ffc107;\n    background: linear-gradient(#ff6f00, #ffc107)\n}\n\n.particles-js-canvas-el {\n    z-index: 3;\n    position: absolute;\n    top: 0;\n    left: 0\n}\n\n.login-container {\n    z-index: 5;\n    position: absolute;\n    width: 350px;\n    top: 50px;\n    left: calc((100% - 350px) / 2);\n    margin-bottom: 30px;\n    text-align: center\n}\n\n.login-form {\n    width: 350px;\n    margin: 20px auto 0 auto;\n    padding: 40px;\n    background: rgba(255, 255, 255, 1);\n    border-radius: 5px;\n    box-shadow: 0 10px 70px 0 rgba(0, 0, 0, .3)\n}\n\n@media screen and (max-width: 768px) {\n    .login-container {\n        width: 75%;\n        top: 50px;\n        left: 12%;\n        text-align: center\n    }\n\n    .login-form {\n        width: 100%;\n        padding: 25px\n    }\n}\n\n.login-password {\n    margin-top: 20px\n}\n\n.login-forgot {\n    margin-top: 10px;\n    text-align: right\n}\n\n.login-button {\n    margin-top: 20px\n}\n\n.facebook {\n    margin-top: 20px\n}\n\n.facebook p {\n    color: #fff;\n    text-shadow: 1px 1px 3px rgba(0, 0, 0, .4)\n}\n\n.welcome h2 {\n    padding: 30px 0 0 0\n}\n\n.welcome p {\n    margin: 25px 0 0 0;\n    font-size: 17px\n}\n\n.rocket {\n    width: 45%;\n    height: auto;\n    margin: 30px 0 0 0;\n    transform: rotate(-20deg);\n    animation: move-rocket 5s linear infinite\n}\n\n.header {\n    padding: 20px 0;\n    border-bottom: 1px solid #ddd\n}\n\n.header h1 {\n    padding: 0;\n    margin: 0;\n    font-size: 28px\n}\n\n.header .toolbar {\n    text-align: right\n}\n\n.header .btn, .header .dropdown {\n    display: inline-block\n}\n\n@media screen and (max-width: 768px) {\n    .header {\n        margin-top: 40px;\n        padding: 10px 0\n    }\n\n    .header h1 {\n        padding: 15px 0 0 0;\n        font-size: 16px;\n        text-align: center\n    }\n}\n\n.dahsboard-invoices {\n    max-height: 380px;\n    overflow-y: auto\n}\n\n.dahsboard-invoices table {\n    margin: 0\n}\n\n.clients-list p {\n    padding: 0;\n    margin: 0;\n    font-size: 16px;\n    line-height: 30px\n}\n\n.avatar {\n    width: 60px;\n    height: 60px;\n    background: #ddd;\n    text-align: center;\n    font-size: 30px;\n    line-height: 60px;\n    border-radius: 100px\n}\n\n@media screen and (max-width: 768px) {\n    .calendar-btn, .calendar-btn-right {\n        text-align: center\n    }\n\n    .calendar-btn-right {\n        padding-top: 15px\n    }\n}\n\n@media print {\n    .invoice-payments {\n        border: 1px solid #ccc\n    }\n\n    .invoice-payments .payments-title {\n        width: 40%;\n        float: left\n    }\n\n    .invoice-payments .statcard-panel {\n        width: 60%;\n        float: right;\n        font-size: 11px !important\n    }\n\n    .mt60 {\n        margin-top: 25px\n    }\n\n    .pb60 {\n        padding-bottom: 0\n    }\n}\n\n.support {\n    width: 100%;\n    height: 70vh;\n    border: none;\n    overflow: visible\n}\n\n.settings h4 {\n    margin: 30px 0 15px 0;\n    padding: 0\n}\n\n.color-accent {\n    position: absolute;\n    width: 35px;\n    height: 35px;\n    right: 15px;\n    margin-top: -35px;\n    border-radius: 0 5px 5px 0;\n    box-shadow: inset 1px 1px 3px 0 rgba(0, 0, 0, .3)\n}\n\n.articles-dropdown {\n    max-height: 200px;\n    overflow-y: auto\n}\n\n.form-control[readonly] {\n    background-color: #fff\n}\n\n.alert h3 {\n    padding: 5px 0 0 0;\n    margin: 0;\n    font-size: 20px\n}\n\n.space > div {\n    margin-top: 15px\n}\n\n.input-with-icon > .fa {\n    position: absolute;\n    top: 10px;\n    left: 10px;\n    color: #ccc\n}\n\n.section .input-with-icon {\n    width: 100%\n}\n\n.list-group a {\n    cursor: pointer\n}\n\n.btn {\n    transition: all 250ms\n}\n\n.btn-circle {\n    width: 45px;\n    height: 45px;\n    padding: 0 1px 1px 0;\n    font-size: 16px;\n    line-height: 42px;\n    text-align: center\n}\n\n.navbar-fixed-top {\n    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .3)\n}\n\n.navbar-fixed-top .navbar-nav li {\n    font-size: 18px\n}\n\n.navbar-fixed-bottom .navbar-collapse, .navbar-fixed-top .navbar-collapse, .pre-scrollable {\n    max-height: 425px\n}\n\n.p-a-cu {\n    padding: 3px 3px 3px 30px;\n    border-radius: 5px\n}\n\n.statcard-danger .statcard-desc, .statcard-info .statcard-desc, .statcard-primary .statcard-desc, .statcard-success .statcard-desc, .statcard-warning .statcard-desc {\n    color: rgba(255, 255, 255, .8)\n}\n\n.statcard h3 {\n    padding: 20px 0 0 0\n}\n\n.statcard-desc {\n    display: block;\n    margin: 5px 0 15px 0\n}\n\n.statcard-info {\n    background-color: #aaa\n}\n\n.statcard-panel {\n    min-height: 90px;\n    overflow: hidden;\n    margin: 0;\n    background: #fff;\n    border-radius: 5px;\n    color: #555\n}\n\n.statcard-content {\n    padding: 10px 10px 0 10px\n}\n\n.statcard-panel .table {\n    margin-bottom: 0\n}\n\n.statcard-panel .btn {\n    display: block;\n    margin: 12px auto\n}\n\n@media screen and (max-width: 768px) {\n    .p-a-cu {\n        padding: 3px 3px 3px 3px\n    }\n\n    .statcard h3, .statcard-desc {\n        text-align: center\n    }\n}\n\n@media screen and (max-width: 767px) {\n    .table-responsive {\n        border: none\n    }\n}\n\n.nw-editor {\n    padding: 8px 3px;\n    height: 125px\n}\n\n.tall-editor .nw-editor {\n    padding: 8px 3px;\n    height: 250px\n}\n\n.ui-notification {\n    border-radius: 5px;\n    box-shadow: none;\n    text-align: center;\n    font-size: 16px\n}\n\ntimeline-badge.primary {\n    background-color: #ffa000 !important\n}\n\ntimeline-panel {\n    min-height: 100px;\n    border-radius: 5px\n}\n\n.ui-select-container .btn-default {\n    background: #fff\n}\n\n.ui-select-search {\n    padding-left: 30px\n}\n\n.ui-select-match-text, .ui-select-placeholder {\n    padding-left: 20px;\n    color: #555;\n    font-style: normal\n}\n\n.ui-select-bootstrap .ui-select-choices-row.active > span {\n    background: #ffa000\n}\n\n.ng-table th {\n    text-align: left;\n    font-weight: 700 !important\n}\n\n.ng-table th.sortable.sort-asc, .ng-table th.sortable.sort-desc {\n    background: #ddd\n}\n\n.ng-table-pager {\n    padding: 15px 0 0 0;\n    text-align: center\n}\n\n.bouce {\n    animation: bouce .5s\n}\n\n@keyframes bouce {\n    0% {\n        transform: translateX(0)\n    }\n    20% {\n        transform: translateX(-20px)\n    }\n    40% {\n        transform: translateX(20px)\n    }\n    60% {\n        transform: translateX(-10px)\n    }\n    80% {\n        transform: translateX(10px)\n    }\n    100% {\n        transform: translateX(0)\n    }\n}\n\n@-webkit-keyframes move-rocket {\n    0% {\n        transform: rotate(-20deg) translateY(0)\n    }\n    20% {\n        transform: rotate(-25deg) translateY(5px)\n    }\n    40% {\n        transform: rotate(-20deg) translateY(0)\n    }\n    60% {\n        transform: rotate(-15deg) translateY(-5px)\n    }\n    80% {\n        transform: rotate(-10deg) translateY(5px)\n    }\n    100% {\n        transform: rotate(-20deg) translateY(0)\n    }\n}\n\nul.list {\n    padding-left: 60px;\n}\n\nul.list li {\n    padding: 5px 2px;\n    color: #66615B;\n}\n\nul.list li.active {\n    padding: 5px 2px;\n    color: #EB5E28;\n}", ""]);
 	
 	// exports
 
@@ -27333,7 +27334,6 @@
 	        value: function login() {
 	            var _this2 = this;
 	
-	            console.log(this.state.password);
 	            var formData = new FormData();
 	            formData.append("username", this.state.username);
 	            formData.append("password", this.state.password);
@@ -27347,7 +27347,6 @@
 	                if (user.status >= 0) {
 	                    //route
 	                    localStorage.setItem("user", JSON.stringify(user));
-	                    console.log(user);
 	                    _this2.props.history.push("/manager");
 	                } else {
 	                    //pop
@@ -27380,8 +27379,8 @@
 	                        _react2.default.createElement(
 	                            'div',
 	                            { className: 'login-container' },
-	                            _react2.default.createElement('img', { src: __webpack_require__(/*! ../image/logo.png */ 265) }),
-	                            _react2.default.createElement('img', { src: __webpack_require__(/*! ../image/name.png */ 266) }),
+	                            _react2.default.createElement('img', { src: __webpack_require__(/*! ../image/logo.png */ 266) }),
+	                            _react2.default.createElement('img', { src: __webpack_require__(/*! ../image/name.png */ 267) }),
 	                            _react2.default.createElement(
 	                                'div',
 	                                { className: 'label' },
@@ -28995,7 +28994,8 @@
 
 
 /***/ }),
-/* 265 */
+/* 265 */,
+/* 266 */
 /*!************************!*\
   !*** ./image/logo.png ***!
   \************************/
@@ -29006,7 +29006,7 @@
 	module.exports = "data:image/png;base64,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";
 
 /***/ }),
-/* 266 */
+/* 267 */
 /*!************************!*\
   !*** ./image/name.png ***!
   \************************/
@@ -29017,7 +29017,7 @@
 	module.exports = "data:image/png;base64,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";
 
 /***/ }),
-/* 267 */
+/* 268 */
 /*!*******************************!*\
   !*** ./components/Manager.js ***!
   \*******************************/
@@ -29035,7 +29035,9 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	__webpack_require__(/*! bootstrap/dist/js/bootstrap.min */ 268);
+	__webpack_require__(/*! bootstrap/dist/js/bootstrap.min */ 269);
+	
+	var _reactRouterDom = __webpack_require__(/*! react-router-dom */ 216);
 	
 	var _reactDom = __webpack_require__(/*! react-dom */ 37);
 	
@@ -29102,12 +29104,13 @@
 	                                    { className: 'nav' },
 	                                    _react2.default.createElement(
 	                                        'li',
-	                                        { className: activityIndex === 0 ? "active" : "", onClick: function onClick(e) {
+	                                        { className: activityIndex === 0 ? "active" : "",
+	                                            onClick: function onClick(e) {
 	                                                return _this2.setState({ activityIndex: 0 });
 	                                            } },
 	                                        _react2.default.createElement(
-	                                            'a',
-	                                            { href: '#search' },
+	                                            _reactRouterDom.Link,
+	                                            { to: '/manager/123456' },
 	                                            _react2.default.createElement('i', { className: 'ti-panel' }),
 	                                            _react2.default.createElement(
 	                                                'p',
@@ -29137,18 +29140,20 @@
 	                                                { className: 'list' },
 	                                                _react2.default.createElement(
 	                                                    'li',
-	                                                    { className: activityIndex === 1 ? "active" : "", onClick: function onClick(e) {
+	                                                    { className: activityIndex === 1 ? "active" : "",
+	                                                        onClick: function onClick(e) {
 	                                                            return _this2.setState({ activityIndex: 1 });
 	                                                        } },
 	                                                    _react2.default.createElement(
-	                                                        'a',
-	                                                        null,
+	                                                        _reactRouterDom.Link,
+	                                                        { to: '/manager/12345690' },
 	                                                        '\u521B\u5EFA\u7528\u6237'
 	                                                    )
 	                                                ),
 	                                                _react2.default.createElement(
 	                                                    'li',
-	                                                    { className: activityIndex === 2 ? "active" : "", onClick: function onClick(e) {
+	                                                    { className: activityIndex === 2 ? "active" : "",
+	                                                        onClick: function onClick(e) {
 	                                                            return _this2.setState({ activityIndex: 2 });
 	                                                        } },
 	                                                    _react2.default.createElement(
@@ -29181,7 +29186,8 @@
 	                                                { className: 'list' },
 	                                                _react2.default.createElement(
 	                                                    'li',
-	                                                    { className: activityIndex === 3 ? "active" : "", onClick: function onClick(e) {
+	                                                    { className: activityIndex === 3 ? "active" : "",
+	                                                        onClick: function onClick(e) {
 	                                                            return _this2.setState({ activityIndex: 3 });
 	                                                        } },
 	                                                    _react2.default.createElement(
@@ -29192,7 +29198,8 @@
 	                                                ),
 	                                                _react2.default.createElement(
 	                                                    'li',
-	                                                    { className: activityIndex === 4 ? "active" : "", onClick: function onClick(e) {
+	                                                    { className: activityIndex === 4 ? "active" : "",
+	                                                        onClick: function onClick(e) {
 	                                                            return _this2.setState({ activityIndex: 4 });
 	                                                        } },
 	                                                    _react2.default.createElement(
@@ -29206,7 +29213,8 @@
 	                                    ),
 	                                    _react2.default.createElement(
 	                                        'li',
-	                                        { className: activityIndex === 5 ? "active" : "", onClick: function onClick(e) {
+	                                        { className: activityIndex === 5 ? "active" : "",
+	                                            onClick: function onClick(e) {
 	                                                return _this2.setState({ activityIndex: 5 });
 	                                            } },
 	                                        _react2.default.createElement(
@@ -29797,7 +29805,7 @@
 	exports.default = Manager;
 
 /***/ }),
-/* 268 */
+/* 269 */
 /*!**********************************************!*\
   !*** ./~/bootstrap/dist/js/bootstrap.min.js ***!
   \**********************************************/

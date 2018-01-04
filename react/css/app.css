@@ -517,14 +517,16 @@ timeline-panel {
     }
 }
 
-ul.list{
+ul.list {
     padding-left: 60px;
 }
-ul.list li{
+
+ul.list li {
     padding: 5px 2px;
     color: #66615B;
 }
-ul.list li.active{
+
+ul.list li.active {
     padding: 5px 2px;
     color: #EB5E28;
 }
