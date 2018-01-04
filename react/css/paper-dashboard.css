@@ -335,13 +335,27 @@ hr {
     margin-top: 20px;
 }
 
-.sidebar .nav li > a,
+.sidebar .nav li > a,.nav li> div > a,
 .off-canvas-sidebar .nav li > a {
     margin: 10px 0px;
     padding-left: 25px;
     padding-right: 25px;
     opacity: .7;
 }
+
+.nav li> div > a{
+    position: relative;
+    display: block;
+    padding: 10px 25px;
+    color:#66615B;
+}
+.nav li.active> div > a{
+    position: relative;
+    display: block;
+    padding: 10px 25px;
+    color:#EB5E28;
+}
+
 
 .sidebar .nav li:hover > a,
 .off-canvas-sidebar .nav li:hover > a {

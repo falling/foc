@@ -7,8 +7,7 @@ export default class Manager extends React.Component {
     constructor() {
         super();
         this.state = {
-            username: '',
-            password: ''
+            activityIndex: 0,
         };
     }
 
@@ -16,6 +15,7 @@ export default class Manager extends React.Component {
     }
 
     render() {
+        const {activityIndex} = this.state;
         return (
             <div>
                 <div className="wrapper">
@@ -29,42 +29,38 @@ export default class Manager extends React.Component {
                                     </a>
                                 </div>
                                 <ul className="nav">
-                                    <li className="active">
-                                        <a>
+                                    <li className={activityIndex === 0? "active":""} onClick={e=>this.setState({activityIndex:0})}>
+                                        <a href="#search">
                                             <i className="ti-panel"/>
                                             <p>查询</p>
                                         </a>
                                     </li>
-                                    <li>
-                                        <div>
-                                            <a data-toggle="collapse" data-parent="#accordion" href="#userManager">
-                                                <i className="ti-view-list-alt"/>
-                                                <p>用户管理</p>
-                                            </a>
-                                            <div className="collapse" id="userManager">
-                                                <ul>
-                                                    <li><a>创建用户</a></li>
-                                                    <li><a>查询用户</a></li>
-                                                </ul>
-                                            </div>
+                                    <li className={activityIndex === 1 ||activityIndex===2? "active":""} >
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#userManager">
+                                            <i className="ti-view-list-alt"/>
+                                            <p>用户管理</p>
+                                        </a>
+                                        <div className="collapse" id="userManager">
+                                            <ul className="list">
+                                                <li className={activityIndex === 1? "active":""} onClick={e=>this.setState({activityIndex:1})}><a>创建用户</a></li>
+                                                <li className={activityIndex === 2? "active":""} onClick={e=>this.setState({activityIndex:2})}><a>查询用户</a></li>
+                                            </ul>
                                         </div>
 
                                     </li>
-                                    <li>
-                                        <div>
-                                            <a data-toggle="collapse" data-parent="#accordion" href="#infoManager">
-                                                <i className="ti-text"/>
-                                                <p>录入信息管理</p>
-                                            </a>
-                                            <div className="collapse" id="infoManager">
-                                                <ul>
-                                                    <li><a>录入信息</a></li>
-                                                    <li><a>查询录入</a></li>
-                                                </ul>
-                                            </div>
+                                    <li className={activityIndex === 3 || activityIndex===4 ? "active":""} >
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#infoManager">
+                                            <i className="ti-text"/>
+                                            <p>录入信息管理</p>
+                                        </a>
+                                        <div className="collapse" id="infoManager">
+                                            <ul className="list">
+                                                <li className={activityIndex === 3? "active":""} onClick={e=>this.setState({activityIndex:3})}><a>录入信息</a></li>
+                                                <li className={activityIndex === 4? "active":""} onClick={e=>this.setState({activityIndex:4})}><a>查询录入</a></li>
+                                            </ul>
                                         </div>
                                     </li>
-                                    <li>
+                                    <li className={activityIndex === 5? "active":""} onClick={e=>this.setState({activityIndex:5})}>
                                         <a>
                                             <i className="ti-user"/>
                                             <p>修改个人信息</p>
@@ -121,7 +117,6 @@ export default class Manager extends React.Component {
                                 </div>
                             </div>
                         </nav>
-
 
                         <div className="content">
                             <div className="container-fluid">
