@@ -1,84 +1,27 @@
 import React from 'react';
 import 'bootstrap/dist/js/bootstrap.min'
-import {Link} from 'react-router-dom'
-import ReactDOM from 'react-dom';
-
+import Sidebar from './view/Sidebar'
 export default class Manager extends React.Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
-            activityIndex: 0,
         };
     }
 
     componentDidMount() {
     }
 
+    componentWillReceiveProps(nextProps){
+    }
+
     render() {
-        const {activityIndex} = this.state;
         return (
             <div>
                 <div className="wrapper">
-                    <div className="sidebar" data-background-color="white" data-active-color="danger">
-
-                        <div className="sidebar-wrapper" id="accordion">
-                            <div className="sidebar-wrapper">
-                                <div className="logo">
-                                    <a className="simple-text">
-                                        FOC
-                                    </a>
-                                </div>
-                                <ul className="nav">
-                                    <li className={activityIndex === 0 ? "active" : ""}
-                                        onClick={e => this.setState({activityIndex: 0})}>
-                                        <Link to="/manager/123456">
-                                            <i className="ti-panel"/>
-                                            <p>查询</p>
-                                        </Link>
-                                    </li>
-                                    <li className={activityIndex === 1 || activityIndex === 2 ? "active" : ""}>
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#userManager">
-                                            <i className="ti-view-list-alt"/>
-                                            <p>用户管理</p>
-                                        </a>
-                                        <div className="collapse" id="userManager">
-                                            <ul className="list">
-                                                <li className={activityIndex === 1 ? "active" : ""}
-                                                    onClick={e => this.setState({activityIndex: 1})}>
-                                                    <Link to="/manager/12345690">创建用户</Link>
-                                                </li>
-                                                <li className={activityIndex === 2 ? "active" : ""}
-                                                    onClick={e => this.setState({activityIndex: 2})}><a>查询用户</a></li>
-                                            </ul>
-                                        </div>
-
-                                    </li>
-                                    <li className={activityIndex === 3 || activityIndex === 4 ? "active" : ""}>
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#infoManager">
-                                            <i className="ti-text"/>
-                                            <p>录入信息管理</p>
-                                        </a>
-                                        <div className="collapse" id="infoManager">
-                                            <ul className="list">
-                                                <li className={activityIndex === 3 ? "active" : ""}
-                                                    onClick={e => this.setState({activityIndex: 3})}><a>录入信息</a></li>
-                                                <li className={activityIndex === 4 ? "active" : ""}
-                                                    onClick={e => this.setState({activityIndex: 4})}><a>查询录入</a></li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li className={activityIndex === 5 ? "active" : ""}
-                                        onClick={e => this.setState({activityIndex: 5})}>
-                                        <a>
-                                            <i className="ti-user"/>
-                                            <p>修改个人信息</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                    <Sidebar
+                        index ={this.props.match.params.id}
+                    />
 
                     <div className="main-panel">
                         <nav className="navbar navbar-default">

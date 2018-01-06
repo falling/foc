@@ -32,7 +32,7 @@ export default class Login extends React.Component {
              if (user.status>= 0){
                  //route
                  localStorage.setItem("user",JSON.stringify(user));
-                 this.props.history.push("/manager");
+                 this.props.history.push("/manager/0");
              }else{
                  //pop
                  this._notificationSystem.addNotification({
