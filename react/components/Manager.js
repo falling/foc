@@ -12,6 +12,7 @@ export default class Manager extends React.Component {
     }
 
     componentDidMount() {
+        //get user info
     }
 
     componentWillReceiveProps(nextProps) {

@@ -1,10 +1,10 @@
-package zj.gov.foc.user.service;
+package zj.gov.foc.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import zj.gov.foc.user.po.UserBean;
-import zj.gov.foc.user.repository.UserRepository;
-import zj.gov.foc.user.vo.UserVO;
+import zj.gov.foc.po.UserBean;
+import zj.gov.foc.repository.UserRepository;
+import zj.gov.foc.vo.UserVO;
 
 import java.sql.Timestamp;
 

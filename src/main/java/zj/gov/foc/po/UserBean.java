@@ -1,4 +1,4 @@
-package zj.gov.foc.user.po;
+package zj.gov.foc.po;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

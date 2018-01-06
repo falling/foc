@@ -1,8 +1,8 @@
-package zj.gov.foc.user.repository;
+package zj.gov.foc.repository;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.Repository;
-import zj.gov.foc.user.po.UserBean;
+import zj.gov.foc.po.UserBean;
 
 import java.sql.Timestamp;
 

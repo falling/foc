@@ -29065,7 +29065,9 @@
 	
 	    _createClass(Manager, [{
 	        key: 'componentDidMount',
-	        value: function componentDidMount() {}
+	        value: function componentDidMount() {
+	            //get user info
+	        }
 	    }, {
 	        key: 'componentWillReceiveProps',
 	        value: function componentWillReceiveProps(nextProps) {}
@@ -29813,6 +29815,20 @@
 	                        _react2.default.createElement(
 	                            "ul",
 	                            { className: "nav navbar-nav navbar-right" },
+	                            _react2.default.createElement(
+	                                "li",
+	                                null,
+	                                _react2.default.createElement(
+	                                    "a",
+	                                    { href: "#" },
+	                                    _react2.default.createElement("i", { className: "ti-user" }),
+	                                    _react2.default.createElement(
+	                                        "p",
+	                                        null,
+	                                        "falling"
+	                                    )
+	                                )
+	                            ),
 	                            _react2.default.createElement(
 	                                "li",
 	                                null,

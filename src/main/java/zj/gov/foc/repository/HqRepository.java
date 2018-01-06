@@ -1,4 +1,4 @@
-package zj.gov.foc.user.repository;
+package zj.gov.foc.repository;
 
 import org.springframework.data.jpa.repository.Query;
 

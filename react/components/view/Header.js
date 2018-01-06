@@ -20,6 +20,12 @@ export default class Header extends React.Component {
                         <ul className="nav navbar-nav navbar-right">
                             <li>
                                 <a href="#">
+                                    <i className="ti-user"/>
+                                    <p>falling</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
                                     <i className="ti-settings"/>
                                     <p>注销</p>
                                 </a>

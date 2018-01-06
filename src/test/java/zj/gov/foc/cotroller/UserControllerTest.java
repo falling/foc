@@ -1,4 +1,4 @@
-package zj.gov.foc.user.cotroller;
+package zj.gov.foc.cotroller;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -8,13 +8,11 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
 
-import static org.junit.Assert.*;
-
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @ComponentScan(basePackages = {"zj.gov.foc"})
 
-public class LoginControllerTest {
+public class UserControllerTest {
 
     @Test
     public void reg() {
@@ -25,7 +23,7 @@ public class LoginControllerTest {
     }
 
     @Resource
-    LoginController loginController;
+    UserController loginController;
 
     @Test
     public void testreg(){

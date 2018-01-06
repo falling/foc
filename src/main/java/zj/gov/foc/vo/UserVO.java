@@ -1,4 +1,4 @@
-package zj.gov.foc.user.vo;
+package zj.gov.foc.vo;
 
 public class UserVO {
     private Long id;
