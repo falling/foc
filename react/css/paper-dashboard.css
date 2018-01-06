@@ -280,7 +280,7 @@ hr {
     position: relative;
     max-height: none;
     min-height: 100%;
-    overflow: hidden;
+    /*overflow: hidden;*/
     width: 260px;
     z-index: 4;
     box-shadow: inset -1px 0px 0px 0px #DDDDDD;
@@ -362,7 +362,7 @@ hr {
     opacity: 1;
 }
 
-.sidebar .nav li.active > a,
+.sidebar .nav li.active > a, .sidebar .nav li active > a
 .off-canvas-sidebar .nav li.active > a {
     color: #7A9E9F;
     opacity: 1;

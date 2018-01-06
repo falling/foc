@@ -530,3 +530,7 @@ ul.list li.active {
     padding: 5px 2px;
     color: #EB5E28;
 }
+
+.overDefault{
+    cursor: default;
+}

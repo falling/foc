@@ -1,7 +1,6 @@
 import React from 'react';
-import 'whatwg-fetch';
 import {Link} from 'react-router-dom'
-
+import {Title} from '../config/Title'
 export default class Sidebar extends React.Component {
 
     constructor(props) {
@@ -11,7 +10,6 @@ export default class Sidebar extends React.Component {
         }
     }
     componentDidMount(){
-
     }
     componentWillReceiveProps(nextProps){
         this.setState({
@@ -26,7 +24,7 @@ export default class Sidebar extends React.Component {
                 <div className="sidebar-wrapper" id="accordion">
                     <div className="sidebar-wrapper">
                         <div className="logo">
-                            <a className="simple-text">
+                            <a className="simple-text overDefault">
                                 FOC
                             </a>
                         </div>
