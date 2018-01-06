@@ -16,7 +16,9 @@
 }
 
 .pointer {
-    cursor: pointer
+    color: #ffa000;
+    cursor: pointer;
+    text-decoration:none;
 }
 
 .del {

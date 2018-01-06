@@ -10,7 +10,8 @@ export default class Login extends React.Component {
         super();
         this.state = {
             username: '',
-            password: ''
+            password: '',
+            isLoading: false
         };
         this.login =this.login.bind(this);
     }
@@ -20,21 +21,24 @@ export default class Login extends React.Component {
     }
 
     login(){
+        this.setState({isLoading:true});
+        const {username,password} = this.state;
+        if (username===''||password ===''){
+            return;
+        }
         let formData = new FormData();
-        formData.append("username",this.state.username);
-        formData.append("password",this.state.password);
+        formData.append("username",username);
+        formData.append("password",password);
         fetch('/userLogin',{
             method:'post',
             credentials: 'include',
             body:formData
         }).then(response=>response.json()
          ).then(user=>{
+             this.setState({isLoading:false})
              if (user.status>= 0){
-                 //route
-                 localStorage.setItem("user",JSON.stringify(user));
                  this.props.history.push("/manager/0");
              }else{
-                 //pop
                  this._notificationSystem.addNotification({
                      message: user.warning,
                      level: 'error',
@@ -45,7 +49,7 @@ export default class Login extends React.Component {
     }
 
     render() {
-        const {username,password} = this.state;
+        const {username,password,isLoading} = this.state;
         return (
             <div className="with-iconav">
                 <div className="container">
@@ -58,6 +62,7 @@ export default class Login extends React.Component {
                                 <div id="login_modal">
                                     <div className="input-with-icon wfull">
                                         <input type="text"
+                                               onKeyDown={e=>{e.keyCode === 13 && this.login()}}
                                                onChange={e=>this.setState({username:e.target.value})}
                                                className="form-control"
                                                placeholder="账号"/>
@@ -65,6 +70,7 @@ export default class Login extends React.Component {
                                     </div>
                                     <div className="input-with-icon wfull login-password">
                                         <input type="password"
+                                               onKeyDown={e=>{e.keyCode === 13 && this.login()}}
                                                onChange={e=>this.setState({password:e.target.value})}
                                                className="form-control"
                                                placeholder="密码"/>
@@ -73,12 +79,13 @@ export default class Login extends React.Component {
                                     <div className="login-forgot">
                                         <a className="pointer">忘记密码?</a>
                                     </div>
-                                    <button className="btn btn-lg btn-pill btn-primary-outline wfull login-button"
-                                            onClick={()=>this.login(username,password)}
-                                            disabled = {password ==='' || username === ''}
+                                    <button className="btn btn-lg btn-primary-outline-login wfull login-button"
+                                            ref="loginButton"
+                                            onClick={()=>this.login()}
+                                            disabled = {password ==='' || username === '' || isLoading}
                                     >
                                         <i className="fa fa-rocket"/>
-                                        登录
+                                        {isLoading ? '登录中...' : '登录'}
                                     </button>
                                 </div>
                             </div>
