@@ -2,6 +2,7 @@ package zj.gov.foc.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import zj.gov.foc.po.UserBean;
 import zj.gov.foc.repository.UserRepository;
 import zj.gov.foc.vo.UserVO;
