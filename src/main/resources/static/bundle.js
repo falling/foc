@@ -22510,7 +22510,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".btn:focus, .form-control:focus, input:focus {\n    outline: 0\n}\n\n.wfull {\n    width: 100%\n}\n\n.w150 {\n    width: 150px\n}\n\n.r0 {\n    right: 0;\n    left: initial\n}\n\n.pointer {\n    color: #ffa000;\n    cursor: pointer;\n    text-decoration:none;\n}\n\n.del {\n    text-decoration: line-through\n}\n\n.m0 {\n    margin: 0 !important\n}\n\n.mt60 {\n    margin-top: 60px\n}\n\n.mr10 {\n    margin-right: 10px !important\n}\n\n.mb10 {\n    margin-bottom: 10px !important\n}\n\n.pb60 {\n    padding-bottom: 60px\n}\n\n.inline {\n    display: inline-block !important\n}\n\n@media screen and (max-width: 768px) {\n    .center-mobile {\n        text-align: center !important\n    }\n}\n\n.content {\n    margin-top: 30px\n}\n\n.section {\n    padding: 0 0 20px 0\n}\n\n.strong {\n    font-weight: 700;\n    font-size: 15px\n}\n\n.help-block .fa {\n    margin-right: 7px\n}\n\n.big-badge {\n    width: 200px;\n    height: 200px;\n    padding: 30px 0 0 0;\n    margin: 50px auto;\n    background: #ededed;\n    border-radius: 100px;\n    text-align: center;\n    color: #555;\n    font-size: 18px\n}\n\n.big-badge .fa {\n    color: #fff;\n    font-size: 100px;\n    text-shadow: 3px 3px 10px rgba(0, 0, 0, .15)\n}\n\n.login {\n    z-index: 9999;\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    top: 0;\n    left: 0;\n    overflow: auto;\n    background: #ffc107;\n    background: linear-gradient(#ff6f00, #ffc107)\n}\n\n.particles-js-canvas-el {\n    z-index: 3;\n    position: absolute;\n    top: 0;\n    left: 0\n}\n\n.login-container {\n    z-index: 5;\n    position: absolute;\n    width: 350px;\n    top: 50px;\n    left: calc((100% - 350px) / 2);\n    margin-bottom: 30px;\n    text-align: center\n}\n\n.login-form {\n    width: 350px;\n    margin: 20px auto 0 auto;\n    padding: 40px;\n    background: rgba(255, 255, 255, 1);\n    border-radius: 5px;\n    box-shadow: 0 10px 70px 0 rgba(0, 0, 0, .3)\n}\n\n@media screen and (max-width: 768px) {\n    .login-container {\n        width: 75%;\n        top: 50px;\n        left: 12%;\n        text-align: center\n    }\n\n    .login-form {\n        width: 100%;\n        padding: 25px\n    }\n}\n\n.login-password {\n    margin-top: 20px\n}\n\n.login-forgot {\n    margin-top: 10px;\n    text-align: right\n}\n\n.login-button {\n    margin-top: 20px\n}\n\n.facebook {\n    margin-top: 20px\n}\n\n.facebook p {\n    color: #fff;\n    text-shadow: 1px 1px 3px rgba(0, 0, 0, .4)\n}\n\n.welcome h2 {\n    padding: 30px 0 0 0\n}\n\n.welcome p {\n    margin: 25px 0 0 0;\n    font-size: 17px\n}\n\n.rocket {\n    width: 45%;\n    height: auto;\n    margin: 30px 0 0 0;\n    transform: rotate(-20deg);\n    animation: move-rocket 5s linear infinite\n}\n\n.header {\n    padding: 20px 0;\n    border-bottom: 1px solid #ddd\n}\n\n.header h1 {\n    padding: 0;\n    margin: 0;\n    font-size: 28px\n}\n\n.header .toolbar {\n    text-align: right\n}\n\n.header .btn, .header .dropdown {\n    display: inline-block\n}\n\n@media screen and (max-width: 768px) {\n    .header {\n        margin-top: 40px;\n        padding: 10px 0\n    }\n\n    .header h1 {\n        padding: 15px 0 0 0;\n        font-size: 16px;\n        text-align: center\n    }\n}\n\n.dahsboard-invoices {\n    max-height: 380px;\n    overflow-y: auto\n}\n\n.dahsboard-invoices table {\n    margin: 0\n}\n\n.clients-list p {\n    padding: 0;\n    margin: 0;\n    font-size: 16px;\n    line-height: 30px\n}\n\n.avatar {\n    width: 60px;\n    height: 60px;\n    background: #ddd;\n    text-align: center;\n    font-size: 30px;\n    line-height: 60px;\n    border-radius: 100px\n}\n\n@media screen and (max-width: 768px) {\n    .calendar-btn, .calendar-btn-right {\n        text-align: center\n    }\n\n    .calendar-btn-right {\n        padding-top: 15px\n    }\n}\n\n@media print {\n    .invoice-payments {\n        border: 1px solid #ccc\n    }\n\n    .invoice-payments .payments-title {\n        width: 40%;\n        float: left\n    }\n\n    .invoice-payments .statcard-panel {\n        width: 60%;\n        float: right;\n        font-size: 11px !important\n    }\n\n    .mt60 {\n        margin-top: 25px\n    }\n\n    .pb60 {\n        padding-bottom: 0\n    }\n}\n\n.support {\n    width: 100%;\n    height: 70vh;\n    border: none;\n    overflow: visible\n}\n\n.settings h4 {\n    margin: 30px 0 15px 0;\n    padding: 0\n}\n\n.color-accent {\n    position: absolute;\n    width: 35px;\n    height: 35px;\n    right: 15px;\n    margin-top: -35px;\n    border-radius: 0 5px 5px 0;\n    box-shadow: inset 1px 1px 3px 0 rgba(0, 0, 0, .3)\n}\n\n.articles-dropdown {\n    max-height: 200px;\n    overflow-y: auto\n}\n\n.form-control[readonly] {\n    background-color: #fff\n}\n\n.alert h3 {\n    padding: 5px 0 0 0;\n    margin: 0;\n    font-size: 20px\n}\n\n.space > div {\n    margin-top: 15px\n}\n\n.input-with-icon > .fa {\n    position: absolute;\n    top: 10px;\n    left: 10px;\n    color: #ccc\n}\n\n.section .input-with-icon {\n    width: 100%\n}\n\n.list-group a {\n    cursor: pointer\n}\n\n.btn {\n    transition: all 250ms\n}\n\n.btn-circle {\n    width: 45px;\n    height: 45px;\n    padding: 0 1px 1px 0;\n    font-size: 16px;\n    line-height: 42px;\n    text-align: center\n}\n\n.navbar-fixed-top {\n    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .3)\n}\n\n.navbar-fixed-top .navbar-nav li {\n    font-size: 18px\n}\n\n.navbar-fixed-bottom .navbar-collapse, .navbar-fixed-top .navbar-collapse, .pre-scrollable {\n    max-height: 425px\n}\n\n.p-a-cu {\n    padding: 3px 3px 3px 30px;\n    border-radius: 5px\n}\n\n.statcard-danger .statcard-desc, .statcard-info .statcard-desc, .statcard-primary .statcard-desc, .statcard-success .statcard-desc, .statcard-warning .statcard-desc {\n    color: rgba(255, 255, 255, .8)\n}\n\n.statcard h3 {\n    padding: 20px 0 0 0\n}\n\n.statcard-desc {\n    display: block;\n    margin: 5px 0 15px 0\n}\n\n.statcard-info {\n    background-color: #aaa\n}\n\n.statcard-panel {\n    min-height: 90px;\n    overflow: hidden;\n    margin: 0;\n    background: #fff;\n    border-radius: 5px;\n    color: #555\n}\n\n.statcard-content {\n    padding: 10px 10px 0 10px\n}\n\n.statcard-panel .table {\n    margin-bottom: 0\n}\n\n.statcard-panel .btn {\n    display: block;\n    margin: 12px auto\n}\n\n@media screen and (max-width: 768px) {\n    .p-a-cu {\n        padding: 3px 3px 3px 3px\n    }\n\n    .statcard h3, .statcard-desc {\n        text-align: center\n    }\n}\n\n@media screen and (max-width: 767px) {\n    .table-responsive {\n        border: none\n    }\n}\n\n.nw-editor {\n    padding: 8px 3px;\n    height: 125px\n}\n\n.tall-editor .nw-editor {\n    padding: 8px 3px;\n    height: 250px\n}\n\n.ui-notification {\n    border-radius: 5px;\n    box-shadow: none;\n    text-align: center;\n    font-size: 16px\n}\n\ntimeline-badge.primary {\n    background-color: #ffa000 !important\n}\n\ntimeline-panel {\n    min-height: 100px;\n    border-radius: 5px\n}\n\n.ui-select-container .btn-default {\n    background: #fff\n}\n\n.ui-select-search {\n    padding-left: 30px\n}\n\n.ui-select-match-text, .ui-select-placeholder {\n    padding-left: 20px;\n    color: #555;\n    font-style: normal\n}\n\n.ui-select-bootstrap .ui-select-choices-row.active > span {\n    background: #ffa000\n}\n\n.ng-table th {\n    text-align: left;\n    font-weight: 700 !important\n}\n\n.ng-table th.sortable.sort-asc, .ng-table th.sortable.sort-desc {\n    background: #ddd\n}\n\n.ng-table-pager {\n    padding: 15px 0 0 0;\n    text-align: center\n}\n\n.bouce {\n    animation: bouce .5s\n}\n\n@keyframes bouce {\n    0% {\n        transform: translateX(0)\n    }\n    20% {\n        transform: translateX(-20px)\n    }\n    40% {\n        transform: translateX(20px)\n    }\n    60% {\n        transform: translateX(-10px)\n    }\n    80% {\n        transform: translateX(10px)\n    }\n    100% {\n        transform: translateX(0)\n    }\n}\n\n@-webkit-keyframes move-rocket {\n    0% {\n        transform: rotate(-20deg) translateY(0)\n    }\n    20% {\n        transform: rotate(-25deg) translateY(5px)\n    }\n    40% {\n        transform: rotate(-20deg) translateY(0)\n    }\n    60% {\n        transform: rotate(-15deg) translateY(-5px)\n    }\n    80% {\n        transform: rotate(-10deg) translateY(5px)\n    }\n    100% {\n        transform: rotate(-20deg) translateY(0)\n    }\n}\n\nul.list {\n    padding-left: 60px;\n}\n\nul.list li {\n    padding: 5px 2px;\n    color: #66615B;\n}\n\nul.list li.active {\n    padding: 5px 2px;\n    color: #EB5E28;\n}\n\n.overDefault{\n    cursor: default;\n}", ""]);
+	exports.push([module.id, ".btn:focus, .form-control:focus, input:focus {\n    outline: 0\n}\n\n.wfull {\n    width: 100%\n}\n\n.w150 {\n    width: 150px\n}\n\n.r0 {\n    right: 0;\n    left: initial\n}\n\n.pointer {\n    color: #ffa000;\n    cursor: pointer;\n    text-decoration:none;\n}\n\n.del {\n    text-decoration: line-through\n}\n\n.m0 {\n    margin: 0 !important\n}\n\n.mt60 {\n    margin-top: 60px\n}\n\n.mr10 {\n    margin-right: 10px !important\n}\n\n.mb10 {\n    margin-bottom: 10px !important\n}\n\n.pb60 {\n    padding-bottom: 60px\n}\n\n.inline {\n    display: inline-block !important\n}\n\n@media screen and (max-width: 768px) {\n    .center-mobile {\n        text-align: center !important\n    }\n}\n\n/*.content {*/\n    /*margin-top: 30px*/\n/*}*/\n\n.section {\n    padding: 0 0 20px 0\n}\n\n.strong {\n    font-weight: 700;\n    font-size: 15px\n}\n\n.help-block .fa {\n    margin-right: 7px\n}\n\n.big-badge {\n    width: 200px;\n    height: 200px;\n    padding: 30px 0 0 0;\n    margin: 50px auto;\n    background: #ededed;\n    border-radius: 100px;\n    text-align: center;\n    color: #555;\n    font-size: 18px\n}\n\n.big-badge .fa {\n    color: #fff;\n    font-size: 100px;\n    text-shadow: 3px 3px 10px rgba(0, 0, 0, .15)\n}\n\n.login {\n    z-index: 9999;\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    top: 0;\n    left: 0;\n    overflow: auto;\n    background: #ffc107;\n    background: linear-gradient(#ff6f00, #ffc107)\n}\n\n.particles-js-canvas-el {\n    z-index: 3;\n    position: absolute;\n    top: 0;\n    left: 0\n}\n\n.login-container {\n    z-index: 5;\n    position: absolute;\n    width: 350px;\n    top: 50px;\n    left: calc((100% - 350px) / 2);\n    margin-bottom: 30px;\n    text-align: center\n}\n\n.login-form {\n    width: 350px;\n    margin: 20px auto 0 auto;\n    padding: 40px;\n    background: rgba(255, 255, 255, 1);\n    border-radius: 5px;\n    box-shadow: 0 10px 70px 0 rgba(0, 0, 0, .3)\n}\n\n@media screen and (max-width: 768px) {\n    .login-container {\n        width: 75%;\n        top: 50px;\n        left: 12%;\n        text-align: center\n    }\n\n    .login-form {\n        width: 100%;\n        padding: 25px\n    }\n}\n\n.login-password {\n    margin-top: 20px\n}\n\n.login-forgot {\n    margin-top: 10px;\n    text-align: right\n}\n\n.login-button {\n    margin-top: 20px\n}\n\n.facebook {\n    margin-top: 20px\n}\n\n.facebook p {\n    color: #fff;\n    text-shadow: 1px 1px 3px rgba(0, 0, 0, .4)\n}\n\n.welcome h2 {\n    padding: 30px 0 0 0\n}\n\n.welcome p {\n    margin: 25px 0 0 0;\n    font-size: 17px\n}\n\n.rocket {\n    width: 45%;\n    height: auto;\n    margin: 30px 0 0 0;\n    transform: rotate(-20deg);\n    animation: move-rocket 5s linear infinite\n}\n\n.header {\n    padding: 20px 0;\n    border-bottom: 1px solid #ddd\n}\n\n.header h1 {\n    padding: 0;\n    margin: 0;\n    font-size: 28px\n}\n\n.header .toolbar {\n    text-align: right\n}\n\n.header .btn, .header .dropdown {\n    display: inline-block\n}\n\n@media screen and (max-width: 768px) {\n    .header {\n        margin-top: 40px;\n        padding: 10px 0\n    }\n\n    .header h1 {\n        padding: 15px 0 0 0;\n        font-size: 16px;\n        text-align: center\n    }\n}\n\n.dahsboard-invoices {\n    max-height: 380px;\n    overflow-y: auto\n}\n\n.dahsboard-invoices table {\n    margin: 0\n}\n\n.clients-list p {\n    padding: 0;\n    margin: 0;\n    font-size: 16px;\n    line-height: 30px\n}\n\n.avatar {\n    width: 60px;\n    height: 60px;\n    background: #ddd;\n    text-align: center;\n    font-size: 30px;\n    line-height: 60px;\n    border-radius: 100px\n}\n\n@media screen and (max-width: 768px) {\n    .calendar-btn, .calendar-btn-right {\n        text-align: center\n    }\n\n    .calendar-btn-right {\n        padding-top: 15px\n    }\n}\n\n@media print {\n    .invoice-payments {\n        border: 1px solid #ccc\n    }\n\n    .invoice-payments .payments-title {\n        width: 40%;\n        float: left\n    }\n\n    .invoice-payments .statcard-panel {\n        width: 60%;\n        float: right;\n        font-size: 11px !important\n    }\n\n    .mt60 {\n        margin-top: 25px\n    }\n\n    .pb60 {\n        padding-bottom: 0\n    }\n}\n\n.support {\n    width: 100%;\n    height: 70vh;\n    border: none;\n    overflow: visible\n}\n\n.settings h4 {\n    margin: 30px 0 15px 0;\n    padding: 0\n}\n\n.color-accent {\n    position: absolute;\n    width: 35px;\n    height: 35px;\n    right: 15px;\n    margin-top: -35px;\n    border-radius: 0 5px 5px 0;\n    box-shadow: inset 1px 1px 3px 0 rgba(0, 0, 0, .3)\n}\n\n.articles-dropdown {\n    max-height: 200px;\n    overflow-y: auto\n}\n\n.form-control[readonly] {\n    background-color: #fff\n}\n\n.alert h3 {\n    padding: 5px 0 0 0;\n    margin: 0;\n    font-size: 20px\n}\n\n.space > div {\n    margin-top: 15px\n}\n\n.input-with-icon > .fa {\n    position: absolute;\n    top: 10px;\n    left: 10px;\n    color: #ccc\n}\n\n.section .input-with-icon {\n    width: 100%\n}\n\n.list-group a {\n    cursor: pointer\n}\n\n.btn {\n    transition: all 250ms\n}\n\n.btn-circle {\n    width: 45px;\n    height: 45px;\n    padding: 0 1px 1px 0;\n    font-size: 16px;\n    line-height: 42px;\n    text-align: center\n}\n\n.navbar-fixed-top {\n    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .3)\n}\n\n.navbar-fixed-top .navbar-nav li {\n    font-size: 18px\n}\n\n.navbar-fixed-bottom .navbar-collapse, .navbar-fixed-top .navbar-collapse, .pre-scrollable {\n    max-height: 425px\n}\n\n.p-a-cu {\n    padding: 3px 3px 3px 30px;\n    border-radius: 5px\n}\n\n.statcard-danger .statcard-desc, .statcard-info .statcard-desc, .statcard-primary .statcard-desc, .statcard-success .statcard-desc, .statcard-warning .statcard-desc {\n    color: rgba(255, 255, 255, .8)\n}\n\n.statcard h3 {\n    padding: 20px 0 0 0\n}\n\n.statcard-desc {\n    display: block;\n    margin: 5px 0 15px 0\n}\n\n.statcard-info {\n    background-color: #aaa\n}\n\n.statcard-panel {\n    min-height: 90px;\n    overflow: hidden;\n    margin: 0;\n    background: #fff;\n    border-radius: 5px;\n    color: #555\n}\n\n.statcard-content {\n    padding: 10px 10px 0 10px\n}\n\n.statcard-panel .table {\n    margin-bottom: 0\n}\n\n.statcard-panel .btn {\n    display: block;\n    margin: 12px auto\n}\n\n@media screen and (max-width: 768px) {\n    .p-a-cu {\n        padding: 3px 3px 3px 3px\n    }\n\n    .statcard h3, .statcard-desc {\n        text-align: center\n    }\n}\n\n@media screen and (max-width: 767px) {\n    .table-responsive {\n        border: none\n    }\n}\n\n.nw-editor {\n    padding: 8px 3px;\n    height: 125px\n}\n\n.tall-editor .nw-editor {\n    padding: 8px 3px;\n    height: 250px\n}\n\n.ui-notification {\n    border-radius: 5px;\n    box-shadow: none;\n    text-align: center;\n    font-size: 16px\n}\n\ntimeline-badge.primary {\n    background-color: #ffa000 !important\n}\n\ntimeline-panel {\n    min-height: 100px;\n    border-radius: 5px\n}\n\n.ui-select-container .btn-default {\n    background: #fff\n}\n\n.ui-select-search {\n    padding-left: 30px\n}\n\n.ui-select-match-text, .ui-select-placeholder {\n    padding-left: 20px;\n    color: #555;\n    font-style: normal\n}\n\n.ui-select-bootstrap .ui-select-choices-row.active > span {\n    background: #ffa000\n}\n\n.ng-table th {\n    text-align: left;\n    font-weight: 700 !important\n}\n\n.ng-table th.sortable.sort-asc, .ng-table th.sortable.sort-desc {\n    background: #ddd\n}\n\n.ng-table-pager {\n    padding: 15px 0 0 0;\n    text-align: center\n}\n\n.bouce {\n    animation: bouce .5s\n}\n\n@keyframes bouce {\n    0% {\n        transform: translateX(0)\n    }\n    20% {\n        transform: translateX(-20px)\n    }\n    40% {\n        transform: translateX(20px)\n    }\n    60% {\n        transform: translateX(-10px)\n    }\n    80% {\n        transform: translateX(10px)\n    }\n    100% {\n        transform: translateX(0)\n    }\n}\n\n@-webkit-keyframes move-rocket {\n    0% {\n        transform: rotate(-20deg) translateY(0)\n    }\n    20% {\n        transform: rotate(-25deg) translateY(5px)\n    }\n    40% {\n        transform: rotate(-20deg) translateY(0)\n    }\n    60% {\n        transform: rotate(-15deg) translateY(-5px)\n    }\n    80% {\n        transform: rotate(-10deg) translateY(5px)\n    }\n    100% {\n        transform: rotate(-20deg) translateY(0)\n    }\n}\n\nul.list {\n    padding-left: 60px;\n}\n\nul.list li {\n    padding: 5px 2px;\n    color: #66615B;\n}\n\nul.list li.active {\n    padding: 5px 2px;\n    color: #EB5E28;\n}\n\n.overDefault{\n    cursor: default;\n}", ""]);
 	
 	// exports
 
@@ -29356,7 +29356,7 @@
 	                                            _react2.default.createElement(
 	                                                _reactRouterDom.Link,
 	                                                { to: '/manager/2' },
-	                                                '\u67E5\u8BE2\u7528\u6237'
+	                                                '\u7BA1\u7406\u7528\u6237'
 	                                            )
 	                                        )
 	                                    )
@@ -29594,11 +29594,28 @@
 	
 	        var _this = _possibleConstructorReturn(this, (UserManage.__proto__ || Object.getPrototypeOf(UserManage)).call(this, props));
 	
-	        _this.state = {};
+	        _this.state = {
+	            user_name: '',
+	            name: '',
+	            power: '',
+	            reg_date: ''
+	        };
+	        _this.search = _this.search.bind(_this);
+	        _this.update = _this.update.bind(_this);
+	        _this.delete = _this.delete.bind(_this);
 	        return _this;
 	    }
 	
 	    _createClass(UserManage, [{
+	        key: 'search',
+	        value: function search() {}
+	    }, {
+	        key: 'update',
+	        value: function update() {}
+	    }, {
+	        key: 'delete',
+	        value: function _delete() {}
+	    }, {
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
 	            //get user info
@@ -29609,12 +29626,190 @@
 	    }, {
 	        key: 'render',
 	        value: function render() {
+	            var _this2 = this;
+	
 	            var display = this.props.display;
+	            var _state = this.state,
+	                user_name = _state.user_name,
+	                name = _state.name,
+	                power = _state.power,
+	                reg_date = _state.reg_date;
 	
 	            return _react2.default.createElement(
 	                'div',
-	                { style: { display: !display && 'none' } },
-	                'UserManger'
+	                { className: 'container-fluid', style: { display: !display && 'none' } },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'col-lg-12 col-md-12' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'card' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'header' },
+	                            _react2.default.createElement(
+	                                'h4',
+	                                { className: 'title' },
+	                                '\u66F4\u6539\u6743\u9650'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'content' },
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: 'row' },
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'col-md-12' },
+	                                    _react2.default.createElement(
+	                                        'div',
+	                                        { className: 'input-group' },
+	                                        _react2.default.createElement(
+	                                            'span',
+	                                            { className: 'input-group-addon' },
+	                                            _react2.default.createElement('i', { className: 'fa fa-search' }),
+	                                            '                                '
+	                                        ),
+	                                        _react2.default.createElement('input', {
+	                                            type: 'text',
+	                                            value: user_name,
+	                                            onChange: function onChange(e) {
+	                                                _this2.setState({ user_name: e.target.value });
+	                                            },
+	                                            onKeyDown: function onKeyDown(e) {
+	                                                e.keyCode === 13 && _this2.search();
+	                                            },
+	                                            className: 'form-control',
+	                                            placeholder: '\u8BF7\u8F93\u5165\u7528\u6237\u540D'
+	                                        }),
+	                                        _react2.default.createElement(
+	                                            'span',
+	                                            { className: 'input-group-btn' },
+	                                            _react2.default.createElement(
+	                                                'button',
+	                                                { className: 'btn btn-default', type: 'button' },
+	                                                '\u641C\u7D22'
+	                                            )
+	                                        )
+	                                    )
+	                                )
+	                            ),
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: 'row' },
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'col-md-12' },
+	                                    _react2.default.createElement(
+	                                        'div',
+	                                        { className: 'form-group' },
+	                                        _react2.default.createElement(
+	                                            'label',
+	                                            null,
+	                                            '\u7528\u6237\u540D'
+	                                        ),
+	                                        _react2.default.createElement('input', { type: 'text',
+	                                            className: 'form-control border-input',
+	                                            onChange: function onChange(e) {
+	                                                _this2.setState({ username: e.target.value });
+	                                            },
+	                                            disabled: true,
+	                                            placeholder: '\u767B\u5F55\u540D', value: 'falling'
+	                                        })
+	                                    )
+	                                )
+	                            ),
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: 'row' },
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'col-md-12' },
+	                                    _react2.default.createElement(
+	                                        'div',
+	                                        { className: 'form-group' },
+	                                        _react2.default.createElement(
+	                                            'label',
+	                                            null,
+	                                            '\u59D3\u540D'
+	                                        ),
+	                                        _react2.default.createElement('input', { type: 'text',
+	                                            onChange: function onChange(e) {
+	                                                _this2.setState({ name: e.target.value });
+	                                            },
+	                                            className: 'form-control border-input',
+	                                            placeholder: '',
+	                                            value: name
+	                                        })
+	                                    )
+	                                )
+	                            ),
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: 'row' },
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'col-md-6' },
+	                                    _react2.default.createElement(
+	                                        'div',
+	                                        { className: 'form-group' },
+	                                        _react2.default.createElement(
+	                                            'label',
+	                                            null,
+	                                            '\u6743\u9650'
+	                                        ),
+	                                        _react2.default.createElement('input', { type: 'text',
+	                                            value: power,
+	                                            disabled: true,
+	                                            className: 'form-control border-input'
+	                                        })
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'col-md-6' },
+	                                    _react2.default.createElement(
+	                                        'div',
+	                                        { className: 'form-group' },
+	                                        _react2.default.createElement(
+	                                            'label',
+	                                            null,
+	                                            '\u6CE8\u518C\u65E5\u671F'
+	                                        ),
+	                                        _react2.default.createElement('input', { type: 'text',
+	                                            value: reg_date,
+	                                            disabled: true,
+	                                            className: 'form-control border-input'
+	                                        })
+	                                    )
+	                                )
+	                            ),
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: 'text-center' },
+	                                _react2.default.createElement(
+	                                    'button',
+	                                    { type: 'button', className: 'btn btn-info btn-fill btn-wd',
+	                                        onClick: function onClick(e) {
+	                                            _this2.update();
+	                                        }
+	                                    },
+	                                    '\u66F4\u65B0\u7528\u6237\u6743\u9650'
+	                                ),
+	                                _react2.default.createElement(
+	                                    'button',
+	                                    { type: 'button', className: 'btn btn-danger btn-fill btn-wd',
+	                                        onClick: function onClick(e) {
+	                                            confirm('确定要删除该用户吗?') && _this2.delete();
+	                                        }
+	                                    },
+	                                    '\u5220\u9664\u7528\u6237'
+	                                )
+	                            )
+	                        )
+	                    )
+	                )
 	            );
 	        }
 	    }]);
@@ -29729,7 +29924,6 @@
 	        var _this = _possibleConstructorReturn(this, (InfoSearch.__proto__ || Object.getPrototypeOf(InfoSearch)).call(this, props));
 	
 	        _this.state = {};
-	        console.log("Info Search Init");
 	        return _this;
 	    }
 	
@@ -29798,11 +29992,26 @@
 	
 	        var _this = _possibleConstructorReturn(this, (UserCreate.__proto__ || Object.getPrototypeOf(UserCreate)).call(this, props));
 	
-	        _this.state = {};
+	        _this.state = {
+	            username: '',
+	            name: '',
+	            power: 'user'
+	        };
+	        _this.create = _this.create.bind(_this);
 	        return _this;
 	    }
 	
 	    _createClass(UserCreate, [{
+	        key: 'create',
+	        value: function create() {
+	            var _state = this.state,
+	                username = _state.username,
+	                name = _state.name,
+	                power = _state.power;
+	
+	            console.log("create:", username, name, power);
+	        }
+	    }, {
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
 	            //get user info
@@ -29813,17 +30022,151 @@
 	    }, {
 	        key: 'render',
 	        value: function render() {
+	            var _this2 = this;
+	
 	            var display = this.props.display;
+	            var _state2 = this.state,
+	                username = _state2.username,
+	                name = _state2.name;
 	
 	            return _react2.default.createElement(
 	                'div',
-	                { style: { display: !display && 'none' } },
-	                _react2.default.createElement('input', { type: 'text',
-	                    placeholder: '\u8D26\u53F7' }),
+	                { className: 'container-fluid', style: { display: !display && 'none' } },
 	                _react2.default.createElement(
 	                    'div',
-	                    null,
-	                    'CreateUser'
+	                    { className: 'col-lg-12 col-md-12' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'card' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'header' },
+	                            _react2.default.createElement(
+	                                'h4',
+	                                { className: 'title' },
+	                                '\u521B\u5EFA\u7528\u6237'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'content' },
+	                            _react2.default.createElement(
+	                                'form',
+	                                null,
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'row' },
+	                                    _react2.default.createElement(
+	                                        'div',
+	                                        { className: 'col-md-12' },
+	                                        _react2.default.createElement(
+	                                            'div',
+	                                            { className: 'form-group' },
+	                                            _react2.default.createElement(
+	                                                'label',
+	                                                null,
+	                                                '\u7528\u6237\u540D'
+	                                            ),
+	                                            _react2.default.createElement('input', { type: 'text',
+	                                                className: 'form-control border-input',
+	                                                onChange: function onChange(e) {
+	                                                    _this2.setState({ username: e.target.value });
+	                                                },
+	                                                placeholder: '\u767B\u5F55\u540D', value: username })
+	                                        )
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'row' },
+	                                    _react2.default.createElement(
+	                                        'div',
+	                                        { className: 'col-md-12' },
+	                                        _react2.default.createElement(
+	                                            'div',
+	                                            { className: 'form-group' },
+	                                            _react2.default.createElement(
+	                                                'label',
+	                                                null,
+	                                                '\u59D3\u540D'
+	                                            ),
+	                                            _react2.default.createElement('input', { type: 'text',
+	                                                onChange: function onChange(e) {
+	                                                    _this2.setState({ name: e.target.value });
+	                                                },
+	                                                className: 'form-control border-input',
+	                                                placeholder: '', value: name })
+	                                        )
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'row' },
+	                                    _react2.default.createElement(
+	                                        'div',
+	                                        { className: 'col-md-12' },
+	                                        _react2.default.createElement(
+	                                            'div',
+	                                            { className: 'form-group' },
+	                                            _react2.default.createElement(
+	                                                'label',
+	                                                null,
+	                                                '\u6743\u9650'
+	                                            ),
+	                                            _react2.default.createElement(
+	                                                'select',
+	                                                {
+	                                                    onChange: function onChange(e) {
+	                                                        _this2.setState({ power: e.target.value });
+	                                                    },
+	                                                    className: 'form-control border-input' },
+	                                                _react2.default.createElement(
+	                                                    'option',
+	                                                    { value: 'user' },
+	                                                    '\u666E\u901A\u7528\u6237'
+	                                                ),
+	                                                _react2.default.createElement(
+	                                                    'option',
+	                                                    { value: 'admin' },
+	                                                    '\u7BA1\u7406\u5458'
+	                                                )
+	                                            )
+	                                        )
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'row' },
+	                                    _react2.default.createElement(
+	                                        'div',
+	                                        { className: 'col-md-12' },
+	                                        _react2.default.createElement(
+	                                            'div',
+	                                            { className: 'form-group' },
+	                                            _react2.default.createElement(
+	                                                'label',
+	                                                null,
+	                                                '\u521D\u59CB\u5BC6\u7801\u4E3A:123456'
+	                                            )
+	                                        )
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'text-center' },
+	                                    _react2.default.createElement(
+	                                        'button',
+	                                        { type: 'button', className: 'btn btn-info btn-fill btn-wd',
+	                                            onClick: function onClick(e) {
+	                                                _this2.create();
+	                                            }
+	                                        },
+	                                        '\u521B\u5EFA\u7528\u6237'
+	                                    )
+	                                )
+	                            )
+	                        )
+	                    )
 	                )
 	            );
 	        }
@@ -29937,14 +30280,24 @@
 	
 	        var _this = _possibleConstructorReturn(this, (UserProfile.__proto__ || Object.getPrototypeOf(UserProfile)).call(this, props));
 	
-	        _this.state = {};
+	        _this.state = {
+	            user_name: '',
+	            name: '',
+	            power: '',
+	            reg_date: ''
+	        };
+	        _this.update = _this.update.bind(_this);
 	        return _this;
 	    }
 	
 	    _createClass(UserProfile, [{
+	        key: 'update',
+	        value: function update() {}
+	    }, {
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
 	            //get user info
+	            //loading
 	        }
 	    }, {
 	        key: 'componentWillReceiveProps',
@@ -29952,12 +30305,146 @@
 	    }, {
 	        key: 'render',
 	        value: function render() {
+	            var _this2 = this;
+	
 	            var display = this.props.display;
+	            var _state = this.state,
+	                user_name = _state.user_name,
+	                name = _state.name,
+	                power = _state.power,
+	                reg_date = _state.reg_date;
 	
 	            return _react2.default.createElement(
 	                'div',
-	                { style: { display: !display && 'none' } },
-	                'UserProfile'
+	                { className: 'container-fluid', style: { display: !display && 'none' } },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'col-lg-12 col-md-12' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'card' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'header' },
+	                            _react2.default.createElement(
+	                                'h4',
+	                                { className: 'title' },
+	                                '\u4FEE\u6539\u4E2A\u4EBA\u4FE1\u606F'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'content' },
+	                            _react2.default.createElement(
+	                                'form',
+	                                null,
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'row' },
+	                                    _react2.default.createElement(
+	                                        'div',
+	                                        { className: 'col-md-12' },
+	                                        _react2.default.createElement(
+	                                            'div',
+	                                            { className: 'form-group' },
+	                                            _react2.default.createElement(
+	                                                'label',
+	                                                null,
+	                                                '\u7528\u6237\u540D'
+	                                            ),
+	                                            _react2.default.createElement('input', { type: 'text',
+	                                                className: 'form-control border-input',
+	                                                onChange: function onChange(e) {
+	                                                    _this2.setState({ username: e.target.value });
+	                                                },
+	                                                disabled: true,
+	                                                placeholder: '\u767B\u5F55\u540D', value: 'falling'
+	                                            })
+	                                        )
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'row' },
+	                                    _react2.default.createElement(
+	                                        'div',
+	                                        { className: 'col-md-12' },
+	                                        _react2.default.createElement(
+	                                            'div',
+	                                            { className: 'form-group' },
+	                                            _react2.default.createElement(
+	                                                'label',
+	                                                null,
+	                                                '\u59D3\u540D'
+	                                            ),
+	                                            _react2.default.createElement('input', { type: 'text',
+	                                                onChange: function onChange(e) {
+	                                                    _this2.setState({ name: e.target.value });
+	                                                },
+	                                                className: 'form-control border-input',
+	                                                placeholder: '',
+	                                                value: name
+	                                            })
+	                                        )
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'row' },
+	                                    _react2.default.createElement(
+	                                        'div',
+	                                        { className: 'col-md-6' },
+	                                        _react2.default.createElement(
+	                                            'div',
+	                                            { className: 'form-group' },
+	                                            _react2.default.createElement(
+	                                                'label',
+	                                                null,
+	                                                '\u6743\u9650'
+	                                            ),
+	                                            _react2.default.createElement('input', { type: 'text',
+	                                                value: power,
+	                                                disabled: true,
+	                                                className: 'form-control border-input'
+	                                            })
+	                                        )
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'div',
+	                                        { className: 'col-md-6' },
+	                                        _react2.default.createElement(
+	                                            'div',
+	                                            { className: 'form-group' },
+	                                            _react2.default.createElement(
+	                                                'label',
+	                                                null,
+	                                                '\u6CE8\u518C\u65E5\u671F'
+	                                            ),
+	                                            _react2.default.createElement('input', { type: 'text',
+	                                                value: reg_date,
+	                                                disabled: true,
+	                                                className: 'form-control border-input'
+	                                            })
+	                                        )
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'text-center' },
+	                                    _react2.default.createElement(
+	                                        'button',
+	                                        { type: 'button', className: 'btn btn-info btn-fill btn-wd',
+	                                            onClick: function onClick(e) {
+	                                                _this2.update();
+	                                            }
+	                                        },
+	                                        '\u66F4\u65B0\u4FE1\u606F'
+	                                    )
+	                                )
+	                            )
+	                        )
+	                    )
+	                )
 	            );
 	        }
 	    }]);

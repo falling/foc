@@ -1,7 +1,6 @@
 package zj.gov.foc.filter;
 
 import javax.servlet.*;
-import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -12,7 +11,7 @@ import java.io.IOException;
  * Time: 下午9:06
  * Description: 过滤未登录
  */
-@WebFilter(filterName = "loginFilter", urlPatterns = {"/manager","/manager/*"})
+//@WebFilter(filterName = "loginFilter", urlPatterns = {"/manager","/manager/*"})
 public class LoginFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) {

@@ -5,7 +5,6 @@ export default class InfoSearch extends React.Component {
         super(props);
         this.state = {
         };
-        console.log("Info Search Init")
     }
 
     componentDidMount() {
