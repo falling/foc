@@ -24,7 +24,7 @@ public class MainPageFilter implements Filter {
         HttpServletRequest httpRequest = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
         if (httpRequest.getSession().getAttribute("user") != null) {
-            response.sendRedirect("/manager");
+            response.sendRedirect("/manager/0");
             return;
         }
         filterChain.doFilter(servletRequest, servletResponse);

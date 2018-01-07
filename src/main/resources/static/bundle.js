@@ -29058,6 +29058,30 @@
 	
 	var _Header2 = _interopRequireDefault(_Header);
 	
+	var _InfoSearch = __webpack_require__(/*! ./view/content/info/InfoSearch */ 280);
+	
+	var _InfoSearch2 = _interopRequireDefault(_InfoSearch);
+	
+	var _UserManage = __webpack_require__(/*! ./view/content/user/UserManage */ 276);
+	
+	var _UserManage2 = _interopRequireDefault(_UserManage);
+	
+	var _UserCreate = __webpack_require__(/*! ./view/content/user/UserCreate */ 281);
+	
+	var _UserCreate2 = _interopRequireDefault(_UserCreate);
+	
+	var _InfoCreate = __webpack_require__(/*! ./view/content/info/InfoCreate */ 282);
+	
+	var _InfoCreate2 = _interopRequireDefault(_InfoCreate);
+	
+	var _InfoManage = __webpack_require__(/*! ./view/content/info/InfoManage */ 279);
+	
+	var _InfoManage2 = _interopRequireDefault(_InfoManage);
+	
+	var _UserProfile = __webpack_require__(/*! ./view/content/user/UserProfile */ 283);
+	
+	var _UserProfile2 = _interopRequireDefault(_UserProfile);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -29089,6 +29113,7 @@
 	    }, {
 	        key: 'render',
 	        value: function render() {
+	            var urlId = +this.props.match.params.id;
 	            return _react2.default.createElement(
 	                'div',
 	                null,
@@ -29096,7 +29121,7 @@
 	                    'div',
 	                    { className: 'wrapper' },
 	                    _react2.default.createElement(_Sidebar2.default, {
-	                        index: this.props.match.params.id
+	                        index: urlId
 	                    }),
 	                    _react2.default.createElement(
 	                        'div',
@@ -29107,364 +29132,12 @@
 	                        _react2.default.createElement(
 	                            'div',
 	                            { className: 'content' },
-	                            _react2.default.createElement(
-	                                'div',
-	                                { className: 'container-fluid' },
-	                                _react2.default.createElement(
-	                                    'div',
-	                                    { className: 'row' },
-	                                    _react2.default.createElement(
-	                                        'div',
-	                                        { className: 'col-lg-3 col-sm-6' },
-	                                        _react2.default.createElement(
-	                                            'div',
-	                                            { className: 'card' },
-	                                            _react2.default.createElement(
-	                                                'div',
-	                                                { className: 'content' },
-	                                                _react2.default.createElement(
-	                                                    'div',
-	                                                    { className: 'row' },
-	                                                    _react2.default.createElement(
-	                                                        'div',
-	                                                        { className: 'col-xs-5' },
-	                                                        _react2.default.createElement(
-	                                                            'div',
-	                                                            { className: 'icon-big icon-warning text-center' },
-	                                                            _react2.default.createElement('i', { className: 'ti-server' })
-	                                                        )
-	                                                    ),
-	                                                    _react2.default.createElement(
-	                                                        'div',
-	                                                        { className: 'col-xs-7' },
-	                                                        _react2.default.createElement(
-	                                                            'div',
-	                                                            { className: 'numbers' },
-	                                                            _react2.default.createElement(
-	                                                                'p',
-	                                                                null,
-	                                                                'Capacity'
-	                                                            ),
-	                                                            '105GB'
-	                                                        )
-	                                                    )
-	                                                ),
-	                                                _react2.default.createElement(
-	                                                    'div',
-	                                                    { className: 'footer' },
-	                                                    _react2.default.createElement('hr', null),
-	                                                    _react2.default.createElement(
-	                                                        'div',
-	                                                        { className: 'stats' },
-	                                                        _react2.default.createElement('i', { className: 'ti-reload' }),
-	                                                        ' Updated now'
-	                                                    )
-	                                                )
-	                                            )
-	                                        )
-	                                    ),
-	                                    _react2.default.createElement(
-	                                        'div',
-	                                        { className: 'col-lg-3 col-sm-6' },
-	                                        _react2.default.createElement(
-	                                            'div',
-	                                            { className: 'card' },
-	                                            _react2.default.createElement(
-	                                                'div',
-	                                                { className: 'content' },
-	                                                _react2.default.createElement(
-	                                                    'div',
-	                                                    { className: 'row' },
-	                                                    _react2.default.createElement(
-	                                                        'div',
-	                                                        { className: 'col-xs-5' },
-	                                                        _react2.default.createElement(
-	                                                            'div',
-	                                                            { className: 'icon-big icon-success text-center' },
-	                                                            _react2.default.createElement('i', { className: 'ti-wallet' })
-	                                                        )
-	                                                    ),
-	                                                    _react2.default.createElement(
-	                                                        'div',
-	                                                        { className: 'col-xs-7' },
-	                                                        _react2.default.createElement(
-	                                                            'div',
-	                                                            { className: 'numbers' },
-	                                                            _react2.default.createElement(
-	                                                                'p',
-	                                                                null,
-	                                                                'Revenue'
-	                                                            ),
-	                                                            '$1,345'
-	                                                        )
-	                                                    )
-	                                                ),
-	                                                _react2.default.createElement(
-	                                                    'div',
-	                                                    { className: 'footer' },
-	                                                    _react2.default.createElement('hr', null),
-	                                                    _react2.default.createElement(
-	                                                        'div',
-	                                                        { className: 'stats' },
-	                                                        _react2.default.createElement('i', { className: 'ti-calendar' }),
-	                                                        ' Last day'
-	                                                    )
-	                                                )
-	                                            )
-	                                        )
-	                                    ),
-	                                    _react2.default.createElement(
-	                                        'div',
-	                                        { className: 'col-lg-3 col-sm-6' },
-	                                        _react2.default.createElement(
-	                                            'div',
-	                                            { className: 'card' },
-	                                            _react2.default.createElement(
-	                                                'div',
-	                                                { className: 'content' },
-	                                                _react2.default.createElement(
-	                                                    'div',
-	                                                    { className: 'row' },
-	                                                    _react2.default.createElement(
-	                                                        'div',
-	                                                        { className: 'col-xs-5' },
-	                                                        _react2.default.createElement(
-	                                                            'div',
-	                                                            { className: 'icon-big icon-danger text-center' },
-	                                                            _react2.default.createElement('i', { className: 'ti-pulse' })
-	                                                        )
-	                                                    ),
-	                                                    _react2.default.createElement(
-	                                                        'div',
-	                                                        { className: 'col-xs-7' },
-	                                                        _react2.default.createElement(
-	                                                            'div',
-	                                                            { className: 'numbers' },
-	                                                            _react2.default.createElement(
-	                                                                'p',
-	                                                                null,
-	                                                                'Errors'
-	                                                            ),
-	                                                            '23'
-	                                                        )
-	                                                    )
-	                                                ),
-	                                                _react2.default.createElement(
-	                                                    'div',
-	                                                    { className: 'footer' },
-	                                                    _react2.default.createElement('hr', null),
-	                                                    _react2.default.createElement(
-	                                                        'div',
-	                                                        { className: 'stats' },
-	                                                        _react2.default.createElement('i', { className: 'ti-timer' }),
-	                                                        ' In the last hour'
-	                                                    )
-	                                                )
-	                                            )
-	                                        )
-	                                    ),
-	                                    _react2.default.createElement(
-	                                        'div',
-	                                        { className: 'col-lg-3 col-sm-6' },
-	                                        _react2.default.createElement(
-	                                            'div',
-	                                            { className: 'card' },
-	                                            _react2.default.createElement(
-	                                                'div',
-	                                                { className: 'content' },
-	                                                _react2.default.createElement(
-	                                                    'div',
-	                                                    { className: 'row' },
-	                                                    _react2.default.createElement(
-	                                                        'div',
-	                                                        { className: 'col-xs-5' },
-	                                                        _react2.default.createElement(
-	                                                            'div',
-	                                                            { className: 'icon-big icon-info text-center' },
-	                                                            _react2.default.createElement('i', { className: 'ti-twitter-alt' })
-	                                                        )
-	                                                    ),
-	                                                    _react2.default.createElement(
-	                                                        'div',
-	                                                        { className: 'col-xs-7' },
-	                                                        _react2.default.createElement(
-	                                                            'div',
-	                                                            { className: 'numbers' },
-	                                                            _react2.default.createElement(
-	                                                                'p',
-	                                                                null,
-	                                                                'Followers'
-	                                                            ),
-	                                                            '+45'
-	                                                        )
-	                                                    )
-	                                                ),
-	                                                _react2.default.createElement(
-	                                                    'div',
-	                                                    { className: 'footer' },
-	                                                    _react2.default.createElement('hr', null),
-	                                                    _react2.default.createElement(
-	                                                        'div',
-	                                                        { className: 'stats' },
-	                                                        _react2.default.createElement('i', { className: 'ti-reload' }),
-	                                                        ' Updated now'
-	                                                    )
-	                                                )
-	                                            )
-	                                        )
-	                                    )
-	                                ),
-	                                _react2.default.createElement(
-	                                    'div',
-	                                    { className: 'row' },
-	                                    _react2.default.createElement(
-	                                        'div',
-	                                        { className: 'col-md-12' },
-	                                        _react2.default.createElement(
-	                                            'div',
-	                                            { className: 'card' },
-	                                            _react2.default.createElement(
-	                                                'div',
-	                                                { className: 'header' },
-	                                                _react2.default.createElement(
-	                                                    'h4',
-	                                                    { className: 'title' },
-	                                                    'Users Behavior'
-	                                                ),
-	                                                _react2.default.createElement(
-	                                                    'p',
-	                                                    { className: 'category' },
-	                                                    '24 Hours performance'
-	                                                )
-	                                            ),
-	                                            _react2.default.createElement(
-	                                                'div',
-	                                                { className: 'content' },
-	                                                _react2.default.createElement('div', { id: 'chartHours', className: 'ct-chart' }),
-	                                                _react2.default.createElement(
-	                                                    'div',
-	                                                    { className: 'footer' },
-	                                                    _react2.default.createElement(
-	                                                        'div',
-	                                                        { className: 'chart-legend' },
-	                                                        _react2.default.createElement('i', { className: 'fa fa-circle text-info' }),
-	                                                        ' Open',
-	                                                        _react2.default.createElement('i', { className: 'fa fa-circle text-danger' }),
-	                                                        ' Click',
-	                                                        _react2.default.createElement('i', { className: 'fa fa-circle text-warning' }),
-	                                                        ' Click Second Time'
-	                                                    ),
-	                                                    _react2.default.createElement('hr', null),
-	                                                    _react2.default.createElement(
-	                                                        'div',
-	                                                        { className: 'stats' },
-	                                                        _react2.default.createElement('i', { className: 'ti-reload' }),
-	                                                        ' Updated 3 minutes ago'
-	                                                    )
-	                                                )
-	                                            )
-	                                        )
-	                                    )
-	                                ),
-	                                _react2.default.createElement(
-	                                    'div',
-	                                    { className: 'row' },
-	                                    _react2.default.createElement(
-	                                        'div',
-	                                        { className: 'col-md-6' },
-	                                        _react2.default.createElement(
-	                                            'div',
-	                                            { className: 'card' },
-	                                            _react2.default.createElement(
-	                                                'div',
-	                                                { className: 'header' },
-	                                                _react2.default.createElement(
-	                                                    'h4',
-	                                                    { className: 'title' },
-	                                                    'Email Statistics'
-	                                                ),
-	                                                _react2.default.createElement(
-	                                                    'p',
-	                                                    { className: 'category' },
-	                                                    'Last Campaign Performance'
-	                                                )
-	                                            ),
-	                                            _react2.default.createElement(
-	                                                'div',
-	                                                { className: 'content' },
-	                                                _react2.default.createElement('div', { id: 'chartPreferences', className: 'ct-chart ct-perfect-fourth' }),
-	                                                _react2.default.createElement(
-	                                                    'div',
-	                                                    { className: 'footer' },
-	                                                    _react2.default.createElement(
-	                                                        'div',
-	                                                        { className: 'chart-legend' },
-	                                                        _react2.default.createElement('i', { className: 'fa fa-circle text-info' }),
-	                                                        ' Open',
-	                                                        _react2.default.createElement('i', { className: 'fa fa-circle text-danger' }),
-	                                                        ' Bounce',
-	                                                        _react2.default.createElement('i', { className: 'fa fa-circle text-warning' }),
-	                                                        ' Unsubscribe'
-	                                                    ),
-	                                                    _react2.default.createElement('hr', null),
-	                                                    _react2.default.createElement(
-	                                                        'div',
-	                                                        { className: 'stats' },
-	                                                        _react2.default.createElement('i', { className: 'ti-timer' }),
-	                                                        ' Campaign sent 2 days ago'
-	                                                    )
-	                                                )
-	                                            )
-	                                        )
-	                                    ),
-	                                    _react2.default.createElement(
-	                                        'div',
-	                                        { className: 'col-md-6' },
-	                                        _react2.default.createElement(
-	                                            'div',
-	                                            { className: 'card ' },
-	                                            _react2.default.createElement(
-	                                                'div',
-	                                                { className: 'header' },
-	                                                _react2.default.createElement(
-	                                                    'h4',
-	                                                    { className: 'title' },
-	                                                    '2015 Sales'
-	                                                ),
-	                                                _react2.default.createElement(
-	                                                    'p',
-	                                                    { className: 'category' },
-	                                                    'All products including Taxes'
-	                                                )
-	                                            ),
-	                                            _react2.default.createElement(
-	                                                'div',
-	                                                { className: 'content' },
-	                                                _react2.default.createElement('div', { id: 'chartActivity', className: 'ct-chart' }),
-	                                                _react2.default.createElement(
-	                                                    'div',
-	                                                    { className: 'footer' },
-	                                                    _react2.default.createElement(
-	                                                        'div',
-	                                                        { className: 'chart-legend' },
-	                                                        _react2.default.createElement('i', { className: 'fa fa-circle text-info' }),
-	                                                        ' Tesla Model S',
-	                                                        _react2.default.createElement('i', { className: 'fa fa-circle text-warning' }),
-	                                                        ' BMW 5 Series'
-	                                                    ),
-	                                                    _react2.default.createElement('hr', null),
-	                                                    _react2.default.createElement(
-	                                                        'div',
-	                                                        { className: 'stats' },
-	                                                        _react2.default.createElement('i', { className: 'ti-check' }),
-	                                                        ' Data information certified'
-	                                                    )
-	                                                )
-	                                            )
-	                                        )
-	                                    )
-	                                )
-	                            )
+	                            _react2.default.createElement(_InfoSearch2.default, { display: urlId === 0 }),
+	                            _react2.default.createElement(_UserCreate2.default, { display: urlId === 1 }),
+	                            _react2.default.createElement(_UserManage2.default, { display: urlId === 2 }),
+	                            _react2.default.createElement(_InfoCreate2.default, { display: urlId === 3 }),
+	                            _react2.default.createElement(_InfoManage2.default, { display: urlId === 4 }),
+	                            _react2.default.createElement(_UserProfile2.default, { display: urlId === 5 })
 	                        ),
 	                        _react2.default.createElement(
 	                            'footer',
@@ -29884,6 +29557,415 @@
 	  value: true
 	});
 	var Title = exports.Title = ["查询", "创建用户", "查询用户", "录入信息", "查询录入", "修改个人信息"];
+
+/***/ }),
+/* 275 */,
+/* 276 */
+/*!****************************************************!*\
+  !*** ./components/view/content/user/UserManage.js ***!
+  \****************************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var UserManage = function (_React$Component) {
+	    _inherits(UserManage, _React$Component);
+	
+	    function UserManage(props) {
+	        _classCallCheck(this, UserManage);
+	
+	        var _this = _possibleConstructorReturn(this, (UserManage.__proto__ || Object.getPrototypeOf(UserManage)).call(this, props));
+	
+	        _this.state = {};
+	        return _this;
+	    }
+	
+	    _createClass(UserManage, [{
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            //get user info
+	        }
+	    }, {
+	        key: 'componentWillReceiveProps',
+	        value: function componentWillReceiveProps(nextProps) {}
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var display = this.props.display;
+	
+	            return _react2.default.createElement(
+	                'div',
+	                { style: { display: !display && 'none' } },
+	                'UserManger'
+	            );
+	        }
+	    }]);
+	
+	    return UserManage;
+	}(_react2.default.Component);
+	
+	exports.default = UserManage;
+
+/***/ }),
+/* 277 */,
+/* 278 */,
+/* 279 */
+/*!****************************************************!*\
+  !*** ./components/view/content/info/InfoManage.js ***!
+  \****************************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var InfoManage = function (_React$Component) {
+	    _inherits(InfoManage, _React$Component);
+	
+	    function InfoManage(props) {
+	        _classCallCheck(this, InfoManage);
+	
+	        var _this = _possibleConstructorReturn(this, (InfoManage.__proto__ || Object.getPrototypeOf(InfoManage)).call(this, props));
+	
+	        _this.state = {};
+	        console.log("Info manage Init");
+	
+	        return _this;
+	    }
+	
+	    _createClass(InfoManage, [{
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            //get user info
+	        }
+	    }, {
+	        key: 'componentWillReceiveProps',
+	        value: function componentWillReceiveProps(nextProps) {}
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var display = this.props.display;
+	
+	            return _react2.default.createElement(
+	                'div',
+	                { style: { display: !display && 'none' } },
+	                'InfoManager'
+	            );
+	        }
+	    }]);
+	
+	    return InfoManage;
+	}(_react2.default.Component);
+	
+	exports.default = InfoManage;
+
+/***/ }),
+/* 280 */
+/*!****************************************************!*\
+  !*** ./components/view/content/info/InfoSearch.js ***!
+  \****************************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var InfoSearch = function (_React$Component) {
+	    _inherits(InfoSearch, _React$Component);
+	
+	    function InfoSearch(props) {
+	        _classCallCheck(this, InfoSearch);
+	
+	        var _this = _possibleConstructorReturn(this, (InfoSearch.__proto__ || Object.getPrototypeOf(InfoSearch)).call(this, props));
+	
+	        _this.state = {};
+	        console.log("Info Search Init");
+	        return _this;
+	    }
+	
+	    _createClass(InfoSearch, [{
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            //get user info
+	        }
+	    }, {
+	        key: 'componentWillReceiveProps',
+	        value: function componentWillReceiveProps(nextProps) {}
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var display = this.props.display;
+	
+	            return _react2.default.createElement(
+	                'div',
+	                { style: { display: !display && 'none' } },
+	                _react2.default.createElement(
+	                    'p',
+	                    null,
+	                    'Info Search'
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return InfoSearch;
+	}(_react2.default.Component);
+	
+	exports.default = InfoSearch;
+
+/***/ }),
+/* 281 */
+/*!****************************************************!*\
+  !*** ./components/view/content/user/UserCreate.js ***!
+  \****************************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var UserCreate = function (_React$Component) {
+	    _inherits(UserCreate, _React$Component);
+	
+	    function UserCreate(props) {
+	        _classCallCheck(this, UserCreate);
+	
+	        var _this = _possibleConstructorReturn(this, (UserCreate.__proto__ || Object.getPrototypeOf(UserCreate)).call(this, props));
+	
+	        _this.state = {};
+	        return _this;
+	    }
+	
+	    _createClass(UserCreate, [{
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            //get user info
+	        }
+	    }, {
+	        key: 'componentWillReceiveProps',
+	        value: function componentWillReceiveProps(nextProps) {}
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var display = this.props.display;
+	
+	            return _react2.default.createElement(
+	                'div',
+	                { style: { display: !display && 'none' } },
+	                _react2.default.createElement('input', { type: 'text',
+	                    placeholder: '\u8D26\u53F7' }),
+	                _react2.default.createElement(
+	                    'div',
+	                    null,
+	                    'CreateUser'
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return UserCreate;
+	}(_react2.default.Component);
+	
+	exports.default = UserCreate;
+
+/***/ }),
+/* 282 */
+/*!****************************************************!*\
+  !*** ./components/view/content/info/InfoCreate.js ***!
+  \****************************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var InfoCreate = function (_React$Component) {
+	    _inherits(InfoCreate, _React$Component);
+	
+	    function InfoCreate(props) {
+	        _classCallCheck(this, InfoCreate);
+	
+	        var _this = _possibleConstructorReturn(this, (InfoCreate.__proto__ || Object.getPrototypeOf(InfoCreate)).call(this, props));
+	
+	        _this.state = {};
+	        console.log("Info create Init");
+	
+	        return _this;
+	    }
+	
+	    _createClass(InfoCreate, [{
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            //get user info
+	        }
+	    }, {
+	        key: 'componentWillReceiveProps',
+	        value: function componentWillReceiveProps(nextProps) {}
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var display = this.props.display;
+	
+	
+	            return _react2.default.createElement(
+	                'div',
+	                { style: { display: !display && 'none' } },
+	                'CreateInfo'
+	            );
+	        }
+	    }]);
+	
+	    return InfoCreate;
+	}(_react2.default.Component);
+	
+	exports.default = InfoCreate;
+
+/***/ }),
+/* 283 */
+/*!*****************************************************!*\
+  !*** ./components/view/content/user/UserProfile.js ***!
+  \*****************************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var UserProfile = function (_React$Component) {
+	    _inherits(UserProfile, _React$Component);
+	
+	    function UserProfile(props) {
+	        _classCallCheck(this, UserProfile);
+	
+	        var _this = _possibleConstructorReturn(this, (UserProfile.__proto__ || Object.getPrototypeOf(UserProfile)).call(this, props));
+	
+	        _this.state = {};
+	        return _this;
+	    }
+	
+	    _createClass(UserProfile, [{
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            //get user info
+	        }
+	    }, {
+	        key: 'componentWillReceiveProps',
+	        value: function componentWillReceiveProps(nextProps) {}
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var display = this.props.display;
+	
+	            return _react2.default.createElement(
+	                'div',
+	                { style: { display: !display && 'none' } },
+	                'UserProfile'
+	            );
+	        }
+	    }]);
+	
+	    return UserProfile;
+	}(_react2.default.Component);
+	
+	exports.default = UserProfile;
 
 /***/ })
 /******/ ]);
