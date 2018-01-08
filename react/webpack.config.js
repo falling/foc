@@ -24,7 +24,7 @@ module.exports = {
             }, {
                 // 图片加载器
                 test: /\.(gif|jpg|png|woff|woff2|svg|eot|otf|ttf)\??.*$/,
-                loader: 'url-loader?limit=4096&name=/images/[name].[ext]'
+                loader: 'url-loader?limit=1024&name=/images/[name].[ext]'
             }
         ]
     }

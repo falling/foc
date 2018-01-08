@@ -1200,7 +1200,9 @@ hr {
 .form-control.border-input {
     border: 1px solid #CCC5B9;
 }
-
+.border-input .form-control{
+    border: 1px solid #CCC5B9;
+}
 .open .form-control {
     border-bottom-color: transparent;
 }

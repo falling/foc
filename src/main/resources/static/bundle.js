@@ -23384,7 +23384,7 @@
 	
 	
 	// module
-	exports.push([module.id, "/*!\n    \n =========================================================\n * Paper Dashboard - v1.1.2\n =========================================================\n \n * Product Page: http://www.creative-tim.com/product/paper-dashboard\n * Copyright 2017 Creative Tim (http://www.creative-tim.com)\n * Licensed under MIT (https://github.com/creativetimofficial/paper-dashboard/blob/master/LICENSE.md)\n \n =========================================================\n \n * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n \n */\n/*      light colors - used for select dropdown         */\n.ct-blue {\n    stroke: #7A9E9F !important;\n}\n\n.ct-azure {\n    stroke: #68B3C8 !important;\n}\n\n.ct-green {\n    stroke: #7AC29A !important;\n}\n\n.ct-orange {\n    stroke: #F3BB45 !important;\n}\n\n.ct-red {\n    stroke: #EB5E28 !important;\n}\n\nh1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, a, .td-name, td {\n    -moz-osx-font-smoothing: grayscale;\n    -webkit-font-smoothing: antialiased;\n    font-family: 'Muli', \"Helvetica\", Arial, sans-serif;\n}\n\nh1, .h1, h2, .h2, h3, .h3, h4, .h4 {\n    font-weight: 400;\n    margin: 30px 0 15px;\n}\n\nh1, .h1 {\n    font-size: 3.2em;\n}\n\nh2, .h2 {\n    font-size: 2.6em;\n}\n\nh3, .h3 {\n    font-size: 1.825em;\n    line-height: 1.4;\n    margin: 20px 0 10px;\n}\n\nh4, .h4 {\n    font-size: 1.5em;\n    font-weight: 600;\n    line-height: 1.2em;\n}\n\nh5, .h5 {\n    font-size: 1.25em;\n    font-weight: 400;\n    line-height: 1.4em;\n    margin-bottom: 15px;\n}\n\nh6, .h6 {\n    font-size: 0.9em;\n    font-weight: 600;\n    text-transform: uppercase;\n}\n\np {\n    font-size: 16px;\n    line-height: 1.4em;\n}\n\nh1 small, h2 small, h3 small, h4 small, h5 small, h6 small, .h1 small, .h2 small, .h3 small, .h4 small, .h5 small, .h6 small, h1 .small, h2 .small, h3 .small, h4 .small, h5 .small, h6 .small, .h1 .small, .h2 .small, .h3 .small, .h4 .small, .h5 .small, .h6 .small {\n    color: #9A9A9A;\n    font-weight: 300;\n    line-height: 1.4em;\n}\n\nh1 small, h2 small, h3 small, h1 .small, h2 .small, h3 .small {\n    font-size: 60%;\n}\n\n.title-uppercase {\n    text-transform: uppercase;\n}\n\nblockquote {\n    font-style: italic;\n}\n\nblockquote small {\n    font-style: normal;\n}\n\n.text-muted {\n    color: #DDDDDD;\n}\n\n.text-primary, .text-primary:hover {\n    color: #427C89;\n}\n\n.text-info, .text-info:hover {\n    color: #3091B2;\n}\n\n.text-success, .text-success:hover {\n    color: #42A084;\n}\n\n.text-warning, .text-warning:hover {\n    color: #BB992F;\n}\n\n.text-danger, .text-danger:hover {\n    color: #B33C12;\n}\n\n.glyphicon {\n    line-height: 1;\n}\n\nstrong {\n    color: #403D39;\n}\n\n.icon-primary {\n    color: #7A9E9F;\n}\n\n.icon-info {\n    color: #68B3C8;\n}\n\n.icon-success {\n    color: #7AC29A;\n}\n\n.icon-warning {\n    color: #F3BB45;\n}\n\n.icon-danger {\n    color: #EB5E28;\n}\n\n.chart-legend .text-primary, .chart-legend .text-primary:hover {\n    color: #7A9E9F;\n}\n\n.chart-legend .text-info, .chart-legend .text-info:hover {\n    color: #68B3C8;\n}\n\n.chart-legend .text-success, .chart-legend .text-success:hover {\n    color: #7AC29A;\n}\n\n.chart-legend .text-warning, .chart-legend .text-warning:hover {\n    color: #F3BB45;\n}\n\n.chart-legend .text-danger, .chart-legend .text-danger:hover {\n    color: #EB5E28;\n}\n\n/*     General overwrite     */\nbody {\n    color: #66615b;\n    font-size: 14px;\n    font-family: 'Muli', Arial, sans-serif;\n}\n\nbody .wrapper {\n    min-height: 100vh;\n    position: relative;\n}\n\na {\n    color: #68B3C8;\n}\n\na:hover, a:focus {\n    color: #3091B2;\n    text-decoration: none;\n}\n\na:focus, a:active,\nbutton::-moz-focus-inner,\ninput::-moz-focus-inner,\nselect::-moz-focus-inner,\ninput[type=\"file\"] > input[type=\"button\"]::-moz-focus-inner {\n    outline: 0 !important;\n}\n\n.ui-slider-handle:focus,\n.navbar-toggle,\ninput:focus,\nbutton:focus {\n    outline: 0 !important;\n}\n\n/*           Animations              */\n.form-control,\n.input-group-addon,\n.tagsinput,\n.navbar,\n.navbar .alert {\n    -webkit-transition: all 300ms linear;\n    -moz-transition: all 300ms linear;\n    -o-transition: all 300ms linear;\n    -ms-transition: all 300ms linear;\n    transition: all 300ms linear;\n}\n\n.sidebar .nav a,\n.table > tbody > tr .td-actions .btn {\n    -webkit-transition: all 150ms ease-in;\n    -moz-transition: all 150ms ease-in;\n    -o-transition: all 150ms ease-in;\n    -ms-transition: all 150ms ease-in;\n    transition: all 150ms ease-in;\n}\n\n.btn {\n    -webkit-transition: all 100ms ease-in;\n    -moz-transition: all 100ms ease-in;\n    -o-transition: all 100ms ease-in;\n    -ms-transition: all 100ms ease-in;\n    transition: all 100ms ease-in;\n}\n\n.fa {\n    width: 21px;\n    text-align: center;\n}\n\n.fa-base {\n    font-size: 1.25em !important;\n}\n\n.margin-top {\n    margin-top: 50px;\n}\n\nhr {\n    border-color: #F1EAE0;\n}\n\n.wrapper {\n    position: relative;\n    top: 0;\n    height: 100vh;\n}\n\n.sidebar {\n    position: absolute;\n    top: 0;\n    bottom: 0;\n    left: 0;\n    z-index: 1;\n    background-size: cover;\n    background-position: center center;\n}\n\n.sidebar .sidebar-wrapper {\n    position: relative;\n    max-height: none;\n    min-height: 100%;\n    /*overflow: hidden;*/\n    width: 260px;\n    z-index: 4;\n    box-shadow: inset -1px 0px 0px 0px #DDDDDD;\n}\n\n.sidebar .sidebar-background {\n    position: absolute;\n    z-index: 1;\n    height: 100%;\n    width: 100%;\n    display: block;\n    top: 0;\n    left: 0;\n    background-size: cover;\n    background-position: center center;\n}\n\n.sidebar,\n.off-canvas-sidebar {\n    width: 260px;\n    display: block;\n    font-weight: 200;\n}\n\n.sidebar .logo,\n.off-canvas-sidebar .logo {\n    padding: 18px 0px;\n    margin: 0 20px;\n}\n\n.sidebar .logo p,\n.off-canvas-sidebar .logo p {\n    float: left;\n    font-size: 20px;\n    margin: 10px 10px;\n    line-height: 20px;\n}\n\n.sidebar .logo .simple-text,\n.off-canvas-sidebar .logo .simple-text {\n    text-transform: uppercase;\n    padding: 4px 0px;\n    display: block;\n    font-size: 18px;\n    text-align: center;\n    font-weight: 400;\n    line-height: 30px;\n}\n\n.sidebar .nav,\n.off-canvas-sidebar .nav {\n    margin-top: 20px;\n}\n\n.sidebar .nav li > a,.nav li> div > a,\n.off-canvas-sidebar .nav li > a {\n    margin: 10px 0px;\n    padding-left: 25px;\n    padding-right: 25px;\n    opacity: .7;\n}\n\n.nav li> div > a{\n    position: relative;\n    display: block;\n    padding: 10px 25px;\n    color:#66615B;\n}\n.nav li.active> div > a{\n    position: relative;\n    display: block;\n    padding: 10px 25px;\n    color:#EB5E28;\n}\n\n\n.sidebar .nav li:hover > a,\n.off-canvas-sidebar .nav li:hover > a {\n    opacity: 1;\n}\n\n.sidebar .nav li.active > a, .sidebar .nav li active > a\n.off-canvas-sidebar .nav li.active > a {\n    color: #7A9E9F;\n    opacity: 1;\n}\n\n.sidebar .nav li.active > a:before,\n.off-canvas-sidebar .nav li.active > a:before {\n    border-right: 17px solid #DDDDDD;\n    border-top: 17px solid transparent;\n    border-bottom: 17px solid transparent;\n    content: \"\";\n    display: inline-block;\n    position: absolute;\n    right: 0;\n    top: 8px;\n}\n\n.sidebar .nav li.active > a:after,\n.off-canvas-sidebar .nav li.active > a:after {\n    border-right: 17px solid #f4f3ef;\n    border-top: 17px solid transparent;\n    border-bottom: 17px solid transparent;\n    content: \"\";\n    display: inline-block;\n    position: absolute;\n    right: -1px;\n    top: 8px;\n}\n\n.sidebar .nav p,\n.off-canvas-sidebar .nav p {\n    margin: 0;\n    line-height: 30px;\n    font-size: 12px;\n    font-weight: 600;\n    text-transform: uppercase;\n}\n\n.sidebar .nav i,\n.off-canvas-sidebar .nav i {\n    font-size: 24px;\n    float: left;\n    margin-right: 15px;\n    line-height: 30px;\n    width: 30px;\n    text-align: center;\n}\n\n.sidebar:after, .sidebar:before,\n.off-canvas-sidebar:after,\n.off-canvas-sidebar:before {\n    display: block;\n    content: \"\";\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    top: 0;\n    left: 0;\n    z-index: 2;\n    background: #FFFFFF;\n}\n\n.sidebar:after, .sidebar:before, .sidebar[data-background-color=\"white\"]:after, .sidebar[data-background-color=\"white\"]:before,\n.off-canvas-sidebar:after,\n.off-canvas-sidebar:before,\n.off-canvas-sidebar[data-background-color=\"white\"]:after,\n.off-canvas-sidebar[data-background-color=\"white\"]:before {\n    background-color: #FFFFFF;\n}\n\n.sidebar .logo, .sidebar[data-background-color=\"white\"] .logo,\n.off-canvas-sidebar .logo,\n.off-canvas-sidebar[data-background-color=\"white\"] .logo {\n    border-bottom: 1px solid rgba(102, 97, 91, 0.3);\n}\n\n.sidebar .logo p, .sidebar[data-background-color=\"white\"] .logo p,\n.off-canvas-sidebar .logo p,\n.off-canvas-sidebar[data-background-color=\"white\"] .logo p {\n    color: #66615B;\n}\n\n.sidebar .logo .simple-text, .sidebar[data-background-color=\"white\"] .logo .simple-text,\n.off-canvas-sidebar .logo .simple-text,\n.off-canvas-sidebar[data-background-color=\"white\"] .logo .simple-text {\n    color: #66615B;\n}\n\n.sidebar .nav li:not(.active) > a, .sidebar[data-background-color=\"white\"] .nav li:not(.active) > a,\n.off-canvas-sidebar .nav li:not(.active) > a,\n.off-canvas-sidebar[data-background-color=\"white\"] .nav li:not(.active) > a {\n    color: #66615B;\n}\n\n.sidebar .nav .divider, .sidebar[data-background-color=\"white\"] .nav .divider,\n.off-canvas-sidebar .nav .divider,\n.off-canvas-sidebar[data-background-color=\"white\"] .nav .divider {\n    background-color: rgba(102, 97, 91, 0.2);\n}\n\n.sidebar[data-background-color=\"black\"]:after, .sidebar[data-background-color=\"black\"]:before,\n.off-canvas-sidebar[data-background-color=\"black\"]:after,\n.off-canvas-sidebar[data-background-color=\"black\"]:before {\n    background-color: #212120;\n}\n\n.sidebar[data-background-color=\"black\"] .logo,\n.off-canvas-sidebar[data-background-color=\"black\"] .logo {\n    border-bottom: 1px solid rgba(255, 255, 255, 0.3);\n}\n\n.sidebar[data-background-color=\"black\"] .logo p,\n.off-canvas-sidebar[data-background-color=\"black\"] .logo p {\n    color: #FFFFFF;\n}\n\n.sidebar[data-background-color=\"black\"] .logo .simple-text,\n.off-canvas-sidebar[data-background-color=\"black\"] .logo .simple-text {\n    color: #FFFFFF;\n}\n\n.sidebar[data-background-color=\"black\"] .nav li:not(.active) > a,\n.off-canvas-sidebar[data-background-color=\"black\"] .nav li:not(.active) > a {\n    color: #FFFFFF;\n}\n\n.sidebar[data-background-color=\"black\"] .nav .divider,\n.off-canvas-sidebar[data-background-color=\"black\"] .nav .divider {\n    background-color: rgba(255, 255, 255, 0.2);\n}\n\n.sidebar[data-active-color=\"primary\"] .nav li.active > a,\n.off-canvas-sidebar[data-active-color=\"primary\"] .nav li.active > a {\n    color: #7A9E9F;\n    opacity: 1;\n}\n\n.sidebar[data-active-color=\"info\"] .nav li.active > a,\n.off-canvas-sidebar[data-active-color=\"info\"] .nav li.active > a {\n    color: #68B3C8;\n    opacity: 1;\n}\n\n.sidebar[data-active-color=\"success\"] .nav li.active > a,\n.off-canvas-sidebar[data-active-color=\"success\"] .nav li.active > a {\n    color: #7AC29A;\n    opacity: 1;\n}\n\n.sidebar[data-active-color=\"warning\"] .nav li.active > a,\n.off-canvas-sidebar[data-active-color=\"warning\"] .nav li.active > a {\n    color: #F3BB45;\n    opacity: 1;\n}\n\n.sidebar[data-active-color=\"danger\"] .nav li.active > a,\n.off-canvas-sidebar[data-active-color=\"danger\"] .nav li.active > a {\n    color: #EB5E28;\n    opacity: 1;\n}\n\n.main-panel {\n    background-color: #f4f3ef;\n    position: relative;\n    z-index: 2;\n    float: right;\n    width: calc(100% - 260px);\n    min-height: 100%;\n}\n\n.main-panel > .content {\n    padding: 30px 15px;\n    min-height: calc(100% - 123px);\n}\n\n.main-panel > .footer {\n    border-top: 1px solid rgba(0, 0, 0, 0.1);\n}\n\n.main-panel .navbar {\n    margin-bottom: 0;\n}\n\n.sidebar,\n.main-panel {\n    overflow: auto;\n    max-height: 100%;\n    height: 100%;\n    -webkit-transition-property: top, bottom;\n    transition-property: top, bottom;\n    -webkit-transition-duration: .2s, .2s;\n    transition-duration: .2s, .2s;\n    -webkit-transition-timing-function: linear, linear;\n    transition-timing-function: linear, linear;\n    -webkit-overflow-scrolling: touch;\n}\n\n.btn,\n.navbar .navbar-nav > li > a.btn {\n    border-radius: 20px;\n    box-sizing: border-box;\n    border-width: 2px;\n    background-color: transparent;\n    font-size: 14px;\n    font-weight: 500;\n    padding: 7px 18px;\n    border-color: #66615B;\n    color: #66615B;\n    -webkit-transition: all 150ms linear;\n    -moz-transition: all 150ms linear;\n    -o-transition: all 150ms linear;\n    -ms-transition: all 150ms linear;\n    transition: all 150ms linear;\n}\n\n.btn:hover, .btn:focus, .btn:active, .btn.active, .open > .btn.dropdown-toggle,\n.navbar .navbar-nav > li > a.btn:hover,\n.navbar .navbar-nav > li > a.btn:focus,\n.navbar .navbar-nav > li > a.btn:active,\n.navbar .navbar-nav > li > a.btn.active, .open >\n.navbar .navbar-nav > li > a.btn.dropdown-toggle {\n    background-color: #66615B;\n    color: rgba(255, 255, 255, 0.7);\n    border-color: #66615B;\n}\n\n.btn:hover .caret, .btn:focus .caret, .btn:active .caret, .btn.active .caret, .open > .btn.dropdown-toggle .caret,\n.navbar .navbar-nav > li > a.btn:hover .caret,\n.navbar .navbar-nav > li > a.btn:focus .caret,\n.navbar .navbar-nav > li > a.btn:active .caret,\n.navbar .navbar-nav > li > a.btn.active .caret, .open >\n.navbar .navbar-nav > li > a.btn.dropdown-toggle .caret {\n    border-top-color: rgba(255, 255, 255, 0.7);\n}\n\n.btn.disabled, .btn.disabled:hover, .btn.disabled:focus, .btn.disabled.focus, .btn.disabled:active, .btn.disabled.active, .btn:disabled, .btn:disabled:hover, .btn:disabled:focus, .btn:disabled.focus, .btn:disabled:active, .btn:disabled.active, .btn[disabled], .btn[disabled]:hover, .btn[disabled]:focus, .btn[disabled].focus, .btn[disabled]:active, .btn[disabled].active, fieldset[disabled] .btn, fieldset[disabled] .btn:hover, fieldset[disabled] .btn:focus, fieldset[disabled] .btn.focus, fieldset[disabled] .btn:active, fieldset[disabled] .btn.active,\n.navbar .navbar-nav > li > a.btn.disabled,\n.navbar .navbar-nav > li > a.btn.disabled:hover,\n.navbar .navbar-nav > li > a.btn.disabled:focus,\n.navbar .navbar-nav > li > a.btn.disabled.focus,\n.navbar .navbar-nav > li > a.btn.disabled:active,\n.navbar .navbar-nav > li > a.btn.disabled.active,\n.navbar .navbar-nav > li > a.btn:disabled,\n.navbar .navbar-nav > li > a.btn:disabled:hover,\n.navbar .navbar-nav > li > a.btn:disabled:focus,\n.navbar .navbar-nav > li > a.btn:disabled.focus,\n.navbar .navbar-nav > li > a.btn:disabled:active,\n.navbar .navbar-nav > li > a.btn:disabled.active,\n.navbar .navbar-nav > li > a.btn[disabled],\n.navbar .navbar-nav > li > a.btn[disabled]:hover,\n.navbar .navbar-nav > li > a.btn[disabled]:focus,\n.navbar .navbar-nav > li > a.btn[disabled].focus,\n.navbar .navbar-nav > li > a.btn[disabled]:active,\n.navbar .navbar-nav > li > a.btn[disabled].active, fieldset[disabled]\n  .navbar .navbar-nav > li > a.btn, fieldset[disabled]\n  .navbar .navbar-nav > li > a.btn:hover, fieldset[disabled]\n  .navbar .navbar-nav > li > a.btn:focus, fieldset[disabled]\n  .navbar .navbar-nav > li > a.btn.focus, fieldset[disabled]\n  .navbar .navbar-nav > li > a.btn:active, fieldset[disabled]\n  .navbar .navbar-nav > li > a.btn.active {\n    background-color: transparent;\n    border-color: #66615B;\n}\n\n.btn.btn-fill,\n.navbar .navbar-nav > li > a.btn.btn-fill {\n    color: #FFFFFF;\n    background-color: #66615B;\n    opacity: 1;\n    filter: alpha(opacity=100);\n}\n\n.btn.btn-fill:hover, .btn.btn-fill:focus, .btn.btn-fill:active, .btn.btn-fill.active, .open > .btn.btn-fill.dropdown-toggle,\n.navbar .navbar-nav > li > a.btn.btn-fill:hover,\n.navbar .navbar-nav > li > a.btn.btn-fill:focus,\n.navbar .navbar-nav > li > a.btn.btn-fill:active,\n.navbar .navbar-nav > li > a.btn.btn-fill.active, .open >\n.navbar .navbar-nav > li > a.btn.btn-fill.dropdown-toggle {\n    background-color: #403D39;\n    color: #FFFFFF;\n    border-color: #403D39;\n}\n\n.btn.btn-fill .caret,\n.navbar .navbar-nav > li > a.btn.btn-fill .caret {\n    border-top-color: #FFFFFF;\n}\n\n.btn.btn-simple:hover, .btn.btn-simple:focus, .btn.btn-simple:active, .btn.btn-simple.active, .open > .btn.btn-simple.dropdown-toggle,\n.navbar .navbar-nav > li > a.btn.btn-simple:hover,\n.navbar .navbar-nav > li > a.btn.btn-simple:focus,\n.navbar .navbar-nav > li > a.btn.btn-simple:active,\n.navbar .navbar-nav > li > a.btn.btn-simple.active, .open >\n.navbar .navbar-nav > li > a.btn.btn-simple.dropdown-toggle {\n    background-color: transparent;\n    color: #403D39;\n}\n\n.btn.btn-simple .caret,\n.navbar .navbar-nav > li > a.btn.btn-simple .caret {\n    border-top-color: #FFFFFF;\n}\n\n.btn .caret,\n.navbar .navbar-nav > li > a.btn .caret {\n    border-top-color: #66615B;\n}\n\n.btn:hover, .btn:focus,\n.navbar .navbar-nav > li > a.btn:hover,\n.navbar .navbar-nav > li > a.btn:focus {\n    outline: 0 !important;\n}\n\n.btn:active, .btn.active, .open > .btn.dropdown-toggle,\n.navbar .navbar-nav > li > a.btn:active,\n.navbar .navbar-nav > li > a.btn.active, .open >\n.navbar .navbar-nav > li > a.btn.dropdown-toggle {\n    -webkit-box-shadow: none;\n    box-shadow: none;\n    outline: 0 !important;\n}\n\n.btn.btn-icon,\n.navbar .navbar-nav > li > a.btn.btn-icon {\n    padding: 7px;\n}\n\n.btn-group .btn + .btn,\n.btn-group .btn + .btn-group,\n.btn-group .btn-group + .btn,\n.btn-group .btn-group + .btn-group {\n    margin-left: -2px;\n}\n\n.navbar .navbar-nav > li > a.btn-primary, .btn-primary {\n    border-color: #7A9E9F;\n    color: #7A9E9F;\n}\n\n.navbar .navbar-nav > li > a.btn-primary:hover, .navbar .navbar-nav > li > a.btn-primary:focus, .navbar .navbar-nav > li > a.btn-primary:active, .navbar .navbar-nav > li > a.btn-primary.active, .open > .navbar .navbar-nav > li > a.btn-primary.dropdown-toggle, .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .btn-primary.dropdown-toggle {\n    background-color: #7A9E9F;\n    color: rgba(255, 255, 255, 0.7);\n    border-color: #7A9E9F;\n}\n\n.navbar .navbar-nav > li > a.btn-primary:hover .caret, .navbar .navbar-nav > li > a.btn-primary:focus .caret, .navbar .navbar-nav > li > a.btn-primary:active .caret, .navbar .navbar-nav > li > a.btn-primary.active .caret, .open > .navbar .navbar-nav > li > a.btn-primary.dropdown-toggle .caret, .btn-primary:hover .caret, .btn-primary:focus .caret, .btn-primary:active .caret, .btn-primary.active .caret, .open > .btn-primary.dropdown-toggle .caret {\n    border-top-color: rgba(255, 255, 255, 0.7);\n}\n\n.navbar .navbar-nav > li > a.btn-primary.disabled, .navbar .navbar-nav > li > a.btn-primary.disabled:hover, .navbar .navbar-nav > li > a.btn-primary.disabled:focus, .navbar .navbar-nav > li > a.btn-primary.disabled.focus, .navbar .navbar-nav > li > a.btn-primary.disabled:active, .navbar .navbar-nav > li > a.btn-primary.disabled.active, .navbar .navbar-nav > li > a.btn-primary:disabled, .navbar .navbar-nav > li > a.btn-primary:disabled:hover, .navbar .navbar-nav > li > a.btn-primary:disabled:focus, .navbar .navbar-nav > li > a.btn-primary:disabled.focus, .navbar .navbar-nav > li > a.btn-primary:disabled:active, .navbar .navbar-nav > li > a.btn-primary:disabled.active, .navbar .navbar-nav > li > a.btn-primary[disabled], .navbar .navbar-nav > li > a.btn-primary[disabled]:hover, .navbar .navbar-nav > li > a.btn-primary[disabled]:focus, .navbar .navbar-nav > li > a.btn-primary[disabled].focus, .navbar .navbar-nav > li > a.btn-primary[disabled]:active, .navbar .navbar-nav > li > a.btn-primary[disabled].active, fieldset[disabled] .navbar .navbar-nav > li > a.btn-primary, fieldset[disabled] .navbar .navbar-nav > li > a.btn-primary:hover, fieldset[disabled] .navbar .navbar-nav > li > a.btn-primary:focus, fieldset[disabled] .navbar .navbar-nav > li > a.btn-primary.focus, fieldset[disabled] .navbar .navbar-nav > li > a.btn-primary:active, fieldset[disabled] .navbar .navbar-nav > li > a.btn-primary.active, .btn-primary.disabled, .btn-primary.disabled:hover, .btn-primary.disabled:focus, .btn-primary.disabled.focus, .btn-primary.disabled:active, .btn-primary.disabled.active, .btn-primary:disabled, .btn-primary:disabled:hover, .btn-primary:disabled:focus, .btn-primary:disabled.focus, .btn-primary:disabled:active, .btn-primary:disabled.active, .btn-primary[disabled], .btn-primary[disabled]:hover, .btn-primary[disabled]:focus, .btn-primary[disabled].focus, .btn-primary[disabled]:active, .btn-primary[disabled].active, fieldset[disabled] .btn-primary, fieldset[disabled] .btn-primary:hover, fieldset[disabled] .btn-primary:focus, fieldset[disabled] .btn-primary.focus, fieldset[disabled] .btn-primary:active, fieldset[disabled] .btn-primary.active {\n    background-color: transparent;\n    border-color: #7A9E9F;\n}\n\n.navbar .navbar-nav > li > a.btn-primary.btn-fill, .btn-primary.btn-fill {\n    color: #FFFFFF;\n    background-color: #7A9E9F;\n    opacity: 1;\n    filter: alpha(opacity=100);\n}\n\n.navbar .navbar-nav > li > a.btn-primary.btn-fill:hover, .navbar .navbar-nav > li > a.btn-primary.btn-fill:focus, .navbar .navbar-nav > li > a.btn-primary.btn-fill:active, .navbar .navbar-nav > li > a.btn-primary.btn-fill.active, .open > .navbar .navbar-nav > li > a.btn-primary.btn-fill.dropdown-toggle, .btn-primary.btn-fill:hover, .btn-primary.btn-fill:focus, .btn-primary.btn-fill:active, .btn-primary.btn-fill.active, .open > .btn-primary.btn-fill.dropdown-toggle {\n    background-color: #427C89;\n    color: #FFFFFF;\n    border-color: #427C89;\n}\n\n.navbar .navbar-nav > li > a.btn-primary.btn-fill .caret, .btn-primary.btn-fill .caret {\n    border-top-color: #FFFFFF;\n}\n\n.navbar .navbar-nav > li > a.btn-primary.btn-simple:hover, .navbar .navbar-nav > li > a.btn-primary.btn-simple:focus, .navbar .navbar-nav > li > a.btn-primary.btn-simple:active, .navbar .navbar-nav > li > a.btn-primary.btn-simple.active, .open > .navbar .navbar-nav > li > a.btn-primary.btn-simple.dropdown-toggle, .btn-primary.btn-simple:hover, .btn-primary.btn-simple:focus, .btn-primary.btn-simple:active, .btn-primary.btn-simple.active, .open > .btn-primary.btn-simple.dropdown-toggle {\n    background-color: transparent;\n    color: #427C89;\n}\n\n.navbar .navbar-nav > li > a.btn-primary.btn-simple .caret, .btn-primary.btn-simple .caret {\n    border-top-color: #FFFFFF;\n}\n\n.navbar .navbar-nav > li > a.btn-primary .caret, .btn-primary .caret {\n    border-top-color: #7A9E9F;\n}\n\n.navbar .navbar-nav > li > a.btn-success, .btn-success {\n    border-color: #7AC29A;\n    color: #7AC29A;\n}\n\n.navbar .navbar-nav > li > a.btn-success:hover, .navbar .navbar-nav > li > a.btn-success:focus, .navbar .navbar-nav > li > a.btn-success:active, .navbar .navbar-nav > li > a.btn-success.active, .open > .navbar .navbar-nav > li > a.btn-success.dropdown-toggle, .btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.active, .open > .btn-success.dropdown-toggle {\n    background-color: #7AC29A;\n    color: rgba(255, 255, 255, 0.7);\n    border-color: #7AC29A;\n}\n\n.navbar .navbar-nav > li > a.btn-success:hover .caret, .navbar .navbar-nav > li > a.btn-success:focus .caret, .navbar .navbar-nav > li > a.btn-success:active .caret, .navbar .navbar-nav > li > a.btn-success.active .caret, .open > .navbar .navbar-nav > li > a.btn-success.dropdown-toggle .caret, .btn-success:hover .caret, .btn-success:focus .caret, .btn-success:active .caret, .btn-success.active .caret, .open > .btn-success.dropdown-toggle .caret {\n    border-top-color: rgba(255, 255, 255, 0.7);\n}\n\n.navbar .navbar-nav > li > a.btn-success.disabled, .navbar .navbar-nav > li > a.btn-success.disabled:hover, .navbar .navbar-nav > li > a.btn-success.disabled:focus, .navbar .navbar-nav > li > a.btn-success.disabled.focus, .navbar .navbar-nav > li > a.btn-success.disabled:active, .navbar .navbar-nav > li > a.btn-success.disabled.active, .navbar .navbar-nav > li > a.btn-success:disabled, .navbar .navbar-nav > li > a.btn-success:disabled:hover, .navbar .navbar-nav > li > a.btn-success:disabled:focus, .navbar .navbar-nav > li > a.btn-success:disabled.focus, .navbar .navbar-nav > li > a.btn-success:disabled:active, .navbar .navbar-nav > li > a.btn-success:disabled.active, .navbar .navbar-nav > li > a.btn-success[disabled], .navbar .navbar-nav > li > a.btn-success[disabled]:hover, .navbar .navbar-nav > li > a.btn-success[disabled]:focus, .navbar .navbar-nav > li > a.btn-success[disabled].focus, .navbar .navbar-nav > li > a.btn-success[disabled]:active, .navbar .navbar-nav > li > a.btn-success[disabled].active, fieldset[disabled] .navbar .navbar-nav > li > a.btn-success, fieldset[disabled] .navbar .navbar-nav > li > a.btn-success:hover, fieldset[disabled] .navbar .navbar-nav > li > a.btn-success:focus, fieldset[disabled] .navbar .navbar-nav > li > a.btn-success.focus, fieldset[disabled] .navbar .navbar-nav > li > a.btn-success:active, fieldset[disabled] .navbar .navbar-nav > li > a.btn-success.active, .btn-success.disabled, .btn-success.disabled:hover, .btn-success.disabled:focus, .btn-success.disabled.focus, .btn-success.disabled:active, .btn-success.disabled.active, .btn-success:disabled, .btn-success:disabled:hover, .btn-success:disabled:focus, .btn-success:disabled.focus, .btn-success:disabled:active, .btn-success:disabled.active, .btn-success[disabled], .btn-success[disabled]:hover, .btn-success[disabled]:focus, .btn-success[disabled].focus, .btn-success[disabled]:active, .btn-success[disabled].active, fieldset[disabled] .btn-success, fieldset[disabled] .btn-success:hover, fieldset[disabled] .btn-success:focus, fieldset[disabled] .btn-success.focus, fieldset[disabled] .btn-success:active, fieldset[disabled] .btn-success.active {\n    background-color: transparent;\n    border-color: #7AC29A;\n}\n\n.navbar .navbar-nav > li > a.btn-success.btn-fill, .btn-success.btn-fill {\n    color: #FFFFFF;\n    background-color: #7AC29A;\n    opacity: 1;\n    filter: alpha(opacity=100);\n}\n\n.navbar .navbar-nav > li > a.btn-success.btn-fill:hover, .navbar .navbar-nav > li > a.btn-success.btn-fill:focus, .navbar .navbar-nav > li > a.btn-success.btn-fill:active, .navbar .navbar-nav > li > a.btn-success.btn-fill.active, .open > .navbar .navbar-nav > li > a.btn-success.btn-fill.dropdown-toggle, .btn-success.btn-fill:hover, .btn-success.btn-fill:focus, .btn-success.btn-fill:active, .btn-success.btn-fill.active, .open > .btn-success.btn-fill.dropdown-toggle {\n    background-color: #42A084;\n    color: #FFFFFF;\n    border-color: #42A084;\n}\n\n.navbar .navbar-nav > li > a.btn-success.btn-fill .caret, .btn-success.btn-fill .caret {\n    border-top-color: #FFFFFF;\n}\n\n.navbar .navbar-nav > li > a.btn-success.btn-simple:hover, .navbar .navbar-nav > li > a.btn-success.btn-simple:focus, .navbar .navbar-nav > li > a.btn-success.btn-simple:active, .navbar .navbar-nav > li > a.btn-success.btn-simple.active, .open > .navbar .navbar-nav > li > a.btn-success.btn-simple.dropdown-toggle, .btn-success.btn-simple:hover, .btn-success.btn-simple:focus, .btn-success.btn-simple:active, .btn-success.btn-simple.active, .open > .btn-success.btn-simple.dropdown-toggle {\n    background-color: transparent;\n    color: #42A084;\n}\n\n.navbar .navbar-nav > li > a.btn-success.btn-simple .caret, .btn-success.btn-simple .caret {\n    border-top-color: #FFFFFF;\n}\n\n.navbar .navbar-nav > li > a.btn-success .caret, .btn-success .caret {\n    border-top-color: #7AC29A;\n}\n\n.navbar .navbar-nav > li > a.btn-info, .btn-info {\n    border-color: #68B3C8;\n    color: #68B3C8;\n}\n\n.navbar .navbar-nav > li > a.btn-info:hover, .navbar .navbar-nav > li > a.btn-info:focus, .navbar .navbar-nav > li > a.btn-info:active, .navbar .navbar-nav > li > a.btn-info.active, .open > .navbar .navbar-nav > li > a.btn-info.dropdown-toggle, .btn-info:hover, .btn-info:focus, .btn-info:active, .btn-info.active, .open > .btn-info.dropdown-toggle {\n    background-color: #68B3C8;\n    color: rgba(255, 255, 255, 0.7);\n    border-color: #68B3C8;\n}\n\n.navbar .navbar-nav > li > a.btn-info:hover .caret, .navbar .navbar-nav > li > a.btn-info:focus .caret, .navbar .navbar-nav > li > a.btn-info:active .caret, .navbar .navbar-nav > li > a.btn-info.active .caret, .open > .navbar .navbar-nav > li > a.btn-info.dropdown-toggle .caret, .btn-info:hover .caret, .btn-info:focus .caret, .btn-info:active .caret, .btn-info.active .caret, .open > .btn-info.dropdown-toggle .caret {\n    border-top-color: rgba(255, 255, 255, 0.7);\n}\n\n.navbar .navbar-nav > li > a.btn-info.disabled, .navbar .navbar-nav > li > a.btn-info.disabled:hover, .navbar .navbar-nav > li > a.btn-info.disabled:focus, .navbar .navbar-nav > li > a.btn-info.disabled.focus, .navbar .navbar-nav > li > a.btn-info.disabled:active, .navbar .navbar-nav > li > a.btn-info.disabled.active, .navbar .navbar-nav > li > a.btn-info:disabled, .navbar .navbar-nav > li > a.btn-info:disabled:hover, .navbar .navbar-nav > li > a.btn-info:disabled:focus, .navbar .navbar-nav > li > a.btn-info:disabled.focus, .navbar .navbar-nav > li > a.btn-info:disabled:active, .navbar .navbar-nav > li > a.btn-info:disabled.active, .navbar .navbar-nav > li > a.btn-info[disabled], .navbar .navbar-nav > li > a.btn-info[disabled]:hover, .navbar .navbar-nav > li > a.btn-info[disabled]:focus, .navbar .navbar-nav > li > a.btn-info[disabled].focus, .navbar .navbar-nav > li > a.btn-info[disabled]:active, .navbar .navbar-nav > li > a.btn-info[disabled].active, fieldset[disabled] .navbar .navbar-nav > li > a.btn-info, fieldset[disabled] .navbar .navbar-nav > li > a.btn-info:hover, fieldset[disabled] .navbar .navbar-nav > li > a.btn-info:focus, fieldset[disabled] .navbar .navbar-nav > li > a.btn-info.focus, fieldset[disabled] .navbar .navbar-nav > li > a.btn-info:active, fieldset[disabled] .navbar .navbar-nav > li > a.btn-info.active, .btn-info.disabled, .btn-info.disabled:hover, .btn-info.disabled:focus, .btn-info.disabled.focus, .btn-info.disabled:active, .btn-info.disabled.active, .btn-info:disabled, .btn-info:disabled:hover, .btn-info:disabled:focus, .btn-info:disabled.focus, .btn-info:disabled:active, .btn-info:disabled.active, .btn-info[disabled], .btn-info[disabled]:hover, .btn-info[disabled]:focus, .btn-info[disabled].focus, .btn-info[disabled]:active, .btn-info[disabled].active, fieldset[disabled] .btn-info, fieldset[disabled] .btn-info:hover, fieldset[disabled] .btn-info:focus, fieldset[disabled] .btn-info.focus, fieldset[disabled] .btn-info:active, fieldset[disabled] .btn-info.active {\n    background-color: transparent;\n    border-color: #68B3C8;\n}\n\n.navbar .navbar-nav > li > a.btn-info.btn-fill, .btn-info.btn-fill {\n    color: #FFFFFF;\n    background-color: #68B3C8;\n    opacity: 1;\n    filter: alpha(opacity=100);\n}\n\n.navbar .navbar-nav > li > a.btn-info.btn-fill:hover, .navbar .navbar-nav > li > a.btn-info.btn-fill:focus, .navbar .navbar-nav > li > a.btn-info.btn-fill:active, .navbar .navbar-nav > li > a.btn-info.btn-fill.active, .open > .navbar .navbar-nav > li > a.btn-info.btn-fill.dropdown-toggle, .btn-info.btn-fill:hover, .btn-info.btn-fill:focus, .btn-info.btn-fill:active, .btn-info.btn-fill.active, .open > .btn-info.btn-fill.dropdown-toggle {\n    background-color: #3091B2;\n    color: #FFFFFF;\n    border-color: #3091B2;\n}\n\n.navbar .navbar-nav > li > a.btn-info.btn-fill .caret, .btn-info.btn-fill .caret {\n    border-top-color: #FFFFFF;\n}\n\n.navbar .navbar-nav > li > a.btn-info.btn-simple:hover, .navbar .navbar-nav > li > a.btn-info.btn-simple:focus, .navbar .navbar-nav > li > a.btn-info.btn-simple:active, .navbar .navbar-nav > li > a.btn-info.btn-simple.active, .open > .navbar .navbar-nav > li > a.btn-info.btn-simple.dropdown-toggle, .btn-info.btn-simple:hover, .btn-info.btn-simple:focus, .btn-info.btn-simple:active, .btn-info.btn-simple.active, .open > .btn-info.btn-simple.dropdown-toggle {\n    background-color: transparent;\n    color: #3091B2;\n}\n\n.navbar .navbar-nav > li > a.btn-info.btn-simple .caret, .btn-info.btn-simple .caret {\n    border-top-color: #FFFFFF;\n}\n\n.navbar .navbar-nav > li > a.btn-info .caret, .btn-info .caret {\n    border-top-color: #68B3C8;\n}\n\n.navbar .navbar-nav > li > a.btn-warning, .btn-warning {\n    border-color: #F3BB45;\n    color: #F3BB45;\n}\n\n.navbar .navbar-nav > li > a.btn-warning:hover, .navbar .navbar-nav > li > a.btn-warning:focus, .navbar .navbar-nav > li > a.btn-warning:active, .navbar .navbar-nav > li > a.btn-warning.active, .open > .navbar .navbar-nav > li > a.btn-warning.dropdown-toggle, .btn-warning:hover, .btn-warning:focus, .btn-warning:active, .btn-warning.active, .open > .btn-warning.dropdown-toggle {\n    background-color: #F3BB45;\n    color: rgba(255, 255, 255, 0.7);\n    border-color: #F3BB45;\n}\n\n.navbar .navbar-nav > li > a.btn-warning:hover .caret, .navbar .navbar-nav > li > a.btn-warning:focus .caret, .navbar .navbar-nav > li > a.btn-warning:active .caret, .navbar .navbar-nav > li > a.btn-warning.active .caret, .open > .navbar .navbar-nav > li > a.btn-warning.dropdown-toggle .caret, .btn-warning:hover .caret, .btn-warning:focus .caret, .btn-warning:active .caret, .btn-warning.active .caret, .open > .btn-warning.dropdown-toggle .caret {\n    border-top-color: rgba(255, 255, 255, 0.7);\n}\n\n.navbar .navbar-nav > li > a.btn-warning.disabled, .navbar .navbar-nav > li > a.btn-warning.disabled:hover, .navbar .navbar-nav > li > a.btn-warning.disabled:focus, .navbar .navbar-nav > li > a.btn-warning.disabled.focus, .navbar .navbar-nav > li > a.btn-warning.disabled:active, .navbar .navbar-nav > li > a.btn-warning.disabled.active, .navbar .navbar-nav > li > a.btn-warning:disabled, .navbar .navbar-nav > li > a.btn-warning:disabled:hover, .navbar .navbar-nav > li > a.btn-warning:disabled:focus, .navbar .navbar-nav > li > a.btn-warning:disabled.focus, .navbar .navbar-nav > li > a.btn-warning:disabled:active, .navbar .navbar-nav > li > a.btn-warning:disabled.active, .navbar .navbar-nav > li > a.btn-warning[disabled], .navbar .navbar-nav > li > a.btn-warning[disabled]:hover, .navbar .navbar-nav > li > a.btn-warning[disabled]:focus, .navbar .navbar-nav > li > a.btn-warning[disabled].focus, .navbar .navbar-nav > li > a.btn-warning[disabled]:active, .navbar .navbar-nav > li > a.btn-warning[disabled].active, fieldset[disabled] .navbar .navbar-nav > li > a.btn-warning, fieldset[disabled] .navbar .navbar-nav > li > a.btn-warning:hover, fieldset[disabled] .navbar .navbar-nav > li > a.btn-warning:focus, fieldset[disabled] .navbar .navbar-nav > li > a.btn-warning.focus, fieldset[disabled] .navbar .navbar-nav > li > a.btn-warning:active, fieldset[disabled] .navbar .navbar-nav > li > a.btn-warning.active, .btn-warning.disabled, .btn-warning.disabled:hover, .btn-warning.disabled:focus, .btn-warning.disabled.focus, .btn-warning.disabled:active, .btn-warning.disabled.active, .btn-warning:disabled, .btn-warning:disabled:hover, .btn-warning:disabled:focus, .btn-warning:disabled.focus, .btn-warning:disabled:active, .btn-warning:disabled.active, .btn-warning[disabled], .btn-warning[disabled]:hover, .btn-warning[disabled]:focus, .btn-warning[disabled].focus, .btn-warning[disabled]:active, .btn-warning[disabled].active, fieldset[disabled] .btn-warning, fieldset[disabled] .btn-warning:hover, fieldset[disabled] .btn-warning:focus, fieldset[disabled] .btn-warning.focus, fieldset[disabled] .btn-warning:active, fieldset[disabled] .btn-warning.active {\n    background-color: transparent;\n    border-color: #F3BB45;\n}\n\n.navbar .navbar-nav > li > a.btn-warning.btn-fill, .btn-warning.btn-fill {\n    color: #FFFFFF;\n    background-color: #F3BB45;\n    opacity: 1;\n    filter: alpha(opacity=100);\n}\n\n.navbar .navbar-nav > li > a.btn-warning.btn-fill:hover, .navbar .navbar-nav > li > a.btn-warning.btn-fill:focus, .navbar .navbar-nav > li > a.btn-warning.btn-fill:active, .navbar .navbar-nav > li > a.btn-warning.btn-fill.active, .open > .navbar .navbar-nav > li > a.btn-warning.btn-fill.dropdown-toggle, .btn-warning.btn-fill:hover, .btn-warning.btn-fill:focus, .btn-warning.btn-fill:active, .btn-warning.btn-fill.active, .open > .btn-warning.btn-fill.dropdown-toggle {\n    background-color: #BB992F;\n    color: #FFFFFF;\n    border-color: #BB992F;\n}\n\n.navbar .navbar-nav > li > a.btn-warning.btn-fill .caret, .btn-warning.btn-fill .caret {\n    border-top-color: #FFFFFF;\n}\n\n.navbar .navbar-nav > li > a.btn-warning.btn-simple:hover, .navbar .navbar-nav > li > a.btn-warning.btn-simple:focus, .navbar .navbar-nav > li > a.btn-warning.btn-simple:active, .navbar .navbar-nav > li > a.btn-warning.btn-simple.active, .open > .navbar .navbar-nav > li > a.btn-warning.btn-simple.dropdown-toggle, .btn-warning.btn-simple:hover, .btn-warning.btn-simple:focus, .btn-warning.btn-simple:active, .btn-warning.btn-simple.active, .open > .btn-warning.btn-simple.dropdown-toggle {\n    background-color: transparent;\n    color: #BB992F;\n}\n\n.navbar .navbar-nav > li > a.btn-warning.btn-simple .caret, .btn-warning.btn-simple .caret {\n    border-top-color: #FFFFFF;\n}\n\n.navbar .navbar-nav > li > a.btn-warning .caret, .btn-warning .caret {\n    border-top-color: #F3BB45;\n}\n\n.navbar .navbar-nav > li > a.btn-danger, .btn-danger {\n    border-color: #EB5E28;\n    color: #EB5E28;\n}\n\n.navbar .navbar-nav > li > a.btn-danger:hover, .navbar .navbar-nav > li > a.btn-danger:focus, .navbar .navbar-nav > li > a.btn-danger:active, .navbar .navbar-nav > li > a.btn-danger.active, .open > .navbar .navbar-nav > li > a.btn-danger.dropdown-toggle, .btn-danger:hover, .btn-danger:focus, .btn-danger:active, .btn-danger.active, .open > .btn-danger.dropdown-toggle {\n    background-color: #EB5E28;\n    color: rgba(255, 255, 255, 0.7);\n    border-color: #EB5E28;\n}\n\n.navbar .navbar-nav > li > a.btn-danger:hover .caret, .navbar .navbar-nav > li > a.btn-danger:focus .caret, .navbar .navbar-nav > li > a.btn-danger:active .caret, .navbar .navbar-nav > li > a.btn-danger.active .caret, .open > .navbar .navbar-nav > li > a.btn-danger.dropdown-toggle .caret, .btn-danger:hover .caret, .btn-danger:focus .caret, .btn-danger:active .caret, .btn-danger.active .caret, .open > .btn-danger.dropdown-toggle .caret {\n    border-top-color: rgba(255, 255, 255, 0.7);\n}\n\n.navbar .navbar-nav > li > a.btn-danger.disabled, .navbar .navbar-nav > li > a.btn-danger.disabled:hover, .navbar .navbar-nav > li > a.btn-danger.disabled:focus, .navbar .navbar-nav > li > a.btn-danger.disabled.focus, .navbar .navbar-nav > li > a.btn-danger.disabled:active, .navbar .navbar-nav > li > a.btn-danger.disabled.active, .navbar .navbar-nav > li > a.btn-danger:disabled, .navbar .navbar-nav > li > a.btn-danger:disabled:hover, .navbar .navbar-nav > li > a.btn-danger:disabled:focus, .navbar .navbar-nav > li > a.btn-danger:disabled.focus, .navbar .navbar-nav > li > a.btn-danger:disabled:active, .navbar .navbar-nav > li > a.btn-danger:disabled.active, .navbar .navbar-nav > li > a.btn-danger[disabled], .navbar .navbar-nav > li > a.btn-danger[disabled]:hover, .navbar .navbar-nav > li > a.btn-danger[disabled]:focus, .navbar .navbar-nav > li > a.btn-danger[disabled].focus, .navbar .navbar-nav > li > a.btn-danger[disabled]:active, .navbar .navbar-nav > li > a.btn-danger[disabled].active, fieldset[disabled] .navbar .navbar-nav > li > a.btn-danger, fieldset[disabled] .navbar .navbar-nav > li > a.btn-danger:hover, fieldset[disabled] .navbar .navbar-nav > li > a.btn-danger:focus, fieldset[disabled] .navbar .navbar-nav > li > a.btn-danger.focus, fieldset[disabled] .navbar .navbar-nav > li > a.btn-danger:active, fieldset[disabled] .navbar .navbar-nav > li > a.btn-danger.active, .btn-danger.disabled, .btn-danger.disabled:hover, .btn-danger.disabled:focus, .btn-danger.disabled.focus, .btn-danger.disabled:active, .btn-danger.disabled.active, .btn-danger:disabled, .btn-danger:disabled:hover, .btn-danger:disabled:focus, .btn-danger:disabled.focus, .btn-danger:disabled:active, .btn-danger:disabled.active, .btn-danger[disabled], .btn-danger[disabled]:hover, .btn-danger[disabled]:focus, .btn-danger[disabled].focus, .btn-danger[disabled]:active, .btn-danger[disabled].active, fieldset[disabled] .btn-danger, fieldset[disabled] .btn-danger:hover, fieldset[disabled] .btn-danger:focus, fieldset[disabled] .btn-danger.focus, fieldset[disabled] .btn-danger:active, fieldset[disabled] .btn-danger.active {\n    background-color: transparent;\n    border-color: #EB5E28;\n}\n\n.navbar .navbar-nav > li > a.btn-danger.btn-fill, .btn-danger.btn-fill {\n    color: #FFFFFF;\n    background-color: #EB5E28;\n    opacity: 1;\n    filter: alpha(opacity=100);\n}\n\n.navbar .navbar-nav > li > a.btn-danger.btn-fill:hover, .navbar .navbar-nav > li > a.btn-danger.btn-fill:focus, .navbar .navbar-nav > li > a.btn-danger.btn-fill:active, .navbar .navbar-nav > li > a.btn-danger.btn-fill.active, .open > .navbar .navbar-nav > li > a.btn-danger.btn-fill.dropdown-toggle, .btn-danger.btn-fill:hover, .btn-danger.btn-fill:focus, .btn-danger.btn-fill:active, .btn-danger.btn-fill.active, .open > .btn-danger.btn-fill.dropdown-toggle {\n    background-color: #B33C12;\n    color: #FFFFFF;\n    border-color: #B33C12;\n}\n\n.navbar .navbar-nav > li > a.btn-danger.btn-fill .caret, .btn-danger.btn-fill .caret {\n    border-top-color: #FFFFFF;\n}\n\n.navbar .navbar-nav > li > a.btn-danger.btn-simple:hover, .navbar .navbar-nav > li > a.btn-danger.btn-simple:focus, .navbar .navbar-nav > li > a.btn-danger.btn-simple:active, .navbar .navbar-nav > li > a.btn-danger.btn-simple.active, .open > .navbar .navbar-nav > li > a.btn-danger.btn-simple.dropdown-toggle, .btn-danger.btn-simple:hover, .btn-danger.btn-simple:focus, .btn-danger.btn-simple:active, .btn-danger.btn-simple.active, .open > .btn-danger.btn-simple.dropdown-toggle {\n    background-color: transparent;\n    color: #B33C12;\n}\n\n.navbar .navbar-nav > li > a.btn-danger.btn-simple .caret, .btn-danger.btn-simple .caret {\n    border-top-color: #FFFFFF;\n}\n\n.navbar .navbar-nav > li > a.btn-danger .caret, .btn-danger .caret {\n    border-top-color: #EB5E28;\n}\n\n.btn-neutral {\n    border-color: #FFFFFF;\n    color: #FFFFFF;\n}\n\n.btn-neutral:hover, .btn-neutral:focus, .btn-neutral:active, .btn-neutral.active, .open > .btn-neutral.dropdown-toggle {\n    background-color: #FFFFFF;\n    color: rgba(255, 255, 255, 0.7);\n    border-color: #FFFFFF;\n}\n\n.btn-neutral:hover .caret, .btn-neutral:focus .caret, .btn-neutral:active .caret, .btn-neutral.active .caret, .open > .btn-neutral.dropdown-toggle .caret {\n    border-top-color: rgba(255, 255, 255, 0.7);\n}\n\n.btn-neutral.disabled, .btn-neutral.disabled:hover, .btn-neutral.disabled:focus, .btn-neutral.disabled.focus, .btn-neutral.disabled:active, .btn-neutral.disabled.active, .btn-neutral:disabled, .btn-neutral:disabled:hover, .btn-neutral:disabled:focus, .btn-neutral:disabled.focus, .btn-neutral:disabled:active, .btn-neutral:disabled.active, .btn-neutral[disabled], .btn-neutral[disabled]:hover, .btn-neutral[disabled]:focus, .btn-neutral[disabled].focus, .btn-neutral[disabled]:active, .btn-neutral[disabled].active, fieldset[disabled] .btn-neutral, fieldset[disabled] .btn-neutral:hover, fieldset[disabled] .btn-neutral:focus, fieldset[disabled] .btn-neutral.focus, fieldset[disabled] .btn-neutral:active, fieldset[disabled] .btn-neutral.active {\n    background-color: transparent;\n    border-color: #FFFFFF;\n}\n\n.btn-neutral.btn-fill {\n    color: #FFFFFF;\n    background-color: #FFFFFF;\n    opacity: 1;\n    filter: alpha(opacity=100);\n}\n\n.btn-neutral.btn-fill:hover, .btn-neutral.btn-fill:focus, .btn-neutral.btn-fill:active, .btn-neutral.btn-fill.active, .open > .btn-neutral.btn-fill.dropdown-toggle {\n    background-color: #FFFFFF;\n    color: #FFFFFF;\n    border-color: #FFFFFF;\n}\n\n.btn-neutral.btn-fill .caret {\n    border-top-color: #FFFFFF;\n}\n\n.btn-neutral.btn-simple:hover, .btn-neutral.btn-simple:focus, .btn-neutral.btn-simple:active, .btn-neutral.btn-simple.active, .open > .btn-neutral.btn-simple.dropdown-toggle {\n    background-color: transparent;\n    color: #FFFFFF;\n}\n\n.btn-neutral.btn-simple .caret {\n    border-top-color: #FFFFFF;\n}\n\n.btn-neutral .caret {\n    border-top-color: #FFFFFF;\n}\n\n.btn-neutral:hover, .btn-neutral:focus {\n    color: #66615B;\n}\n\n.btn-neutral:active, .btn-neutral.active, .open > .btn-neutral.dropdown-toggle {\n    background-color: #FFFFFF;\n    color: #66615B;\n}\n\n.btn-neutral.btn-fill {\n    color: #66615B;\n}\n\n.btn-neutral.btn-fill:hover, .btn-neutral.btn-fill:focus {\n    color: #403D39;\n}\n\n.btn-neutral.btn-simple:active, .btn-neutral.btn-simple.active {\n    background-color: transparent;\n}\n\n.btn:disabled, .btn[disabled], .btn.disabled {\n    opacity: 0.5;\n    filter: alpha(opacity=50);\n}\n\n.btn-simple {\n    border: 0;\n    padding: 7px 18px;\n}\n\n.btn-simple.btn-icon {\n    padding: 7px;\n}\n\n.btn-lg {\n    font-size: 18px;\n    border-radius: 50px;\n    padding: 11px 30px;\n    font-weight: 400;\n}\n\n.btn-lg.btn-simple {\n    padding: 13px 30px;\n}\n\n.btn-sm {\n    font-size: 12px;\n    border-radius: 26px;\n    padding: 4px 10px;\n}\n\n.btn-sm.btn-simple {\n    padding: 6px 10px;\n}\n\n.btn-xs {\n    font-size: 12px;\n    border-radius: 26px;\n    padding: 2px 5px;\n}\n\n.btn-xs.btn-simple {\n    padding: 4px 5px;\n}\n\n.btn-wd {\n    min-width: 140px;\n}\n\n.btn-group.select {\n    width: 100%;\n}\n\n.btn-group.select .btn {\n    text-align: left;\n}\n\n.btn-group.select .caret {\n    position: absolute;\n    top: 50%;\n    margin-top: -1px;\n    right: 8px;\n}\n\n.form-control::-moz-placeholder {\n    color: #DDDDDD;\n    opacity: 1;\n    filter: alpha(opacity=100);\n}\n\n.form-control:-moz-placeholder {\n    color: #DDDDDD;\n    opacity: 1;\n    filter: alpha(opacity=100);\n}\n\n.form-control::-webkit-input-placeholder {\n    color: #DDDDDD;\n    opacity: 1;\n    filter: alpha(opacity=100);\n}\n\n.form-control:-ms-input-placeholder {\n    color: #DDDDDD;\n    opacity: 1;\n    filter: alpha(opacity=100);\n}\n\n.form-control {\n    background-color: #fffcf5;\n    border: medium none;\n    border-radius: 4px;\n    color: #66615b;\n    font-size: 14px;\n    transition: background-color 0.3s ease 0s;\n    padding: 7px 18px;\n    height: 40px;\n    -webkit-box-shadow: none;\n    box-shadow: none;\n}\n\n.input-with-icon{\n    position: relative;\n}\n\n.input-with-icon .form-control {\n    height: 35px;\n    padding-left: 30px;\n    background-color: #fff;\n    border: 1px solid #d5d5d5;\n    border-radius: 4px;\n    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);\n    -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;\n    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s\n}\n.input-with-icon .form-control:focus {\n    border-color: #ffa000;\n    outline: 0;\n    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(255, 160, 0, .6)\n}\n.login .login-container .login-form .btn-primary-outline-login{\n    border-color:#ffa000;\n    color: #ffa000;\n    background-color: transparent;\n}\n.login .login-container .login-form .btn-primary-outline-login:hover{\n    border-color:#ffa000;\n    color: #fff;\n    background-color: #ffa000;\n}\n.form-control:focus {\n    background-color: #FFFFFF;\n    -webkit-box-shadow: none;\n    box-shadow: none;\n    outline: 0 !important;\n}\n\n.has-success .form-control, .has-error .form-control, .has-success .form-control:focus, .has-error .form-control:focus {\n    -webkit-box-shadow: none;\n    box-shadow: none;\n}\n\n.has-success .form-control {\n    background-color: #ABF3CB;\n    color: #7AC29A;\n}\n\n.has-success .form-control.border-input {\n    border: 1px solid #7AC29A;\n}\n\n.has-success .form-control:focus {\n    background-color: #FFFFFF;\n}\n\n.has-error .form-control {\n    background-color: #FFC0A4;\n    color: #EB5E28;\n}\n\n.has-error .form-control.border-input {\n    border: 1px solid #EB5E28;\n}\n\n.has-error .form-control:focus {\n    background-color: #FFFFFF;\n}\n\n.form-control + .form-control-feedback {\n    border-radius: 6px;\n    font-size: 14px;\n    margin-top: -7px;\n    position: absolute;\n    right: 10px;\n    top: 50%;\n    vertical-align: middle;\n}\n\n.form-control.border-input {\n    border: 1px solid #CCC5B9;\n}\n\n.open .form-control {\n    border-bottom-color: transparent;\n}\n\n.input-lg {\n    height: 55px;\n    padding: 11px 30px;\n}\n\n.has-error .form-control-feedback, .has-error .control-label {\n    color: #EB5E28;\n}\n\n.has-success .form-control-feedback, .has-success .control-label {\n    color: #7AC29A;\n}\n\n.input-group-addon {\n    background-color: #fffcf5;\n    border: medium none;\n    border-radius: 4px;\n}\n\n.has-success .input-group-addon, .has-error .input-group-addon {\n    background-color: #FFFFFF;\n}\n\n.has-error .form-control:focus + .input-group-addon {\n    color: #EB5E28;\n}\n\n.has-success .form-control:focus + .input-group-addon {\n    color: #7AC29A;\n}\n\n.form-control:focus + .input-group-addon, .form-control:focus ~ .input-group-addon {\n    background-color: #FFFFFF;\n}\n\n.border-input .input-group-addon {\n    border: solid 1px #CCC5B9;\n}\n\n.input-group {\n    margin-bottom: 15px;\n}\n\n.input-group[disabled] .input-group-addon {\n    background-color: #E3E3E3;\n}\n\n.input-group .form-control:first-child,\n.input-group-addon:first-child,\n.input-group-btn:first-child > .dropdown-toggle,\n.input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle) {\n    border-right: 0 none;\n}\n\n.input-group .form-control:last-child,\n.input-group-addon:last-child,\n.input-group-btn:last-child > .dropdown-toggle,\n.input-group-btn:first-child > .btn:not(:first-child) {\n    border-left: 0 none;\n}\n\n.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {\n    background-color: #E3E3E3;\n    cursor: not-allowed;\n    color: #9A9A9A;\n    opacity: 1;\n    filter: alpha(opacity=100);\n}\n\n.form-control[disabled]::-moz-placeholder {\n    color: #9A9A9A;\n    opacity: 1;\n    filter: alpha(opacity=100);\n}\n\n.form-control[disabled]:-moz-placeholder {\n    color: #DDDDDD;\n    opacity: 1;\n    filter: alpha(opacity=100);\n}\n\n.form-control[disabled]::-webkit-input-placeholder {\n    color: #DDDDDD;\n    opacity: 1;\n    filter: alpha(opacity=100);\n}\n\n.form-control[disabled]:-ms-input-placeholder {\n    color: #DDDDDD;\n    opacity: 1;\n    filter: alpha(opacity=100);\n}\n\n.input-group-btn .btn {\n    border-width: 1px;\n    padding: 9px 18px;\n}\n\n.input-group-btn .btn-default:not(.btn-fill) {\n    border-color: #DDDDDD;\n}\n\n.input-group-btn:last-child > .btn {\n    margin-left: 0;\n}\n\ntextarea.form-control {\n    max-width: 100%;\n    padding: 10px 18px;\n    resize: none;\n}\n\n.alert {\n    border: 0;\n    border-radius: 0;\n    color: #FFFFFF;\n    padding: 10px 15px;\n    font-size: 14px;\n}\n\n.container .alert {\n    border-radius: 4px;\n}\n\n.navbar .alert {\n    border-radius: 0;\n    left: 0;\n    position: absolute;\n    right: 0;\n    top: 85px;\n    width: 100%;\n    z-index: 3;\n}\n\n.navbar:not(.navbar-transparent) .alert {\n    top: 70px;\n}\n\n.alert span[data-notify=\"icon\"] {\n    font-size: 30px;\n    display: block;\n    left: 15px;\n    position: absolute;\n    top: 50%;\n    margin-top: -20px;\n}\n\n.alert .close ~ span {\n    display: block;\n    max-width: 89%;\n}\n\n.alert[data-notify=\"container\"] {\n    padding: 10px 10px 10px 20px;\n    border-radius: 4px;\n}\n\n.alert.alert-with-icon {\n    padding-left: 65px;\n}\n\n.alert-info {\n    background-color: #7CE4FE;\n    color: #3091B2;\n}\n\n.alert-success {\n    background-color: #8EF3C5;\n    color: #42A084;\n}\n\n.alert-warning {\n    background-color: #FFE28C;\n    color: #BB992F;\n}\n\n.alert-danger {\n    background-color: #FF8F5E;\n    color: #B33C12;\n}\n\n.table thead tr > th,\n.table thead tr > td,\n.table tbody tr > th,\n.table tbody tr > td,\n.table tfoot tr > th,\n.table tfoot tr > td {\n    border-top: 1px solid #CCC5B9;\n}\n\n.table > thead > tr > th {\n    border-bottom-width: 0;\n    font-size: 1.25em;\n    font-weight: 300;\n}\n\n.table .radio,\n.table .checkbox {\n    margin-top: 0;\n    margin-bottom: 22px;\n    padding: 0;\n    width: 15px;\n}\n\n.table > thead > tr > th,\n.table > tbody > tr > th,\n.table > tfoot > tr > th,\n.table > thead > tr > td,\n.table > tbody > tr > td,\n.table > tfoot > tr > td {\n    padding: 12px;\n    vertical-align: middle;\n}\n\n.table .th-description {\n    max-width: 150px;\n}\n\n.table .td-price {\n    font-size: 26px;\n    font-weight: 300;\n    margin-top: 5px;\n    text-align: right;\n}\n\n.table .td-total {\n    font-weight: 600;\n    font-size: 1.25em;\n    padding-top: 20px;\n    text-align: right;\n}\n\n.table .td-actions .btn.btn-sm, .table .td-actions .btn.btn-xs {\n    padding-left: 3px;\n    padding-right: 3px;\n}\n\n.table > tbody > tr {\n    position: relative;\n}\n\n.table-striped tbody > tr:nth-of-type(2n+1) {\n    background-color: #fff;\n}\n\n.table-striped tbody > tr:nth-of-type(2n) {\n    background-color: #FFFCF5;\n}\n\n.table-striped > thead > tr > th,\n.table-striped > tbody > tr > th,\n.table-striped > tfoot > tr > th,\n.table-striped > thead > tr > td,\n.table-striped > tbody > tr > td,\n.table-striped > tfoot > tr > td {\n    padding: 15px 8px;\n}\n\n/*      Checkbox and radio         */\n.checkbox,\n.radio {\n    margin-bottom: 12px;\n    padding-left: 30px;\n    position: relative;\n    -webkit-transition: color, opacity 0.25s linear;\n    transition: color, opacity 0.25s linear;\n    font-size: 14px;\n    font-weight: normal;\n    line-height: 1.5;\n    color: #66615b;\n    cursor: pointer;\n}\n\n.checkbox .icons,\n.radio .icons {\n    color: #66615b;\n    display: block;\n    height: 20px;\n    left: 0;\n    position: absolute;\n    top: 0;\n    width: 20px;\n    text-align: center;\n    line-height: 21px;\n    font-size: 20px;\n    cursor: pointer;\n    -webkit-transition: color, opacity 0.15s linear;\n    transition: color, opacity 0.15s linear;\n    opacity: .50;\n}\n\n.checkbox.checked .icons,\n.radio.checked .icons {\n    opacity: 1;\n}\n\n.checkbox input,\n.radio input {\n    outline: none !important;\n    display: none;\n}\n\n.checkbox label,\n.radio label {\n    padding-left: 10px;\n}\n\n.checkbox .icons .first-icon,\n.radio .icons .first-icon,\n.checkbox .icons .second-icon,\n.radio .icons .second-icon {\n    display: inline-table;\n    position: absolute;\n    left: 0;\n    top: 0;\n    background-color: transparent;\n    margin: 0;\n    opacity: 1;\n    filter: alpha(opacity=100);\n}\n\n.checkbox .icons .second-icon,\n.radio .icons .second-icon {\n    opacity: 0;\n    filter: alpha(opacity=0);\n}\n\n.checkbox:hover,\n.radio:hover {\n    -webkit-transition: color 0.2s linear;\n    transition: color 0.2s linear;\n}\n\n.checkbox:hover .first-icon,\n.radio:hover .first-icon {\n    opacity: 0;\n    filter: alpha(opacity=0);\n}\n\n.checkbox:hover .second-icon,\n.radio:hover .second-icon {\n    opacity: 1;\n    filter: alpha(opacity=100);\n}\n\n.checkbox.checked .first-icon,\n.radio.checked .first-icon {\n    opacity: 0;\n    filter: alpha(opacity=0);\n}\n\n.checkbox.checked .second-icon,\n.radio.checked .second-icon {\n    opacity: 1;\n    filter: alpha(opacity=100);\n    -webkit-transition: color 0.2s linear;\n    transition: color 0.2s linear;\n}\n\n.checkbox.disabled,\n.radio.disabled {\n    cursor: default;\n    color: #DDDDDD;\n}\n\n.checkbox.disabled .icons,\n.radio.disabled .icons {\n    color: #DDDDDD;\n}\n\n.checkbox.disabled .first-icon,\n.radio.disabled .first-icon {\n    opacity: 1;\n    filter: alpha(opacity=100);\n}\n\n.checkbox.disabled .second-icon,\n.radio.disabled .second-icon {\n    opacity: 0;\n    filter: alpha(opacity=0);\n}\n\n.checkbox.disabled.checked .icons,\n.radio.disabled.checked .icons {\n    color: #DDDDDD;\n}\n\n.checkbox.disabled.checked .first-icon,\n.radio.disabled.checked .first-icon {\n    opacity: 0;\n    filter: alpha(opacity=0);\n}\n\n.checkbox.disabled.checked .second-icon,\n.radio.disabled.checked .second-icon {\n    opacity: 1;\n    color: #DDDDDD;\n    filter: alpha(opacity=100);\n}\n\n.nav > li > a:hover,\n.nav > li > a:focus {\n    background-color: transparent;\n}\n\n.navbar {\n    border: 0;\n    border-radius: 0;\n    font-size: 16px;\n    z-index: 3;\n}\n\n.navbar .navbar-brand {\n    font-weight: 600;\n    margin: 5px 0px;\n    padding: 20px 15px;\n    font-size: 20px;\n}\n\n.navbar .navbar-nav > li > a {\n    line-height: 1.42857;\n    margin: 15px 0px;\n    padding: 10px 15px;\n}\n\n.navbar .navbar-nav > li > a i,\n.navbar .navbar-nav > li > a p {\n    display: inline-block;\n    margin: 0;\n}\n\n.navbar .navbar-nav > li > a i {\n    position: relative;\n    top: 1px;\n}\n\n.navbar .navbar-nav > li > a.btn {\n    margin: 15px 3px;\n    padding: 7px 18px;\n}\n\n.navbar .btn {\n    margin: 15px 3px;\n    font-size: 14px;\n}\n\n.navbar .btn-simple {\n    font-size: 16px;\n}\n\n.navbar-nav > li > .dropdown-menu {\n    border-radius: 6px;\n    margin-top: -5px;\n}\n\n.navbar-default {\n    background-color: #f4f3ef;\n    border-bottom: 1px solid #DDDDDD;\n}\n\n.navbar-default .brand {\n    color: #66615b !important;\n}\n\n.navbar-default .navbar-nav > li > a:not(.btn) {\n    color: #9A9A9A;\n}\n\n.navbar-default .navbar-nav > .active > a,\n.navbar-default .navbar-nav > .active > a:not(.btn):hover,\n.navbar-default .navbar-nav > .active > a:not(.btn):focus,\n.navbar-default .navbar-nav > li > a:not(.btn):hover,\n.navbar-default .navbar-nav > li > a:not(.btn):focus {\n    background-color: transparent;\n    border-radius: 3px;\n    color: #68B3C8;\n    opacity: 1;\n    filter: alpha(opacity=100);\n}\n\n.navbar-default .navbar-nav > .dropdown > a:hover .caret,\n.navbar-default .navbar-nav > .dropdown > a:focus .caret {\n    border-bottom-color: #68B3C8;\n    border-top-color: #68B3C8;\n}\n\n.navbar-default .navbar-nav > .open > a,\n.navbar-default .navbar-nav > .open > a:hover,\n.navbar-default .navbar-nav > .open > a:focus {\n    background-color: transparent;\n    color: #68B3C8;\n}\n\n.navbar-default .navbar-nav .navbar-toggle:hover, .navbar-default .navbar-nav .navbar-toggle:focus {\n    background-color: transparent;\n}\n\n.navbar-default:not(.navbar-transparent) .btn-default:hover {\n    color: #68B3C8;\n    border-color: #68B3C8;\n}\n\n.navbar-default:not(.navbar-transparent) .btn-neutral, .navbar-default:not(.navbar-transparent) .btn-neutral:hover, .navbar-default:not(.navbar-transparent) .btn-neutral:active {\n    color: #9A9A9A;\n}\n\n.navbar-form {\n    -webkit-box-shadow: none;\n    box-shadow: none;\n}\n\n.navbar-form .form-control {\n    border-radius: 0;\n    border: 0;\n    padding: 0;\n    background-color: transparent;\n    height: 22px;\n    font-size: 16px;\n    line-height: 1.4em;\n    color: #E3E3E3;\n}\n\n.navbar-transparent .navbar-form .form-control, [class*=\"navbar-ct\"] .navbar-form .form-control {\n    color: #FFFFFF;\n    border: 0;\n    border-bottom: 1px solid rgba(255, 255, 255, 0.6);\n}\n\n.navbar-ct-primary {\n    background-color: #8ECFD5;\n}\n\n.navbar-ct-info {\n    background-color: #7CE4FE;\n}\n\n.navbar-ct-success {\n    background-color: #8EF3C5;\n}\n\n.navbar-ct-warning {\n    background-color: #FFE28C;\n}\n\n.navbar-ct-danger {\n    background-color: #FF8F5E;\n}\n\n.navbar-transparent {\n    padding-top: 15px;\n    background-color: transparent;\n    border-bottom: 1px solid transparent;\n}\n\n.navbar-toggle {\n    margin-top: 19px;\n    margin-bottom: 19px;\n    border: 0;\n}\n\n.navbar-toggle .icon-bar {\n    background-color: #FFFFFF;\n}\n\n.navbar-toggle .navbar-collapse,\n.navbar-toggle .navbar-form {\n    border-color: transparent;\n}\n\n.navbar-toggle.navbar-default .navbar-toggle:hover, .navbar-toggle.navbar-default .navbar-toggle:focus {\n    background-color: transparent;\n}\n\n.navbar-transparent .navbar-brand, [class*=\"navbar-ct\"] .navbar-brand {\n    opacity: 0.9;\n    filter: alpha(opacity=90);\n}\n\n.navbar-transparent .navbar-brand:focus, .navbar-transparent .navbar-brand:hover, [class*=\"navbar-ct\"] .navbar-brand:focus, [class*=\"navbar-ct\"] .navbar-brand:hover {\n    background-color: transparent;\n    opacity: 1;\n    filter: alpha(opacity=100);\n}\n\n.navbar-transparent .navbar-brand:not([class*=\"text\"]), [class*=\"navbar-ct\"] .navbar-brand:not([class*=\"text\"]) {\n    color: #FFFFFF;\n}\n\n.navbar-transparent .navbar-nav > li > a:not(.btn), [class*=\"navbar-ct\"] .navbar-nav > li > a:not(.btn) {\n    color: #FFFFFF;\n    border-color: #FFFFFF;\n    opacity: 0.8;\n    filter: alpha(opacity=80);\n}\n\n.navbar-transparent .navbar-nav > .active > a:not(.btn),\n.navbar-transparent .navbar-nav > .active > a:hover:not(.btn),\n.navbar-transparent .navbar-nav > .active > a:focus:not(.btn),\n.navbar-transparent .navbar-nav > li > a:hover:not(.btn),\n.navbar-transparent .navbar-nav > li > a:focus:not(.btn), [class*=\"navbar-ct\"] .navbar-nav > .active > a:not(.btn),\n[class*=\"navbar-ct\"] .navbar-nav > .active > a:hover:not(.btn),\n[class*=\"navbar-ct\"] .navbar-nav > .active > a:focus:not(.btn),\n[class*=\"navbar-ct\"] .navbar-nav > li > a:hover:not(.btn),\n[class*=\"navbar-ct\"] .navbar-nav > li > a:focus:not(.btn) {\n    background-color: transparent;\n    border-radius: 3px;\n    color: #FFFFFF;\n    opacity: 1;\n    filter: alpha(opacity=100);\n}\n\n.navbar-transparent .navbar-nav .nav > li > a.btn:hover, [class*=\"navbar-ct\"] .navbar-nav .nav > li > a.btn:hover {\n    background-color: transparent;\n}\n\n.navbar-transparent .navbar-nav > .dropdown > a .caret,\n.navbar-transparent .navbar-nav > .dropdown > a:hover .caret,\n.navbar-transparent .navbar-nav > .dropdown > a:focus .caret, [class*=\"navbar-ct\"] .navbar-nav > .dropdown > a .caret,\n[class*=\"navbar-ct\"] .navbar-nav > .dropdown > a:hover .caret,\n[class*=\"navbar-ct\"] .navbar-nav > .dropdown > a:focus .caret {\n    border-bottom-color: #FFFFFF;\n    border-top-color: #FFFFFF;\n}\n\n.navbar-transparent .navbar-nav > .open > a,\n.navbar-transparent .navbar-nav > .open > a:hover,\n.navbar-transparent .navbar-nav > .open > a:focus, [class*=\"navbar-ct\"] .navbar-nav > .open > a,\n[class*=\"navbar-ct\"] .navbar-nav > .open > a:hover,\n[class*=\"navbar-ct\"] .navbar-nav > .open > a:focus {\n    background-color: transparent;\n    color: #FFFFFF;\n    opacity: 1;\n    filter: alpha(opacity=100);\n}\n\n.navbar-transparent .btn-default, [class*=\"navbar-ct\"] .btn-default {\n    color: #FFFFFF;\n    border-color: #FFFFFF;\n}\n\n.navbar-transparent .btn-default.btn-fill, [class*=\"navbar-ct\"] .btn-default.btn-fill {\n    color: #9A9A9A;\n    background-color: #FFFFFF;\n    opacity: 0.9;\n    filter: alpha(opacity=90);\n}\n\n.navbar-transparent .btn-default.btn-fill:hover,\n.navbar-transparent .btn-default.btn-fill:focus,\n.navbar-transparent .btn-default.btn-fill:active,\n.navbar-transparent .btn-default.btn-fill.active,\n.navbar-transparent .open .dropdown-toggle.btn-fill.btn-default, [class*=\"navbar-ct\"] .btn-default.btn-fill:hover,\n[class*=\"navbar-ct\"] .btn-default.btn-fill:focus,\n[class*=\"navbar-ct\"] .btn-default.btn-fill:active,\n[class*=\"navbar-ct\"] .btn-default.btn-fill.active,\n[class*=\"navbar-ct\"] .open .dropdown-toggle.btn-fill.btn-default {\n    border-color: #FFFFFF;\n    opacity: 1;\n    filter: alpha(opacity=100);\n}\n\n.footer {\n    background-attachment: fixed;\n    position: relative;\n    line-height: 20px;\n}\n\n.footer nav ul {\n    list-style: none;\n    margin: 0;\n    padding: 0;\n    font-weight: normal;\n}\n\n.footer nav ul li {\n    display: inline-block;\n    padding: 10px 15px;\n    margin: 15px 3px;\n    line-height: 20px;\n    text-align: center;\n}\n\n.footer nav ul a:not(.btn) {\n    color: #66615b;\n    display: block;\n    margin-bottom: 3px;\n}\n\n.footer nav ul a:not(.btn):focus, .footer nav ul a:not(.btn):hover {\n    color: #403D39;\n}\n\n.footer .copyright {\n    color: #66615b;\n    padding: 10px 15px;\n    font-size: 14px;\n    white-space: nowrap;\n    margin: 15px 3px;\n    line-height: 20px;\n    text-align: center;\n}\n\n.footer .heart {\n    color: #EB5E28;\n}\n\n.dropdown-menu {\n    background-color: #FFFCF5;\n    border: 0 none;\n    border-radius: 6px;\n    display: block;\n    margin-top: 10px;\n    padding: 0px;\n    position: absolute;\n    visibility: hidden;\n    z-index: 9000;\n    opacity: 0;\n    filter: alpha(opacity=0);\n    -webkit-box-shadow: 0 2px rgba(17, 16, 15, 0.1), 0 2px 10px rgba(17, 16, 15, 0.1);\n    box-shadow: 0 2px rgba(17, 16, 15, 0.1), 0 2px 10px rgba(17, 16, 15, 0.1);\n}\n\n.open .dropdown-menu {\n    opacity: 1;\n    filter: alpha(opacity=100);\n    visibility: visible;\n}\n\n.dropdown-menu .divider {\n    background-color: #F1EAE0;\n    margin: 0px;\n}\n\n.dropdown-menu .dropdown-header {\n    color: #9A9A9A;\n    font-size: 12px;\n    padding: 10px 15px;\n}\n\n.select .dropdown-menu {\n    border-radius: 0 0 10px 10px;\n    -webkit-box-shadow: none;\n    box-shadow: none;\n    -webkit-transform-origin: 50% -40px;\n    -moz-transform-origin: 50% -40px;\n    -o-transform-origin: 50% -40px;\n    -ms-transform-origin: 50% -40px;\n    transform-origin: 50% -40px;\n    -webkit-transform: scale(1);\n    -moz-transform: scale(1);\n    -o-transform: scale(1);\n    -ms-transform: scale(1);\n    transform: scale(1);\n    -webkit-transition: all 150ms linear;\n    -moz-transition: all 150ms linear;\n    -o-transition: all 150ms linear;\n    -ms-transition: all 150ms linear;\n    transition: all 150ms linear;\n    margin-top: -20px;\n}\n\n.select.open .dropdown-menu {\n    margin-top: -1px;\n}\n\n.dropdown-menu > li > a {\n    color: #66615b;\n    font-size: 14px;\n    padding: 10px 15px;\n    -webkit-transition: none;\n    -moz-transition: none;\n    -o-transition: none;\n    -ms-transition: none;\n    transition: none;\n}\n\n.dropdown-menu > li > a img {\n    margin-top: -3px;\n}\n\n.dropdown-menu > li > a:focus {\n    outline: 0 !important;\n}\n\n.btn-group.select .dropdown-menu {\n    min-width: 100%;\n}\n\n.dropdown-menu > li:first-child > a {\n    border-top-left-radius: 6px;\n    border-top-right-radius: 6px;\n}\n\n.dropdown-menu > li:last-child > a {\n    border-bottom-left-radius: 6px;\n    border-bottom-right-radius: 6px;\n}\n\n.select .dropdown-menu > li:first-child > a {\n    border-radius: 0;\n    border-bottom: 0 none;\n}\n\n.dropdown-menu > li > a:hover,\n.dropdown-menu > li > a:focus {\n    background-color: #66615B;\n    color: rgba(255, 255, 255, 0.7);\n    opacity: 1;\n    text-decoration: none;\n}\n\n.dropdown-menu.dropdown-primary > li > a:hover, .dropdown-menu.dropdown-primary > li > a:focus {\n    background-color: #7A9E9F;\n}\n\n.dropdown-menu.dropdown-info > li > a:hover, .dropdown-menu.dropdown-info > li > a:focus {\n    background-color: #68B3C8;\n}\n\n.dropdown-menu.dropdown-success > li > a:hover, .dropdown-menu.dropdown-success > li > a:focus {\n    background-color: #7AC29A;\n}\n\n.dropdown-menu.dropdown-warning > li > a:hover, .dropdown-menu.dropdown-warning > li > a:focus {\n    background-color: #F3BB45;\n}\n\n.dropdown-menu.dropdown-danger > li > a:hover, .dropdown-menu.dropdown-danger > li > a:focus {\n    background-color: #EB5E28;\n}\n\n.btn-group.select {\n    overflow: hidden;\n}\n\n.btn-group.select.open {\n    overflow: visible;\n}\n\n.card {\n    border-radius: 6px;\n    box-shadow: 0 2px 2px rgba(204, 197, 185, 0.5);\n    background-color: #FFFFFF;\n    color: #252422;\n    margin-bottom: 20px;\n    position: relative;\n    z-index: 1;\n}\n\n.card .image {\n    width: 100%;\n    overflow: hidden;\n    height: 260px;\n    border-radius: 6px 6px 0 0;\n    position: relative;\n    -webkit-transform-style: preserve-3d;\n    -moz-transform-style: preserve-3d;\n    transform-style: preserve-3d;\n}\n\n.card .image img {\n    width: 100%;\n}\n\n.card .content {\n    padding: 15px 15px 10px 15px;\n}\n\n.card .header {\n    padding: 20px 20px 0;\n}\n\n.card .description {\n    font-size: 16px;\n    color: #66615b;\n}\n\n.card h6 {\n    font-size: 12px;\n    margin: 0;\n}\n\n.card .category,\n.card label {\n    font-size: 14px;\n    font-weight: 400;\n    color: #9A9A9A;\n    margin-bottom: 0px;\n}\n\n.card .category i,\n.card label i {\n    font-size: 16px;\n}\n\n.card label {\n    font-size: 15px;\n    margin-bottom: 5px;\n}\n\n.card .title {\n    margin: 0;\n    color: #252422;\n    font-weight: 300;\n}\n\n.card .avatar {\n    width: 50px;\n    height: 50px;\n    overflow: hidden;\n    border-radius: 50%;\n    margin-right: 5px;\n}\n\n.card .footer {\n    padding: 0;\n    line-height: 30px;\n}\n\n.card .footer .legend {\n    padding: 5px 0;\n}\n\n.card .footer hr {\n    margin-top: 5px;\n    margin-bottom: 5px;\n}\n\n.card .stats {\n    color: #a9a9a9;\n    font-weight: 300;\n}\n\n.card .stats i {\n    margin-right: 2px;\n    min-width: 15px;\n    display: inline-block;\n}\n\n.card .footer div {\n    display: inline-block;\n}\n\n.card .author {\n    font-size: 12px;\n    font-weight: 600;\n    text-transform: uppercase;\n}\n\n.card .author i {\n    font-size: 14px;\n}\n\n.card.card-separator:after {\n    height: 100%;\n    right: -15px;\n    top: 0;\n    width: 1px;\n    background-color: #DDDDDD;\n    content: \"\";\n    position: absolute;\n}\n\n.card .ct-chart {\n    margin: 30px 0 30px;\n    height: 245px;\n}\n\n.card .table tbody td:first-child,\n.card .table thead th:first-child {\n    padding-left: 15px;\n}\n\n.card .table tbody td:last-child,\n.card .table thead th:last-child {\n    padding-right: 15px;\n}\n\n.card .alert {\n    border-radius: 4px;\n    position: relative;\n}\n\n.card .alert.alert-with-icon {\n    padding-left: 65px;\n}\n\n.card .icon-big {\n    font-size: 3em;\n    min-height: 64px;\n}\n\n.card .numbers {\n    font-size: 2em;\n    text-align: right;\n}\n\n.card .numbers p {\n    margin: 0;\n}\n\n.card ul.team-members li {\n    padding: 10px 0px;\n}\n\n.card ul.team-members li:not(:last-child) {\n    border-bottom: 1px solid #F1EAE0;\n}\n\n.card-user .image {\n    border-radius: 8px 8px 0 0;\n    height: 150px;\n    position: relative;\n    overflow: hidden;\n}\n\n.card-user .image img {\n    width: 100%;\n}\n\n.card-user .image-plain {\n    height: 0;\n    margin-top: 110px;\n}\n\n.card-user .author {\n    text-align: center;\n    text-transform: none;\n    margin-top: -65px;\n}\n\n.card-user .author .title {\n    color: #403D39;\n}\n\n.card-user .author .title small {\n    color: #ccc5b9;\n}\n\n.card-user .avatar {\n    width: 100px;\n    height: 100px;\n    border-radius: 50%;\n    position: relative;\n    margin-bottom: 15px;\n}\n\n.card-user .avatar.border-white {\n    border: 5px solid #FFFFFF;\n}\n\n.card-user .avatar.border-gray {\n    border: 5px solid #ccc5b9;\n}\n\n.card-user .title {\n    font-weight: 600;\n    line-height: 24px;\n}\n\n.card-user .description {\n    margin-top: 10px;\n}\n\n.card-user .content {\n    min-height: 200px;\n}\n\n.card-user.card-plain .avatar {\n    height: 190px;\n    width: 190px;\n}\n\n.card-map .map {\n    height: 500px;\n    padding-top: 20px;\n}\n\n.card-map .map > div {\n    height: 100%;\n}\n\n.card-user .footer,\n.card-price .footer {\n    padding: 5px 15px 10px;\n}\n\n.card-user hr,\n.card-price hr {\n    margin: 5px 15px;\n}\n\n.card-plain {\n    background-color: transparent;\n    box-shadow: none;\n    border-radius: 0;\n}\n\n.card-plain .image {\n    border-radius: 4px;\n}\n\n.ct-label {\n    fill: rgba(0, 0, 0, 0.4);\n    color: rgba(0, 0, 0, 0.4);\n    font-size: 0.9em;\n    line-height: 1;\n}\n\n.ct-chart-line .ct-label,\n.ct-chart-bar .ct-label {\n    display: block;\n    display: -webkit-box;\n    display: -moz-box;\n    display: -ms-flexbox;\n    display: -webkit-flex;\n    display: flex;\n}\n\n.ct-label.ct-horizontal.ct-start {\n    -webkit-box-align: flex-end;\n    -webkit-align-items: flex-end;\n    -ms-flex-align: flex-end;\n    align-items: flex-end;\n    -webkit-box-pack: flex-start;\n    -webkit-justify-content: flex-start;\n    -ms-flex-pack: flex-start;\n    justify-content: flex-start;\n    text-align: left;\n    text-anchor: start;\n}\n\n.ct-label.ct-horizontal.ct-end {\n    -webkit-box-align: flex-start;\n    -webkit-align-items: flex-start;\n    -ms-flex-align: flex-start;\n    align-items: flex-start;\n    -webkit-box-pack: flex-start;\n    -webkit-justify-content: flex-start;\n    -ms-flex-pack: flex-start;\n    justify-content: flex-start;\n    text-align: left;\n    text-anchor: start;\n}\n\n.ct-label.ct-vertical.ct-start {\n    -webkit-box-align: flex-end;\n    -webkit-align-items: flex-end;\n    -ms-flex-align: flex-end;\n    align-items: flex-end;\n    -webkit-box-pack: flex-end;\n    -webkit-justify-content: flex-end;\n    -ms-flex-pack: flex-end;\n    justify-content: flex-end;\n    text-align: right;\n    text-anchor: end;\n}\n\n.ct-label.ct-vertical.ct-end {\n    -webkit-box-align: flex-end;\n    -webkit-align-items: flex-end;\n    -ms-flex-align: flex-end;\n    align-items: flex-end;\n    -webkit-box-pack: flex-start;\n    -webkit-justify-content: flex-start;\n    -ms-flex-pack: flex-start;\n    justify-content: flex-start;\n    text-align: left;\n    text-anchor: start;\n}\n\n.ct-chart-bar .ct-label.ct-horizontal.ct-start {\n    -webkit-box-align: flex-end;\n    -webkit-align-items: flex-end;\n    -ms-flex-align: flex-end;\n    align-items: flex-end;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n    -ms-flex-pack: center;\n    justify-content: center;\n    text-align: center;\n    text-anchor: start;\n}\n\n.ct-chart-bar .ct-label.ct-horizontal.ct-end {\n    -webkit-box-align: flex-start;\n    -webkit-align-items: flex-start;\n    -ms-flex-align: flex-start;\n    align-items: flex-start;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n    -ms-flex-pack: center;\n    justify-content: center;\n    text-align: center;\n    text-anchor: start;\n}\n\n.ct-chart-bar.ct-horizontal-bars .ct-label.ct-horizontal.ct-start {\n    -webkit-box-align: flex-end;\n    -webkit-align-items: flex-end;\n    -ms-flex-align: flex-end;\n    align-items: flex-end;\n    -webkit-box-pack: flex-start;\n    -webkit-justify-content: flex-start;\n    -ms-flex-pack: flex-start;\n    justify-content: flex-start;\n    text-align: left;\n    text-anchor: start;\n}\n\n.ct-chart-bar.ct-horizontal-bars .ct-label.ct-horizontal.ct-end {\n    -webkit-box-align: flex-start;\n    -webkit-align-items: flex-start;\n    -ms-flex-align: flex-start;\n    align-items: flex-start;\n    -webkit-box-pack: flex-start;\n    -webkit-justify-content: flex-start;\n    -ms-flex-pack: flex-start;\n    justify-content: flex-start;\n    text-align: left;\n    text-anchor: start;\n}\n\n.ct-chart-bar.ct-horizontal-bars .ct-label.ct-vertical.ct-start {\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n    -ms-flex-align: center;\n    align-items: center;\n    -webkit-box-pack: flex-end;\n    -webkit-justify-content: flex-end;\n    -ms-flex-pack: flex-end;\n    justify-content: flex-end;\n    text-align: right;\n    text-anchor: end;\n}\n\n.ct-chart-bar.ct-horizontal-bars .ct-label.ct-vertical.ct-end {\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n    -ms-flex-align: center;\n    align-items: center;\n    -webkit-box-pack: flex-start;\n    -webkit-justify-content: flex-start;\n    -ms-flex-pack: flex-start;\n    justify-content: flex-start;\n    text-align: left;\n    text-anchor: end;\n}\n\n.ct-grid {\n    stroke: rgba(0, 0, 0, 0.2);\n    stroke-width: 1px;\n    stroke-dasharray: 2px;\n}\n\n.ct-point {\n    stroke-width: 10px;\n    stroke-linecap: round;\n}\n\n.ct-line {\n    fill: none;\n    stroke-width: 4px;\n}\n\n.ct-area {\n    stroke: none;\n    fill-opacity: 0.7;\n}\n\n.ct-bar {\n    fill: none;\n    stroke-width: 10px;\n}\n\n.ct-slice-donut {\n    fill: none;\n    stroke-width: 60px;\n}\n\n.ct-series-a .ct-point, .ct-series-a .ct-line, .ct-series-a .ct-bar, .ct-series-a .ct-slice-donut {\n    stroke: #68B3C8;\n}\n\n.ct-series-a .ct-slice-pie, .ct-series-a .ct-area {\n    fill: #68B3C8;\n}\n\n.ct-series-b .ct-point, .ct-series-b .ct-line, .ct-series-b .ct-bar, .ct-series-b .ct-slice-donut {\n    stroke: #F3BB45;\n}\n\n.ct-series-b .ct-slice-pie, .ct-series-b .ct-area {\n    fill: #F3BB45;\n}\n\n.ct-series-c .ct-point, .ct-series-c .ct-line, .ct-series-c .ct-bar, .ct-series-c .ct-slice-donut {\n    stroke: #EB5E28;\n}\n\n.ct-series-c .ct-slice-pie, .ct-series-c .ct-area {\n    fill: #EB5E28;\n}\n\n.ct-series-d .ct-point, .ct-series-d .ct-line, .ct-series-d .ct-bar, .ct-series-d .ct-slice-donut {\n    stroke: #7AC29A;\n}\n\n.ct-series-d .ct-slice-pie, .ct-series-d .ct-area {\n    fill: #7AC29A;\n}\n\n.ct-series-e .ct-point, .ct-series-e .ct-line, .ct-series-e .ct-bar, .ct-series-e .ct-slice-donut {\n    stroke: #7A9E9F;\n}\n\n.ct-series-e .ct-slice-pie, .ct-series-e .ct-area {\n    fill: #7A9E9F;\n}\n\n.ct-series-f .ct-point, .ct-series-f .ct-line, .ct-series-f .ct-bar, .ct-series-f .ct-slice-donut {\n    stroke: rgba(104, 179, 200, 0.8);\n}\n\n.ct-series-f .ct-slice-pie, .ct-series-f .ct-area {\n    fill: rgba(104, 179, 200, 0.8);\n}\n\n.ct-series-g .ct-point, .ct-series-g .ct-line, .ct-series-g .ct-bar, .ct-series-g .ct-slice-donut {\n    stroke: rgba(122, 194, 154, 0.8);\n}\n\n.ct-series-g .ct-slice-pie, .ct-series-g .ct-area {\n    fill: rgba(122, 194, 154, 0.8);\n}\n\n.ct-series-h .ct-point, .ct-series-h .ct-line, .ct-series-h .ct-bar, .ct-series-h .ct-slice-donut {\n    stroke: rgba(243, 187, 69, 0.8);\n}\n\n.ct-series-h .ct-slice-pie, .ct-series-h .ct-area {\n    fill: rgba(243, 187, 69, 0.8);\n}\n\n.ct-series-i .ct-point, .ct-series-i .ct-line, .ct-series-i .ct-bar, .ct-series-i .ct-slice-donut {\n    stroke: rgba(235, 94, 40, 0.8);\n}\n\n.ct-series-i .ct-slice-pie, .ct-series-i .ct-area {\n    fill: rgba(235, 94, 40, 0.8);\n}\n\n.ct-series-j .ct-point, .ct-series-j .ct-line, .ct-series-j .ct-bar, .ct-series-j .ct-slice-donut {\n    stroke: rgba(122, 158, 159, 0.8);\n}\n\n.ct-series-j .ct-slice-pie, .ct-series-j .ct-area {\n    fill: rgba(122, 158, 159, 0.8);\n}\n\n.ct-series-k .ct-point, .ct-series-k .ct-line, .ct-series-k .ct-bar, .ct-series-k .ct-slice-donut {\n    stroke: rgba(104, 179, 200, 0.6);\n}\n\n.ct-series-k .ct-slice-pie, .ct-series-k .ct-area {\n    fill: rgba(104, 179, 200, 0.6);\n}\n\n.ct-series-l .ct-point, .ct-series-l .ct-line, .ct-series-l .ct-bar, .ct-series-l .ct-slice-donut {\n    stroke: rgba(122, 194, 154, 0.6);\n}\n\n.ct-series-l .ct-slice-pie, .ct-series-l .ct-area {\n    fill: rgba(122, 194, 154, 0.6);\n}\n\n.ct-series-m .ct-point, .ct-series-m .ct-line, .ct-series-m .ct-bar, .ct-series-m .ct-slice-donut {\n    stroke: rgba(243, 187, 69, 0.6);\n}\n\n.ct-series-m .ct-slice-pie, .ct-series-m .ct-area {\n    fill: rgba(243, 187, 69, 0.6);\n}\n\n.ct-series-n .ct-point, .ct-series-n .ct-line, .ct-series-n .ct-bar, .ct-series-n .ct-slice-donut {\n    stroke: rgba(235, 94, 40, 0.6);\n}\n\n.ct-series-n .ct-slice-pie, .ct-series-n .ct-area {\n    fill: rgba(235, 94, 40, 0.6);\n}\n\n.ct-series-o .ct-point, .ct-series-o .ct-line, .ct-series-o .ct-bar, .ct-series-o .ct-slice-donut {\n    stroke: rgba(122, 158, 159, 0.6);\n}\n\n.ct-series-o .ct-slice-pie, .ct-series-o .ct-area {\n    fill: rgba(122, 158, 159, 0.6);\n}\n\n.ct-square {\n    display: block;\n    position: relative;\n    width: 100%;\n}\n\n.ct-square:before {\n    display: block;\n    float: left;\n    content: \"\";\n    width: 0;\n    height: 0;\n    padding-bottom: 100%;\n}\n\n.ct-square:after {\n    content: \"\";\n    display: table;\n    clear: both;\n}\n\n.ct-square > svg {\n    display: block;\n    position: absolute;\n    top: 0;\n    left: 0;\n}\n\n.ct-minor-second {\n    display: block;\n    position: relative;\n    width: 100%;\n}\n\n.ct-minor-second:before {\n    display: block;\n    float: left;\n    content: \"\";\n    width: 0;\n    height: 0;\n    padding-bottom: 93.75%;\n}\n\n.ct-minor-second:after {\n    content: \"\";\n    display: table;\n    clear: both;\n}\n\n.ct-minor-second > svg {\n    display: block;\n    position: absolute;\n    top: 0;\n    left: 0;\n}\n\n.ct-major-second {\n    display: block;\n    position: relative;\n    width: 100%;\n}\n\n.ct-major-second:before {\n    display: block;\n    float: left;\n    content: \"\";\n    width: 0;\n    height: 0;\n    padding-bottom: 88.88889%;\n}\n\n.ct-major-second:after {\n    content: \"\";\n    display: table;\n    clear: both;\n}\n\n.ct-major-second > svg {\n    display: block;\n    position: absolute;\n    top: 0;\n    left: 0;\n}\n\n.ct-minor-third {\n    display: block;\n    position: relative;\n    width: 100%;\n}\n\n.ct-minor-third:before {\n    display: block;\n    float: left;\n    content: \"\";\n    width: 0;\n    height: 0;\n    padding-bottom: 83.33333%;\n}\n\n.ct-minor-third:after {\n    content: \"\";\n    display: table;\n    clear: both;\n}\n\n.ct-minor-third > svg {\n    display: block;\n    position: absolute;\n    top: 0;\n    left: 0;\n}\n\n.ct-major-third {\n    display: block;\n    position: relative;\n    width: 100%;\n}\n\n.ct-major-third:before {\n    display: block;\n    float: left;\n    content: \"\";\n    width: 0;\n    height: 0;\n    padding-bottom: 80%;\n}\n\n.ct-major-third:after {\n    content: \"\";\n    display: table;\n    clear: both;\n}\n\n.ct-major-third > svg {\n    display: block;\n    position: absolute;\n    top: 0;\n    left: 0;\n}\n\n.ct-perfect-fourth {\n    display: block;\n    position: relative;\n    width: 100%;\n}\n\n.ct-perfect-fourth:before {\n    display: block;\n    float: left;\n    content: \"\";\n    width: 0;\n    height: 0;\n    padding-bottom: 75%;\n}\n\n.ct-perfect-fourth:after {\n    content: \"\";\n    display: table;\n    clear: both;\n}\n\n.ct-perfect-fourth > svg {\n    display: block;\n    position: absolute;\n    top: 0;\n    left: 0;\n}\n\n.ct-perfect-fifth {\n    display: block;\n    position: relative;\n    width: 100%;\n}\n\n.ct-perfect-fifth:before {\n    display: block;\n    float: left;\n    content: \"\";\n    width: 0;\n    height: 0;\n    padding-bottom: 66.66667%;\n}\n\n.ct-perfect-fifth:after {\n    content: \"\";\n    display: table;\n    clear: both;\n}\n\n.ct-perfect-fifth > svg {\n    display: block;\n    position: absolute;\n    top: 0;\n    left: 0;\n}\n\n.ct-minor-sixth {\n    display: block;\n    position: relative;\n    width: 100%;\n}\n\n.ct-minor-sixth:before {\n    display: block;\n    float: left;\n    content: \"\";\n    width: 0;\n    height: 0;\n    padding-bottom: 62.5%;\n}\n\n.ct-minor-sixth:after {\n    content: \"\";\n    display: table;\n    clear: both;\n}\n\n.ct-minor-sixth > svg {\n    display: block;\n    position: absolute;\n    top: 0;\n    left: 0;\n}\n\n.ct-golden-section {\n    display: block;\n    position: relative;\n    width: 100%;\n}\n\n.ct-golden-section:before {\n    display: block;\n    float: left;\n    content: \"\";\n    width: 0;\n    height: 0;\n    padding-bottom: 61.8047%;\n}\n\n.ct-golden-section:after {\n    content: \"\";\n    display: table;\n    clear: both;\n}\n\n.ct-golden-section > svg {\n    display: block;\n    position: absolute;\n    top: 0;\n    left: 0;\n}\n\n.ct-major-sixth {\n    display: block;\n    position: relative;\n    width: 100%;\n}\n\n.ct-major-sixth:before {\n    display: block;\n    float: left;\n    content: \"\";\n    width: 0;\n    height: 0;\n    padding-bottom: 60%;\n}\n\n.ct-major-sixth:after {\n    content: \"\";\n    display: table;\n    clear: both;\n}\n\n.ct-major-sixth > svg {\n    display: block;\n    position: absolute;\n    top: 0;\n    left: 0;\n}\n\n.ct-minor-seventh {\n    display: block;\n    position: relative;\n    width: 100%;\n}\n\n.ct-minor-seventh:before {\n    display: block;\n    float: left;\n    content: \"\";\n    width: 0;\n    height: 0;\n    padding-bottom: 56.25%;\n}\n\n.ct-minor-seventh:after {\n    content: \"\";\n    display: table;\n    clear: both;\n}\n\n.ct-minor-seventh > svg {\n    display: block;\n    position: absolute;\n    top: 0;\n    left: 0;\n}\n\n.ct-major-seventh {\n    display: block;\n    position: relative;\n    width: 100%;\n}\n\n.ct-major-seventh:before {\n    display: block;\n    float: left;\n    content: \"\";\n    width: 0;\n    height: 0;\n    padding-bottom: 53.33333%;\n}\n\n.ct-major-seventh:after {\n    content: \"\";\n    display: table;\n    clear: both;\n}\n\n.ct-major-seventh > svg {\n    display: block;\n    position: absolute;\n    top: 0;\n    left: 0;\n}\n\n.ct-octave {\n    display: block;\n    position: relative;\n    width: 100%;\n}\n\n.ct-octave:before {\n    display: block;\n    float: left;\n    content: \"\";\n    width: 0;\n    height: 0;\n    padding-bottom: 50%;\n}\n\n.ct-octave:after {\n    content: \"\";\n    display: table;\n    clear: both;\n}\n\n.ct-octave > svg {\n    display: block;\n    position: absolute;\n    top: 0;\n    left: 0;\n}\n\n.ct-major-tenth {\n    display: block;\n    position: relative;\n    width: 100%;\n}\n\n.ct-major-tenth:before {\n    display: block;\n    float: left;\n    content: \"\";\n    width: 0;\n    height: 0;\n    padding-bottom: 40%;\n}\n\n.ct-major-tenth:after {\n    content: \"\";\n    display: table;\n    clear: both;\n}\n\n.ct-major-tenth > svg {\n    display: block;\n    position: absolute;\n    top: 0;\n    left: 0;\n}\n\n.ct-major-eleventh {\n    display: block;\n    position: relative;\n    width: 100%;\n}\n\n.ct-major-eleventh:before {\n    display: block;\n    float: left;\n    content: \"\";\n    width: 0;\n    height: 0;\n    padding-bottom: 37.5%;\n}\n\n.ct-major-eleventh:after {\n    content: \"\";\n    display: table;\n    clear: both;\n}\n\n.ct-major-eleventh > svg {\n    display: block;\n    position: absolute;\n    top: 0;\n    left: 0;\n}\n\n.ct-major-twelfth {\n    display: block;\n    position: relative;\n    width: 100%;\n}\n\n.ct-major-twelfth:before {\n    display: block;\n    float: left;\n    content: \"\";\n    width: 0;\n    height: 0;\n    padding-bottom: 33.33333%;\n}\n\n.ct-major-twelfth:after {\n    content: \"\";\n    display: table;\n    clear: both;\n}\n\n.ct-major-twelfth > svg {\n    display: block;\n    position: absolute;\n    top: 0;\n    left: 0;\n}\n\n.ct-double-octave {\n    display: block;\n    position: relative;\n    width: 100%;\n}\n\n.ct-double-octave:before {\n    display: block;\n    float: left;\n    content: \"\";\n    width: 0;\n    height: 0;\n    padding-bottom: 25%;\n}\n\n.ct-double-octave:after {\n    content: \"\";\n    display: table;\n    clear: both;\n}\n\n.ct-double-octave > svg {\n    display: block;\n    position: absolute;\n    top: 0;\n    left: 0;\n}\n\n@media (min-width: 992px) {\n    .navbar {\n        min-height: 75px;\n    }\n\n    .navbar-form {\n        margin-top: 21px;\n        margin-bottom: 21px;\n        padding-left: 5px;\n        padding-right: 5px;\n    }\n\n    .navbar-search-form {\n        display: none;\n    }\n\n    .navbar-nav > li > .dropdown-menu,\n    .dropdown .dropdown-menu {\n        transform: translate3d(0px, -40px, 0px);\n        transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0s, opacity 0.3s ease 0s, height 0s linear 0.35s;\n    }\n\n    .navbar-nav > li.open > .dropdown-menu, .dropdown.open .dropdown-menu {\n        transform: translate3d(0px, 0px, 0px);\n    }\n\n    .navbar-nav > li > .dropdown-menu:before {\n        border-bottom: 11px solid #F1EAE0;\n        border-left: 11px solid transparent;\n        border-right: 11px solid transparent;\n        content: \"\";\n        display: inline-block;\n        position: absolute;\n        right: 12px;\n        top: -11px;\n    }\n\n    .navbar-nav > li > .dropdown-menu:after {\n        border-bottom: 11px solid #FFFCF5;\n        border-left: 11px solid transparent;\n        border-right: 11px solid transparent;\n        content: \"\";\n        display: inline-block;\n        position: absolute;\n        right: 12px;\n        top: -10px;\n    }\n\n    .navbar-nav.navbar-left > li > .dropdown-menu:before {\n        right: auto;\n        left: 12px;\n    }\n\n    .navbar-nav.navbar-left > li > .dropdown-menu:after {\n        right: auto;\n        left: 12px;\n    }\n\n    .navbar .navbar-header {\n        margin-left: 10px;\n    }\n\n    .footer:not(.footer-big) nav > ul li:first-child {\n        margin-left: 0;\n    }\n\n    body > .navbar-collapse.collapse {\n        display: none !important;\n    }\n\n    .card form [class*=\"col-\"] {\n        padding: 6px;\n    }\n\n    .card form [class*=\"col-\"]:first-child {\n        padding-left: 15px;\n    }\n\n    .card form [class*=\"col-\"]:last-child {\n        padding-right: 15px;\n    }\n}\n\n/*          Changes for small display      */\n@media (max-width: 991px) {\n    .sidebar {\n        display: none;\n    }\n\n    .main-panel {\n        width: 100%;\n    }\n\n    .navbar-transparent {\n        padding-top: 15px;\n        background-color: rgba(0, 0, 0, 0.45);\n    }\n\n    body {\n        position: relative;\n    }\n\n    h6 {\n        font-size: 1em;\n    }\n\n    .wrapper {\n        -webkit-transform: translate3d(0px, 0, 0);\n        -moz-transform: translate3d(0px, 0, 0);\n        -o-transform: translate3d(0px, 0, 0);\n        -ms-transform: translate3d(0px, 0, 0);\n        transform: translate3d(0px, 0, 0);\n        -webkit-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);\n        -moz-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);\n        -o-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);\n        -ms-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);\n        transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);\n        left: 0;\n        background-color: white;\n    }\n\n    .navbar .container {\n        left: 0;\n        width: 100%;\n        -webkit-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);\n        -moz-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);\n        -o-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);\n        -ms-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);\n        transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);\n        position: relative;\n    }\n\n    .navbar .navbar-collapse.collapse,\n    .navbar .navbar-collapse.collapse.in,\n    .navbar .navbar-collapse.collapsing {\n        display: none !important;\n    }\n\n    .navbar-nav > li {\n        float: none;\n        position: relative;\n        display: block;\n    }\n\n    .off-canvas-sidebar {\n        position: fixed;\n        display: block;\n        top: 0;\n        height: 100%;\n        width: 230px;\n        right: 0;\n        z-index: 1032;\n        visibility: visible;\n        background-color: #999;\n        overflow-y: visible;\n        border-top: none;\n        text-align: left;\n        padding-right: 0px;\n        padding-left: 0;\n        -webkit-transform: translate3d(230px, 0, 0);\n        -moz-transform: translate3d(230px, 0, 0);\n        -o-transform: translate3d(230px, 0, 0);\n        -ms-transform: translate3d(230px, 0, 0);\n        transform: translate3d(230px, 0, 0);\n        -webkit-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);\n        -moz-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);\n        -o-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);\n        -ms-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);\n        transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);\n    }\n\n    .off-canvas-sidebar .sidebar-wrapper {\n        position: relative;\n        z-index: 3;\n        overflow-y: scroll;\n        height: 100%;\n        box-shadow: inset 1px 0px 0px 0px #DDDDDD;\n    }\n\n    .off-canvas-sidebar .nav {\n        margin-top: 0;\n        padding: 10px 15px 0;\n    }\n\n    .off-canvas-sidebar .nav > li > a {\n        margin: 0px 0px;\n        color: #66615B;\n        text-transform: uppercase;\n        font-weight: 600;\n        font-size: 12px;\n        line-height: 1.4em;\n        padding: 10px 0;\n    }\n\n    .off-canvas-sidebar .nav > li > a:hover, .off-canvas-sidebar .nav > li > a.active {\n        color: #403D39;\n    }\n\n    .off-canvas-sidebar .nav > li > a p,\n    .off-canvas-sidebar .nav > li > a .notification,\n    .off-canvas-sidebar .nav > li > a .caret {\n        display: inline-block;\n    }\n\n    .off-canvas-sidebar .nav > li > a .caret {\n        float: right;\n        position: relative;\n        top: 12px;\n    }\n\n    .off-canvas-sidebar .nav > li > a i {\n        font-size: 18px;\n        margin-right: 10px;\n        line-height: 26px;\n    }\n\n    .off-canvas-sidebar .nav > li.active > a:before {\n        border-right: none;\n        border-left: 12px solid #DDDDDD;\n        border-top: 12px solid transparent;\n        border-bottom: 12px solid transparent;\n        right: auto;\n        margin-left: -15px;\n        left: 0px;\n        top: 10px;\n    }\n\n    .off-canvas-sidebar .nav > li.active > a:after {\n        border-right: none;\n        border-left: 12px solid #f4f3ef;\n        border-top: 12px solid transparent;\n        border-bottom: 12px solid transparent;\n        right: auto;\n        margin-left: -15px;\n        left: -1px;\n        top: 10px;\n    }\n\n    .off-canvas-sidebar::after {\n        top: 0;\n        left: 0;\n        height: 100%;\n        width: 100%;\n        position: absolute;\n        background-color: #f4f3ef;\n        background-image: linear-gradient(to bottom, transparent 0%, rgba(112, 112, 112, 0) 60%, rgba(186, 186, 186, 0.15) 100%);\n        display: block;\n        content: \"\";\n        z-index: 1;\n    }\n\n    .off-canvas-sidebar.has-image::after {\n        top: 0;\n        left: 0;\n        height: 100%;\n        width: 100%;\n        position: absolute;\n        background-color: rgba(17, 17, 17, 0.8);\n        display: block;\n        content: \"\";\n        z-index: 1;\n    }\n\n    .off-canvas-sidebar .logo {\n        position: relative;\n        z-index: 4;\n        padding-top: 11px;\n        padding-bottom: 11px;\n    }\n\n    .off-canvas-sidebar .divider {\n        height: 1px;\n        margin: 10px 0;\n    }\n\n    .nav-open .navbar-collapse {\n        -webkit-transform: translate3d(0px, 0, 0);\n        -moz-transform: translate3d(0px, 0, 0);\n        -o-transform: translate3d(0px, 0, 0);\n        -ms-transform: translate3d(0px, 0, 0);\n        transform: translate3d(0px, 0, 0);\n    }\n\n    .nav-open .navbar .container {\n        left: -230px;\n    }\n\n    .nav-open .wrapper {\n        left: 0;\n        -webkit-transform: translate3d(-230px, 0, 0);\n        -moz-transform: translate3d(-230px, 0, 0);\n        -o-transform: translate3d(-230px, 0, 0);\n        -ms-transform: translate3d(-230px, 0, 0);\n        transform: translate3d(-230px, 0, 0);\n    }\n\n    .navbar-toggle .icon-bar {\n        display: block;\n        position: relative;\n        background: #fff;\n        width: 24px;\n        height: 2px;\n        border-radius: 1px;\n        margin: 0 auto;\n    }\n\n    .navbar-header .navbar-toggle {\n        margin: 10px 15px 10px 0;\n        width: 40px;\n        height: 40px;\n    }\n\n    .bar1,\n    .bar2,\n    .bar3 {\n        outline: 1px solid transparent;\n    }\n\n    .bar1 {\n        top: 0px;\n        -webkit-animation: topbar-back 500ms linear 0s;\n        -moz-animation: topbar-back 500ms linear 0s;\n        animation: topbar-back 500ms 0s;\n        -webkit-animation-fill-mode: forwards;\n        -moz-animation-fill-mode: forwards;\n        animation-fill-mode: forwards;\n    }\n\n    .bar2 {\n        opacity: 1;\n    }\n\n    .bar3 {\n        bottom: 0px;\n        -webkit-animation: bottombar-back 500ms linear 0s;\n        -moz-animation: bottombar-back 500ms linear 0s;\n        animation: bottombar-back 500ms 0s;\n        -webkit-animation-fill-mode: forwards;\n        -moz-animation-fill-mode: forwards;\n        animation-fill-mode: forwards;\n    }\n\n    .toggled .bar1 {\n        top: 6px;\n        -webkit-animation: topbar-x 500ms linear 0s;\n        -moz-animation: topbar-x 500ms linear 0s;\n        animation: topbar-x 500ms 0s;\n        -webkit-animation-fill-mode: forwards;\n        -moz-animation-fill-mode: forwards;\n        animation-fill-mode: forwards;\n    }\n\n    .toggled .bar2 {\n        opacity: 0;\n    }\n\n    .toggled .bar3 {\n        bottom: 6px;\n        -webkit-animation: bottombar-x 500ms linear 0s;\n        -moz-animation: bottombar-x 500ms linear 0s;\n        animation: bottombar-x 500ms 0s;\n        -webkit-animation-fill-mode: forwards;\n        -moz-animation-fill-mode: forwards;\n        animation-fill-mode: forwards;\n    }\n\n    @keyframes topbar-x {\n        0% {\n            top: 0px;\n            transform: rotate(0deg);\n        }\n        45% {\n            top: 6px;\n            transform: rotate(145deg);\n        }\n        75% {\n            transform: rotate(130deg);\n        }\n        100% {\n            transform: rotate(135deg);\n        }\n    }\n    @-webkit-keyframes topbar-x {\n        0% {\n            top: 0px;\n            -webkit-transform: rotate(0deg);\n        }\n        45% {\n            top: 6px;\n            -webkit-transform: rotate(145deg);\n        }\n        75% {\n            -webkit-transform: rotate(130deg);\n        }\n        100% {\n            -webkit-transform: rotate(135deg);\n        }\n    }\n    @-moz-keyframes topbar-x {\n        0% {\n            top: 0px;\n            -moz-transform: rotate(0deg);\n        }\n        45% {\n            top: 6px;\n            -moz-transform: rotate(145deg);\n        }\n        75% {\n            -moz-transform: rotate(130deg);\n        }\n        100% {\n            -moz-transform: rotate(135deg);\n        }\n    }\n    @keyframes topbar-back {\n        0% {\n            top: 6px;\n            transform: rotate(135deg);\n        }\n        45% {\n            transform: rotate(-10deg);\n        }\n        75% {\n            transform: rotate(5deg);\n        }\n        100% {\n            top: 0px;\n            transform: rotate(0);\n        }\n    }\n    @-webkit-keyframes topbar-back {\n        0% {\n            top: 6px;\n            -webkit-transform: rotate(135deg);\n        }\n        45% {\n            -webkit-transform: rotate(-10deg);\n        }\n        75% {\n            -webkit-transform: rotate(5deg);\n        }\n        100% {\n            top: 0px;\n            -webkit-transform: rotate(0);\n        }\n    }\n    @-moz-keyframes topbar-back {\n        0% {\n            top: 6px;\n            -moz-transform: rotate(135deg);\n        }\n        45% {\n            -moz-transform: rotate(-10deg);\n        }\n        75% {\n            -moz-transform: rotate(5deg);\n        }\n        100% {\n            top: 0px;\n            -moz-transform: rotate(0);\n        }\n    }\n    @keyframes bottombar-x {\n        0% {\n            bottom: 0px;\n            transform: rotate(0deg);\n        }\n        45% {\n            bottom: 6px;\n            transform: rotate(-145deg);\n        }\n        75% {\n            transform: rotate(-130deg);\n        }\n        100% {\n            transform: rotate(-135deg);\n        }\n    }\n    @-webkit-keyframes bottombar-x {\n        0% {\n            bottom: 0px;\n            -webkit-transform: rotate(0deg);\n        }\n        45% {\n            bottom: 6px;\n            -webkit-transform: rotate(-145deg);\n        }\n        75% {\n            -webkit-transform: rotate(-130deg);\n        }\n        100% {\n            -webkit-transform: rotate(-135deg);\n        }\n    }\n    @-moz-keyframes bottombar-x {\n        0% {\n            bottom: 0px;\n            -moz-transform: rotate(0deg);\n        }\n        45% {\n            bottom: 6px;\n            -moz-transform: rotate(-145deg);\n        }\n        75% {\n            -moz-transform: rotate(-130deg);\n        }\n        100% {\n            -moz-transform: rotate(-135deg);\n        }\n    }\n    @keyframes bottombar-back {\n        0% {\n            bottom: 6px;\n            transform: rotate(-135deg);\n        }\n        45% {\n            transform: rotate(10deg);\n        }\n        75% {\n            transform: rotate(-5deg);\n        }\n        100% {\n            bottom: 0px;\n            transform: rotate(0);\n        }\n    }\n    @-webkit-keyframes bottombar-back {\n        0% {\n            bottom: 6px;\n            -webkit-transform: rotate(-135deg);\n        }\n        45% {\n            -webkit-transform: rotate(10deg);\n        }\n        75% {\n            -webkit-transform: rotate(-5deg);\n        }\n        100% {\n            bottom: 0px;\n            -webkit-transform: rotate(0);\n        }\n    }\n    @-moz-keyframes bottombar-back {\n        0% {\n            bottom: 6px;\n            -moz-transform: rotate(-135deg);\n        }\n        45% {\n            -moz-transform: rotate(10deg);\n        }\n        75% {\n            -moz-transform: rotate(-5deg);\n        }\n        100% {\n            bottom: 0px;\n            -moz-transform: rotate(0);\n        }\n    }\n    @-webkit-keyframes fadeIn {\n        0% {\n            opacity: 0;\n        }\n        100% {\n            opacity: 1;\n        }\n    }\n    @-moz-keyframes fadeIn {\n        0% {\n            opacity: 0;\n        }\n        100% {\n            opacity: 1;\n        }\n    }\n    @keyframes fadeIn {\n        0% {\n            opacity: 0;\n        }\n        100% {\n            opacity: 1;\n        }\n    }\n    .dropdown-menu .divider {\n        background-color: rgba(229, 229, 229, 0.15);\n    }\n\n    .navbar-nav {\n        margin: 1px 0;\n    }\n\n    .dropdown-menu {\n        display: none;\n    }\n\n    .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {\n        background-color: transparent;\n    }\n\n    .navbar-fixed-top {\n        -webkit-backface-visibility: hidden;\n    }\n\n    #bodyClick {\n        height: 100%;\n        width: 100%;\n        position: fixed;\n        opacity: 0;\n        top: 0;\n        left: auto;\n        right: 230px;\n        content: \"\";\n        z-index: 9999;\n        overflow-x: hidden;\n    }\n\n    .form-control + .form-control-feedback {\n        margin-top: -8px;\n    }\n\n    .navbar-toggle:hover, .navbar-toggle:focus {\n        background-color: transparent !important;\n    }\n\n    .btn.dropdown-toggle {\n        margin-bottom: 0;\n    }\n\n    .media-post .author {\n        width: 20%;\n        float: none !important;\n        display: block;\n        margin: 0 auto 10px;\n    }\n\n    .media-post .media-body {\n        width: 100%;\n    }\n\n    .navbar-collapse.collapse {\n        height: 100% !important;\n    }\n\n    .navbar-collapse.collapse.in {\n        display: block;\n    }\n\n    .navbar-header .collapse, .navbar-toggle {\n        display: block !important;\n    }\n\n    .navbar-header {\n        float: none;\n    }\n\n    .navbar-nav .open .dropdown-menu {\n        position: static;\n        float: none;\n        width: auto;\n        margin-top: 0;\n        background-color: transparent;\n        border: 0;\n        -webkit-box-shadow: none;\n        box-shadow: none;\n    }\n\n    .main-panel > .content {\n        padding-left: 0;\n        padding-right: 0;\n    }\n\n    .nav .open > a, .nav .open > a:focus, .nav .open > a:hover {\n        background-color: transparent;\n    }\n\n    .footer .copyright {\n        padding: 0px 15px;\n        width: 100%;\n    }\n}\n\n@media (min-width: 992px) {\n    .table-full-width {\n        margin-left: -15px;\n        margin-right: -15px;\n    }\n\n    .table-responsive {\n        overflow: visible;\n    }\n}\n\n@media (max-width: 991px) {\n    .table-responsive {\n        width: 100%;\n        margin-bottom: 15px;\n        border: 1px solid #dddddd;\n        overflow-x: scroll;\n        overflow-y: hidden;\n        -ms-overflow-style: -ms-autohiding-scrollbar;\n        -webkit-overflow-scrolling: touch;\n    }\n}\n", ""]);
+	exports.push([module.id, "/*!\n    \n =========================================================\n * Paper Dashboard - v1.1.2\n =========================================================\n \n * Product Page: http://www.creative-tim.com/product/paper-dashboard\n * Copyright 2017 Creative Tim (http://www.creative-tim.com)\n * Licensed under MIT (https://github.com/creativetimofficial/paper-dashboard/blob/master/LICENSE.md)\n \n =========================================================\n \n * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n \n */\n/*      light colors - used for select dropdown         */\n.ct-blue {\n    stroke: #7A9E9F !important;\n}\n\n.ct-azure {\n    stroke: #68B3C8 !important;\n}\n\n.ct-green {\n    stroke: #7AC29A !important;\n}\n\n.ct-orange {\n    stroke: #F3BB45 !important;\n}\n\n.ct-red {\n    stroke: #EB5E28 !important;\n}\n\nh1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, a, .td-name, td {\n    -moz-osx-font-smoothing: grayscale;\n    -webkit-font-smoothing: antialiased;\n    font-family: 'Muli', \"Helvetica\", Arial, sans-serif;\n}\n\nh1, .h1, h2, .h2, h3, .h3, h4, .h4 {\n    font-weight: 400;\n    margin: 30px 0 15px;\n}\n\nh1, .h1 {\n    font-size: 3.2em;\n}\n\nh2, .h2 {\n    font-size: 2.6em;\n}\n\nh3, .h3 {\n    font-size: 1.825em;\n    line-height: 1.4;\n    margin: 20px 0 10px;\n}\n\nh4, .h4 {\n    font-size: 1.5em;\n    font-weight: 600;\n    line-height: 1.2em;\n}\n\nh5, .h5 {\n    font-size: 1.25em;\n    font-weight: 400;\n    line-height: 1.4em;\n    margin-bottom: 15px;\n}\n\nh6, .h6 {\n    font-size: 0.9em;\n    font-weight: 600;\n    text-transform: uppercase;\n}\n\np {\n    font-size: 16px;\n    line-height: 1.4em;\n}\n\nh1 small, h2 small, h3 small, h4 small, h5 small, h6 small, .h1 small, .h2 small, .h3 small, .h4 small, .h5 small, .h6 small, h1 .small, h2 .small, h3 .small, h4 .small, h5 .small, h6 .small, .h1 .small, .h2 .small, .h3 .small, .h4 .small, .h5 .small, .h6 .small {\n    color: #9A9A9A;\n    font-weight: 300;\n    line-height: 1.4em;\n}\n\nh1 small, h2 small, h3 small, h1 .small, h2 .small, h3 .small {\n    font-size: 60%;\n}\n\n.title-uppercase {\n    text-transform: uppercase;\n}\n\nblockquote {\n    font-style: italic;\n}\n\nblockquote small {\n    font-style: normal;\n}\n\n.text-muted {\n    color: #DDDDDD;\n}\n\n.text-primary, .text-primary:hover {\n    color: #427C89;\n}\n\n.text-info, .text-info:hover {\n    color: #3091B2;\n}\n\n.text-success, .text-success:hover {\n    color: #42A084;\n}\n\n.text-warning, .text-warning:hover {\n    color: #BB992F;\n}\n\n.text-danger, .text-danger:hover {\n    color: #B33C12;\n}\n\n.glyphicon {\n    line-height: 1;\n}\n\nstrong {\n    color: #403D39;\n}\n\n.icon-primary {\n    color: #7A9E9F;\n}\n\n.icon-info {\n    color: #68B3C8;\n}\n\n.icon-success {\n    color: #7AC29A;\n}\n\n.icon-warning {\n    color: #F3BB45;\n}\n\n.icon-danger {\n    color: #EB5E28;\n}\n\n.chart-legend .text-primary, .chart-legend .text-primary:hover {\n    color: #7A9E9F;\n}\n\n.chart-legend .text-info, .chart-legend .text-info:hover {\n    color: #68B3C8;\n}\n\n.chart-legend .text-success, .chart-legend .text-success:hover {\n    color: #7AC29A;\n}\n\n.chart-legend .text-warning, .chart-legend .text-warning:hover {\n    color: #F3BB45;\n}\n\n.chart-legend .text-danger, .chart-legend .text-danger:hover {\n    color: #EB5E28;\n}\n\n/*     General overwrite     */\nbody {\n    color: #66615b;\n    font-size: 14px;\n    font-family: 'Muli', Arial, sans-serif;\n}\n\nbody .wrapper {\n    min-height: 100vh;\n    position: relative;\n}\n\na {\n    color: #68B3C8;\n}\n\na:hover, a:focus {\n    color: #3091B2;\n    text-decoration: none;\n}\n\na:focus, a:active,\nbutton::-moz-focus-inner,\ninput::-moz-focus-inner,\nselect::-moz-focus-inner,\ninput[type=\"file\"] > input[type=\"button\"]::-moz-focus-inner {\n    outline: 0 !important;\n}\n\n.ui-slider-handle:focus,\n.navbar-toggle,\ninput:focus,\nbutton:focus {\n    outline: 0 !important;\n}\n\n/*           Animations              */\n.form-control,\n.input-group-addon,\n.tagsinput,\n.navbar,\n.navbar .alert {\n    -webkit-transition: all 300ms linear;\n    -moz-transition: all 300ms linear;\n    -o-transition: all 300ms linear;\n    -ms-transition: all 300ms linear;\n    transition: all 300ms linear;\n}\n\n.sidebar .nav a,\n.table > tbody > tr .td-actions .btn {\n    -webkit-transition: all 150ms ease-in;\n    -moz-transition: all 150ms ease-in;\n    -o-transition: all 150ms ease-in;\n    -ms-transition: all 150ms ease-in;\n    transition: all 150ms ease-in;\n}\n\n.btn {\n    -webkit-transition: all 100ms ease-in;\n    -moz-transition: all 100ms ease-in;\n    -o-transition: all 100ms ease-in;\n    -ms-transition: all 100ms ease-in;\n    transition: all 100ms ease-in;\n}\n\n.fa {\n    width: 21px;\n    text-align: center;\n}\n\n.fa-base {\n    font-size: 1.25em !important;\n}\n\n.margin-top {\n    margin-top: 50px;\n}\n\nhr {\n    border-color: #F1EAE0;\n}\n\n.wrapper {\n    position: relative;\n    top: 0;\n    height: 100vh;\n}\n\n.sidebar {\n    position: absolute;\n    top: 0;\n    bottom: 0;\n    left: 0;\n    z-index: 1;\n    background-size: cover;\n    background-position: center center;\n}\n\n.sidebar .sidebar-wrapper {\n    position: relative;\n    max-height: none;\n    min-height: 100%;\n    /*overflow: hidden;*/\n    width: 260px;\n    z-index: 4;\n    box-shadow: inset -1px 0px 0px 0px #DDDDDD;\n}\n\n.sidebar .sidebar-background {\n    position: absolute;\n    z-index: 1;\n    height: 100%;\n    width: 100%;\n    display: block;\n    top: 0;\n    left: 0;\n    background-size: cover;\n    background-position: center center;\n}\n\n.sidebar,\n.off-canvas-sidebar {\n    width: 260px;\n    display: block;\n    font-weight: 200;\n}\n\n.sidebar .logo,\n.off-canvas-sidebar .logo {\n    padding: 18px 0px;\n    margin: 0 20px;\n}\n\n.sidebar .logo p,\n.off-canvas-sidebar .logo p {\n    float: left;\n    font-size: 20px;\n    margin: 10px 10px;\n    line-height: 20px;\n}\n\n.sidebar .logo .simple-text,\n.off-canvas-sidebar .logo .simple-text {\n    text-transform: uppercase;\n    padding: 4px 0px;\n    display: block;\n    font-size: 18px;\n    text-align: center;\n    font-weight: 400;\n    line-height: 30px;\n}\n\n.sidebar .nav,\n.off-canvas-sidebar .nav {\n    margin-top: 20px;\n}\n\n.sidebar .nav li > a,.nav li> div > a,\n.off-canvas-sidebar .nav li > a {\n    margin: 10px 0px;\n    padding-left: 25px;\n    padding-right: 25px;\n    opacity: .7;\n}\n\n.nav li> div > a{\n    position: relative;\n    display: block;\n    padding: 10px 25px;\n    color:#66615B;\n}\n.nav li.active> div > a{\n    position: relative;\n    display: block;\n    padding: 10px 25px;\n    color:#EB5E28;\n}\n\n\n.sidebar .nav li:hover > a,\n.off-canvas-sidebar .nav li:hover > a {\n    opacity: 1;\n}\n\n.sidebar .nav li.active > a, .sidebar .nav li active > a\n.off-canvas-sidebar .nav li.active > a {\n    color: #7A9E9F;\n    opacity: 1;\n}\n\n.sidebar .nav li.active > a:before,\n.off-canvas-sidebar .nav li.active > a:before {\n    border-right: 17px solid #DDDDDD;\n    border-top: 17px solid transparent;\n    border-bottom: 17px solid transparent;\n    content: \"\";\n    display: inline-block;\n    position: absolute;\n    right: 0;\n    top: 8px;\n}\n\n.sidebar .nav li.active > a:after,\n.off-canvas-sidebar .nav li.active > a:after {\n    border-right: 17px solid #f4f3ef;\n    border-top: 17px solid transparent;\n    border-bottom: 17px solid transparent;\n    content: \"\";\n    display: inline-block;\n    position: absolute;\n    right: -1px;\n    top: 8px;\n}\n\n.sidebar .nav p,\n.off-canvas-sidebar .nav p {\n    margin: 0;\n    line-height: 30px;\n    font-size: 12px;\n    font-weight: 600;\n    text-transform: uppercase;\n}\n\n.sidebar .nav i,\n.off-canvas-sidebar .nav i {\n    font-size: 24px;\n    float: left;\n    margin-right: 15px;\n    line-height: 30px;\n    width: 30px;\n    text-align: center;\n}\n\n.sidebar:after, .sidebar:before,\n.off-canvas-sidebar:after,\n.off-canvas-sidebar:before {\n    display: block;\n    content: \"\";\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    top: 0;\n    left: 0;\n    z-index: 2;\n    background: #FFFFFF;\n}\n\n.sidebar:after, .sidebar:before, .sidebar[data-background-color=\"white\"]:after, .sidebar[data-background-color=\"white\"]:before,\n.off-canvas-sidebar:after,\n.off-canvas-sidebar:before,\n.off-canvas-sidebar[data-background-color=\"white\"]:after,\n.off-canvas-sidebar[data-background-color=\"white\"]:before {\n    background-color: #FFFFFF;\n}\n\n.sidebar .logo, .sidebar[data-background-color=\"white\"] .logo,\n.off-canvas-sidebar .logo,\n.off-canvas-sidebar[data-background-color=\"white\"] .logo {\n    border-bottom: 1px solid rgba(102, 97, 91, 0.3);\n}\n\n.sidebar .logo p, .sidebar[data-background-color=\"white\"] .logo p,\n.off-canvas-sidebar .logo p,\n.off-canvas-sidebar[data-background-color=\"white\"] .logo p {\n    color: #66615B;\n}\n\n.sidebar .logo .simple-text, .sidebar[data-background-color=\"white\"] .logo .simple-text,\n.off-canvas-sidebar .logo .simple-text,\n.off-canvas-sidebar[data-background-color=\"white\"] .logo .simple-text {\n    color: #66615B;\n}\n\n.sidebar .nav li:not(.active) > a, .sidebar[data-background-color=\"white\"] .nav li:not(.active) > a,\n.off-canvas-sidebar .nav li:not(.active) > a,\n.off-canvas-sidebar[data-background-color=\"white\"] .nav li:not(.active) > a {\n    color: #66615B;\n}\n\n.sidebar .nav .divider, .sidebar[data-background-color=\"white\"] .nav .divider,\n.off-canvas-sidebar .nav .divider,\n.off-canvas-sidebar[data-background-color=\"white\"] .nav .divider {\n    background-color: rgba(102, 97, 91, 0.2);\n}\n\n.sidebar[data-background-color=\"black\"]:after, .sidebar[data-background-color=\"black\"]:before,\n.off-canvas-sidebar[data-background-color=\"black\"]:after,\n.off-canvas-sidebar[data-background-color=\"black\"]:before {\n    background-color: #212120;\n}\n\n.sidebar[data-background-color=\"black\"] .logo,\n.off-canvas-sidebar[data-background-color=\"black\"] .logo {\n    border-bottom: 1px solid rgba(255, 255, 255, 0.3);\n}\n\n.sidebar[data-background-color=\"black\"] .logo p,\n.off-canvas-sidebar[data-background-color=\"black\"] .logo p {\n    color: #FFFFFF;\n}\n\n.sidebar[data-background-color=\"black\"] .logo .simple-text,\n.off-canvas-sidebar[data-background-color=\"black\"] .logo .simple-text {\n    color: #FFFFFF;\n}\n\n.sidebar[data-background-color=\"black\"] .nav li:not(.active) > a,\n.off-canvas-sidebar[data-background-color=\"black\"] .nav li:not(.active) > a {\n    color: #FFFFFF;\n}\n\n.sidebar[data-background-color=\"black\"] .nav .divider,\n.off-canvas-sidebar[data-background-color=\"black\"] .nav .divider {\n    background-color: rgba(255, 255, 255, 0.2);\n}\n\n.sidebar[data-active-color=\"primary\"] .nav li.active > a,\n.off-canvas-sidebar[data-active-color=\"primary\"] .nav li.active > a {\n    color: #7A9E9F;\n    opacity: 1;\n}\n\n.sidebar[data-active-color=\"info\"] .nav li.active > a,\n.off-canvas-sidebar[data-active-color=\"info\"] .nav li.active > a {\n    color: #68B3C8;\n    opacity: 1;\n}\n\n.sidebar[data-active-color=\"success\"] .nav li.active > a,\n.off-canvas-sidebar[data-active-color=\"success\"] .nav li.active > a {\n    color: #7AC29A;\n    opacity: 1;\n}\n\n.sidebar[data-active-color=\"warning\"] .nav li.active > a,\n.off-canvas-sidebar[data-active-color=\"warning\"] .nav li.active > a {\n    color: #F3BB45;\n    opacity: 1;\n}\n\n.sidebar[data-active-color=\"danger\"] .nav li.active > a,\n.off-canvas-sidebar[data-active-color=\"danger\"] .nav li.active > a {\n    color: #EB5E28;\n    opacity: 1;\n}\n\n.main-panel {\n    background-color: #f4f3ef;\n    position: relative;\n    z-index: 2;\n    float: right;\n    width: calc(100% - 260px);\n    min-height: 100%;\n}\n\n.main-panel > .content {\n    padding: 30px 15px;\n    min-height: calc(100% - 123px);\n}\n\n.main-panel > .footer {\n    border-top: 1px solid rgba(0, 0, 0, 0.1);\n}\n\n.main-panel .navbar {\n    margin-bottom: 0;\n}\n\n.sidebar,\n.main-panel {\n    overflow: auto;\n    max-height: 100%;\n    height: 100%;\n    -webkit-transition-property: top, bottom;\n    transition-property: top, bottom;\n    -webkit-transition-duration: .2s, .2s;\n    transition-duration: .2s, .2s;\n    -webkit-transition-timing-function: linear, linear;\n    transition-timing-function: linear, linear;\n    -webkit-overflow-scrolling: touch;\n}\n\n.btn,\n.navbar .navbar-nav > li > a.btn {\n    border-radius: 20px;\n    box-sizing: border-box;\n    border-width: 2px;\n    background-color: transparent;\n    font-size: 14px;\n    font-weight: 500;\n    padding: 7px 18px;\n    border-color: #66615B;\n    color: #66615B;\n    -webkit-transition: all 150ms linear;\n    -moz-transition: all 150ms linear;\n    -o-transition: all 150ms linear;\n    -ms-transition: all 150ms linear;\n    transition: all 150ms linear;\n}\n\n.btn:hover, .btn:focus, .btn:active, .btn.active, .open > .btn.dropdown-toggle,\n.navbar .navbar-nav > li > a.btn:hover,\n.navbar .navbar-nav > li > a.btn:focus,\n.navbar .navbar-nav > li > a.btn:active,\n.navbar .navbar-nav > li > a.btn.active, .open >\n.navbar .navbar-nav > li > a.btn.dropdown-toggle {\n    background-color: #66615B;\n    color: rgba(255, 255, 255, 0.7);\n    border-color: #66615B;\n}\n\n.btn:hover .caret, .btn:focus .caret, .btn:active .caret, .btn.active .caret, .open > .btn.dropdown-toggle .caret,\n.navbar .navbar-nav > li > a.btn:hover .caret,\n.navbar .navbar-nav > li > a.btn:focus .caret,\n.navbar .navbar-nav > li > a.btn:active .caret,\n.navbar .navbar-nav > li > a.btn.active .caret, .open >\n.navbar .navbar-nav > li > a.btn.dropdown-toggle .caret {\n    border-top-color: rgba(255, 255, 255, 0.7);\n}\n\n.btn.disabled, .btn.disabled:hover, .btn.disabled:focus, .btn.disabled.focus, .btn.disabled:active, .btn.disabled.active, .btn:disabled, .btn:disabled:hover, .btn:disabled:focus, .btn:disabled.focus, .btn:disabled:active, .btn:disabled.active, .btn[disabled], .btn[disabled]:hover, .btn[disabled]:focus, .btn[disabled].focus, .btn[disabled]:active, .btn[disabled].active, fieldset[disabled] .btn, fieldset[disabled] .btn:hover, fieldset[disabled] .btn:focus, fieldset[disabled] .btn.focus, fieldset[disabled] .btn:active, fieldset[disabled] .btn.active,\n.navbar .navbar-nav > li > a.btn.disabled,\n.navbar .navbar-nav > li > a.btn.disabled:hover,\n.navbar .navbar-nav > li > a.btn.disabled:focus,\n.navbar .navbar-nav > li > a.btn.disabled.focus,\n.navbar .navbar-nav > li > a.btn.disabled:active,\n.navbar .navbar-nav > li > a.btn.disabled.active,\n.navbar .navbar-nav > li > a.btn:disabled,\n.navbar .navbar-nav > li > a.btn:disabled:hover,\n.navbar .navbar-nav > li > a.btn:disabled:focus,\n.navbar .navbar-nav > li > a.btn:disabled.focus,\n.navbar .navbar-nav > li > a.btn:disabled:active,\n.navbar .navbar-nav > li > a.btn:disabled.active,\n.navbar .navbar-nav > li > a.btn[disabled],\n.navbar .navbar-nav > li > a.btn[disabled]:hover,\n.navbar .navbar-nav > li > a.btn[disabled]:focus,\n.navbar .navbar-nav > li > a.btn[disabled].focus,\n.navbar .navbar-nav > li > a.btn[disabled]:active,\n.navbar .navbar-nav > li > a.btn[disabled].active, fieldset[disabled]\n  .navbar .navbar-nav > li > a.btn, fieldset[disabled]\n  .navbar .navbar-nav > li > a.btn:hover, fieldset[disabled]\n  .navbar .navbar-nav > li > a.btn:focus, fieldset[disabled]\n  .navbar .navbar-nav > li > a.btn.focus, fieldset[disabled]\n  .navbar .navbar-nav > li > a.btn:active, fieldset[disabled]\n  .navbar .navbar-nav > li > a.btn.active {\n    background-color: transparent;\n    border-color: #66615B;\n}\n\n.btn.btn-fill,\n.navbar .navbar-nav > li > a.btn.btn-fill {\n    color: #FFFFFF;\n    background-color: #66615B;\n    opacity: 1;\n    filter: alpha(opacity=100);\n}\n\n.btn.btn-fill:hover, .btn.btn-fill:focus, .btn.btn-fill:active, .btn.btn-fill.active, .open > .btn.btn-fill.dropdown-toggle,\n.navbar .navbar-nav > li > a.btn.btn-fill:hover,\n.navbar .navbar-nav > li > a.btn.btn-fill:focus,\n.navbar .navbar-nav > li > a.btn.btn-fill:active,\n.navbar .navbar-nav > li > a.btn.btn-fill.active, .open >\n.navbar .navbar-nav > li > a.btn.btn-fill.dropdown-toggle {\n    background-color: #403D39;\n    color: #FFFFFF;\n    border-color: #403D39;\n}\n\n.btn.btn-fill .caret,\n.navbar .navbar-nav > li > a.btn.btn-fill .caret {\n    border-top-color: #FFFFFF;\n}\n\n.btn.btn-simple:hover, .btn.btn-simple:focus, .btn.btn-simple:active, .btn.btn-simple.active, .open > .btn.btn-simple.dropdown-toggle,\n.navbar .navbar-nav > li > a.btn.btn-simple:hover,\n.navbar .navbar-nav > li > a.btn.btn-simple:focus,\n.navbar .navbar-nav > li > a.btn.btn-simple:active,\n.navbar .navbar-nav > li > a.btn.btn-simple.active, .open >\n.navbar .navbar-nav > li > a.btn.btn-simple.dropdown-toggle {\n    background-color: transparent;\n    color: #403D39;\n}\n\n.btn.btn-simple .caret,\n.navbar .navbar-nav > li > a.btn.btn-simple .caret {\n    border-top-color: #FFFFFF;\n}\n\n.btn .caret,\n.navbar .navbar-nav > li > a.btn .caret {\n    border-top-color: #66615B;\n}\n\n.btn:hover, .btn:focus,\n.navbar .navbar-nav > li > a.btn:hover,\n.navbar .navbar-nav > li > a.btn:focus {\n    outline: 0 !important;\n}\n\n.btn:active, .btn.active, .open > .btn.dropdown-toggle,\n.navbar .navbar-nav > li > a.btn:active,\n.navbar .navbar-nav > li > a.btn.active, .open >\n.navbar .navbar-nav > li > a.btn.dropdown-toggle {\n    -webkit-box-shadow: none;\n    box-shadow: none;\n    outline: 0 !important;\n}\n\n.btn.btn-icon,\n.navbar .navbar-nav > li > a.btn.btn-icon {\n    padding: 7px;\n}\n\n.btn-group .btn + .btn,\n.btn-group .btn + .btn-group,\n.btn-group .btn-group + .btn,\n.btn-group .btn-group + .btn-group {\n    margin-left: -2px;\n}\n\n.navbar .navbar-nav > li > a.btn-primary, .btn-primary {\n    border-color: #7A9E9F;\n    color: #7A9E9F;\n}\n\n.navbar .navbar-nav > li > a.btn-primary:hover, .navbar .navbar-nav > li > a.btn-primary:focus, .navbar .navbar-nav > li > a.btn-primary:active, .navbar .navbar-nav > li > a.btn-primary.active, .open > .navbar .navbar-nav > li > a.btn-primary.dropdown-toggle, .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .btn-primary.dropdown-toggle {\n    background-color: #7A9E9F;\n    color: rgba(255, 255, 255, 0.7);\n    border-color: #7A9E9F;\n}\n\n.navbar .navbar-nav > li > a.btn-primary:hover .caret, .navbar .navbar-nav > li > a.btn-primary:focus .caret, .navbar .navbar-nav > li > a.btn-primary:active .caret, .navbar .navbar-nav > li > a.btn-primary.active .caret, .open > .navbar .navbar-nav > li > a.btn-primary.dropdown-toggle .caret, .btn-primary:hover .caret, .btn-primary:focus .caret, .btn-primary:active .caret, .btn-primary.active .caret, .open > .btn-primary.dropdown-toggle .caret {\n    border-top-color: rgba(255, 255, 255, 0.7);\n}\n\n.navbar .navbar-nav > li > a.btn-primary.disabled, .navbar .navbar-nav > li > a.btn-primary.disabled:hover, .navbar .navbar-nav > li > a.btn-primary.disabled:focus, .navbar .navbar-nav > li > a.btn-primary.disabled.focus, .navbar .navbar-nav > li > a.btn-primary.disabled:active, .navbar .navbar-nav > li > a.btn-primary.disabled.active, .navbar .navbar-nav > li > a.btn-primary:disabled, .navbar .navbar-nav > li > a.btn-primary:disabled:hover, .navbar .navbar-nav > li > a.btn-primary:disabled:focus, .navbar .navbar-nav > li > a.btn-primary:disabled.focus, .navbar .navbar-nav > li > a.btn-primary:disabled:active, .navbar .navbar-nav > li > a.btn-primary:disabled.active, .navbar .navbar-nav > li > a.btn-primary[disabled], .navbar .navbar-nav > li > a.btn-primary[disabled]:hover, .navbar .navbar-nav > li > a.btn-primary[disabled]:focus, .navbar .navbar-nav > li > a.btn-primary[disabled].focus, .navbar .navbar-nav > li > a.btn-primary[disabled]:active, .navbar .navbar-nav > li > a.btn-primary[disabled].active, fieldset[disabled] .navbar .navbar-nav > li > a.btn-primary, fieldset[disabled] .navbar .navbar-nav > li > a.btn-primary:hover, fieldset[disabled] .navbar .navbar-nav > li > a.btn-primary:focus, fieldset[disabled] .navbar .navbar-nav > li > a.btn-primary.focus, fieldset[disabled] .navbar .navbar-nav > li > a.btn-primary:active, fieldset[disabled] .navbar .navbar-nav > li > a.btn-primary.active, .btn-primary.disabled, .btn-primary.disabled:hover, .btn-primary.disabled:focus, .btn-primary.disabled.focus, .btn-primary.disabled:active, .btn-primary.disabled.active, .btn-primary:disabled, .btn-primary:disabled:hover, .btn-primary:disabled:focus, .btn-primary:disabled.focus, .btn-primary:disabled:active, .btn-primary:disabled.active, .btn-primary[disabled], .btn-primary[disabled]:hover, .btn-primary[disabled]:focus, .btn-primary[disabled].focus, .btn-primary[disabled]:active, .btn-primary[disabled].active, fieldset[disabled] .btn-primary, fieldset[disabled] .btn-primary:hover, fieldset[disabled] .btn-primary:focus, fieldset[disabled] .btn-primary.focus, fieldset[disabled] .btn-primary:active, fieldset[disabled] .btn-primary.active {\n    background-color: transparent;\n    border-color: #7A9E9F;\n}\n\n.navbar .navbar-nav > li > a.btn-primary.btn-fill, .btn-primary.btn-fill {\n    color: #FFFFFF;\n    background-color: #7A9E9F;\n    opacity: 1;\n    filter: alpha(opacity=100);\n}\n\n.navbar .navbar-nav > li > a.btn-primary.btn-fill:hover, .navbar .navbar-nav > li > a.btn-primary.btn-fill:focus, .navbar .navbar-nav > li > a.btn-primary.btn-fill:active, .navbar .navbar-nav > li > a.btn-primary.btn-fill.active, .open > .navbar .navbar-nav > li > a.btn-primary.btn-fill.dropdown-toggle, .btn-primary.btn-fill:hover, .btn-primary.btn-fill:focus, .btn-primary.btn-fill:active, .btn-primary.btn-fill.active, .open > .btn-primary.btn-fill.dropdown-toggle {\n    background-color: #427C89;\n    color: #FFFFFF;\n    border-color: #427C89;\n}\n\n.navbar .navbar-nav > li > a.btn-primary.btn-fill .caret, .btn-primary.btn-fill .caret {\n    border-top-color: #FFFFFF;\n}\n\n.navbar .navbar-nav > li > a.btn-primary.btn-simple:hover, .navbar .navbar-nav > li > a.btn-primary.btn-simple:focus, .navbar .navbar-nav > li > a.btn-primary.btn-simple:active, .navbar .navbar-nav > li > a.btn-primary.btn-simple.active, .open > .navbar .navbar-nav > li > a.btn-primary.btn-simple.dropdown-toggle, .btn-primary.btn-simple:hover, .btn-primary.btn-simple:focus, .btn-primary.btn-simple:active, .btn-primary.btn-simple.active, .open > .btn-primary.btn-simple.dropdown-toggle {\n    background-color: transparent;\n    color: #427C89;\n}\n\n.navbar .navbar-nav > li > a.btn-primary.btn-simple .caret, .btn-primary.btn-simple .caret {\n    border-top-color: #FFFFFF;\n}\n\n.navbar .navbar-nav > li > a.btn-primary .caret, .btn-primary .caret {\n    border-top-color: #7A9E9F;\n}\n\n.navbar .navbar-nav > li > a.btn-success, .btn-success {\n    border-color: #7AC29A;\n    color: #7AC29A;\n}\n\n.navbar .navbar-nav > li > a.btn-success:hover, .navbar .navbar-nav > li > a.btn-success:focus, .navbar .navbar-nav > li > a.btn-success:active, .navbar .navbar-nav > li > a.btn-success.active, .open > .navbar .navbar-nav > li > a.btn-success.dropdown-toggle, .btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.active, .open > .btn-success.dropdown-toggle {\n    background-color: #7AC29A;\n    color: rgba(255, 255, 255, 0.7);\n    border-color: #7AC29A;\n}\n\n.navbar .navbar-nav > li > a.btn-success:hover .caret, .navbar .navbar-nav > li > a.btn-success:focus .caret, .navbar .navbar-nav > li > a.btn-success:active .caret, .navbar .navbar-nav > li > a.btn-success.active .caret, .open > .navbar .navbar-nav > li > a.btn-success.dropdown-toggle .caret, .btn-success:hover .caret, .btn-success:focus .caret, .btn-success:active .caret, .btn-success.active .caret, .open > .btn-success.dropdown-toggle .caret {\n    border-top-color: rgba(255, 255, 255, 0.7);\n}\n\n.navbar .navbar-nav > li > a.btn-success.disabled, .navbar .navbar-nav > li > a.btn-success.disabled:hover, .navbar .navbar-nav > li > a.btn-success.disabled:focus, .navbar .navbar-nav > li > a.btn-success.disabled.focus, .navbar .navbar-nav > li > a.btn-success.disabled:active, .navbar .navbar-nav > li > a.btn-success.disabled.active, .navbar .navbar-nav > li > a.btn-success:disabled, .navbar .navbar-nav > li > a.btn-success:disabled:hover, .navbar .navbar-nav > li > a.btn-success:disabled:focus, .navbar .navbar-nav > li > a.btn-success:disabled.focus, .navbar .navbar-nav > li > a.btn-success:disabled:active, .navbar .navbar-nav > li > a.btn-success:disabled.active, .navbar .navbar-nav > li > a.btn-success[disabled], .navbar .navbar-nav > li > a.btn-success[disabled]:hover, .navbar .navbar-nav > li > a.btn-success[disabled]:focus, .navbar .navbar-nav > li > a.btn-success[disabled].focus, .navbar .navbar-nav > li > a.btn-success[disabled]:active, .navbar .navbar-nav > li > a.btn-success[disabled].active, fieldset[disabled] .navbar .navbar-nav > li > a.btn-success, fieldset[disabled] .navbar .navbar-nav > li > a.btn-success:hover, fieldset[disabled] .navbar .navbar-nav > li > a.btn-success:focus, fieldset[disabled] .navbar .navbar-nav > li > a.btn-success.focus, fieldset[disabled] .navbar .navbar-nav > li > a.btn-success:active, fieldset[disabled] .navbar .navbar-nav > li > a.btn-success.active, .btn-success.disabled, .btn-success.disabled:hover, .btn-success.disabled:focus, .btn-success.disabled.focus, .btn-success.disabled:active, .btn-success.disabled.active, .btn-success:disabled, .btn-success:disabled:hover, .btn-success:disabled:focus, .btn-success:disabled.focus, .btn-success:disabled:active, .btn-success:disabled.active, .btn-success[disabled], .btn-success[disabled]:hover, .btn-success[disabled]:focus, .btn-success[disabled].focus, .btn-success[disabled]:active, .btn-success[disabled].active, fieldset[disabled] .btn-success, fieldset[disabled] .btn-success:hover, fieldset[disabled] .btn-success:focus, fieldset[disabled] .btn-success.focus, fieldset[disabled] .btn-success:active, fieldset[disabled] .btn-success.active {\n    background-color: transparent;\n    border-color: #7AC29A;\n}\n\n.navbar .navbar-nav > li > a.btn-success.btn-fill, .btn-success.btn-fill {\n    color: #FFFFFF;\n    background-color: #7AC29A;\n    opacity: 1;\n    filter: alpha(opacity=100);\n}\n\n.navbar .navbar-nav > li > a.btn-success.btn-fill:hover, .navbar .navbar-nav > li > a.btn-success.btn-fill:focus, .navbar .navbar-nav > li > a.btn-success.btn-fill:active, .navbar .navbar-nav > li > a.btn-success.btn-fill.active, .open > .navbar .navbar-nav > li > a.btn-success.btn-fill.dropdown-toggle, .btn-success.btn-fill:hover, .btn-success.btn-fill:focus, .btn-success.btn-fill:active, .btn-success.btn-fill.active, .open > .btn-success.btn-fill.dropdown-toggle {\n    background-color: #42A084;\n    color: #FFFFFF;\n    border-color: #42A084;\n}\n\n.navbar .navbar-nav > li > a.btn-success.btn-fill .caret, .btn-success.btn-fill .caret {\n    border-top-color: #FFFFFF;\n}\n\n.navbar .navbar-nav > li > a.btn-success.btn-simple:hover, .navbar .navbar-nav > li > a.btn-success.btn-simple:focus, .navbar .navbar-nav > li > a.btn-success.btn-simple:active, .navbar .navbar-nav > li > a.btn-success.btn-simple.active, .open > .navbar .navbar-nav > li > a.btn-success.btn-simple.dropdown-toggle, .btn-success.btn-simple:hover, .btn-success.btn-simple:focus, .btn-success.btn-simple:active, .btn-success.btn-simple.active, .open > .btn-success.btn-simple.dropdown-toggle {\n    background-color: transparent;\n    color: #42A084;\n}\n\n.navbar .navbar-nav > li > a.btn-success.btn-simple .caret, .btn-success.btn-simple .caret {\n    border-top-color: #FFFFFF;\n}\n\n.navbar .navbar-nav > li > a.btn-success .caret, .btn-success .caret {\n    border-top-color: #7AC29A;\n}\n\n.navbar .navbar-nav > li > a.btn-info, .btn-info {\n    border-color: #68B3C8;\n    color: #68B3C8;\n}\n\n.navbar .navbar-nav > li > a.btn-info:hover, .navbar .navbar-nav > li > a.btn-info:focus, .navbar .navbar-nav > li > a.btn-info:active, .navbar .navbar-nav > li > a.btn-info.active, .open > .navbar .navbar-nav > li > a.btn-info.dropdown-toggle, .btn-info:hover, .btn-info:focus, .btn-info:active, .btn-info.active, .open > .btn-info.dropdown-toggle {\n    background-color: #68B3C8;\n    color: rgba(255, 255, 255, 0.7);\n    border-color: #68B3C8;\n}\n\n.navbar .navbar-nav > li > a.btn-info:hover .caret, .navbar .navbar-nav > li > a.btn-info:focus .caret, .navbar .navbar-nav > li > a.btn-info:active .caret, .navbar .navbar-nav > li > a.btn-info.active .caret, .open > .navbar .navbar-nav > li > a.btn-info.dropdown-toggle .caret, .btn-info:hover .caret, .btn-info:focus .caret, .btn-info:active .caret, .btn-info.active .caret, .open > .btn-info.dropdown-toggle .caret {\n    border-top-color: rgba(255, 255, 255, 0.7);\n}\n\n.navbar .navbar-nav > li > a.btn-info.disabled, .navbar .navbar-nav > li > a.btn-info.disabled:hover, .navbar .navbar-nav > li > a.btn-info.disabled:focus, .navbar .navbar-nav > li > a.btn-info.disabled.focus, .navbar .navbar-nav > li > a.btn-info.disabled:active, .navbar .navbar-nav > li > a.btn-info.disabled.active, .navbar .navbar-nav > li > a.btn-info:disabled, .navbar .navbar-nav > li > a.btn-info:disabled:hover, .navbar .navbar-nav > li > a.btn-info:disabled:focus, .navbar .navbar-nav > li > a.btn-info:disabled.focus, .navbar .navbar-nav > li > a.btn-info:disabled:active, .navbar .navbar-nav > li > a.btn-info:disabled.active, .navbar .navbar-nav > li > a.btn-info[disabled], .navbar .navbar-nav > li > a.btn-info[disabled]:hover, .navbar .navbar-nav > li > a.btn-info[disabled]:focus, .navbar .navbar-nav > li > a.btn-info[disabled].focus, .navbar .navbar-nav > li > a.btn-info[disabled]:active, .navbar .navbar-nav > li > a.btn-info[disabled].active, fieldset[disabled] .navbar .navbar-nav > li > a.btn-info, fieldset[disabled] .navbar .navbar-nav > li > a.btn-info:hover, fieldset[disabled] .navbar .navbar-nav > li > a.btn-info:focus, fieldset[disabled] .navbar .navbar-nav > li > a.btn-info.focus, fieldset[disabled] .navbar .navbar-nav > li > a.btn-info:active, fieldset[disabled] .navbar .navbar-nav > li > a.btn-info.active, .btn-info.disabled, .btn-info.disabled:hover, .btn-info.disabled:focus, .btn-info.disabled.focus, .btn-info.disabled:active, .btn-info.disabled.active, .btn-info:disabled, .btn-info:disabled:hover, .btn-info:disabled:focus, .btn-info:disabled.focus, .btn-info:disabled:active, .btn-info:disabled.active, .btn-info[disabled], .btn-info[disabled]:hover, .btn-info[disabled]:focus, .btn-info[disabled].focus, .btn-info[disabled]:active, .btn-info[disabled].active, fieldset[disabled] .btn-info, fieldset[disabled] .btn-info:hover, fieldset[disabled] .btn-info:focus, fieldset[disabled] .btn-info.focus, fieldset[disabled] .btn-info:active, fieldset[disabled] .btn-info.active {\n    background-color: transparent;\n    border-color: #68B3C8;\n}\n\n.navbar .navbar-nav > li > a.btn-info.btn-fill, .btn-info.btn-fill {\n    color: #FFFFFF;\n    background-color: #68B3C8;\n    opacity: 1;\n    filter: alpha(opacity=100);\n}\n\n.navbar .navbar-nav > li > a.btn-info.btn-fill:hover, .navbar .navbar-nav > li > a.btn-info.btn-fill:focus, .navbar .navbar-nav > li > a.btn-info.btn-fill:active, .navbar .navbar-nav > li > a.btn-info.btn-fill.active, .open > .navbar .navbar-nav > li > a.btn-info.btn-fill.dropdown-toggle, .btn-info.btn-fill:hover, .btn-info.btn-fill:focus, .btn-info.btn-fill:active, .btn-info.btn-fill.active, .open > .btn-info.btn-fill.dropdown-toggle {\n    background-color: #3091B2;\n    color: #FFFFFF;\n    border-color: #3091B2;\n}\n\n.navbar .navbar-nav > li > a.btn-info.btn-fill .caret, .btn-info.btn-fill .caret {\n    border-top-color: #FFFFFF;\n}\n\n.navbar .navbar-nav > li > a.btn-info.btn-simple:hover, .navbar .navbar-nav > li > a.btn-info.btn-simple:focus, .navbar .navbar-nav > li > a.btn-info.btn-simple:active, .navbar .navbar-nav > li > a.btn-info.btn-simple.active, .open > .navbar .navbar-nav > li > a.btn-info.btn-simple.dropdown-toggle, .btn-info.btn-simple:hover, .btn-info.btn-simple:focus, .btn-info.btn-simple:active, .btn-info.btn-simple.active, .open > .btn-info.btn-simple.dropdown-toggle {\n    background-color: transparent;\n    color: #3091B2;\n}\n\n.navbar .navbar-nav > li > a.btn-info.btn-simple .caret, .btn-info.btn-simple .caret {\n    border-top-color: #FFFFFF;\n}\n\n.navbar .navbar-nav > li > a.btn-info .caret, .btn-info .caret {\n    border-top-color: #68B3C8;\n}\n\n.navbar .navbar-nav > li > a.btn-warning, .btn-warning {\n    border-color: #F3BB45;\n    color: #F3BB45;\n}\n\n.navbar .navbar-nav > li > a.btn-warning:hover, .navbar .navbar-nav > li > a.btn-warning:focus, .navbar .navbar-nav > li > a.btn-warning:active, .navbar .navbar-nav > li > a.btn-warning.active, .open > .navbar .navbar-nav > li > a.btn-warning.dropdown-toggle, .btn-warning:hover, .btn-warning:focus, .btn-warning:active, .btn-warning.active, .open > .btn-warning.dropdown-toggle {\n    background-color: #F3BB45;\n    color: rgba(255, 255, 255, 0.7);\n    border-color: #F3BB45;\n}\n\n.navbar .navbar-nav > li > a.btn-warning:hover .caret, .navbar .navbar-nav > li > a.btn-warning:focus .caret, .navbar .navbar-nav > li > a.btn-warning:active .caret, .navbar .navbar-nav > li > a.btn-warning.active .caret, .open > .navbar .navbar-nav > li > a.btn-warning.dropdown-toggle .caret, .btn-warning:hover .caret, .btn-warning:focus .caret, .btn-warning:active .caret, .btn-warning.active .caret, .open > .btn-warning.dropdown-toggle .caret {\n    border-top-color: rgba(255, 255, 255, 0.7);\n}\n\n.navbar .navbar-nav > li > a.btn-warning.disabled, .navbar .navbar-nav > li > a.btn-warning.disabled:hover, .navbar .navbar-nav > li > a.btn-warning.disabled:focus, .navbar .navbar-nav > li > a.btn-warning.disabled.focus, .navbar .navbar-nav > li > a.btn-warning.disabled:active, .navbar .navbar-nav > li > a.btn-warning.disabled.active, .navbar .navbar-nav > li > a.btn-warning:disabled, .navbar .navbar-nav > li > a.btn-warning:disabled:hover, .navbar .navbar-nav > li > a.btn-warning:disabled:focus, .navbar .navbar-nav > li > a.btn-warning:disabled.focus, .navbar .navbar-nav > li > a.btn-warning:disabled:active, .navbar .navbar-nav > li > a.btn-warning:disabled.active, .navbar .navbar-nav > li > a.btn-warning[disabled], .navbar .navbar-nav > li > a.btn-warning[disabled]:hover, .navbar .navbar-nav > li > a.btn-warning[disabled]:focus, .navbar .navbar-nav > li > a.btn-warning[disabled].focus, .navbar .navbar-nav > li > a.btn-warning[disabled]:active, .navbar .navbar-nav > li > a.btn-warning[disabled].active, fieldset[disabled] .navbar .navbar-nav > li > a.btn-warning, fieldset[disabled] .navbar .navbar-nav > li > a.btn-warning:hover, fieldset[disabled] .navbar .navbar-nav > li > a.btn-warning:focus, fieldset[disabled] .navbar .navbar-nav > li > a.btn-warning.focus, fieldset[disabled] .navbar .navbar-nav > li > a.btn-warning:active, fieldset[disabled] .navbar .navbar-nav > li > a.btn-warning.active, .btn-warning.disabled, .btn-warning.disabled:hover, .btn-warning.disabled:focus, .btn-warning.disabled.focus, .btn-warning.disabled:active, .btn-warning.disabled.active, .btn-warning:disabled, .btn-warning:disabled:hover, .btn-warning:disabled:focus, .btn-warning:disabled.focus, .btn-warning:disabled:active, .btn-warning:disabled.active, .btn-warning[disabled], .btn-warning[disabled]:hover, .btn-warning[disabled]:focus, .btn-warning[disabled].focus, .btn-warning[disabled]:active, .btn-warning[disabled].active, fieldset[disabled] .btn-warning, fieldset[disabled] .btn-warning:hover, fieldset[disabled] .btn-warning:focus, fieldset[disabled] .btn-warning.focus, fieldset[disabled] .btn-warning:active, fieldset[disabled] .btn-warning.active {\n    background-color: transparent;\n    border-color: #F3BB45;\n}\n\n.navbar .navbar-nav > li > a.btn-warning.btn-fill, .btn-warning.btn-fill {\n    color: #FFFFFF;\n    background-color: #F3BB45;\n    opacity: 1;\n    filter: alpha(opacity=100);\n}\n\n.navbar .navbar-nav > li > a.btn-warning.btn-fill:hover, .navbar .navbar-nav > li > a.btn-warning.btn-fill:focus, .navbar .navbar-nav > li > a.btn-warning.btn-fill:active, .navbar .navbar-nav > li > a.btn-warning.btn-fill.active, .open > .navbar .navbar-nav > li > a.btn-warning.btn-fill.dropdown-toggle, .btn-warning.btn-fill:hover, .btn-warning.btn-fill:focus, .btn-warning.btn-fill:active, .btn-warning.btn-fill.active, .open > .btn-warning.btn-fill.dropdown-toggle {\n    background-color: #BB992F;\n    color: #FFFFFF;\n    border-color: #BB992F;\n}\n\n.navbar .navbar-nav > li > a.btn-warning.btn-fill .caret, .btn-warning.btn-fill .caret {\n    border-top-color: #FFFFFF;\n}\n\n.navbar .navbar-nav > li > a.btn-warning.btn-simple:hover, .navbar .navbar-nav > li > a.btn-warning.btn-simple:focus, .navbar .navbar-nav > li > a.btn-warning.btn-simple:active, .navbar .navbar-nav > li > a.btn-warning.btn-simple.active, .open > .navbar .navbar-nav > li > a.btn-warning.btn-simple.dropdown-toggle, .btn-warning.btn-simple:hover, .btn-warning.btn-simple:focus, .btn-warning.btn-simple:active, .btn-warning.btn-simple.active, .open > .btn-warning.btn-simple.dropdown-toggle {\n    background-color: transparent;\n    color: #BB992F;\n}\n\n.navbar .navbar-nav > li > a.btn-warning.btn-simple .caret, .btn-warning.btn-simple .caret {\n    border-top-color: #FFFFFF;\n}\n\n.navbar .navbar-nav > li > a.btn-warning .caret, .btn-warning .caret {\n    border-top-color: #F3BB45;\n}\n\n.navbar .navbar-nav > li > a.btn-danger, .btn-danger {\n    border-color: #EB5E28;\n    color: #EB5E28;\n}\n\n.navbar .navbar-nav > li > a.btn-danger:hover, .navbar .navbar-nav > li > a.btn-danger:focus, .navbar .navbar-nav > li > a.btn-danger:active, .navbar .navbar-nav > li > a.btn-danger.active, .open > .navbar .navbar-nav > li > a.btn-danger.dropdown-toggle, .btn-danger:hover, .btn-danger:focus, .btn-danger:active, .btn-danger.active, .open > .btn-danger.dropdown-toggle {\n    background-color: #EB5E28;\n    color: rgba(255, 255, 255, 0.7);\n    border-color: #EB5E28;\n}\n\n.navbar .navbar-nav > li > a.btn-danger:hover .caret, .navbar .navbar-nav > li > a.btn-danger:focus .caret, .navbar .navbar-nav > li > a.btn-danger:active .caret, .navbar .navbar-nav > li > a.btn-danger.active .caret, .open > .navbar .navbar-nav > li > a.btn-danger.dropdown-toggle .caret, .btn-danger:hover .caret, .btn-danger:focus .caret, .btn-danger:active .caret, .btn-danger.active .caret, .open > .btn-danger.dropdown-toggle .caret {\n    border-top-color: rgba(255, 255, 255, 0.7);\n}\n\n.navbar .navbar-nav > li > a.btn-danger.disabled, .navbar .navbar-nav > li > a.btn-danger.disabled:hover, .navbar .navbar-nav > li > a.btn-danger.disabled:focus, .navbar .navbar-nav > li > a.btn-danger.disabled.focus, .navbar .navbar-nav > li > a.btn-danger.disabled:active, .navbar .navbar-nav > li > a.btn-danger.disabled.active, .navbar .navbar-nav > li > a.btn-danger:disabled, .navbar .navbar-nav > li > a.btn-danger:disabled:hover, .navbar .navbar-nav > li > a.btn-danger:disabled:focus, .navbar .navbar-nav > li > a.btn-danger:disabled.focus, .navbar .navbar-nav > li > a.btn-danger:disabled:active, .navbar .navbar-nav > li > a.btn-danger:disabled.active, .navbar .navbar-nav > li > a.btn-danger[disabled], .navbar .navbar-nav > li > a.btn-danger[disabled]:hover, .navbar .navbar-nav > li > a.btn-danger[disabled]:focus, .navbar .navbar-nav > li > a.btn-danger[disabled].focus, .navbar .navbar-nav > li > a.btn-danger[disabled]:active, .navbar .navbar-nav > li > a.btn-danger[disabled].active, fieldset[disabled] .navbar .navbar-nav > li > a.btn-danger, fieldset[disabled] .navbar .navbar-nav > li > a.btn-danger:hover, fieldset[disabled] .navbar .navbar-nav > li > a.btn-danger:focus, fieldset[disabled] .navbar .navbar-nav > li > a.btn-danger.focus, fieldset[disabled] .navbar .navbar-nav > li > a.btn-danger:active, fieldset[disabled] .navbar .navbar-nav > li > a.btn-danger.active, .btn-danger.disabled, .btn-danger.disabled:hover, .btn-danger.disabled:focus, .btn-danger.disabled.focus, .btn-danger.disabled:active, .btn-danger.disabled.active, .btn-danger:disabled, .btn-danger:disabled:hover, .btn-danger:disabled:focus, .btn-danger:disabled.focus, .btn-danger:disabled:active, .btn-danger:disabled.active, .btn-danger[disabled], .btn-danger[disabled]:hover, .btn-danger[disabled]:focus, .btn-danger[disabled].focus, .btn-danger[disabled]:active, .btn-danger[disabled].active, fieldset[disabled] .btn-danger, fieldset[disabled] .btn-danger:hover, fieldset[disabled] .btn-danger:focus, fieldset[disabled] .btn-danger.focus, fieldset[disabled] .btn-danger:active, fieldset[disabled] .btn-danger.active {\n    background-color: transparent;\n    border-color: #EB5E28;\n}\n\n.navbar .navbar-nav > li > a.btn-danger.btn-fill, .btn-danger.btn-fill {\n    color: #FFFFFF;\n    background-color: #EB5E28;\n    opacity: 1;\n    filter: alpha(opacity=100);\n}\n\n.navbar .navbar-nav > li > a.btn-danger.btn-fill:hover, .navbar .navbar-nav > li > a.btn-danger.btn-fill:focus, .navbar .navbar-nav > li > a.btn-danger.btn-fill:active, .navbar .navbar-nav > li > a.btn-danger.btn-fill.active, .open > .navbar .navbar-nav > li > a.btn-danger.btn-fill.dropdown-toggle, .btn-danger.btn-fill:hover, .btn-danger.btn-fill:focus, .btn-danger.btn-fill:active, .btn-danger.btn-fill.active, .open > .btn-danger.btn-fill.dropdown-toggle {\n    background-color: #B33C12;\n    color: #FFFFFF;\n    border-color: #B33C12;\n}\n\n.navbar .navbar-nav > li > a.btn-danger.btn-fill .caret, .btn-danger.btn-fill .caret {\n    border-top-color: #FFFFFF;\n}\n\n.navbar .navbar-nav > li > a.btn-danger.btn-simple:hover, .navbar .navbar-nav > li > a.btn-danger.btn-simple:focus, .navbar .navbar-nav > li > a.btn-danger.btn-simple:active, .navbar .navbar-nav > li > a.btn-danger.btn-simple.active, .open > .navbar .navbar-nav > li > a.btn-danger.btn-simple.dropdown-toggle, .btn-danger.btn-simple:hover, .btn-danger.btn-simple:focus, .btn-danger.btn-simple:active, .btn-danger.btn-simple.active, .open > .btn-danger.btn-simple.dropdown-toggle {\n    background-color: transparent;\n    color: #B33C12;\n}\n\n.navbar .navbar-nav > li > a.btn-danger.btn-simple .caret, .btn-danger.btn-simple .caret {\n    border-top-color: #FFFFFF;\n}\n\n.navbar .navbar-nav > li > a.btn-danger .caret, .btn-danger .caret {\n    border-top-color: #EB5E28;\n}\n\n.btn-neutral {\n    border-color: #FFFFFF;\n    color: #FFFFFF;\n}\n\n.btn-neutral:hover, .btn-neutral:focus, .btn-neutral:active, .btn-neutral.active, .open > .btn-neutral.dropdown-toggle {\n    background-color: #FFFFFF;\n    color: rgba(255, 255, 255, 0.7);\n    border-color: #FFFFFF;\n}\n\n.btn-neutral:hover .caret, .btn-neutral:focus .caret, .btn-neutral:active .caret, .btn-neutral.active .caret, .open > .btn-neutral.dropdown-toggle .caret {\n    border-top-color: rgba(255, 255, 255, 0.7);\n}\n\n.btn-neutral.disabled, .btn-neutral.disabled:hover, .btn-neutral.disabled:focus, .btn-neutral.disabled.focus, .btn-neutral.disabled:active, .btn-neutral.disabled.active, .btn-neutral:disabled, .btn-neutral:disabled:hover, .btn-neutral:disabled:focus, .btn-neutral:disabled.focus, .btn-neutral:disabled:active, .btn-neutral:disabled.active, .btn-neutral[disabled], .btn-neutral[disabled]:hover, .btn-neutral[disabled]:focus, .btn-neutral[disabled].focus, .btn-neutral[disabled]:active, .btn-neutral[disabled].active, fieldset[disabled] .btn-neutral, fieldset[disabled] .btn-neutral:hover, fieldset[disabled] .btn-neutral:focus, fieldset[disabled] .btn-neutral.focus, fieldset[disabled] .btn-neutral:active, fieldset[disabled] .btn-neutral.active {\n    background-color: transparent;\n    border-color: #FFFFFF;\n}\n\n.btn-neutral.btn-fill {\n    color: #FFFFFF;\n    background-color: #FFFFFF;\n    opacity: 1;\n    filter: alpha(opacity=100);\n}\n\n.btn-neutral.btn-fill:hover, .btn-neutral.btn-fill:focus, .btn-neutral.btn-fill:active, .btn-neutral.btn-fill.active, .open > .btn-neutral.btn-fill.dropdown-toggle {\n    background-color: #FFFFFF;\n    color: #FFFFFF;\n    border-color: #FFFFFF;\n}\n\n.btn-neutral.btn-fill .caret {\n    border-top-color: #FFFFFF;\n}\n\n.btn-neutral.btn-simple:hover, .btn-neutral.btn-simple:focus, .btn-neutral.btn-simple:active, .btn-neutral.btn-simple.active, .open > .btn-neutral.btn-simple.dropdown-toggle {\n    background-color: transparent;\n    color: #FFFFFF;\n}\n\n.btn-neutral.btn-simple .caret {\n    border-top-color: #FFFFFF;\n}\n\n.btn-neutral .caret {\n    border-top-color: #FFFFFF;\n}\n\n.btn-neutral:hover, .btn-neutral:focus {\n    color: #66615B;\n}\n\n.btn-neutral:active, .btn-neutral.active, .open > .btn-neutral.dropdown-toggle {\n    background-color: #FFFFFF;\n    color: #66615B;\n}\n\n.btn-neutral.btn-fill {\n    color: #66615B;\n}\n\n.btn-neutral.btn-fill:hover, .btn-neutral.btn-fill:focus {\n    color: #403D39;\n}\n\n.btn-neutral.btn-simple:active, .btn-neutral.btn-simple.active {\n    background-color: transparent;\n}\n\n.btn:disabled, .btn[disabled], .btn.disabled {\n    opacity: 0.5;\n    filter: alpha(opacity=50);\n}\n\n.btn-simple {\n    border: 0;\n    padding: 7px 18px;\n}\n\n.btn-simple.btn-icon {\n    padding: 7px;\n}\n\n.btn-lg {\n    font-size: 18px;\n    border-radius: 50px;\n    padding: 11px 30px;\n    font-weight: 400;\n}\n\n.btn-lg.btn-simple {\n    padding: 13px 30px;\n}\n\n.btn-sm {\n    font-size: 12px;\n    border-radius: 26px;\n    padding: 4px 10px;\n}\n\n.btn-sm.btn-simple {\n    padding: 6px 10px;\n}\n\n.btn-xs {\n    font-size: 12px;\n    border-radius: 26px;\n    padding: 2px 5px;\n}\n\n.btn-xs.btn-simple {\n    padding: 4px 5px;\n}\n\n.btn-wd {\n    min-width: 140px;\n}\n\n.btn-group.select {\n    width: 100%;\n}\n\n.btn-group.select .btn {\n    text-align: left;\n}\n\n.btn-group.select .caret {\n    position: absolute;\n    top: 50%;\n    margin-top: -1px;\n    right: 8px;\n}\n\n.form-control::-moz-placeholder {\n    color: #DDDDDD;\n    opacity: 1;\n    filter: alpha(opacity=100);\n}\n\n.form-control:-moz-placeholder {\n    color: #DDDDDD;\n    opacity: 1;\n    filter: alpha(opacity=100);\n}\n\n.form-control::-webkit-input-placeholder {\n    color: #DDDDDD;\n    opacity: 1;\n    filter: alpha(opacity=100);\n}\n\n.form-control:-ms-input-placeholder {\n    color: #DDDDDD;\n    opacity: 1;\n    filter: alpha(opacity=100);\n}\n\n.form-control {\n    background-color: #fffcf5;\n    border: medium none;\n    border-radius: 4px;\n    color: #66615b;\n    font-size: 14px;\n    transition: background-color 0.3s ease 0s;\n    padding: 7px 18px;\n    height: 40px;\n    -webkit-box-shadow: none;\n    box-shadow: none;\n}\n\n.input-with-icon{\n    position: relative;\n}\n\n.input-with-icon .form-control {\n    height: 35px;\n    padding-left: 30px;\n    background-color: #fff;\n    border: 1px solid #d5d5d5;\n    border-radius: 4px;\n    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);\n    -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;\n    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s\n}\n.input-with-icon .form-control:focus {\n    border-color: #ffa000;\n    outline: 0;\n    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(255, 160, 0, .6)\n}\n.login .login-container .login-form .btn-primary-outline-login{\n    border-color:#ffa000;\n    color: #ffa000;\n    background-color: transparent;\n}\n.login .login-container .login-form .btn-primary-outline-login:hover{\n    border-color:#ffa000;\n    color: #fff;\n    background-color: #ffa000;\n}\n.form-control:focus {\n    background-color: #FFFFFF;\n    -webkit-box-shadow: none;\n    box-shadow: none;\n    outline: 0 !important;\n}\n\n.has-success .form-control, .has-error .form-control, .has-success .form-control:focus, .has-error .form-control:focus {\n    -webkit-box-shadow: none;\n    box-shadow: none;\n}\n\n.has-success .form-control {\n    background-color: #ABF3CB;\n    color: #7AC29A;\n}\n\n.has-success .form-control.border-input {\n    border: 1px solid #7AC29A;\n}\n\n.has-success .form-control:focus {\n    background-color: #FFFFFF;\n}\n\n.has-error .form-control {\n    background-color: #FFC0A4;\n    color: #EB5E28;\n}\n\n.has-error .form-control.border-input {\n    border: 1px solid #EB5E28;\n}\n\n.has-error .form-control:focus {\n    background-color: #FFFFFF;\n}\n\n.form-control + .form-control-feedback {\n    border-radius: 6px;\n    font-size: 14px;\n    margin-top: -7px;\n    position: absolute;\n    right: 10px;\n    top: 50%;\n    vertical-align: middle;\n}\n\n.form-control.border-input {\n    border: 1px solid #CCC5B9;\n}\n.border-input .form-control{\n    border: 1px solid #CCC5B9;\n}\n.open .form-control {\n    border-bottom-color: transparent;\n}\n\n.input-lg {\n    height: 55px;\n    padding: 11px 30px;\n}\n\n.has-error .form-control-feedback, .has-error .control-label {\n    color: #EB5E28;\n}\n\n.has-success .form-control-feedback, .has-success .control-label {\n    color: #7AC29A;\n}\n\n.input-group-addon {\n    background-color: #fffcf5;\n    border: medium none;\n    border-radius: 4px;\n}\n\n.has-success .input-group-addon, .has-error .input-group-addon {\n    background-color: #FFFFFF;\n}\n\n.has-error .form-control:focus + .input-group-addon {\n    color: #EB5E28;\n}\n\n.has-success .form-control:focus + .input-group-addon {\n    color: #7AC29A;\n}\n\n.form-control:focus + .input-group-addon, .form-control:focus ~ .input-group-addon {\n    background-color: #FFFFFF;\n}\n\n.border-input .input-group-addon {\n    border: solid 1px #CCC5B9;\n}\n\n.input-group {\n    margin-bottom: 15px;\n}\n\n.input-group[disabled] .input-group-addon {\n    background-color: #E3E3E3;\n}\n\n.input-group .form-control:first-child,\n.input-group-addon:first-child,\n.input-group-btn:first-child > .dropdown-toggle,\n.input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle) {\n    border-right: 0 none;\n}\n\n.input-group .form-control:last-child,\n.input-group-addon:last-child,\n.input-group-btn:last-child > .dropdown-toggle,\n.input-group-btn:first-child > .btn:not(:first-child) {\n    border-left: 0 none;\n}\n\n.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {\n    background-color: #E3E3E3;\n    cursor: not-allowed;\n    color: #9A9A9A;\n    opacity: 1;\n    filter: alpha(opacity=100);\n}\n\n.form-control[disabled]::-moz-placeholder {\n    color: #9A9A9A;\n    opacity: 1;\n    filter: alpha(opacity=100);\n}\n\n.form-control[disabled]:-moz-placeholder {\n    color: #DDDDDD;\n    opacity: 1;\n    filter: alpha(opacity=100);\n}\n\n.form-control[disabled]::-webkit-input-placeholder {\n    color: #DDDDDD;\n    opacity: 1;\n    filter: alpha(opacity=100);\n}\n\n.form-control[disabled]:-ms-input-placeholder {\n    color: #DDDDDD;\n    opacity: 1;\n    filter: alpha(opacity=100);\n}\n\n.input-group-btn .btn {\n    border-width: 1px;\n    padding: 9px 18px;\n}\n\n.input-group-btn .btn-default:not(.btn-fill) {\n    border-color: #DDDDDD;\n}\n\n.input-group-btn:last-child > .btn {\n    margin-left: 0;\n}\n\ntextarea.form-control {\n    max-width: 100%;\n    padding: 10px 18px;\n    resize: none;\n}\n\n.alert {\n    border: 0;\n    border-radius: 0;\n    color: #FFFFFF;\n    padding: 10px 15px;\n    font-size: 14px;\n}\n\n.container .alert {\n    border-radius: 4px;\n}\n\n.navbar .alert {\n    border-radius: 0;\n    left: 0;\n    position: absolute;\n    right: 0;\n    top: 85px;\n    width: 100%;\n    z-index: 3;\n}\n\n.navbar:not(.navbar-transparent) .alert {\n    top: 70px;\n}\n\n.alert span[data-notify=\"icon\"] {\n    font-size: 30px;\n    display: block;\n    left: 15px;\n    position: absolute;\n    top: 50%;\n    margin-top: -20px;\n}\n\n.alert .close ~ span {\n    display: block;\n    max-width: 89%;\n}\n\n.alert[data-notify=\"container\"] {\n    padding: 10px 10px 10px 20px;\n    border-radius: 4px;\n}\n\n.alert.alert-with-icon {\n    padding-left: 65px;\n}\n\n.alert-info {\n    background-color: #7CE4FE;\n    color: #3091B2;\n}\n\n.alert-success {\n    background-color: #8EF3C5;\n    color: #42A084;\n}\n\n.alert-warning {\n    background-color: #FFE28C;\n    color: #BB992F;\n}\n\n.alert-danger {\n    background-color: #FF8F5E;\n    color: #B33C12;\n}\n\n.table thead tr > th,\n.table thead tr > td,\n.table tbody tr > th,\n.table tbody tr > td,\n.table tfoot tr > th,\n.table tfoot tr > td {\n    border-top: 1px solid #CCC5B9;\n}\n\n.table > thead > tr > th {\n    border-bottom-width: 0;\n    font-size: 1.25em;\n    font-weight: 300;\n}\n\n.table .radio,\n.table .checkbox {\n    margin-top: 0;\n    margin-bottom: 22px;\n    padding: 0;\n    width: 15px;\n}\n\n.table > thead > tr > th,\n.table > tbody > tr > th,\n.table > tfoot > tr > th,\n.table > thead > tr > td,\n.table > tbody > tr > td,\n.table > tfoot > tr > td {\n    padding: 12px;\n    vertical-align: middle;\n}\n\n.table .th-description {\n    max-width: 150px;\n}\n\n.table .td-price {\n    font-size: 26px;\n    font-weight: 300;\n    margin-top: 5px;\n    text-align: right;\n}\n\n.table .td-total {\n    font-weight: 600;\n    font-size: 1.25em;\n    padding-top: 20px;\n    text-align: right;\n}\n\n.table .td-actions .btn.btn-sm, .table .td-actions .btn.btn-xs {\n    padding-left: 3px;\n    padding-right: 3px;\n}\n\n.table > tbody > tr {\n    position: relative;\n}\n\n.table-striped tbody > tr:nth-of-type(2n+1) {\n    background-color: #fff;\n}\n\n.table-striped tbody > tr:nth-of-type(2n) {\n    background-color: #FFFCF5;\n}\n\n.table-striped > thead > tr > th,\n.table-striped > tbody > tr > th,\n.table-striped > tfoot > tr > th,\n.table-striped > thead > tr > td,\n.table-striped > tbody > tr > td,\n.table-striped > tfoot > tr > td {\n    padding: 15px 8px;\n}\n\n/*      Checkbox and radio         */\n.checkbox,\n.radio {\n    margin-bottom: 12px;\n    padding-left: 30px;\n    position: relative;\n    -webkit-transition: color, opacity 0.25s linear;\n    transition: color, opacity 0.25s linear;\n    font-size: 14px;\n    font-weight: normal;\n    line-height: 1.5;\n    color: #66615b;\n    cursor: pointer;\n}\n\n.checkbox .icons,\n.radio .icons {\n    color: #66615b;\n    display: block;\n    height: 20px;\n    left: 0;\n    position: absolute;\n    top: 0;\n    width: 20px;\n    text-align: center;\n    line-height: 21px;\n    font-size: 20px;\n    cursor: pointer;\n    -webkit-transition: color, opacity 0.15s linear;\n    transition: color, opacity 0.15s linear;\n    opacity: .50;\n}\n\n.checkbox.checked .icons,\n.radio.checked .icons {\n    opacity: 1;\n}\n\n.checkbox input,\n.radio input {\n    outline: none !important;\n    display: none;\n}\n\n.checkbox label,\n.radio label {\n    padding-left: 10px;\n}\n\n.checkbox .icons .first-icon,\n.radio .icons .first-icon,\n.checkbox .icons .second-icon,\n.radio .icons .second-icon {\n    display: inline-table;\n    position: absolute;\n    left: 0;\n    top: 0;\n    background-color: transparent;\n    margin: 0;\n    opacity: 1;\n    filter: alpha(opacity=100);\n}\n\n.checkbox .icons .second-icon,\n.radio .icons .second-icon {\n    opacity: 0;\n    filter: alpha(opacity=0);\n}\n\n.checkbox:hover,\n.radio:hover {\n    -webkit-transition: color 0.2s linear;\n    transition: color 0.2s linear;\n}\n\n.checkbox:hover .first-icon,\n.radio:hover .first-icon {\n    opacity: 0;\n    filter: alpha(opacity=0);\n}\n\n.checkbox:hover .second-icon,\n.radio:hover .second-icon {\n    opacity: 1;\n    filter: alpha(opacity=100);\n}\n\n.checkbox.checked .first-icon,\n.radio.checked .first-icon {\n    opacity: 0;\n    filter: alpha(opacity=0);\n}\n\n.checkbox.checked .second-icon,\n.radio.checked .second-icon {\n    opacity: 1;\n    filter: alpha(opacity=100);\n    -webkit-transition: color 0.2s linear;\n    transition: color 0.2s linear;\n}\n\n.checkbox.disabled,\n.radio.disabled {\n    cursor: default;\n    color: #DDDDDD;\n}\n\n.checkbox.disabled .icons,\n.radio.disabled .icons {\n    color: #DDDDDD;\n}\n\n.checkbox.disabled .first-icon,\n.radio.disabled .first-icon {\n    opacity: 1;\n    filter: alpha(opacity=100);\n}\n\n.checkbox.disabled .second-icon,\n.radio.disabled .second-icon {\n    opacity: 0;\n    filter: alpha(opacity=0);\n}\n\n.checkbox.disabled.checked .icons,\n.radio.disabled.checked .icons {\n    color: #DDDDDD;\n}\n\n.checkbox.disabled.checked .first-icon,\n.radio.disabled.checked .first-icon {\n    opacity: 0;\n    filter: alpha(opacity=0);\n}\n\n.checkbox.disabled.checked .second-icon,\n.radio.disabled.checked .second-icon {\n    opacity: 1;\n    color: #DDDDDD;\n    filter: alpha(opacity=100);\n}\n\n.nav > li > a:hover,\n.nav > li > a:focus {\n    background-color: transparent;\n}\n\n.navbar {\n    border: 0;\n    border-radius: 0;\n    font-size: 16px;\n    z-index: 3;\n}\n\n.navbar .navbar-brand {\n    font-weight: 600;\n    margin: 5px 0px;\n    padding: 20px 15px;\n    font-size: 20px;\n}\n\n.navbar .navbar-nav > li > a {\n    line-height: 1.42857;\n    margin: 15px 0px;\n    padding: 10px 15px;\n}\n\n.navbar .navbar-nav > li > a i,\n.navbar .navbar-nav > li > a p {\n    display: inline-block;\n    margin: 0;\n}\n\n.navbar .navbar-nav > li > a i {\n    position: relative;\n    top: 1px;\n}\n\n.navbar .navbar-nav > li > a.btn {\n    margin: 15px 3px;\n    padding: 7px 18px;\n}\n\n.navbar .btn {\n    margin: 15px 3px;\n    font-size: 14px;\n}\n\n.navbar .btn-simple {\n    font-size: 16px;\n}\n\n.navbar-nav > li > .dropdown-menu {\n    border-radius: 6px;\n    margin-top: -5px;\n}\n\n.navbar-default {\n    background-color: #f4f3ef;\n    border-bottom: 1px solid #DDDDDD;\n}\n\n.navbar-default .brand {\n    color: #66615b !important;\n}\n\n.navbar-default .navbar-nav > li > a:not(.btn) {\n    color: #9A9A9A;\n}\n\n.navbar-default .navbar-nav > .active > a,\n.navbar-default .navbar-nav > .active > a:not(.btn):hover,\n.navbar-default .navbar-nav > .active > a:not(.btn):focus,\n.navbar-default .navbar-nav > li > a:not(.btn):hover,\n.navbar-default .navbar-nav > li > a:not(.btn):focus {\n    background-color: transparent;\n    border-radius: 3px;\n    color: #68B3C8;\n    opacity: 1;\n    filter: alpha(opacity=100);\n}\n\n.navbar-default .navbar-nav > .dropdown > a:hover .caret,\n.navbar-default .navbar-nav > .dropdown > a:focus .caret {\n    border-bottom-color: #68B3C8;\n    border-top-color: #68B3C8;\n}\n\n.navbar-default .navbar-nav > .open > a,\n.navbar-default .navbar-nav > .open > a:hover,\n.navbar-default .navbar-nav > .open > a:focus {\n    background-color: transparent;\n    color: #68B3C8;\n}\n\n.navbar-default .navbar-nav .navbar-toggle:hover, .navbar-default .navbar-nav .navbar-toggle:focus {\n    background-color: transparent;\n}\n\n.navbar-default:not(.navbar-transparent) .btn-default:hover {\n    color: #68B3C8;\n    border-color: #68B3C8;\n}\n\n.navbar-default:not(.navbar-transparent) .btn-neutral, .navbar-default:not(.navbar-transparent) .btn-neutral:hover, .navbar-default:not(.navbar-transparent) .btn-neutral:active {\n    color: #9A9A9A;\n}\n\n.navbar-form {\n    -webkit-box-shadow: none;\n    box-shadow: none;\n}\n\n.navbar-form .form-control {\n    border-radius: 0;\n    border: 0;\n    padding: 0;\n    background-color: transparent;\n    height: 22px;\n    font-size: 16px;\n    line-height: 1.4em;\n    color: #E3E3E3;\n}\n\n.navbar-transparent .navbar-form .form-control, [class*=\"navbar-ct\"] .navbar-form .form-control {\n    color: #FFFFFF;\n    border: 0;\n    border-bottom: 1px solid rgba(255, 255, 255, 0.6);\n}\n\n.navbar-ct-primary {\n    background-color: #8ECFD5;\n}\n\n.navbar-ct-info {\n    background-color: #7CE4FE;\n}\n\n.navbar-ct-success {\n    background-color: #8EF3C5;\n}\n\n.navbar-ct-warning {\n    background-color: #FFE28C;\n}\n\n.navbar-ct-danger {\n    background-color: #FF8F5E;\n}\n\n.navbar-transparent {\n    padding-top: 15px;\n    background-color: transparent;\n    border-bottom: 1px solid transparent;\n}\n\n.navbar-toggle {\n    margin-top: 19px;\n    margin-bottom: 19px;\n    border: 0;\n}\n\n.navbar-toggle .icon-bar {\n    background-color: #FFFFFF;\n}\n\n.navbar-toggle .navbar-collapse,\n.navbar-toggle .navbar-form {\n    border-color: transparent;\n}\n\n.navbar-toggle.navbar-default .navbar-toggle:hover, .navbar-toggle.navbar-default .navbar-toggle:focus {\n    background-color: transparent;\n}\n\n.navbar-transparent .navbar-brand, [class*=\"navbar-ct\"] .navbar-brand {\n    opacity: 0.9;\n    filter: alpha(opacity=90);\n}\n\n.navbar-transparent .navbar-brand:focus, .navbar-transparent .navbar-brand:hover, [class*=\"navbar-ct\"] .navbar-brand:focus, [class*=\"navbar-ct\"] .navbar-brand:hover {\n    background-color: transparent;\n    opacity: 1;\n    filter: alpha(opacity=100);\n}\n\n.navbar-transparent .navbar-brand:not([class*=\"text\"]), [class*=\"navbar-ct\"] .navbar-brand:not([class*=\"text\"]) {\n    color: #FFFFFF;\n}\n\n.navbar-transparent .navbar-nav > li > a:not(.btn), [class*=\"navbar-ct\"] .navbar-nav > li > a:not(.btn) {\n    color: #FFFFFF;\n    border-color: #FFFFFF;\n    opacity: 0.8;\n    filter: alpha(opacity=80);\n}\n\n.navbar-transparent .navbar-nav > .active > a:not(.btn),\n.navbar-transparent .navbar-nav > .active > a:hover:not(.btn),\n.navbar-transparent .navbar-nav > .active > a:focus:not(.btn),\n.navbar-transparent .navbar-nav > li > a:hover:not(.btn),\n.navbar-transparent .navbar-nav > li > a:focus:not(.btn), [class*=\"navbar-ct\"] .navbar-nav > .active > a:not(.btn),\n[class*=\"navbar-ct\"] .navbar-nav > .active > a:hover:not(.btn),\n[class*=\"navbar-ct\"] .navbar-nav > .active > a:focus:not(.btn),\n[class*=\"navbar-ct\"] .navbar-nav > li > a:hover:not(.btn),\n[class*=\"navbar-ct\"] .navbar-nav > li > a:focus:not(.btn) {\n    background-color: transparent;\n    border-radius: 3px;\n    color: #FFFFFF;\n    opacity: 1;\n    filter: alpha(opacity=100);\n}\n\n.navbar-transparent .navbar-nav .nav > li > a.btn:hover, [class*=\"navbar-ct\"] .navbar-nav .nav > li > a.btn:hover {\n    background-color: transparent;\n}\n\n.navbar-transparent .navbar-nav > .dropdown > a .caret,\n.navbar-transparent .navbar-nav > .dropdown > a:hover .caret,\n.navbar-transparent .navbar-nav > .dropdown > a:focus .caret, [class*=\"navbar-ct\"] .navbar-nav > .dropdown > a .caret,\n[class*=\"navbar-ct\"] .navbar-nav > .dropdown > a:hover .caret,\n[class*=\"navbar-ct\"] .navbar-nav > .dropdown > a:focus .caret {\n    border-bottom-color: #FFFFFF;\n    border-top-color: #FFFFFF;\n}\n\n.navbar-transparent .navbar-nav > .open > a,\n.navbar-transparent .navbar-nav > .open > a:hover,\n.navbar-transparent .navbar-nav > .open > a:focus, [class*=\"navbar-ct\"] .navbar-nav > .open > a,\n[class*=\"navbar-ct\"] .navbar-nav > .open > a:hover,\n[class*=\"navbar-ct\"] .navbar-nav > .open > a:focus {\n    background-color: transparent;\n    color: #FFFFFF;\n    opacity: 1;\n    filter: alpha(opacity=100);\n}\n\n.navbar-transparent .btn-default, [class*=\"navbar-ct\"] .btn-default {\n    color: #FFFFFF;\n    border-color: #FFFFFF;\n}\n\n.navbar-transparent .btn-default.btn-fill, [class*=\"navbar-ct\"] .btn-default.btn-fill {\n    color: #9A9A9A;\n    background-color: #FFFFFF;\n    opacity: 0.9;\n    filter: alpha(opacity=90);\n}\n\n.navbar-transparent .btn-default.btn-fill:hover,\n.navbar-transparent .btn-default.btn-fill:focus,\n.navbar-transparent .btn-default.btn-fill:active,\n.navbar-transparent .btn-default.btn-fill.active,\n.navbar-transparent .open .dropdown-toggle.btn-fill.btn-default, [class*=\"navbar-ct\"] .btn-default.btn-fill:hover,\n[class*=\"navbar-ct\"] .btn-default.btn-fill:focus,\n[class*=\"navbar-ct\"] .btn-default.btn-fill:active,\n[class*=\"navbar-ct\"] .btn-default.btn-fill.active,\n[class*=\"navbar-ct\"] .open .dropdown-toggle.btn-fill.btn-default {\n    border-color: #FFFFFF;\n    opacity: 1;\n    filter: alpha(opacity=100);\n}\n\n.footer {\n    background-attachment: fixed;\n    position: relative;\n    line-height: 20px;\n}\n\n.footer nav ul {\n    list-style: none;\n    margin: 0;\n    padding: 0;\n    font-weight: normal;\n}\n\n.footer nav ul li {\n    display: inline-block;\n    padding: 10px 15px;\n    margin: 15px 3px;\n    line-height: 20px;\n    text-align: center;\n}\n\n.footer nav ul a:not(.btn) {\n    color: #66615b;\n    display: block;\n    margin-bottom: 3px;\n}\n\n.footer nav ul a:not(.btn):focus, .footer nav ul a:not(.btn):hover {\n    color: #403D39;\n}\n\n.footer .copyright {\n    color: #66615b;\n    padding: 10px 15px;\n    font-size: 14px;\n    white-space: nowrap;\n    margin: 15px 3px;\n    line-height: 20px;\n    text-align: center;\n}\n\n.footer .heart {\n    color: #EB5E28;\n}\n\n.dropdown-menu {\n    background-color: #FFFCF5;\n    border: 0 none;\n    border-radius: 6px;\n    display: block;\n    margin-top: 10px;\n    padding: 0px;\n    position: absolute;\n    visibility: hidden;\n    z-index: 9000;\n    opacity: 0;\n    filter: alpha(opacity=0);\n    -webkit-box-shadow: 0 2px rgba(17, 16, 15, 0.1), 0 2px 10px rgba(17, 16, 15, 0.1);\n    box-shadow: 0 2px rgba(17, 16, 15, 0.1), 0 2px 10px rgba(17, 16, 15, 0.1);\n}\n\n.open .dropdown-menu {\n    opacity: 1;\n    filter: alpha(opacity=100);\n    visibility: visible;\n}\n\n.dropdown-menu .divider {\n    background-color: #F1EAE0;\n    margin: 0px;\n}\n\n.dropdown-menu .dropdown-header {\n    color: #9A9A9A;\n    font-size: 12px;\n    padding: 10px 15px;\n}\n\n.select .dropdown-menu {\n    border-radius: 0 0 10px 10px;\n    -webkit-box-shadow: none;\n    box-shadow: none;\n    -webkit-transform-origin: 50% -40px;\n    -moz-transform-origin: 50% -40px;\n    -o-transform-origin: 50% -40px;\n    -ms-transform-origin: 50% -40px;\n    transform-origin: 50% -40px;\n    -webkit-transform: scale(1);\n    -moz-transform: scale(1);\n    -o-transform: scale(1);\n    -ms-transform: scale(1);\n    transform: scale(1);\n    -webkit-transition: all 150ms linear;\n    -moz-transition: all 150ms linear;\n    -o-transition: all 150ms linear;\n    -ms-transition: all 150ms linear;\n    transition: all 150ms linear;\n    margin-top: -20px;\n}\n\n.select.open .dropdown-menu {\n    margin-top: -1px;\n}\n\n.dropdown-menu > li > a {\n    color: #66615b;\n    font-size: 14px;\n    padding: 10px 15px;\n    -webkit-transition: none;\n    -moz-transition: none;\n    -o-transition: none;\n    -ms-transition: none;\n    transition: none;\n}\n\n.dropdown-menu > li > a img {\n    margin-top: -3px;\n}\n\n.dropdown-menu > li > a:focus {\n    outline: 0 !important;\n}\n\n.btn-group.select .dropdown-menu {\n    min-width: 100%;\n}\n\n.dropdown-menu > li:first-child > a {\n    border-top-left-radius: 6px;\n    border-top-right-radius: 6px;\n}\n\n.dropdown-menu > li:last-child > a {\n    border-bottom-left-radius: 6px;\n    border-bottom-right-radius: 6px;\n}\n\n.select .dropdown-menu > li:first-child > a {\n    border-radius: 0;\n    border-bottom: 0 none;\n}\n\n.dropdown-menu > li > a:hover,\n.dropdown-menu > li > a:focus {\n    background-color: #66615B;\n    color: rgba(255, 255, 255, 0.7);\n    opacity: 1;\n    text-decoration: none;\n}\n\n.dropdown-menu.dropdown-primary > li > a:hover, .dropdown-menu.dropdown-primary > li > a:focus {\n    background-color: #7A9E9F;\n}\n\n.dropdown-menu.dropdown-info > li > a:hover, .dropdown-menu.dropdown-info > li > a:focus {\n    background-color: #68B3C8;\n}\n\n.dropdown-menu.dropdown-success > li > a:hover, .dropdown-menu.dropdown-success > li > a:focus {\n    background-color: #7AC29A;\n}\n\n.dropdown-menu.dropdown-warning > li > a:hover, .dropdown-menu.dropdown-warning > li > a:focus {\n    background-color: #F3BB45;\n}\n\n.dropdown-menu.dropdown-danger > li > a:hover, .dropdown-menu.dropdown-danger > li > a:focus {\n    background-color: #EB5E28;\n}\n\n.btn-group.select {\n    overflow: hidden;\n}\n\n.btn-group.select.open {\n    overflow: visible;\n}\n\n.card {\n    border-radius: 6px;\n    box-shadow: 0 2px 2px rgba(204, 197, 185, 0.5);\n    background-color: #FFFFFF;\n    color: #252422;\n    margin-bottom: 20px;\n    position: relative;\n    z-index: 1;\n}\n\n.card .image {\n    width: 100%;\n    overflow: hidden;\n    height: 260px;\n    border-radius: 6px 6px 0 0;\n    position: relative;\n    -webkit-transform-style: preserve-3d;\n    -moz-transform-style: preserve-3d;\n    transform-style: preserve-3d;\n}\n\n.card .image img {\n    width: 100%;\n}\n\n.card .content {\n    padding: 15px 15px 10px 15px;\n}\n\n.card .header {\n    padding: 20px 20px 0;\n}\n\n.card .description {\n    font-size: 16px;\n    color: #66615b;\n}\n\n.card h6 {\n    font-size: 12px;\n    margin: 0;\n}\n\n.card .category,\n.card label {\n    font-size: 14px;\n    font-weight: 400;\n    color: #9A9A9A;\n    margin-bottom: 0px;\n}\n\n.card .category i,\n.card label i {\n    font-size: 16px;\n}\n\n.card label {\n    font-size: 15px;\n    margin-bottom: 5px;\n}\n\n.card .title {\n    margin: 0;\n    color: #252422;\n    font-weight: 300;\n}\n\n.card .avatar {\n    width: 50px;\n    height: 50px;\n    overflow: hidden;\n    border-radius: 50%;\n    margin-right: 5px;\n}\n\n.card .footer {\n    padding: 0;\n    line-height: 30px;\n}\n\n.card .footer .legend {\n    padding: 5px 0;\n}\n\n.card .footer hr {\n    margin-top: 5px;\n    margin-bottom: 5px;\n}\n\n.card .stats {\n    color: #a9a9a9;\n    font-weight: 300;\n}\n\n.card .stats i {\n    margin-right: 2px;\n    min-width: 15px;\n    display: inline-block;\n}\n\n.card .footer div {\n    display: inline-block;\n}\n\n.card .author {\n    font-size: 12px;\n    font-weight: 600;\n    text-transform: uppercase;\n}\n\n.card .author i {\n    font-size: 14px;\n}\n\n.card.card-separator:after {\n    height: 100%;\n    right: -15px;\n    top: 0;\n    width: 1px;\n    background-color: #DDDDDD;\n    content: \"\";\n    position: absolute;\n}\n\n.card .ct-chart {\n    margin: 30px 0 30px;\n    height: 245px;\n}\n\n.card .table tbody td:first-child,\n.card .table thead th:first-child {\n    padding-left: 15px;\n}\n\n.card .table tbody td:last-child,\n.card .table thead th:last-child {\n    padding-right: 15px;\n}\n\n.card .alert {\n    border-radius: 4px;\n    position: relative;\n}\n\n.card .alert.alert-with-icon {\n    padding-left: 65px;\n}\n\n.card .icon-big {\n    font-size: 3em;\n    min-height: 64px;\n}\n\n.card .numbers {\n    font-size: 2em;\n    text-align: right;\n}\n\n.card .numbers p {\n    margin: 0;\n}\n\n.card ul.team-members li {\n    padding: 10px 0px;\n}\n\n.card ul.team-members li:not(:last-child) {\n    border-bottom: 1px solid #F1EAE0;\n}\n\n.card-user .image {\n    border-radius: 8px 8px 0 0;\n    height: 150px;\n    position: relative;\n    overflow: hidden;\n}\n\n.card-user .image img {\n    width: 100%;\n}\n\n.card-user .image-plain {\n    height: 0;\n    margin-top: 110px;\n}\n\n.card-user .author {\n    text-align: center;\n    text-transform: none;\n    margin-top: -65px;\n}\n\n.card-user .author .title {\n    color: #403D39;\n}\n\n.card-user .author .title small {\n    color: #ccc5b9;\n}\n\n.card-user .avatar {\n    width: 100px;\n    height: 100px;\n    border-radius: 50%;\n    position: relative;\n    margin-bottom: 15px;\n}\n\n.card-user .avatar.border-white {\n    border: 5px solid #FFFFFF;\n}\n\n.card-user .avatar.border-gray {\n    border: 5px solid #ccc5b9;\n}\n\n.card-user .title {\n    font-weight: 600;\n    line-height: 24px;\n}\n\n.card-user .description {\n    margin-top: 10px;\n}\n\n.card-user .content {\n    min-height: 200px;\n}\n\n.card-user.card-plain .avatar {\n    height: 190px;\n    width: 190px;\n}\n\n.card-map .map {\n    height: 500px;\n    padding-top: 20px;\n}\n\n.card-map .map > div {\n    height: 100%;\n}\n\n.card-user .footer,\n.card-price .footer {\n    padding: 5px 15px 10px;\n}\n\n.card-user hr,\n.card-price hr {\n    margin: 5px 15px;\n}\n\n.card-plain {\n    background-color: transparent;\n    box-shadow: none;\n    border-radius: 0;\n}\n\n.card-plain .image {\n    border-radius: 4px;\n}\n\n.ct-label {\n    fill: rgba(0, 0, 0, 0.4);\n    color: rgba(0, 0, 0, 0.4);\n    font-size: 0.9em;\n    line-height: 1;\n}\n\n.ct-chart-line .ct-label,\n.ct-chart-bar .ct-label {\n    display: block;\n    display: -webkit-box;\n    display: -moz-box;\n    display: -ms-flexbox;\n    display: -webkit-flex;\n    display: flex;\n}\n\n.ct-label.ct-horizontal.ct-start {\n    -webkit-box-align: flex-end;\n    -webkit-align-items: flex-end;\n    -ms-flex-align: flex-end;\n    align-items: flex-end;\n    -webkit-box-pack: flex-start;\n    -webkit-justify-content: flex-start;\n    -ms-flex-pack: flex-start;\n    justify-content: flex-start;\n    text-align: left;\n    text-anchor: start;\n}\n\n.ct-label.ct-horizontal.ct-end {\n    -webkit-box-align: flex-start;\n    -webkit-align-items: flex-start;\n    -ms-flex-align: flex-start;\n    align-items: flex-start;\n    -webkit-box-pack: flex-start;\n    -webkit-justify-content: flex-start;\n    -ms-flex-pack: flex-start;\n    justify-content: flex-start;\n    text-align: left;\n    text-anchor: start;\n}\n\n.ct-label.ct-vertical.ct-start {\n    -webkit-box-align: flex-end;\n    -webkit-align-items: flex-end;\n    -ms-flex-align: flex-end;\n    align-items: flex-end;\n    -webkit-box-pack: flex-end;\n    -webkit-justify-content: flex-end;\n    -ms-flex-pack: flex-end;\n    justify-content: flex-end;\n    text-align: right;\n    text-anchor: end;\n}\n\n.ct-label.ct-vertical.ct-end {\n    -webkit-box-align: flex-end;\n    -webkit-align-items: flex-end;\n    -ms-flex-align: flex-end;\n    align-items: flex-end;\n    -webkit-box-pack: flex-start;\n    -webkit-justify-content: flex-start;\n    -ms-flex-pack: flex-start;\n    justify-content: flex-start;\n    text-align: left;\n    text-anchor: start;\n}\n\n.ct-chart-bar .ct-label.ct-horizontal.ct-start {\n    -webkit-box-align: flex-end;\n    -webkit-align-items: flex-end;\n    -ms-flex-align: flex-end;\n    align-items: flex-end;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n    -ms-flex-pack: center;\n    justify-content: center;\n    text-align: center;\n    text-anchor: start;\n}\n\n.ct-chart-bar .ct-label.ct-horizontal.ct-end {\n    -webkit-box-align: flex-start;\n    -webkit-align-items: flex-start;\n    -ms-flex-align: flex-start;\n    align-items: flex-start;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n    -ms-flex-pack: center;\n    justify-content: center;\n    text-align: center;\n    text-anchor: start;\n}\n\n.ct-chart-bar.ct-horizontal-bars .ct-label.ct-horizontal.ct-start {\n    -webkit-box-align: flex-end;\n    -webkit-align-items: flex-end;\n    -ms-flex-align: flex-end;\n    align-items: flex-end;\n    -webkit-box-pack: flex-start;\n    -webkit-justify-content: flex-start;\n    -ms-flex-pack: flex-start;\n    justify-content: flex-start;\n    text-align: left;\n    text-anchor: start;\n}\n\n.ct-chart-bar.ct-horizontal-bars .ct-label.ct-horizontal.ct-end {\n    -webkit-box-align: flex-start;\n    -webkit-align-items: flex-start;\n    -ms-flex-align: flex-start;\n    align-items: flex-start;\n    -webkit-box-pack: flex-start;\n    -webkit-justify-content: flex-start;\n    -ms-flex-pack: flex-start;\n    justify-content: flex-start;\n    text-align: left;\n    text-anchor: start;\n}\n\n.ct-chart-bar.ct-horizontal-bars .ct-label.ct-vertical.ct-start {\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n    -ms-flex-align: center;\n    align-items: center;\n    -webkit-box-pack: flex-end;\n    -webkit-justify-content: flex-end;\n    -ms-flex-pack: flex-end;\n    justify-content: flex-end;\n    text-align: right;\n    text-anchor: end;\n}\n\n.ct-chart-bar.ct-horizontal-bars .ct-label.ct-vertical.ct-end {\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n    -ms-flex-align: center;\n    align-items: center;\n    -webkit-box-pack: flex-start;\n    -webkit-justify-content: flex-start;\n    -ms-flex-pack: flex-start;\n    justify-content: flex-start;\n    text-align: left;\n    text-anchor: end;\n}\n\n.ct-grid {\n    stroke: rgba(0, 0, 0, 0.2);\n    stroke-width: 1px;\n    stroke-dasharray: 2px;\n}\n\n.ct-point {\n    stroke-width: 10px;\n    stroke-linecap: round;\n}\n\n.ct-line {\n    fill: none;\n    stroke-width: 4px;\n}\n\n.ct-area {\n    stroke: none;\n    fill-opacity: 0.7;\n}\n\n.ct-bar {\n    fill: none;\n    stroke-width: 10px;\n}\n\n.ct-slice-donut {\n    fill: none;\n    stroke-width: 60px;\n}\n\n.ct-series-a .ct-point, .ct-series-a .ct-line, .ct-series-a .ct-bar, .ct-series-a .ct-slice-donut {\n    stroke: #68B3C8;\n}\n\n.ct-series-a .ct-slice-pie, .ct-series-a .ct-area {\n    fill: #68B3C8;\n}\n\n.ct-series-b .ct-point, .ct-series-b .ct-line, .ct-series-b .ct-bar, .ct-series-b .ct-slice-donut {\n    stroke: #F3BB45;\n}\n\n.ct-series-b .ct-slice-pie, .ct-series-b .ct-area {\n    fill: #F3BB45;\n}\n\n.ct-series-c .ct-point, .ct-series-c .ct-line, .ct-series-c .ct-bar, .ct-series-c .ct-slice-donut {\n    stroke: #EB5E28;\n}\n\n.ct-series-c .ct-slice-pie, .ct-series-c .ct-area {\n    fill: #EB5E28;\n}\n\n.ct-series-d .ct-point, .ct-series-d .ct-line, .ct-series-d .ct-bar, .ct-series-d .ct-slice-donut {\n    stroke: #7AC29A;\n}\n\n.ct-series-d .ct-slice-pie, .ct-series-d .ct-area {\n    fill: #7AC29A;\n}\n\n.ct-series-e .ct-point, .ct-series-e .ct-line, .ct-series-e .ct-bar, .ct-series-e .ct-slice-donut {\n    stroke: #7A9E9F;\n}\n\n.ct-series-e .ct-slice-pie, .ct-series-e .ct-area {\n    fill: #7A9E9F;\n}\n\n.ct-series-f .ct-point, .ct-series-f .ct-line, .ct-series-f .ct-bar, .ct-series-f .ct-slice-donut {\n    stroke: rgba(104, 179, 200, 0.8);\n}\n\n.ct-series-f .ct-slice-pie, .ct-series-f .ct-area {\n    fill: rgba(104, 179, 200, 0.8);\n}\n\n.ct-series-g .ct-point, .ct-series-g .ct-line, .ct-series-g .ct-bar, .ct-series-g .ct-slice-donut {\n    stroke: rgba(122, 194, 154, 0.8);\n}\n\n.ct-series-g .ct-slice-pie, .ct-series-g .ct-area {\n    fill: rgba(122, 194, 154, 0.8);\n}\n\n.ct-series-h .ct-point, .ct-series-h .ct-line, .ct-series-h .ct-bar, .ct-series-h .ct-slice-donut {\n    stroke: rgba(243, 187, 69, 0.8);\n}\n\n.ct-series-h .ct-slice-pie, .ct-series-h .ct-area {\n    fill: rgba(243, 187, 69, 0.8);\n}\n\n.ct-series-i .ct-point, .ct-series-i .ct-line, .ct-series-i .ct-bar, .ct-series-i .ct-slice-donut {\n    stroke: rgba(235, 94, 40, 0.8);\n}\n\n.ct-series-i .ct-slice-pie, .ct-series-i .ct-area {\n    fill: rgba(235, 94, 40, 0.8);\n}\n\n.ct-series-j .ct-point, .ct-series-j .ct-line, .ct-series-j .ct-bar, .ct-series-j .ct-slice-donut {\n    stroke: rgba(122, 158, 159, 0.8);\n}\n\n.ct-series-j .ct-slice-pie, .ct-series-j .ct-area {\n    fill: rgba(122, 158, 159, 0.8);\n}\n\n.ct-series-k .ct-point, .ct-series-k .ct-line, .ct-series-k .ct-bar, .ct-series-k .ct-slice-donut {\n    stroke: rgba(104, 179, 200, 0.6);\n}\n\n.ct-series-k .ct-slice-pie, .ct-series-k .ct-area {\n    fill: rgba(104, 179, 200, 0.6);\n}\n\n.ct-series-l .ct-point, .ct-series-l .ct-line, .ct-series-l .ct-bar, .ct-series-l .ct-slice-donut {\n    stroke: rgba(122, 194, 154, 0.6);\n}\n\n.ct-series-l .ct-slice-pie, .ct-series-l .ct-area {\n    fill: rgba(122, 194, 154, 0.6);\n}\n\n.ct-series-m .ct-point, .ct-series-m .ct-line, .ct-series-m .ct-bar, .ct-series-m .ct-slice-donut {\n    stroke: rgba(243, 187, 69, 0.6);\n}\n\n.ct-series-m .ct-slice-pie, .ct-series-m .ct-area {\n    fill: rgba(243, 187, 69, 0.6);\n}\n\n.ct-series-n .ct-point, .ct-series-n .ct-line, .ct-series-n .ct-bar, .ct-series-n .ct-slice-donut {\n    stroke: rgba(235, 94, 40, 0.6);\n}\n\n.ct-series-n .ct-slice-pie, .ct-series-n .ct-area {\n    fill: rgba(235, 94, 40, 0.6);\n}\n\n.ct-series-o .ct-point, .ct-series-o .ct-line, .ct-series-o .ct-bar, .ct-series-o .ct-slice-donut {\n    stroke: rgba(122, 158, 159, 0.6);\n}\n\n.ct-series-o .ct-slice-pie, .ct-series-o .ct-area {\n    fill: rgba(122, 158, 159, 0.6);\n}\n\n.ct-square {\n    display: block;\n    position: relative;\n    width: 100%;\n}\n\n.ct-square:before {\n    display: block;\n    float: left;\n    content: \"\";\n    width: 0;\n    height: 0;\n    padding-bottom: 100%;\n}\n\n.ct-square:after {\n    content: \"\";\n    display: table;\n    clear: both;\n}\n\n.ct-square > svg {\n    display: block;\n    position: absolute;\n    top: 0;\n    left: 0;\n}\n\n.ct-minor-second {\n    display: block;\n    position: relative;\n    width: 100%;\n}\n\n.ct-minor-second:before {\n    display: block;\n    float: left;\n    content: \"\";\n    width: 0;\n    height: 0;\n    padding-bottom: 93.75%;\n}\n\n.ct-minor-second:after {\n    content: \"\";\n    display: table;\n    clear: both;\n}\n\n.ct-minor-second > svg {\n    display: block;\n    position: absolute;\n    top: 0;\n    left: 0;\n}\n\n.ct-major-second {\n    display: block;\n    position: relative;\n    width: 100%;\n}\n\n.ct-major-second:before {\n    display: block;\n    float: left;\n    content: \"\";\n    width: 0;\n    height: 0;\n    padding-bottom: 88.88889%;\n}\n\n.ct-major-second:after {\n    content: \"\";\n    display: table;\n    clear: both;\n}\n\n.ct-major-second > svg {\n    display: block;\n    position: absolute;\n    top: 0;\n    left: 0;\n}\n\n.ct-minor-third {\n    display: block;\n    position: relative;\n    width: 100%;\n}\n\n.ct-minor-third:before {\n    display: block;\n    float: left;\n    content: \"\";\n    width: 0;\n    height: 0;\n    padding-bottom: 83.33333%;\n}\n\n.ct-minor-third:after {\n    content: \"\";\n    display: table;\n    clear: both;\n}\n\n.ct-minor-third > svg {\n    display: block;\n    position: absolute;\n    top: 0;\n    left: 0;\n}\n\n.ct-major-third {\n    display: block;\n    position: relative;\n    width: 100%;\n}\n\n.ct-major-third:before {\n    display: block;\n    float: left;\n    content: \"\";\n    width: 0;\n    height: 0;\n    padding-bottom: 80%;\n}\n\n.ct-major-third:after {\n    content: \"\";\n    display: table;\n    clear: both;\n}\n\n.ct-major-third > svg {\n    display: block;\n    position: absolute;\n    top: 0;\n    left: 0;\n}\n\n.ct-perfect-fourth {\n    display: block;\n    position: relative;\n    width: 100%;\n}\n\n.ct-perfect-fourth:before {\n    display: block;\n    float: left;\n    content: \"\";\n    width: 0;\n    height: 0;\n    padding-bottom: 75%;\n}\n\n.ct-perfect-fourth:after {\n    content: \"\";\n    display: table;\n    clear: both;\n}\n\n.ct-perfect-fourth > svg {\n    display: block;\n    position: absolute;\n    top: 0;\n    left: 0;\n}\n\n.ct-perfect-fifth {\n    display: block;\n    position: relative;\n    width: 100%;\n}\n\n.ct-perfect-fifth:before {\n    display: block;\n    float: left;\n    content: \"\";\n    width: 0;\n    height: 0;\n    padding-bottom: 66.66667%;\n}\n\n.ct-perfect-fifth:after {\n    content: \"\";\n    display: table;\n    clear: both;\n}\n\n.ct-perfect-fifth > svg {\n    display: block;\n    position: absolute;\n    top: 0;\n    left: 0;\n}\n\n.ct-minor-sixth {\n    display: block;\n    position: relative;\n    width: 100%;\n}\n\n.ct-minor-sixth:before {\n    display: block;\n    float: left;\n    content: \"\";\n    width: 0;\n    height: 0;\n    padding-bottom: 62.5%;\n}\n\n.ct-minor-sixth:after {\n    content: \"\";\n    display: table;\n    clear: both;\n}\n\n.ct-minor-sixth > svg {\n    display: block;\n    position: absolute;\n    top: 0;\n    left: 0;\n}\n\n.ct-golden-section {\n    display: block;\n    position: relative;\n    width: 100%;\n}\n\n.ct-golden-section:before {\n    display: block;\n    float: left;\n    content: \"\";\n    width: 0;\n    height: 0;\n    padding-bottom: 61.8047%;\n}\n\n.ct-golden-section:after {\n    content: \"\";\n    display: table;\n    clear: both;\n}\n\n.ct-golden-section > svg {\n    display: block;\n    position: absolute;\n    top: 0;\n    left: 0;\n}\n\n.ct-major-sixth {\n    display: block;\n    position: relative;\n    width: 100%;\n}\n\n.ct-major-sixth:before {\n    display: block;\n    float: left;\n    content: \"\";\n    width: 0;\n    height: 0;\n    padding-bottom: 60%;\n}\n\n.ct-major-sixth:after {\n    content: \"\";\n    display: table;\n    clear: both;\n}\n\n.ct-major-sixth > svg {\n    display: block;\n    position: absolute;\n    top: 0;\n    left: 0;\n}\n\n.ct-minor-seventh {\n    display: block;\n    position: relative;\n    width: 100%;\n}\n\n.ct-minor-seventh:before {\n    display: block;\n    float: left;\n    content: \"\";\n    width: 0;\n    height: 0;\n    padding-bottom: 56.25%;\n}\n\n.ct-minor-seventh:after {\n    content: \"\";\n    display: table;\n    clear: both;\n}\n\n.ct-minor-seventh > svg {\n    display: block;\n    position: absolute;\n    top: 0;\n    left: 0;\n}\n\n.ct-major-seventh {\n    display: block;\n    position: relative;\n    width: 100%;\n}\n\n.ct-major-seventh:before {\n    display: block;\n    float: left;\n    content: \"\";\n    width: 0;\n    height: 0;\n    padding-bottom: 53.33333%;\n}\n\n.ct-major-seventh:after {\n    content: \"\";\n    display: table;\n    clear: both;\n}\n\n.ct-major-seventh > svg {\n    display: block;\n    position: absolute;\n    top: 0;\n    left: 0;\n}\n\n.ct-octave {\n    display: block;\n    position: relative;\n    width: 100%;\n}\n\n.ct-octave:before {\n    display: block;\n    float: left;\n    content: \"\";\n    width: 0;\n    height: 0;\n    padding-bottom: 50%;\n}\n\n.ct-octave:after {\n    content: \"\";\n    display: table;\n    clear: both;\n}\n\n.ct-octave > svg {\n    display: block;\n    position: absolute;\n    top: 0;\n    left: 0;\n}\n\n.ct-major-tenth {\n    display: block;\n    position: relative;\n    width: 100%;\n}\n\n.ct-major-tenth:before {\n    display: block;\n    float: left;\n    content: \"\";\n    width: 0;\n    height: 0;\n    padding-bottom: 40%;\n}\n\n.ct-major-tenth:after {\n    content: \"\";\n    display: table;\n    clear: both;\n}\n\n.ct-major-tenth > svg {\n    display: block;\n    position: absolute;\n    top: 0;\n    left: 0;\n}\n\n.ct-major-eleventh {\n    display: block;\n    position: relative;\n    width: 100%;\n}\n\n.ct-major-eleventh:before {\n    display: block;\n    float: left;\n    content: \"\";\n    width: 0;\n    height: 0;\n    padding-bottom: 37.5%;\n}\n\n.ct-major-eleventh:after {\n    content: \"\";\n    display: table;\n    clear: both;\n}\n\n.ct-major-eleventh > svg {\n    display: block;\n    position: absolute;\n    top: 0;\n    left: 0;\n}\n\n.ct-major-twelfth {\n    display: block;\n    position: relative;\n    width: 100%;\n}\n\n.ct-major-twelfth:before {\n    display: block;\n    float: left;\n    content: \"\";\n    width: 0;\n    height: 0;\n    padding-bottom: 33.33333%;\n}\n\n.ct-major-twelfth:after {\n    content: \"\";\n    display: table;\n    clear: both;\n}\n\n.ct-major-twelfth > svg {\n    display: block;\n    position: absolute;\n    top: 0;\n    left: 0;\n}\n\n.ct-double-octave {\n    display: block;\n    position: relative;\n    width: 100%;\n}\n\n.ct-double-octave:before {\n    display: block;\n    float: left;\n    content: \"\";\n    width: 0;\n    height: 0;\n    padding-bottom: 25%;\n}\n\n.ct-double-octave:after {\n    content: \"\";\n    display: table;\n    clear: both;\n}\n\n.ct-double-octave > svg {\n    display: block;\n    position: absolute;\n    top: 0;\n    left: 0;\n}\n\n@media (min-width: 992px) {\n    .navbar {\n        min-height: 75px;\n    }\n\n    .navbar-form {\n        margin-top: 21px;\n        margin-bottom: 21px;\n        padding-left: 5px;\n        padding-right: 5px;\n    }\n\n    .navbar-search-form {\n        display: none;\n    }\n\n    .navbar-nav > li > .dropdown-menu,\n    .dropdown .dropdown-menu {\n        transform: translate3d(0px, -40px, 0px);\n        transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0s, opacity 0.3s ease 0s, height 0s linear 0.35s;\n    }\n\n    .navbar-nav > li.open > .dropdown-menu, .dropdown.open .dropdown-menu {\n        transform: translate3d(0px, 0px, 0px);\n    }\n\n    .navbar-nav > li > .dropdown-menu:before {\n        border-bottom: 11px solid #F1EAE0;\n        border-left: 11px solid transparent;\n        border-right: 11px solid transparent;\n        content: \"\";\n        display: inline-block;\n        position: absolute;\n        right: 12px;\n        top: -11px;\n    }\n\n    .navbar-nav > li > .dropdown-menu:after {\n        border-bottom: 11px solid #FFFCF5;\n        border-left: 11px solid transparent;\n        border-right: 11px solid transparent;\n        content: \"\";\n        display: inline-block;\n        position: absolute;\n        right: 12px;\n        top: -10px;\n    }\n\n    .navbar-nav.navbar-left > li > .dropdown-menu:before {\n        right: auto;\n        left: 12px;\n    }\n\n    .navbar-nav.navbar-left > li > .dropdown-menu:after {\n        right: auto;\n        left: 12px;\n    }\n\n    .navbar .navbar-header {\n        margin-left: 10px;\n    }\n\n    .footer:not(.footer-big) nav > ul li:first-child {\n        margin-left: 0;\n    }\n\n    body > .navbar-collapse.collapse {\n        display: none !important;\n    }\n\n    .card form [class*=\"col-\"] {\n        padding: 6px;\n    }\n\n    .card form [class*=\"col-\"]:first-child {\n        padding-left: 15px;\n    }\n\n    .card form [class*=\"col-\"]:last-child {\n        padding-right: 15px;\n    }\n}\n\n/*          Changes for small display      */\n@media (max-width: 991px) {\n    .sidebar {\n        display: none;\n    }\n\n    .main-panel {\n        width: 100%;\n    }\n\n    .navbar-transparent {\n        padding-top: 15px;\n        background-color: rgba(0, 0, 0, 0.45);\n    }\n\n    body {\n        position: relative;\n    }\n\n    h6 {\n        font-size: 1em;\n    }\n\n    .wrapper {\n        -webkit-transform: translate3d(0px, 0, 0);\n        -moz-transform: translate3d(0px, 0, 0);\n        -o-transform: translate3d(0px, 0, 0);\n        -ms-transform: translate3d(0px, 0, 0);\n        transform: translate3d(0px, 0, 0);\n        -webkit-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);\n        -moz-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);\n        -o-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);\n        -ms-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);\n        transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);\n        left: 0;\n        background-color: white;\n    }\n\n    .navbar .container {\n        left: 0;\n        width: 100%;\n        -webkit-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);\n        -moz-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);\n        -o-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);\n        -ms-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);\n        transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);\n        position: relative;\n    }\n\n    .navbar .navbar-collapse.collapse,\n    .navbar .navbar-collapse.collapse.in,\n    .navbar .navbar-collapse.collapsing {\n        display: none !important;\n    }\n\n    .navbar-nav > li {\n        float: none;\n        position: relative;\n        display: block;\n    }\n\n    .off-canvas-sidebar {\n        position: fixed;\n        display: block;\n        top: 0;\n        height: 100%;\n        width: 230px;\n        right: 0;\n        z-index: 1032;\n        visibility: visible;\n        background-color: #999;\n        overflow-y: visible;\n        border-top: none;\n        text-align: left;\n        padding-right: 0px;\n        padding-left: 0;\n        -webkit-transform: translate3d(230px, 0, 0);\n        -moz-transform: translate3d(230px, 0, 0);\n        -o-transform: translate3d(230px, 0, 0);\n        -ms-transform: translate3d(230px, 0, 0);\n        transform: translate3d(230px, 0, 0);\n        -webkit-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);\n        -moz-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);\n        -o-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);\n        -ms-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);\n        transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);\n    }\n\n    .off-canvas-sidebar .sidebar-wrapper {\n        position: relative;\n        z-index: 3;\n        overflow-y: scroll;\n        height: 100%;\n        box-shadow: inset 1px 0px 0px 0px #DDDDDD;\n    }\n\n    .off-canvas-sidebar .nav {\n        margin-top: 0;\n        padding: 10px 15px 0;\n    }\n\n    .off-canvas-sidebar .nav > li > a {\n        margin: 0px 0px;\n        color: #66615B;\n        text-transform: uppercase;\n        font-weight: 600;\n        font-size: 12px;\n        line-height: 1.4em;\n        padding: 10px 0;\n    }\n\n    .off-canvas-sidebar .nav > li > a:hover, .off-canvas-sidebar .nav > li > a.active {\n        color: #403D39;\n    }\n\n    .off-canvas-sidebar .nav > li > a p,\n    .off-canvas-sidebar .nav > li > a .notification,\n    .off-canvas-sidebar .nav > li > a .caret {\n        display: inline-block;\n    }\n\n    .off-canvas-sidebar .nav > li > a .caret {\n        float: right;\n        position: relative;\n        top: 12px;\n    }\n\n    .off-canvas-sidebar .nav > li > a i {\n        font-size: 18px;\n        margin-right: 10px;\n        line-height: 26px;\n    }\n\n    .off-canvas-sidebar .nav > li.active > a:before {\n        border-right: none;\n        border-left: 12px solid #DDDDDD;\n        border-top: 12px solid transparent;\n        border-bottom: 12px solid transparent;\n        right: auto;\n        margin-left: -15px;\n        left: 0px;\n        top: 10px;\n    }\n\n    .off-canvas-sidebar .nav > li.active > a:after {\n        border-right: none;\n        border-left: 12px solid #f4f3ef;\n        border-top: 12px solid transparent;\n        border-bottom: 12px solid transparent;\n        right: auto;\n        margin-left: -15px;\n        left: -1px;\n        top: 10px;\n    }\n\n    .off-canvas-sidebar::after {\n        top: 0;\n        left: 0;\n        height: 100%;\n        width: 100%;\n        position: absolute;\n        background-color: #f4f3ef;\n        background-image: linear-gradient(to bottom, transparent 0%, rgba(112, 112, 112, 0) 60%, rgba(186, 186, 186, 0.15) 100%);\n        display: block;\n        content: \"\";\n        z-index: 1;\n    }\n\n    .off-canvas-sidebar.has-image::after {\n        top: 0;\n        left: 0;\n        height: 100%;\n        width: 100%;\n        position: absolute;\n        background-color: rgba(17, 17, 17, 0.8);\n        display: block;\n        content: \"\";\n        z-index: 1;\n    }\n\n    .off-canvas-sidebar .logo {\n        position: relative;\n        z-index: 4;\n        padding-top: 11px;\n        padding-bottom: 11px;\n    }\n\n    .off-canvas-sidebar .divider {\n        height: 1px;\n        margin: 10px 0;\n    }\n\n    .nav-open .navbar-collapse {\n        -webkit-transform: translate3d(0px, 0, 0);\n        -moz-transform: translate3d(0px, 0, 0);\n        -o-transform: translate3d(0px, 0, 0);\n        -ms-transform: translate3d(0px, 0, 0);\n        transform: translate3d(0px, 0, 0);\n    }\n\n    .nav-open .navbar .container {\n        left: -230px;\n    }\n\n    .nav-open .wrapper {\n        left: 0;\n        -webkit-transform: translate3d(-230px, 0, 0);\n        -moz-transform: translate3d(-230px, 0, 0);\n        -o-transform: translate3d(-230px, 0, 0);\n        -ms-transform: translate3d(-230px, 0, 0);\n        transform: translate3d(-230px, 0, 0);\n    }\n\n    .navbar-toggle .icon-bar {\n        display: block;\n        position: relative;\n        background: #fff;\n        width: 24px;\n        height: 2px;\n        border-radius: 1px;\n        margin: 0 auto;\n    }\n\n    .navbar-header .navbar-toggle {\n        margin: 10px 15px 10px 0;\n        width: 40px;\n        height: 40px;\n    }\n\n    .bar1,\n    .bar2,\n    .bar3 {\n        outline: 1px solid transparent;\n    }\n\n    .bar1 {\n        top: 0px;\n        -webkit-animation: topbar-back 500ms linear 0s;\n        -moz-animation: topbar-back 500ms linear 0s;\n        animation: topbar-back 500ms 0s;\n        -webkit-animation-fill-mode: forwards;\n        -moz-animation-fill-mode: forwards;\n        animation-fill-mode: forwards;\n    }\n\n    .bar2 {\n        opacity: 1;\n    }\n\n    .bar3 {\n        bottom: 0px;\n        -webkit-animation: bottombar-back 500ms linear 0s;\n        -moz-animation: bottombar-back 500ms linear 0s;\n        animation: bottombar-back 500ms 0s;\n        -webkit-animation-fill-mode: forwards;\n        -moz-animation-fill-mode: forwards;\n        animation-fill-mode: forwards;\n    }\n\n    .toggled .bar1 {\n        top: 6px;\n        -webkit-animation: topbar-x 500ms linear 0s;\n        -moz-animation: topbar-x 500ms linear 0s;\n        animation: topbar-x 500ms 0s;\n        -webkit-animation-fill-mode: forwards;\n        -moz-animation-fill-mode: forwards;\n        animation-fill-mode: forwards;\n    }\n\n    .toggled .bar2 {\n        opacity: 0;\n    }\n\n    .toggled .bar3 {\n        bottom: 6px;\n        -webkit-animation: bottombar-x 500ms linear 0s;\n        -moz-animation: bottombar-x 500ms linear 0s;\n        animation: bottombar-x 500ms 0s;\n        -webkit-animation-fill-mode: forwards;\n        -moz-animation-fill-mode: forwards;\n        animation-fill-mode: forwards;\n    }\n\n    @keyframes topbar-x {\n        0% {\n            top: 0px;\n            transform: rotate(0deg);\n        }\n        45% {\n            top: 6px;\n            transform: rotate(145deg);\n        }\n        75% {\n            transform: rotate(130deg);\n        }\n        100% {\n            transform: rotate(135deg);\n        }\n    }\n    @-webkit-keyframes topbar-x {\n        0% {\n            top: 0px;\n            -webkit-transform: rotate(0deg);\n        }\n        45% {\n            top: 6px;\n            -webkit-transform: rotate(145deg);\n        }\n        75% {\n            -webkit-transform: rotate(130deg);\n        }\n        100% {\n            -webkit-transform: rotate(135deg);\n        }\n    }\n    @-moz-keyframes topbar-x {\n        0% {\n            top: 0px;\n            -moz-transform: rotate(0deg);\n        }\n        45% {\n            top: 6px;\n            -moz-transform: rotate(145deg);\n        }\n        75% {\n            -moz-transform: rotate(130deg);\n        }\n        100% {\n            -moz-transform: rotate(135deg);\n        }\n    }\n    @keyframes topbar-back {\n        0% {\n            top: 6px;\n            transform: rotate(135deg);\n        }\n        45% {\n            transform: rotate(-10deg);\n        }\n        75% {\n            transform: rotate(5deg);\n        }\n        100% {\n            top: 0px;\n            transform: rotate(0);\n        }\n    }\n    @-webkit-keyframes topbar-back {\n        0% {\n            top: 6px;\n            -webkit-transform: rotate(135deg);\n        }\n        45% {\n            -webkit-transform: rotate(-10deg);\n        }\n        75% {\n            -webkit-transform: rotate(5deg);\n        }\n        100% {\n            top: 0px;\n            -webkit-transform: rotate(0);\n        }\n    }\n    @-moz-keyframes topbar-back {\n        0% {\n            top: 6px;\n            -moz-transform: rotate(135deg);\n        }\n        45% {\n            -moz-transform: rotate(-10deg);\n        }\n        75% {\n            -moz-transform: rotate(5deg);\n        }\n        100% {\n            top: 0px;\n            -moz-transform: rotate(0);\n        }\n    }\n    @keyframes bottombar-x {\n        0% {\n            bottom: 0px;\n            transform: rotate(0deg);\n        }\n        45% {\n            bottom: 6px;\n            transform: rotate(-145deg);\n        }\n        75% {\n            transform: rotate(-130deg);\n        }\n        100% {\n            transform: rotate(-135deg);\n        }\n    }\n    @-webkit-keyframes bottombar-x {\n        0% {\n            bottom: 0px;\n            -webkit-transform: rotate(0deg);\n        }\n        45% {\n            bottom: 6px;\n            -webkit-transform: rotate(-145deg);\n        }\n        75% {\n            -webkit-transform: rotate(-130deg);\n        }\n        100% {\n            -webkit-transform: rotate(-135deg);\n        }\n    }\n    @-moz-keyframes bottombar-x {\n        0% {\n            bottom: 0px;\n            -moz-transform: rotate(0deg);\n        }\n        45% {\n            bottom: 6px;\n            -moz-transform: rotate(-145deg);\n        }\n        75% {\n            -moz-transform: rotate(-130deg);\n        }\n        100% {\n            -moz-transform: rotate(-135deg);\n        }\n    }\n    @keyframes bottombar-back {\n        0% {\n            bottom: 6px;\n            transform: rotate(-135deg);\n        }\n        45% {\n            transform: rotate(10deg);\n        }\n        75% {\n            transform: rotate(-5deg);\n        }\n        100% {\n            bottom: 0px;\n            transform: rotate(0);\n        }\n    }\n    @-webkit-keyframes bottombar-back {\n        0% {\n            bottom: 6px;\n            -webkit-transform: rotate(-135deg);\n        }\n        45% {\n            -webkit-transform: rotate(10deg);\n        }\n        75% {\n            -webkit-transform: rotate(-5deg);\n        }\n        100% {\n            bottom: 0px;\n            -webkit-transform: rotate(0);\n        }\n    }\n    @-moz-keyframes bottombar-back {\n        0% {\n            bottom: 6px;\n            -moz-transform: rotate(-135deg);\n        }\n        45% {\n            -moz-transform: rotate(10deg);\n        }\n        75% {\n            -moz-transform: rotate(-5deg);\n        }\n        100% {\n            bottom: 0px;\n            -moz-transform: rotate(0);\n        }\n    }\n    @-webkit-keyframes fadeIn {\n        0% {\n            opacity: 0;\n        }\n        100% {\n            opacity: 1;\n        }\n    }\n    @-moz-keyframes fadeIn {\n        0% {\n            opacity: 0;\n        }\n        100% {\n            opacity: 1;\n        }\n    }\n    @keyframes fadeIn {\n        0% {\n            opacity: 0;\n        }\n        100% {\n            opacity: 1;\n        }\n    }\n    .dropdown-menu .divider {\n        background-color: rgba(229, 229, 229, 0.15);\n    }\n\n    .navbar-nav {\n        margin: 1px 0;\n    }\n\n    .dropdown-menu {\n        display: none;\n    }\n\n    .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {\n        background-color: transparent;\n    }\n\n    .navbar-fixed-top {\n        -webkit-backface-visibility: hidden;\n    }\n\n    #bodyClick {\n        height: 100%;\n        width: 100%;\n        position: fixed;\n        opacity: 0;\n        top: 0;\n        left: auto;\n        right: 230px;\n        content: \"\";\n        z-index: 9999;\n        overflow-x: hidden;\n    }\n\n    .form-control + .form-control-feedback {\n        margin-top: -8px;\n    }\n\n    .navbar-toggle:hover, .navbar-toggle:focus {\n        background-color: transparent !important;\n    }\n\n    .btn.dropdown-toggle {\n        margin-bottom: 0;\n    }\n\n    .media-post .author {\n        width: 20%;\n        float: none !important;\n        display: block;\n        margin: 0 auto 10px;\n    }\n\n    .media-post .media-body {\n        width: 100%;\n    }\n\n    .navbar-collapse.collapse {\n        height: 100% !important;\n    }\n\n    .navbar-collapse.collapse.in {\n        display: block;\n    }\n\n    .navbar-header .collapse, .navbar-toggle {\n        display: block !important;\n    }\n\n    .navbar-header {\n        float: none;\n    }\n\n    .navbar-nav .open .dropdown-menu {\n        position: static;\n        float: none;\n        width: auto;\n        margin-top: 0;\n        background-color: transparent;\n        border: 0;\n        -webkit-box-shadow: none;\n        box-shadow: none;\n    }\n\n    .main-panel > .content {\n        padding-left: 0;\n        padding-right: 0;\n    }\n\n    .nav .open > a, .nav .open > a:focus, .nav .open > a:hover {\n        background-color: transparent;\n    }\n\n    .footer .copyright {\n        padding: 0px 15px;\n        width: 100%;\n    }\n}\n\n@media (min-width: 992px) {\n    .table-full-width {\n        margin-left: -15px;\n        margin-right: -15px;\n    }\n\n    .table-responsive {\n        overflow: visible;\n    }\n}\n\n@media (max-width: 991px) {\n    .table-responsive {\n        width: 100%;\n        margin-bottom: 15px;\n        border: 1px solid #dddddd;\n        overflow-x: scroll;\n        overflow-y: hidden;\n        -ms-overflow-style: -ms-autohiding-scrollbar;\n        -webkit-overflow-scrolling: touch;\n    }\n}\n", ""]);
 	
 	// exports
 
@@ -29012,22 +29012,22 @@
 /*!************************!*\
   !*** ./image/logo.png ***!
   \************************/
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
-	module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAB+AAAAfgBaHSH5gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAbKSURBVHic3ZtriFVVFMf/e3xNWo6opUYPyxS1tKdpRfQOMnsQ9KIXPSiDoqKgh2JRX4wiqC9FUR+KpAdShBGFhNWHSqIUswF7UFZUmD0Yp3FmGn99WPvi8XrOuXufe+49Q38YZubstfZa/332Y+2193H6nwEYKWmGpBMknSbpOElHSuqU9K2kzyR9Kult59yWqvwsFcAI4BTgDeIwq2rfmwKwL7Ac6I8kXsPtVXMoBE/8sYKkk3ixai5RADqAq4HBEsgDdLuqSYUCmCtpraRpJVa7o6PEyloC/9YflrRZ5ZKXpJ0jS66wVABTJX0oaWaLTHwzbHsAcLqkn5VOfkDSPZIOl9Tlf46Q9ICkfyPMbGzOyxYAcMCKnIlrDdCZkB8BdCT+HwusDZwEr6qGZQaAkZ5gFt4EnJc9DdiYKFsPnOjLHPBeQAPMqZZxAsAYTyILfcBoL/tkjtyDXmYfGi+Xo6pl7QGMB75p4OwtXnZJAzmAk7zs3Tky71XL2gOYCGwLIDXNy/8WILvZy07PkTlLkioNhIDxkrZImhIgPkbSKEk7Aqsf7eV7U8p2Sep0zg1WtgwCXZK+Vhh5SUJSjL8dMqJpeMI5NxhRV7nAxvyvAV05iYnY7B6y89vm7UzJKJ9U86XtPQBbw79U+Juv4RTnHJKWB8je7X+fkVL2knNue6TtcoAFLXlLXR62+h4wAvgiR+4DbP/QQfqEuX+ryI0GJgBdWDTm6sod8FpB8jUs83WNBB5PKV+BjwqBh1PKV5ZN+hDgfuCnFGODwCpgipctI4EBcFddo0/3foxKNPSyFL1efCBVBvH5wGcBzm7EuuyNpVDfjc+BBSQiOawxFgGbM3TOLYP4WOCVQCd7seFwVJNkG2EQGGogszqLU3AghG0c1kvaN1DlGFka+pcInVZgp6TJzrm0gChsGQSulfSVwoncLmmTpHUROq3CGVnkgwAsjeySq71e3o6tXVjWVNMB90Ya/B4YBVxcPpdovEvdUpyGTAHgMkmvRrTXLkkHyjYtP0TotQI/S5rhnOtvJJiaFAWOVxx5SbpC0l+StkbqlY0dkuaHkE8FtnTFHjW9jwUgLxXsqgcAk4E/C+gnMQRML9x0nsTHkUb7sKOqswo4vMLbvNLbf6dAHUksLEzeO/BgAaOnYw3QF6m3BNuwrAPOwXpAM1jcLPkjChh92eu+G6l3KtAJ/AKsxDY3WSFsCJY0S94B3ZFG/8QyuVdG6AwBx2AhdQ/wobf/YqTtJJoj7x1YCvyNjf/XsW65DtiSY/horNs2isNr6AdmYtmgf4Bub3t5Md5AGRsc70RePNDhnV4APOcJP4r1mtDkRh9wONZg/cCPvt4bChIfwo7O2g/8URRwR6CzPcCB2FI3APyOjfmYoZNEH1VfbQEODnT2N2AScCj21nqwyW9xQfK/ApMrJe8bYFMg+S5gNrAL2IktlycXJL8JGFc1d0kSNpPnoQcb70d58gNYvrBocuRlbNgMj7M8SQKOzXC2F8vHz/DkB7HxfxjF7vYs9fauAdZWzXsPACfUOdsPHARMw8Z8jfwhxEeKPcCR2KT7XOL58LrVAhznHRsCZmEnOIPYmJ+AZW1jyXd73fHseQcA7NrM8AKwEJjrnR7whMcDc4jv9s9gy+wcrBfUY3rVfFOBpaX7vNNjsUgxNErEy17i67opR274XW/1b2wt8Cm2zp8YQRxsiZviG3FVA9n2DwEs8LkZeBZ4HjifPS8mPQ28wO6wOQb3er15wPYA+XJOdwKJT8CyPTX8Dcyuk7kVuK/u2cIAItuweKKD9HO8NHS3k/xB2JqexLw6mQXAhRn6i3KIvIBljyez9yyfh/Zca8PGcf3R8iMpcrmhKZYtSqIPOA/bSV4bQbyG9oTCpE9EjciOyXh+ptdfA4zzPyF3+OrxaGvY7u3wvBTjzzTQ2QdYlFM+NfF3bOYJLMJs29t/K8WBoxvoLMMOUkLqv7lAA1xUDrvGzo3LcKAzQ94Bt8U4CUyNJP9auSzznUububfXyXRgK8T17HkzZHZWvSl2QsPj72jnFpj09fgLLPt7HrA6w9FeYESEnZDDl+3AhFbyTXMs7a7PViwAysN1kXZWNqivh1bd5spxamzAW0nDBwQcQ9fZui6nvp+Aia3iWY/kDZG0XdZDsi8xNmTovynpbH+BMQYDGc83SJrpnPsjsr7mAdxV9ya+Z/fHCdenlF3QhK1LU97800TMI6WDvc/m5ibKurCrcfMpYWwClyfsDNHswWYJDu1XR/7OFtur9bZPGCZ5/uRFqBvaYO8p7AvQ6j/cxE5uPvKN0JZ1l3YmNRrgPy1CNA56WLTDAAAAAElFTkSuQmCC";
+	module.exports = __webpack_require__.p + "/images/logo.png";
 
 /***/ }),
 /* 266 */
 /*!************************!*\
   !*** ./image/name.png ***!
   \************************/
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
-	module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAH8AAAAeCAYAAAAFFcHsAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALeAAAC3gB5KDR7QAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAgmSURBVGiB7Zp9rNZlGcc/1wEBwUQg3jEyPbkIMhZCW7DSSrE5q63MMRlrTkgccy01Z25N28rSXC9rvWvTEdnKt1yLagUZZYYyjkc0KMBEAQ8IAqKH8/Ltj/v3sPu5f9fv+f2eZ8GBeb7bsz2/+/7e13Xdb9d93S8wiGMKST9UPfokzR1ouwDaBtqANwE+mHy3AS8PhCGDOI6QdKqk3mTmH5BkA20bDM78Y413A0OStE4z00AYk2Kw848tZjlpTx93Kwow2PnHFid05w/1EiVNBC4G5gMzgOnAaUAPsBtYA9xtZhsaCZfUDlxGCHpmAuOBYcBLwA7gm2b2UFJmFrAk030OMAbYC2wBHga+b2YHG+gcCiwALgBmZzImEAb6q0AH8BBwn5n1FMi4AnhvlHQE+LqZvRZxRgFfzOpTwyYzuzf69jq/s4HtFwOXA3OBM4HRwEFgD/AU8Cjw66L6S2oj9NvlwDxgCjAS6ALWA6uA+91lR9JoSQ9L6lE5+iR9W1K6piFpkqQ/SuovkfGFqMxYSSsr6N0p6f0FlV+W5VfBc5LOLZDzosMfn3AWOpzVCWeXwxlX0F5/qmj3XklXOTJmS3qqQvnHJL3Vq/QnKxoQ41uOnGsqlv1Ixp8saVMTOg9KOtvR+98mbd+pfKeOc3i7HF03Orw7o/yJTv6LjpzhkjY0afctiYwPSzrURPknJA1N13zPTZVhhaSZSVr6XYSNCtuelcC7mtB5GnBnnCDpDIKrbAaTgNuStPc4PM9Vl63nVdf7ZdQvMWVYA3yt9iFpKnA/MKoJGecDV6VrvtdpHcADhLX+ncA1wIgovw1YBNwcpXkV3wKsI6y744ADZtYl6eOE9TnFPwhrlIClhG1TjEsljTGzfQ10HiIMrGeA4cBi8p17haQVZtabfXud/4yT5vE6SvK9zv+Mk7YKuAfoBt4GzAGuBHqBRWbWF3FvIbRnjP5MxlpgMnA98JaEs7juS9Kzjos4L+Hc5HAeSTivOJzJTiWR9IgnTyF4qXEmSTri8OZFnOVO/k8TXWMkveHwpkecnzj5VydyhknqTjg9kkZEnHscOUuc+nttNc3hDVeyVmd2eO7+2oS3yOHsixt4BNCe6OwBnkvS/p0aRogoa3KmESL0GF1mttOpUBv540+Ar5hZf+3DzHYRdggpYs9V5LWOIvMSex1e7DKrROjnUh/lA2w2szdK5Hgzv99J+7mkT0gaXUsws24z25Pw5pJ397uBHyRp3q6sbs2fQf40arOZdSdp48kjNqqZve3bgdOTtMOEbc1RZIMkH6GGilbWq7AzGevw9kR60kEk8m6/oUvP9MxI8vuATU65x5y0BcCDQJek1ZKWKGxhU3h2PJ4sCxC2uil2x53vNV6Hk+YFZptL5BR1vjdbNznGn01+hL8GbANQCBo9Waned1AfrwDsN7PaRcs5RF4swwtmdiBJK6tjO3Bqkr8l8Qw1fBl43UkHOAW4CPgZsF7SWUl+qbfL4A7WuPOrNF4Rr7OJ/BhpEAfVje+MBsmZwBlJ/k4z66qgryxC92wvC/YqTwAz6wAuwV/WYpwHrJYUD6qy+tTg2ls28z1BZQqrDiLIu0bwO7/MK1W1vcw2z6t5kX4r27zCkz0zW0uII64j7Ih6C6jt1EfpXvtV7fyNTbl9STPIrx+HCdu42tFq2oD9FFd8ipP2vJPmnejFQUzVJcvbUsa8qU5+HFcgaSyQRuMHqLc7DZwhHzjXwcwOmdl3zGw+Ia5aRLasJZiX2TGM/BYPYHti70j89tnQlhHGke+I/cALSdq15LEu2iO3k19Tt8Zn4gm8i6WJ8YfCAdKFDu/P0f9Sb6NwZ7DA4a0tsK2GdEC4sz45L/cCrNw9gqQZCi996gaTme03s1XArxw5td1B7lg9w8Tk+2ry8cd2M9tWiyC9ChnwWUl/yQpfSTjgSXFf9L8Zlw/BY3woSbtNUg9h1M8GbiQEPjGeNLN4Jnn2f1TSs4RXM3MIJ4KpnH8mcnLHr8AySS8BTxB2Crm9Ovk6egHcDVm9tptZZzYjf0lYRhdL+gXwe0K9hxBm+OeKdJnZ65J2kD/VXCXpdsJl1EJguSNj5dF/klY4hwBV8HTmfmpybnU4tzrKa/yLWtDZL+ljkYxTlD9wqSpnYWLP+S3IkaTliZw7GnDXZ5wftaDnsKQpkZ67WpDRJWlCbGz6yLAK9im40ljOAw7v00Wdn5X5XZN6v5GUn9WC7ZJ0R4E9j7Yga34iY04D7kpJE5R/3lUFNyR6xit0ZlV0S7okrfDfmjTiP5Le5zTcFofrXptGZcZIWldB52FJ1zvlvaPLRuhV8FDuOzqFq+XHm5C3QcGFp3K+V8C/Ocv/gKR/VdTRI+lLBfbOkfRyBRnPS7owLWwKjwpj9Ev6rurvxvskrZf0eYWHDJ4hP5b0h+h3r6Iz+gYDYIikpZL+nump4YikJxU6y72xk/RVp6K/VRhQ8ezaJelu5W8gPZlDM3vWqP4uoFfSNgXvcJMkbwtVk9Em6bqMH7fhBYmeTyl4zN1JHXoV7lruUngU08jesZJuV5iUMV5VeFex1O0zSWc5jbc1yh8laZqk4WWN9v+Awho+VcGluS+NEv5vHPsvzfKGZLLSA6BmbTpdwUO19OwtKztZzsOXhDcya+tJrbZ3JmO6pPR+xSVf5jTeg60oHggouLMUzd7rvynRhr9N2ni8DWkFCrdeaUe/Ymbp+cQgHBR1vnc6diJiJuE8IsbJYvuA42Tv/JPZ9gFHG/n77R3AVod7IiK1vR/460AYcjLif966RipYbtl8AAAAAElFTkSuQmCC";
+	module.exports = __webpack_require__.p + "/images/name.png";
 
 /***/ }),
 /* 267 */
@@ -29074,11 +29074,11 @@
 	
 	var _InfoCreate2 = _interopRequireDefault(_InfoCreate);
 	
-	var _InfoManage = __webpack_require__(/*! ./view/content/info/InfoManage */ 448);
+	var _InfoManage = __webpack_require__(/*! ./view/content/info/InfoManage */ 408);
 	
 	var _InfoManage2 = _interopRequireDefault(_InfoManage);
 	
-	var _UserProfile = __webpack_require__(/*! ./view/content/user/UserProfile */ 449);
+	var _UserProfile = __webpack_require__(/*! ./view/content/user/UserProfile */ 409);
 	
 	var _UserProfile2 = _interopRequireDefault(_UserProfile);
 	
@@ -30123,11 +30123,11 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactDatetime = __webpack_require__(/*! react-datetime */ 450);
+	__webpack_require__(/*! react-datetime/css/react-datetime.css */ 406);
 	
-	var _reactDatetime2 = _interopRequireDefault(_reactDatetime);
+	var _FormContent = __webpack_require__(/*! ./formContent/FormContent */ 410);
 	
-	__webpack_require__(/*! react-datetime/css/react-datetime.css */ 458);
+	var _FormContent2 = _interopRequireDefault(_FormContent);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -30146,20 +30146,17 @@
 	        var _this = _possibleConstructorReturn(this, (InfoCreate.__proto__ || Object.getPrototypeOf(InfoCreate)).call(this, props));
 	
 	        _this.state = {
-	            type: 'hq',
-	            name: '',
-	            pinyin: '',
-	            used_name: '',
-	            sex: '男',
-	            nationality: '',
-	            passport: '',
-	            passport_date: ''
+	            type: 'hq'
 	        };
+	        _this.update = _this.update.bind(_this);
 	
 	        return _this;
 	    }
 	
 	    _createClass(InfoCreate, [{
+	        key: 'update',
+	        value: function update() {}
+	    }, {
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
 	            //get user info
@@ -30173,13 +30170,7 @@
 	            var _this2 = this;
 	
 	            var display = this.props.display;
-	            var _state = this.state,
-	                type = _state.type,
-	                name = _state.name,
-	                nationality = _state.nationality,
-	                passport = _state.passport,
-	                passport_date = _state.passport_date;
-	
+	            var type = this.state.type;
 	
 	            return _react2.default.createElement(
 	                'div',
@@ -30242,165 +30233,10 @@
 	                                    )
 	                                )
 	                            ),
-	                            _react2.default.createElement(
-	                                'div',
-	                                { className: 'row' },
-	                                _react2.default.createElement(
-	                                    'div',
-	                                    { className: 'col-md-3' },
-	                                    _react2.default.createElement(
-	                                        'div',
-	                                        { className: 'form-group' },
-	                                        _react2.default.createElement(
-	                                            'label',
-	                                            null,
-	                                            '\u4E2D\u6587\u540D*'
-	                                        ),
-	                                        _react2.default.createElement('input', { type: 'text',
-	                                            onChange: function onChange(e) {
-	                                                _this2.setState({ name: e.target.value });
-	                                            },
-	                                            className: 'form-control border-input',
-	                                            placeholder: '',
-	                                            value: name
-	                                        })
-	                                    )
-	                                ),
-	                                _react2.default.createElement(
-	                                    'div',
-	                                    { className: 'col-md-3' },
-	                                    _react2.default.createElement(
-	                                        'div',
-	                                        { className: 'form-group' },
-	                                        _react2.default.createElement(
-	                                            'label',
-	                                            null,
-	                                            '\u62FC\u97F3*'
-	                                        ),
-	                                        _react2.default.createElement('input', { type: 'text',
-	                                            onChange: function onChange(e) {
-	                                                _this2.setState({ name: e.target.value });
-	                                            },
-	                                            className: 'form-control border-input',
-	                                            placeholder: '', value: name })
-	                                    )
-	                                ),
-	                                _react2.default.createElement(
-	                                    'div',
-	                                    { className: 'col-md-3' },
-	                                    _react2.default.createElement(
-	                                        'div',
-	                                        { className: 'form-group' },
-	                                        _react2.default.createElement(
-	                                            'label',
-	                                            null,
-	                                            '\u66FE\u7528\u540D'
-	                                        ),
-	                                        _react2.default.createElement('input', { type: 'text',
-	                                            onChange: function onChange(e) {
-	                                                _this2.setState({ name: e.target.value });
-	                                            },
-	                                            className: 'form-control border-input',
-	                                            placeholder: '', value: name })
-	                                    )
-	                                ),
-	                                _react2.default.createElement(
-	                                    'div',
-	                                    { className: 'col-md-2' },
-	                                    _react2.default.createElement(
-	                                        'div',
-	                                        { className: 'form-group' },
-	                                        _react2.default.createElement(
-	                                            'label',
-	                                            null,
-	                                            '\u6C11\u65CF*'
-	                                        ),
-	                                        _react2.default.createElement('input', { type: 'text',
-	                                            onChange: function onChange(e) {
-	                                                _this2.setState({ nationality: e.target.value });
-	                                            },
-	                                            className: 'form-control border-input',
-	                                            placeholder: '', value: nationality })
-	                                    )
-	                                ),
-	                                _react2.default.createElement(
-	                                    'div',
-	                                    { className: 'col-md-1' },
-	                                    _react2.default.createElement(
-	                                        'div',
-	                                        { className: 'form-group' },
-	                                        _react2.default.createElement(
-	                                            'label',
-	                                            null,
-	                                            '\u6027\u522B*'
-	                                        ),
-	                                        _react2.default.createElement(
-	                                            'select',
-	                                            {
-	                                                onChange: function onChange(e) {
-	                                                    _this2.setState({ sex: e.target.value });
-	                                                },
-	                                                className: 'form-control border-input'
-	                                            },
-	                                            _react2.default.createElement(
-	                                                'option',
-	                                                null,
-	                                                '\u7537'
-	                                            ),
-	                                            _react2.default.createElement(
-	                                                'option',
-	                                                null,
-	                                                '\u5973'
-	                                            )
-	                                        )
-	                                    )
-	                                )
-	                            ),
-	                            _react2.default.createElement(
-	                                'div',
-	                                { className: 'row' },
-	                                _react2.default.createElement(
-	                                    'div',
-	                                    { className: 'col-md-3' },
-	                                    _react2.default.createElement(
-	                                        'div',
-	                                        { className: 'form-group' },
-	                                        _react2.default.createElement(
-	                                            'label',
-	                                            null,
-	                                            '\u62A4\u7167\u53F7\u7801*'
-	                                        ),
-	                                        _react2.default.createElement('input', { type: 'text',
-	                                            onChange: function onChange(e) {
-	                                                _this2.setState({ passport: e.target.value });
-	                                            },
-	                                            className: 'form-control border-input',
-	                                            placeholder: '',
-	                                            value: passport
-	                                        })
-	                                    )
-	                                ),
-	                                _react2.default.createElement(
-	                                    'div',
-	                                    { className: 'col-md-3' },
-	                                    _react2.default.createElement(
-	                                        'div',
-	                                        { className: 'form-group' },
-	                                        _react2.default.createElement(
-	                                            'label',
-	                                            null,
-	                                            '\u62A4\u7167\u6709\u6548\u671F*'
-	                                        ),
-	                                        _react2.default.createElement(_reactDatetime2.default, {
-	                                            viewMode: 'days',
-	                                            dateFormat: 'YYYY-MM-DD',
-	                                            timeFormat: false,
-	                                            closeOnSelect: true,
-	                                            closeOnTab: true
-	                                        })
-	                                    )
-	                                )
-	                            )
+	                            _react2.default.createElement('hr', null),
+	                            _react2.default.createElement(_FormContent2.default, {
+	                                type: type
+	                            })
 	                        )
 	                    )
 	                )
@@ -30414,44 +30250,518 @@
 	exports.default = InfoCreate;
 
 /***/ }),
-/* 276 */,
-/* 277 */,
-/* 278 */,
-/* 279 */,
-/* 280 */,
-/* 281 */,
-/* 282 */,
-/* 283 */,
-/* 284 */,
-/* 285 */,
-/* 286 */,
-/* 287 */,
-/* 288 */,
-/* 289 */,
-/* 290 */,
-/* 291 */,
-/* 292 */,
-/* 293 */,
-/* 294 */,
-/* 295 */,
-/* 296 */,
-/* 297 */,
-/* 298 */,
-/* 299 */,
-/* 300 */,
-/* 301 */,
-/* 302 */,
-/* 303 */,
-/* 304 */,
-/* 305 */,
-/* 306 */,
-/* 307 */,
-/* 308 */,
-/* 309 */,
-/* 310 */,
-/* 311 */,
-/* 312 */,
-/* 313 */
+/* 276 */
+/*!**************************************!*\
+  !*** ./~/react-datetime/DateTime.js ***!
+  \**************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var assign = __webpack_require__(/*! object-assign */ 277),
+		PropTypes = __webpack_require__(/*! prop-types */ 219),
+		createClass = __webpack_require__(/*! create-react-class */ 259),
+		moment = __webpack_require__(/*! moment */ 278),
+		React = __webpack_require__(/*! react */ 1),
+		CalendarContainer = __webpack_require__(/*! ./src/CalendarContainer */ 400)
+		;
+	
+	var TYPES = PropTypes;
+	var Datetime = createClass({
+		propTypes: {
+			// value: TYPES.object | TYPES.string,
+			// defaultValue: TYPES.object | TYPES.string,
+			onFocus: TYPES.func,
+			onBlur: TYPES.func,
+			onChange: TYPES.func,
+			onViewModeChange: TYPES.func,
+			locale: TYPES.string,
+			utc: TYPES.bool,
+			input: TYPES.bool,
+			// dateFormat: TYPES.string | TYPES.bool,
+			// timeFormat: TYPES.string | TYPES.bool,
+			inputProps: TYPES.object,
+			timeConstraints: TYPES.object,
+			viewMode: TYPES.oneOf(['years', 'months', 'days', 'time']),
+			isValidDate: TYPES.func,
+			open: TYPES.bool,
+			strictParsing: TYPES.bool,
+			closeOnSelect: TYPES.bool,
+			closeOnTab: TYPES.bool
+		},
+	
+		getDefaultProps: function() {
+			var nof = function() {};
+			return {
+				className: '',
+				defaultValue: '',
+				inputProps: {},
+				input: true,
+				onFocus: nof,
+				onBlur: nof,
+				onChange: nof,
+				onViewModeChange: nof,
+				timeFormat: true,
+				timeConstraints: {},
+				dateFormat: true,
+				strictParsing: true,
+				closeOnSelect: false,
+				closeOnTab: true,
+				utc: false
+			};
+		},
+	
+		getInitialState: function() {
+			var state = this.getStateFromProps( this.props );
+	
+			if ( state.open === undefined )
+				state.open = !this.props.input;
+	
+			state.currentView = this.props.dateFormat ? (this.props.viewMode || state.updateOn || 'days') : 'time';
+	
+			return state;
+		},
+	
+		getStateFromProps: function( props ) {
+			var formats = this.getFormats( props ),
+				date = props.value || props.defaultValue,
+				selectedDate, viewDate, updateOn, inputValue
+				;
+	
+			if ( date && typeof date === 'string' )
+				selectedDate = this.localMoment( date, formats.datetime );
+			else if ( date )
+				selectedDate = this.localMoment( date );
+	
+			if ( selectedDate && !selectedDate.isValid() )
+				selectedDate = null;
+	
+			viewDate = selectedDate ?
+				selectedDate.clone().startOf('month') :
+				this.localMoment().startOf('month')
+			;
+	
+			updateOn = this.getUpdateOn(formats);
+	
+			if ( selectedDate )
+				inputValue = selectedDate.format(formats.datetime);
+			else if ( date.isValid && !date.isValid() )
+				inputValue = '';
+			else
+				inputValue = date || '';
+	
+			return {
+				updateOn: updateOn,
+				inputFormat: formats.datetime,
+				viewDate: viewDate,
+				selectedDate: selectedDate,
+				inputValue: inputValue,
+				open: props.open
+			};
+		},
+	
+		getUpdateOn: function( formats ) {
+			if ( formats.date.match(/[lLD]/) ) {
+				return 'days';
+			} else if ( formats.date.indexOf('M') !== -1 ) {
+				return 'months';
+			} else if ( formats.date.indexOf('Y') !== -1 ) {
+				return 'years';
+			}
+	
+			return 'days';
+		},
+	
+		getFormats: function( props ) {
+			var formats = {
+					date: props.dateFormat || '',
+					time: props.timeFormat || ''
+				},
+				locale = this.localMoment( props.date, null, props ).localeData()
+				;
+	
+			if ( formats.date === true ) {
+				formats.date = locale.longDateFormat('L');
+			}
+			else if ( this.getUpdateOn(formats) !== 'days' ) {
+				formats.time = '';
+			}
+	
+			if ( formats.time === true ) {
+				formats.time = locale.longDateFormat('LT');
+			}
+	
+			formats.datetime = formats.date && formats.time ?
+				formats.date + ' ' + formats.time :
+				formats.date || formats.time
+			;
+	
+			return formats;
+		},
+	
+		componentWillReceiveProps: function( nextProps ) {
+			var formats = this.getFormats( nextProps ),
+				updatedState = {}
+			;
+	
+			if ( nextProps.value !== this.props.value ||
+				formats.datetime !== this.getFormats( this.props ).datetime ) {
+				updatedState = this.getStateFromProps( nextProps );
+			}
+	
+			if ( updatedState.open === undefined ) {
+				if ( typeof nextProps.open !== 'undefined' ) {
+					updatedState.open = nextProps.open;
+				} else if ( this.props.closeOnSelect && this.state.currentView !== 'time' ) {
+					updatedState.open = false;
+				} else {
+					updatedState.open = this.state.open;
+				}
+			}
+	
+			if ( nextProps.viewMode !== this.props.viewMode ) {
+				updatedState.currentView = nextProps.viewMode;
+			}
+	
+			if ( nextProps.locale !== this.props.locale ) {
+				if ( this.state.viewDate ) {
+					var updatedViewDate = this.state.viewDate.clone().locale( nextProps.locale );
+					updatedState.viewDate = updatedViewDate;
+				}
+				if ( this.state.selectedDate ) {
+					var updatedSelectedDate = this.state.selectedDate.clone().locale( nextProps.locale );
+					updatedState.selectedDate = updatedSelectedDate;
+					updatedState.inputValue = updatedSelectedDate.format( formats.datetime );
+				}
+			}
+	
+			if ( nextProps.utc !== this.props.utc ) {
+				if ( nextProps.utc ) {
+					if ( this.state.viewDate )
+						updatedState.viewDate = this.state.viewDate.clone().utc();
+					if ( this.state.selectedDate ) {
+						updatedState.selectedDate = this.state.selectedDate.clone().utc();
+						updatedState.inputValue = updatedState.selectedDate.format( formats.datetime );
+					}
+				} else {
+					if ( this.state.viewDate )
+						updatedState.viewDate = this.state.viewDate.clone().local();
+					if ( this.state.selectedDate ) {
+						updatedState.selectedDate = this.state.selectedDate.clone().local();
+						updatedState.inputValue = updatedState.selectedDate.format(formats.datetime);
+					}
+				}
+			}
+			//we should only show a valid date if we are provided a isValidDate function. Removed in 2.10.3
+			/*if (this.props.isValidDate) {
+				updatedState.viewDate = updatedState.viewDate || this.state.viewDate;
+				while (!this.props.isValidDate(updatedState.viewDate)) {
+					updatedState.viewDate = updatedState.viewDate.add(1, 'day');
+				}
+			}*/
+			this.setState( updatedState );
+		},
+	
+		onInputChange: function( e ) {
+			var value = e.target === null ? e : e.target.value,
+				localMoment = this.localMoment( value, this.state.inputFormat ),
+				update = { inputValue: value }
+				;
+	
+			if ( localMoment.isValid() && !this.props.value ) {
+				update.selectedDate = localMoment;
+				update.viewDate = localMoment.clone().startOf('month');
+			} else {
+				update.selectedDate = null;
+			}
+	
+			return this.setState( update, function() {
+				return this.props.onChange( localMoment.isValid() ? localMoment : this.state.inputValue );
+			});
+		},
+	
+		onInputKey: function( e ) {
+			if ( e.which === 9 && this.props.closeOnTab ) {
+				this.closeCalendar();
+			}
+		},
+	
+		showView: function( view ) {
+			var me = this;
+			return function() {
+				me.state.currentView !== view && me.props.onViewModeChange( view );
+				me.setState({ currentView: view });
+			};
+		},
+	
+		setDate: function( type ) {
+			var me = this,
+				nextViews = {
+					month: 'days',
+					year: 'months'
+				}
+			;
+			return function( e ) {
+				me.setState({
+					viewDate: me.state.viewDate.clone()[ type ]( parseInt(e.target.getAttribute('data-value'), 10) ).startOf( type ),
+					currentView: nextViews[ type ]
+				});
+				me.props.onViewModeChange( nextViews[ type ] );
+			};
+		},
+	
+		addTime: function( amount, type, toSelected ) {
+			return this.updateTime( 'add', amount, type, toSelected );
+		},
+	
+		subtractTime: function( amount, type, toSelected ) {
+			return this.updateTime( 'subtract', amount, type, toSelected );
+		},
+	
+		updateTime: function( op, amount, type, toSelected ) {
+			var me = this;
+	
+			return function() {
+				var update = {},
+					date = toSelected ? 'selectedDate' : 'viewDate'
+				;
+	
+				update[ date ] = me.state[ date ].clone()[ op ]( amount, type );
+	
+				me.setState( update );
+			};
+		},
+	
+		allowedSetTime: ['hours', 'minutes', 'seconds', 'milliseconds'],
+		setTime: function( type, value ) {
+			var index = this.allowedSetTime.indexOf( type ) + 1,
+				state = this.state,
+				date = (state.selectedDate || state.viewDate).clone(),
+				nextType
+				;
+	
+			// It is needed to set all the time properties
+			// to not to reset the time
+			date[ type ]( value );
+			for (; index < this.allowedSetTime.length; index++) {
+				nextType = this.allowedSetTime[index];
+				date[ nextType ]( date[nextType]() );
+			}
+	
+			if ( !this.props.value ) {
+				this.setState({
+					selectedDate: date,
+					inputValue: date.format( state.inputFormat )
+				});
+			}
+			this.props.onChange( date );
+		},
+	
+		updateSelectedDate: function( e, close ) {
+			var target = e.target,
+				modifier = 0,
+				viewDate = this.state.viewDate,
+				currentDate = this.state.selectedDate || viewDate,
+				date
+				;
+	
+			if (target.className.indexOf('rdtDay') !== -1) {
+				if (target.className.indexOf('rdtNew') !== -1)
+					modifier = 1;
+				else if (target.className.indexOf('rdtOld') !== -1)
+					modifier = -1;
+	
+				date = viewDate.clone()
+					.month( viewDate.month() + modifier )
+					.date( parseInt( target.getAttribute('data-value'), 10 ) );
+			} else if (target.className.indexOf('rdtMonth') !== -1) {
+				date = viewDate.clone()
+					.month( parseInt( target.getAttribute('data-value'), 10 ) )
+					.date( currentDate.date() );
+			} else if (target.className.indexOf('rdtYear') !== -1) {
+				date = viewDate.clone()
+					.month( currentDate.month() )
+					.date( currentDate.date() )
+					.year( parseInt( target.getAttribute('data-value'), 10 ) );
+			}
+	
+			date.hours( currentDate.hours() )
+				.minutes( currentDate.minutes() )
+				.seconds( currentDate.seconds() )
+				.milliseconds( currentDate.milliseconds() );
+	
+			if ( !this.props.value ) {
+				var open = !( this.props.closeOnSelect && close );
+				if ( !open ) {
+					this.props.onBlur( date );
+				}
+	
+				this.setState({
+					selectedDate: date,
+					viewDate: date.clone().startOf('month'),
+					inputValue: date.format( this.state.inputFormat ),
+					open: open
+				});
+			} else {
+				if ( this.props.closeOnSelect && close ) {
+					this.closeCalendar();
+				}
+			}
+	
+			this.props.onChange( date );
+		},
+	
+		openCalendar: function( e ) {
+			if ( !this.state.open ) {
+				this.setState({ open: true }, function() {
+					this.props.onFocus( e );
+				});
+			}
+		},
+	
+		closeCalendar: function() {
+			this.setState({ open: false }, function () {
+				this.props.onBlur( this.state.selectedDate || this.state.inputValue );
+			});
+		},
+	
+		handleClickOutside: function() {
+			if ( this.props.input && this.state.open && !this.props.open ) {
+				this.setState({ open: false }, function() {
+					this.props.onBlur( this.state.selectedDate || this.state.inputValue );
+				});
+			}
+		},
+	
+		localMoment: function( date, format, props ) {
+			props = props || this.props;
+			var momentFn = props.utc ? moment.utc : moment;
+			var m = momentFn( date, format, props.strictParsing );
+			if ( props.locale )
+				m.locale( props.locale );
+			return m;
+		},
+	
+		componentProps: {
+			fromProps: ['value', 'isValidDate', 'renderDay', 'renderMonth', 'renderYear', 'timeConstraints'],
+			fromState: ['viewDate', 'selectedDate', 'updateOn'],
+			fromThis: ['setDate', 'setTime', 'showView', 'addTime', 'subtractTime', 'updateSelectedDate', 'localMoment', 'handleClickOutside']
+		},
+	
+		getComponentProps: function() {
+			var me = this,
+				formats = this.getFormats( this.props ),
+				props = {dateFormat: formats.date, timeFormat: formats.time}
+				;
+	
+			this.componentProps.fromProps.forEach( function( name ) {
+				props[ name ] = me.props[ name ];
+			});
+			this.componentProps.fromState.forEach( function( name ) {
+				props[ name ] = me.state[ name ];
+			});
+			this.componentProps.fromThis.forEach( function( name ) {
+				props[ name ] = me[ name ];
+			});
+	
+			return props;
+		},
+	
+		render: function() {
+			// TODO: Make a function or clean up this code,
+			// logic right now is really hard to follow
+			var className = 'rdt' + (this.props.className ?
+	                  ( Array.isArray( this.props.className ) ?
+	                  ' ' + this.props.className.join( ' ' ) : ' ' + this.props.className) : ''),
+				children = [];
+	
+			if ( this.props.input ) {
+				var finalInputProps = assign({
+					type: 'text',
+					className: 'form-control',
+					onClick: this.openCalendar,
+					onFocus: this.openCalendar,
+					onChange: this.onInputChange,
+					onKeyDown: this.onInputKey,
+					value: this.state.inputValue,
+				}, this.props.inputProps);
+				if ( this.props.renderInput ) {
+					children = [ React.createElement('div', { key: 'i' }, this.props.renderInput( finalInputProps, this.openCalendar )) ];
+				} else {
+					children = [ React.createElement('input', assign({ key: 'i' }, finalInputProps ))];
+				}
+			} else {
+				className += ' rdtStatic';
+			}
+	
+			if ( this.state.open )
+				className += ' rdtOpen';
+	
+			return React.createElement( 'div', { className: className }, children.concat(
+				React.createElement( 'div',
+					{ key: 'dt', className: 'rdtPicker' },
+					React.createElement( CalendarContainer, { view: this.state.currentView, viewProps: this.getComponentProps(), onClickOutside: this.handleClickOutside })
+				)
+			));
+		}
+	});
+	
+	// Make moment accessible through the Datetime class
+	Datetime.moment = moment;
+	
+	module.exports = Datetime;
+
+
+/***/ }),
+/* 277 */
+/*!***************************************************!*\
+  !*** ./~/react-datetime/~/object-assign/index.js ***!
+  \***************************************************/
+/***/ (function(module, exports) {
+
+	'use strict';
+	var propIsEnumerable = Object.prototype.propertyIsEnumerable;
+	
+	function ToObject(val) {
+		if (val == null) {
+			throw new TypeError('Object.assign cannot be called with null or undefined');
+		}
+	
+		return Object(val);
+	}
+	
+	function ownEnumerableKeys(obj) {
+		var keys = Object.getOwnPropertyNames(obj);
+	
+		if (Object.getOwnPropertySymbols) {
+			keys = keys.concat(Object.getOwnPropertySymbols(obj));
+		}
+	
+		return keys.filter(function (key) {
+			return propIsEnumerable.call(obj, key);
+		});
+	}
+	
+	module.exports = Object.assign || function (target, source) {
+		var from;
+		var keys;
+		var to = ToObject(target);
+	
+		for (var s = 1; s < arguments.length; s++) {
+			from = arguments[s];
+			keys = ownEnumerableKeys(Object(from));
+	
+			for (var i = 0; i < keys.length; i++) {
+				to[keys[i]] = from[keys[i]];
+			}
+		}
+	
+		return to;
+	};
+
+
+/***/ }),
+/* 278 */
 /*!****************************!*\
   !*** ./~/moment/moment.js ***!
   \****************************/
@@ -32301,7 +32611,7 @@
 	        try {
 	            oldLocale = globalLocale._abbr;
 	            var aliasedRequire = require;
-	            __webpack_require__(/*! ./locale */ 315)("./" + name);
+	            __webpack_require__(/*! ./locale */ 280)("./" + name);
 	            getSetGlobalLocale(oldLocale);
 	        } catch (e) {}
 	    }
@@ -34993,10 +35303,10 @@
 	
 	})));
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../webpack/buildin/module.js */ 314)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../webpack/buildin/module.js */ 279)(module)))
 
 /***/ }),
-/* 314 */
+/* 279 */
 /*!***********************************!*\
   !*** (webpack)/buildin/module.js ***!
   \***********************************/
@@ -35015,251 +35325,251 @@
 
 
 /***/ }),
-/* 315 */
+/* 280 */
 /*!**********************************!*\
   !*** ./~/moment/locale ^\.\/.*$ ***!
   \**********************************/
 /***/ (function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./af": 316,
-		"./af.js": 316,
-		"./ar": 317,
-		"./ar-dz": 318,
-		"./ar-dz.js": 318,
-		"./ar-kw": 319,
-		"./ar-kw.js": 319,
-		"./ar-ly": 320,
-		"./ar-ly.js": 320,
-		"./ar-ma": 321,
-		"./ar-ma.js": 321,
-		"./ar-sa": 322,
-		"./ar-sa.js": 322,
-		"./ar-tn": 323,
-		"./ar-tn.js": 323,
-		"./ar.js": 317,
-		"./az": 324,
-		"./az.js": 324,
-		"./be": 325,
-		"./be.js": 325,
-		"./bg": 326,
-		"./bg.js": 326,
-		"./bm": 327,
-		"./bm.js": 327,
-		"./bn": 328,
-		"./bn.js": 328,
-		"./bo": 329,
-		"./bo.js": 329,
-		"./br": 330,
-		"./br.js": 330,
-		"./bs": 331,
-		"./bs.js": 331,
-		"./ca": 332,
-		"./ca.js": 332,
-		"./cs": 333,
-		"./cs.js": 333,
-		"./cv": 334,
-		"./cv.js": 334,
-		"./cy": 335,
-		"./cy.js": 335,
-		"./da": 336,
-		"./da.js": 336,
-		"./de": 337,
-		"./de-at": 338,
-		"./de-at.js": 338,
-		"./de-ch": 339,
-		"./de-ch.js": 339,
-		"./de.js": 337,
-		"./dv": 340,
-		"./dv.js": 340,
-		"./el": 341,
-		"./el.js": 341,
-		"./en-au": 342,
-		"./en-au.js": 342,
-		"./en-ca": 343,
-		"./en-ca.js": 343,
-		"./en-gb": 344,
-		"./en-gb.js": 344,
-		"./en-ie": 345,
-		"./en-ie.js": 345,
-		"./en-nz": 346,
-		"./en-nz.js": 346,
-		"./eo": 347,
-		"./eo.js": 347,
-		"./es": 348,
-		"./es-do": 349,
-		"./es-do.js": 349,
-		"./es-us": 350,
-		"./es-us.js": 350,
-		"./es.js": 348,
-		"./et": 351,
-		"./et.js": 351,
-		"./eu": 352,
-		"./eu.js": 352,
-		"./fa": 353,
-		"./fa.js": 353,
-		"./fi": 354,
-		"./fi.js": 354,
-		"./fo": 355,
-		"./fo.js": 355,
-		"./fr": 356,
-		"./fr-ca": 357,
-		"./fr-ca.js": 357,
-		"./fr-ch": 358,
-		"./fr-ch.js": 358,
-		"./fr.js": 356,
-		"./fy": 359,
-		"./fy.js": 359,
-		"./gd": 360,
-		"./gd.js": 360,
-		"./gl": 361,
-		"./gl.js": 361,
-		"./gom-latn": 362,
-		"./gom-latn.js": 362,
-		"./gu": 363,
-		"./gu.js": 363,
-		"./he": 364,
-		"./he.js": 364,
-		"./hi": 365,
-		"./hi.js": 365,
-		"./hr": 366,
-		"./hr.js": 366,
-		"./hu": 367,
-		"./hu.js": 367,
-		"./hy-am": 368,
-		"./hy-am.js": 368,
-		"./id": 369,
-		"./id.js": 369,
-		"./is": 370,
-		"./is.js": 370,
-		"./it": 371,
-		"./it.js": 371,
-		"./ja": 372,
-		"./ja.js": 372,
-		"./jv": 373,
-		"./jv.js": 373,
-		"./ka": 374,
-		"./ka.js": 374,
-		"./kk": 375,
-		"./kk.js": 375,
-		"./km": 376,
-		"./km.js": 376,
-		"./kn": 377,
-		"./kn.js": 377,
-		"./ko": 378,
-		"./ko.js": 378,
-		"./ky": 379,
-		"./ky.js": 379,
-		"./lb": 380,
-		"./lb.js": 380,
-		"./lo": 381,
-		"./lo.js": 381,
-		"./lt": 382,
-		"./lt.js": 382,
-		"./lv": 383,
-		"./lv.js": 383,
-		"./me": 384,
-		"./me.js": 384,
-		"./mi": 385,
-		"./mi.js": 385,
-		"./mk": 386,
-		"./mk.js": 386,
-		"./ml": 387,
-		"./ml.js": 387,
-		"./mr": 388,
-		"./mr.js": 388,
-		"./ms": 389,
-		"./ms-my": 390,
-		"./ms-my.js": 390,
-		"./ms.js": 389,
-		"./mt": 391,
-		"./mt.js": 391,
-		"./my": 392,
-		"./my.js": 392,
-		"./nb": 393,
-		"./nb.js": 393,
-		"./ne": 394,
-		"./ne.js": 394,
-		"./nl": 395,
-		"./nl-be": 396,
-		"./nl-be.js": 396,
-		"./nl.js": 395,
-		"./nn": 397,
-		"./nn.js": 397,
-		"./pa-in": 398,
-		"./pa-in.js": 398,
-		"./pl": 399,
-		"./pl.js": 399,
-		"./pt": 400,
-		"./pt-br": 401,
-		"./pt-br.js": 401,
-		"./pt.js": 400,
-		"./ro": 402,
-		"./ro.js": 402,
-		"./ru": 403,
-		"./ru.js": 403,
-		"./sd": 404,
-		"./sd.js": 404,
-		"./se": 405,
-		"./se.js": 405,
-		"./si": 406,
-		"./si.js": 406,
-		"./sk": 407,
-		"./sk.js": 407,
-		"./sl": 408,
-		"./sl.js": 408,
-		"./sq": 409,
-		"./sq.js": 409,
-		"./sr": 410,
-		"./sr-cyrl": 411,
-		"./sr-cyrl.js": 411,
-		"./sr.js": 410,
-		"./ss": 412,
-		"./ss.js": 412,
-		"./sv": 413,
-		"./sv.js": 413,
-		"./sw": 414,
-		"./sw.js": 414,
-		"./ta": 415,
-		"./ta.js": 415,
-		"./te": 416,
-		"./te.js": 416,
-		"./tet": 417,
-		"./tet.js": 417,
-		"./th": 418,
-		"./th.js": 418,
-		"./tl-ph": 419,
-		"./tl-ph.js": 419,
-		"./tlh": 420,
-		"./tlh.js": 420,
-		"./tr": 421,
-		"./tr.js": 421,
-		"./tzl": 422,
-		"./tzl.js": 422,
-		"./tzm": 423,
-		"./tzm-latn": 424,
-		"./tzm-latn.js": 424,
-		"./tzm.js": 423,
-		"./uk": 425,
-		"./uk.js": 425,
-		"./ur": 426,
-		"./ur.js": 426,
-		"./uz": 427,
-		"./uz-latn": 428,
-		"./uz-latn.js": 428,
-		"./uz.js": 427,
-		"./vi": 429,
-		"./vi.js": 429,
-		"./x-pseudo": 430,
-		"./x-pseudo.js": 430,
-		"./yo": 431,
-		"./yo.js": 431,
-		"./zh-cn": 432,
-		"./zh-cn.js": 432,
-		"./zh-hk": 433,
-		"./zh-hk.js": 433,
-		"./zh-tw": 434,
-		"./zh-tw.js": 434
+		"./af": 281,
+		"./af.js": 281,
+		"./ar": 282,
+		"./ar-dz": 283,
+		"./ar-dz.js": 283,
+		"./ar-kw": 284,
+		"./ar-kw.js": 284,
+		"./ar-ly": 285,
+		"./ar-ly.js": 285,
+		"./ar-ma": 286,
+		"./ar-ma.js": 286,
+		"./ar-sa": 287,
+		"./ar-sa.js": 287,
+		"./ar-tn": 288,
+		"./ar-tn.js": 288,
+		"./ar.js": 282,
+		"./az": 289,
+		"./az.js": 289,
+		"./be": 290,
+		"./be.js": 290,
+		"./bg": 291,
+		"./bg.js": 291,
+		"./bm": 292,
+		"./bm.js": 292,
+		"./bn": 293,
+		"./bn.js": 293,
+		"./bo": 294,
+		"./bo.js": 294,
+		"./br": 295,
+		"./br.js": 295,
+		"./bs": 296,
+		"./bs.js": 296,
+		"./ca": 297,
+		"./ca.js": 297,
+		"./cs": 298,
+		"./cs.js": 298,
+		"./cv": 299,
+		"./cv.js": 299,
+		"./cy": 300,
+		"./cy.js": 300,
+		"./da": 301,
+		"./da.js": 301,
+		"./de": 302,
+		"./de-at": 303,
+		"./de-at.js": 303,
+		"./de-ch": 304,
+		"./de-ch.js": 304,
+		"./de.js": 302,
+		"./dv": 305,
+		"./dv.js": 305,
+		"./el": 306,
+		"./el.js": 306,
+		"./en-au": 307,
+		"./en-au.js": 307,
+		"./en-ca": 308,
+		"./en-ca.js": 308,
+		"./en-gb": 309,
+		"./en-gb.js": 309,
+		"./en-ie": 310,
+		"./en-ie.js": 310,
+		"./en-nz": 311,
+		"./en-nz.js": 311,
+		"./eo": 312,
+		"./eo.js": 312,
+		"./es": 313,
+		"./es-do": 314,
+		"./es-do.js": 314,
+		"./es-us": 315,
+		"./es-us.js": 315,
+		"./es.js": 313,
+		"./et": 316,
+		"./et.js": 316,
+		"./eu": 317,
+		"./eu.js": 317,
+		"./fa": 318,
+		"./fa.js": 318,
+		"./fi": 319,
+		"./fi.js": 319,
+		"./fo": 320,
+		"./fo.js": 320,
+		"./fr": 321,
+		"./fr-ca": 322,
+		"./fr-ca.js": 322,
+		"./fr-ch": 323,
+		"./fr-ch.js": 323,
+		"./fr.js": 321,
+		"./fy": 324,
+		"./fy.js": 324,
+		"./gd": 325,
+		"./gd.js": 325,
+		"./gl": 326,
+		"./gl.js": 326,
+		"./gom-latn": 327,
+		"./gom-latn.js": 327,
+		"./gu": 328,
+		"./gu.js": 328,
+		"./he": 329,
+		"./he.js": 329,
+		"./hi": 330,
+		"./hi.js": 330,
+		"./hr": 331,
+		"./hr.js": 331,
+		"./hu": 332,
+		"./hu.js": 332,
+		"./hy-am": 333,
+		"./hy-am.js": 333,
+		"./id": 334,
+		"./id.js": 334,
+		"./is": 335,
+		"./is.js": 335,
+		"./it": 336,
+		"./it.js": 336,
+		"./ja": 337,
+		"./ja.js": 337,
+		"./jv": 338,
+		"./jv.js": 338,
+		"./ka": 339,
+		"./ka.js": 339,
+		"./kk": 340,
+		"./kk.js": 340,
+		"./km": 341,
+		"./km.js": 341,
+		"./kn": 342,
+		"./kn.js": 342,
+		"./ko": 343,
+		"./ko.js": 343,
+		"./ky": 344,
+		"./ky.js": 344,
+		"./lb": 345,
+		"./lb.js": 345,
+		"./lo": 346,
+		"./lo.js": 346,
+		"./lt": 347,
+		"./lt.js": 347,
+		"./lv": 348,
+		"./lv.js": 348,
+		"./me": 349,
+		"./me.js": 349,
+		"./mi": 350,
+		"./mi.js": 350,
+		"./mk": 351,
+		"./mk.js": 351,
+		"./ml": 352,
+		"./ml.js": 352,
+		"./mr": 353,
+		"./mr.js": 353,
+		"./ms": 354,
+		"./ms-my": 355,
+		"./ms-my.js": 355,
+		"./ms.js": 354,
+		"./mt": 356,
+		"./mt.js": 356,
+		"./my": 357,
+		"./my.js": 357,
+		"./nb": 358,
+		"./nb.js": 358,
+		"./ne": 359,
+		"./ne.js": 359,
+		"./nl": 360,
+		"./nl-be": 361,
+		"./nl-be.js": 361,
+		"./nl.js": 360,
+		"./nn": 362,
+		"./nn.js": 362,
+		"./pa-in": 363,
+		"./pa-in.js": 363,
+		"./pl": 364,
+		"./pl.js": 364,
+		"./pt": 365,
+		"./pt-br": 366,
+		"./pt-br.js": 366,
+		"./pt.js": 365,
+		"./ro": 367,
+		"./ro.js": 367,
+		"./ru": 368,
+		"./ru.js": 368,
+		"./sd": 369,
+		"./sd.js": 369,
+		"./se": 370,
+		"./se.js": 370,
+		"./si": 371,
+		"./si.js": 371,
+		"./sk": 372,
+		"./sk.js": 372,
+		"./sl": 373,
+		"./sl.js": 373,
+		"./sq": 374,
+		"./sq.js": 374,
+		"./sr": 375,
+		"./sr-cyrl": 376,
+		"./sr-cyrl.js": 376,
+		"./sr.js": 375,
+		"./ss": 377,
+		"./ss.js": 377,
+		"./sv": 378,
+		"./sv.js": 378,
+		"./sw": 379,
+		"./sw.js": 379,
+		"./ta": 380,
+		"./ta.js": 380,
+		"./te": 381,
+		"./te.js": 381,
+		"./tet": 382,
+		"./tet.js": 382,
+		"./th": 383,
+		"./th.js": 383,
+		"./tl-ph": 384,
+		"./tl-ph.js": 384,
+		"./tlh": 385,
+		"./tlh.js": 385,
+		"./tr": 386,
+		"./tr.js": 386,
+		"./tzl": 387,
+		"./tzl.js": 387,
+		"./tzm": 388,
+		"./tzm-latn": 389,
+		"./tzm-latn.js": 389,
+		"./tzm.js": 388,
+		"./uk": 390,
+		"./uk.js": 390,
+		"./ur": 391,
+		"./ur.js": 391,
+		"./uz": 392,
+		"./uz-latn": 393,
+		"./uz-latn.js": 393,
+		"./uz.js": 392,
+		"./vi": 394,
+		"./vi.js": 394,
+		"./x-pseudo": 395,
+		"./x-pseudo.js": 395,
+		"./yo": 396,
+		"./yo.js": 396,
+		"./zh-cn": 397,
+		"./zh-cn.js": 397,
+		"./zh-hk": 398,
+		"./zh-hk.js": 398,
+		"./zh-tw": 399,
+		"./zh-tw.js": 399
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -35272,11 +35582,11 @@
 	};
 	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
-	webpackContext.id = 315;
+	webpackContext.id = 280;
 
 
 /***/ }),
-/* 316 */
+/* 281 */
 /*!*******************************!*\
   !*** ./~/moment/locale/af.js ***!
   \*******************************/
@@ -35287,7 +35597,7 @@
 	//! author : Werner Mollentze : https://github.com/wernerm
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -35358,7 +35668,7 @@
 
 
 /***/ }),
-/* 317 */
+/* 282 */
 /*!*******************************!*\
   !*** ./~/moment/locale/ar.js ***!
   \*******************************/
@@ -35371,7 +35681,7 @@
 	//! author : forabi https://github.com/forabi
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -35509,7 +35819,7 @@
 
 
 /***/ }),
-/* 318 */
+/* 283 */
 /*!**********************************!*\
   !*** ./~/moment/locale/ar-dz.js ***!
   \**********************************/
@@ -35520,7 +35830,7 @@
 	//! author : Noureddine LOUAHEDJ : https://github.com/noureddineme
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -35577,7 +35887,7 @@
 
 
 /***/ }),
-/* 319 */
+/* 284 */
 /*!**********************************!*\
   !*** ./~/moment/locale/ar-kw.js ***!
   \**********************************/
@@ -35588,7 +35898,7 @@
 	//! author : Nusret Parlak: https://github.com/nusretparlak
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -35645,7 +35955,7 @@
 
 
 /***/ }),
-/* 320 */
+/* 285 */
 /*!**********************************!*\
   !*** ./~/moment/locale/ar-ly.js ***!
   \**********************************/
@@ -35656,7 +35966,7 @@
 	//! author : Ali Hmer: https://github.com/kikoanis
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -35780,7 +36090,7 @@
 
 
 /***/ }),
-/* 321 */
+/* 286 */
 /*!**********************************!*\
   !*** ./~/moment/locale/ar-ma.js ***!
   \**********************************/
@@ -35792,7 +36102,7 @@
 	//! author : Abdel Said : https://github.com/abdelsaid
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -35849,7 +36159,7 @@
 
 
 /***/ }),
-/* 322 */
+/* 287 */
 /*!**********************************!*\
   !*** ./~/moment/locale/ar-sa.js ***!
   \**********************************/
@@ -35860,7 +36170,7 @@
 	//! author : Suhail Alkowaileet : https://github.com/xsoh
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -35963,7 +36273,7 @@
 
 
 /***/ }),
-/* 323 */
+/* 288 */
 /*!**********************************!*\
   !*** ./~/moment/locale/ar-tn.js ***!
   \**********************************/
@@ -35974,7 +36284,7 @@
 	//! author : Nader Toukabri : https://github.com/naderio
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -36031,7 +36341,7 @@
 
 
 /***/ }),
-/* 324 */
+/* 289 */
 /*!*******************************!*\
   !*** ./~/moment/locale/az.js ***!
   \*******************************/
@@ -36042,7 +36352,7 @@
 	//! author : topchiyev : https://github.com/topchiyev
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -36145,7 +36455,7 @@
 
 
 /***/ }),
-/* 325 */
+/* 290 */
 /*!*******************************!*\
   !*** ./~/moment/locale/be.js ***!
   \*******************************/
@@ -36158,7 +36468,7 @@
 	//! Author : Menelion Elensúle : https://github.com/Oire
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -36288,7 +36598,7 @@
 
 
 /***/ }),
-/* 326 */
+/* 291 */
 /*!*******************************!*\
   !*** ./~/moment/locale/bg.js ***!
   \*******************************/
@@ -36299,7 +36609,7 @@
 	//! author : Krasen Borisov : https://github.com/kraz
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -36387,7 +36697,7 @@
 
 
 /***/ }),
-/* 327 */
+/* 292 */
 /*!*******************************!*\
   !*** ./~/moment/locale/bm.js ***!
   \*******************************/
@@ -36398,7 +36708,7 @@
 	//! author : Estelle Comment : https://github.com/estellecomment
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -36455,7 +36765,7 @@
 
 
 /***/ }),
-/* 328 */
+/* 293 */
 /*!*******************************!*\
   !*** ./~/moment/locale/bn.js ***!
   \*******************************/
@@ -36466,7 +36776,7 @@
 	//! author : Kaushik Gandhi : https://github.com/kaushikgandhi
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -36583,7 +36893,7 @@
 
 
 /***/ }),
-/* 329 */
+/* 294 */
 /*!*******************************!*\
   !*** ./~/moment/locale/bo.js ***!
   \*******************************/
@@ -36594,7 +36904,7 @@
 	//! author : Thupten N. Chakrishar : https://github.com/vajradog
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -36711,7 +37021,7 @@
 
 
 /***/ }),
-/* 330 */
+/* 295 */
 /*!*******************************!*\
   !*** ./~/moment/locale/br.js ***!
   \*******************************/
@@ -36722,7 +37032,7 @@
 	//! author : Jean-Baptiste Le Duigou : https://github.com/jbleduigou
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -36828,7 +37138,7 @@
 
 
 /***/ }),
-/* 331 */
+/* 296 */
 /*!*******************************!*\
   !*** ./~/moment/locale/bs.js ***!
   \*******************************/
@@ -36840,7 +37150,7 @@
 	//! based on (hr) translation by Bojan Marković
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -36989,7 +37299,7 @@
 
 
 /***/ }),
-/* 332 */
+/* 297 */
 /*!*******************************!*\
   !*** ./~/moment/locale/ca.js ***!
   \*******************************/
@@ -37000,7 +37310,7 @@
 	//! author : Juan G. Hurtado : https://github.com/juanghurtado
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -37086,7 +37396,7 @@
 
 
 /***/ }),
-/* 333 */
+/* 298 */
 /*!*******************************!*\
   !*** ./~/moment/locale/cs.js ***!
   \*******************************/
@@ -37097,7 +37407,7 @@
 	//! author : petrbela : https://github.com/petrbela
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -37274,7 +37584,7 @@
 
 
 /***/ }),
-/* 334 */
+/* 299 */
 /*!*******************************!*\
   !*** ./~/moment/locale/cv.js ***!
   \*******************************/
@@ -37285,7 +37595,7 @@
 	//! author : Anatoly Mironov : https://github.com/mirontoli
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -37346,7 +37656,7 @@
 
 
 /***/ }),
-/* 335 */
+/* 300 */
 /*!*******************************!*\
   !*** ./~/moment/locale/cy.js ***!
   \*******************************/
@@ -37358,7 +37668,7 @@
 	//! author : https://github.com/ryangreaves
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -37436,7 +37746,7 @@
 
 
 /***/ }),
-/* 336 */
+/* 301 */
 /*!*******************************!*\
   !*** ./~/moment/locale/da.js ***!
   \*******************************/
@@ -37447,7 +37757,7 @@
 	//! author : Ulrik Nielsen : https://github.com/mrbase
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -37505,7 +37815,7 @@
 
 
 /***/ }),
-/* 337 */
+/* 302 */
 /*!*******************************!*\
   !*** ./~/moment/locale/de.js ***!
   \*******************************/
@@ -37518,7 +37828,7 @@
 	//! author : Mikolaj Dadela : https://github.com/mik01aj
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -37592,7 +37902,7 @@
 
 
 /***/ }),
-/* 338 */
+/* 303 */
 /*!**********************************!*\
   !*** ./~/moment/locale/de-at.js ***!
   \**********************************/
@@ -37606,7 +37916,7 @@
 	//! author : Mikolaj Dadela : https://github.com/mik01aj
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -37680,7 +37990,7 @@
 
 
 /***/ }),
-/* 339 */
+/* 304 */
 /*!**********************************!*\
   !*** ./~/moment/locale/de-ch.js ***!
   \**********************************/
@@ -37691,7 +38001,7 @@
 	//! author : sschueller : https://github.com/sschueller
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -37767,7 +38077,7 @@
 
 
 /***/ }),
-/* 340 */
+/* 305 */
 /*!*******************************!*\
   !*** ./~/moment/locale/dv.js ***!
   \*******************************/
@@ -37778,7 +38088,7 @@
 	//! author : Jawish Hameed : https://github.com/jawish
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -37876,7 +38186,7 @@
 
 
 /***/ }),
-/* 341 */
+/* 306 */
 /*!*******************************!*\
   !*** ./~/moment/locale/el.js ***!
   \*******************************/
@@ -37887,7 +38197,7 @@
 	//! author : Aggelos Karalias : https://github.com/mehiel
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -37985,7 +38295,7 @@
 
 
 /***/ }),
-/* 342 */
+/* 307 */
 /*!**********************************!*\
   !*** ./~/moment/locale/en-au.js ***!
   \**********************************/
@@ -37996,7 +38306,7 @@
 	//! author : Jared Morse : https://github.com/jarcoal
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -38061,7 +38371,7 @@
 
 
 /***/ }),
-/* 343 */
+/* 308 */
 /*!**********************************!*\
   !*** ./~/moment/locale/en-ca.js ***!
   \**********************************/
@@ -38072,7 +38382,7 @@
 	//! author : Jonathan Abourbih : https://github.com/jonbca
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -38133,7 +38443,7 @@
 
 
 /***/ }),
-/* 344 */
+/* 309 */
 /*!**********************************!*\
   !*** ./~/moment/locale/en-gb.js ***!
   \**********************************/
@@ -38144,7 +38454,7 @@
 	//! author : Chris Gedrim : https://github.com/chrisgedrim
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -38209,7 +38519,7 @@
 
 
 /***/ }),
-/* 345 */
+/* 310 */
 /*!**********************************!*\
   !*** ./~/moment/locale/en-ie.js ***!
   \**********************************/
@@ -38220,7 +38530,7 @@
 	//! author : Chris Cartlidge : https://github.com/chriscartlidge
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -38285,7 +38595,7 @@
 
 
 /***/ }),
-/* 346 */
+/* 311 */
 /*!**********************************!*\
   !*** ./~/moment/locale/en-nz.js ***!
   \**********************************/
@@ -38296,7 +38606,7 @@
 	//! author : Luke McGregor : https://github.com/lukemcgregor
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -38361,7 +38671,7 @@
 
 
 /***/ }),
-/* 347 */
+/* 312 */
 /*!*******************************!*\
   !*** ./~/moment/locale/eo.js ***!
   \*******************************/
@@ -38374,7 +38684,7 @@
 	//! comment : miestasmia corrected the translation by colindean
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -38443,7 +38753,7 @@
 
 
 /***/ }),
-/* 348 */
+/* 313 */
 /*!*******************************!*\
   !*** ./~/moment/locale/es.js ***!
   \*******************************/
@@ -38454,7 +38764,7 @@
 	//! author : Julio Napurí : https://github.com/julionc
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -38544,7 +38854,7 @@
 
 
 /***/ }),
-/* 349 */
+/* 314 */
 /*!**********************************!*\
   !*** ./~/moment/locale/es-do.js ***!
   \**********************************/
@@ -38554,7 +38864,7 @@
 	//! locale : Spanish (Dominican Republic) [es-do]
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -38644,7 +38954,7 @@
 
 
 /***/ }),
-/* 350 */
+/* 315 */
 /*!**********************************!*\
   !*** ./~/moment/locale/es-us.js ***!
   \**********************************/
@@ -38655,7 +38965,7 @@
 	//! author : bustta : https://github.com/bustta
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -38736,7 +39046,7 @@
 
 
 /***/ }),
-/* 351 */
+/* 316 */
 /*!*******************************!*\
   !*** ./~/moment/locale/et.js ***!
   \*******************************/
@@ -38748,7 +39058,7 @@
 	//! improvements : Illimar Tambek : https://github.com/ragulka
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -38826,7 +39136,7 @@
 
 
 /***/ }),
-/* 352 */
+/* 317 */
 /*!*******************************!*\
   !*** ./~/moment/locale/eu.js ***!
   \*******************************/
@@ -38837,7 +39147,7 @@
 	//! author : Eneko Illarramendi : https://github.com/eillarra
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -38901,7 +39211,7 @@
 
 
 /***/ }),
-/* 353 */
+/* 318 */
 /*!*******************************!*\
   !*** ./~/moment/locale/fa.js ***!
   \*******************************/
@@ -38912,7 +39222,7 @@
 	//! author : Ebrahim Byagowi : https://github.com/ebraminio
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -39017,7 +39327,7 @@
 
 
 /***/ }),
-/* 354 */
+/* 319 */
 /*!*******************************!*\
   !*** ./~/moment/locale/fi.js ***!
   \*******************************/
@@ -39028,7 +39338,7 @@
 	//! author : Tarmo Aidantausta : https://github.com/bleadof
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -39135,7 +39445,7 @@
 
 
 /***/ }),
-/* 355 */
+/* 320 */
 /*!*******************************!*\
   !*** ./~/moment/locale/fo.js ***!
   \*******************************/
@@ -39146,7 +39456,7 @@
 	//! author : Ragnar Johannesen : https://github.com/ragnar123
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -39204,7 +39514,7 @@
 
 
 /***/ }),
-/* 356 */
+/* 321 */
 /*!*******************************!*\
   !*** ./~/moment/locale/fr.js ***!
   \*******************************/
@@ -39215,7 +39525,7 @@
 	//! author : John Fischer : https://github.com/jfroffice
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -39296,7 +39606,7 @@
 
 
 /***/ }),
-/* 357 */
+/* 322 */
 /*!**********************************!*\
   !*** ./~/moment/locale/fr-ca.js ***!
   \**********************************/
@@ -39307,7 +39617,7 @@
 	//! author : Jonathan Abourbih : https://github.com/jonbca
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -39379,7 +39689,7 @@
 
 
 /***/ }),
-/* 358 */
+/* 323 */
 /*!**********************************!*\
   !*** ./~/moment/locale/fr-ch.js ***!
   \**********************************/
@@ -39390,7 +39700,7 @@
 	//! author : Gaspard Bucher : https://github.com/gaspard
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -39466,7 +39776,7 @@
 
 
 /***/ }),
-/* 359 */
+/* 324 */
 /*!*******************************!*\
   !*** ./~/moment/locale/fy.js ***!
   \*******************************/
@@ -39477,7 +39787,7 @@
 	//! author : Robin van der Vliet : https://github.com/robin0van0der0v
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -39550,7 +39860,7 @@
 
 
 /***/ }),
-/* 360 */
+/* 325 */
 /*!*******************************!*\
   !*** ./~/moment/locale/gd.js ***!
   \*******************************/
@@ -39561,7 +39871,7 @@
 	//! author : Jon Ashdown : https://github.com/jonashdown
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -39635,7 +39945,7 @@
 
 
 /***/ }),
-/* 361 */
+/* 326 */
 /*!*******************************!*\
   !*** ./~/moment/locale/gl.js ***!
   \*******************************/
@@ -39646,7 +39956,7 @@
 	//! author : Juan G. Hurtado : https://github.com/juanghurtado
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -39721,7 +40031,7 @@
 
 
 /***/ }),
-/* 362 */
+/* 327 */
 /*!*************************************!*\
   !*** ./~/moment/locale/gom-latn.js ***!
   \*************************************/
@@ -39732,7 +40042,7 @@
 	//! author : The Discoverer : https://github.com/WikiDiscoverer
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -39853,7 +40163,7 @@
 
 
 /***/ }),
-/* 363 */
+/* 328 */
 /*!*******************************!*\
   !*** ./~/moment/locale/gu.js ***!
   \*******************************/
@@ -39864,7 +40174,7 @@
 	//! author : Kaushik Thanki : https://github.com/Kaushik1987
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -39986,7 +40296,7 @@
 
 
 /***/ }),
-/* 364 */
+/* 329 */
 /*!*******************************!*\
   !*** ./~/moment/locale/he.js ***!
   \*******************************/
@@ -39999,7 +40309,7 @@
 	//! author : Tal Ater : https://github.com/TalAter
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -40094,7 +40404,7 @@
 
 
 /***/ }),
-/* 365 */
+/* 330 */
 /*!*******************************!*\
   !*** ./~/moment/locale/hi.js ***!
   \*******************************/
@@ -40105,7 +40415,7 @@
 	//! author : Mayank Singhal : https://github.com/mayanksinghal
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -40227,7 +40537,7 @@
 
 
 /***/ }),
-/* 366 */
+/* 331 */
 /*!*******************************!*\
   !*** ./~/moment/locale/hr.js ***!
   \*******************************/
@@ -40238,7 +40548,7 @@
 	//! author : Bojan Marković : https://github.com/bmarkovic
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -40390,7 +40700,7 @@
 
 
 /***/ }),
-/* 367 */
+/* 332 */
 /*!*******************************!*\
   !*** ./~/moment/locale/hu.js ***!
   \*******************************/
@@ -40401,7 +40711,7 @@
 	//! author : Adam Brunner : https://github.com/adambrunner
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -40509,7 +40819,7 @@
 
 
 /***/ }),
-/* 368 */
+/* 333 */
 /*!**********************************!*\
   !*** ./~/moment/locale/hy-am.js ***!
   \**********************************/
@@ -40520,7 +40830,7 @@
 	//! author : Armendarabyan : https://github.com/armendarabyan
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -40613,7 +40923,7 @@
 
 
 /***/ }),
-/* 369 */
+/* 334 */
 /*!*******************************!*\
   !*** ./~/moment/locale/id.js ***!
   \*******************************/
@@ -40625,7 +40935,7 @@
 	//! reference: http://id.wikisource.org/wiki/Pedoman_Umum_Ejaan_Bahasa_Indonesia_yang_Disempurnakan
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -40705,7 +41015,7 @@
 
 
 /***/ }),
-/* 370 */
+/* 335 */
 /*!*******************************!*\
   !*** ./~/moment/locale/is.js ***!
   \*******************************/
@@ -40716,7 +41026,7 @@
 	//! author : Hinrik Örn Sigurðsson : https://github.com/hinrik
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -40846,7 +41156,7 @@
 
 
 /***/ }),
-/* 371 */
+/* 336 */
 /*!*******************************!*\
   !*** ./~/moment/locale/it.js ***!
   \*******************************/
@@ -40858,7 +41168,7 @@
 	//! author: Mattia Larentis: https://github.com/nostalgiaz
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -40925,7 +41235,7 @@
 
 
 /***/ }),
-/* 372 */
+/* 337 */
 /*!*******************************!*\
   !*** ./~/moment/locale/ja.js ***!
   \*******************************/
@@ -40936,7 +41246,7 @@
 	//! author : LI Long : https://github.com/baryon
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -41014,7 +41324,7 @@
 
 
 /***/ }),
-/* 373 */
+/* 338 */
 /*!*******************************!*\
   !*** ./~/moment/locale/jv.js ***!
   \*******************************/
@@ -41026,7 +41336,7 @@
 	//! reference: http://jv.wikipedia.org/wiki/Basa_Jawa
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -41106,7 +41416,7 @@
 
 
 /***/ }),
-/* 374 */
+/* 339 */
 /*!*******************************!*\
   !*** ./~/moment/locale/ka.js ***!
   \*******************************/
@@ -41117,7 +41427,7 @@
 	//! author : Irakli Janiashvili : https://github.com/irakli-janiashvili
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -41204,7 +41514,7 @@
 
 
 /***/ }),
-/* 375 */
+/* 340 */
 /*!*******************************!*\
   !*** ./~/moment/locale/kk.js ***!
   \*******************************/
@@ -41215,7 +41525,7 @@
 	//! authors : Nurlan Rakhimzhanov : https://github.com/nurlan
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -41300,7 +41610,7 @@
 
 
 /***/ }),
-/* 376 */
+/* 341 */
 /*!*******************************!*\
   !*** ./~/moment/locale/km.js ***!
   \*******************************/
@@ -41311,7 +41621,7 @@
 	//! author : Kruy Vanna : https://github.com/kruyvanna
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -41367,7 +41677,7 @@
 
 
 /***/ }),
-/* 377 */
+/* 342 */
 /*!*******************************!*\
   !*** ./~/moment/locale/kn.js ***!
   \*******************************/
@@ -41378,7 +41688,7 @@
 	//! author : Rajeev Naik : https://github.com/rajeevnaikte
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -41502,7 +41812,7 @@
 
 
 /***/ }),
-/* 378 */
+/* 343 */
 /*!*******************************!*\
   !*** ./~/moment/locale/ko.js ***!
   \*******************************/
@@ -41514,7 +41824,7 @@
 	//! author : Jeeeyul Lee <jeeeyul@gmail.com>
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -41593,7 +41903,7 @@
 
 
 /***/ }),
-/* 379 */
+/* 344 */
 /*!*******************************!*\
   !*** ./~/moment/locale/ky.js ***!
   \*******************************/
@@ -41604,7 +41914,7 @@
 	//! author : Chyngyz Arystan uulu : https://github.com/chyngyz
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -41690,7 +42000,7 @@
 
 
 /***/ }),
-/* 380 */
+/* 345 */
 /*!*******************************!*\
   !*** ./~/moment/locale/lb.js ***!
   \*******************************/
@@ -41702,7 +42012,7 @@
 	//! author : David Raison : https://github.com/kwisatz
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -41836,7 +42146,7 @@
 
 
 /***/ }),
-/* 381 */
+/* 346 */
 /*!*******************************!*\
   !*** ./~/moment/locale/lo.js ***!
   \*******************************/
@@ -41847,7 +42157,7 @@
 	//! author : Ryan Hart : https://github.com/ryanhart2
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -41915,7 +42225,7 @@
 
 
 /***/ }),
-/* 382 */
+/* 347 */
 /*!*******************************!*\
   !*** ./~/moment/locale/lt.js ***!
   \*******************************/
@@ -41926,7 +42236,7 @@
 	//! author : Mindaugas Mozūras : https://github.com/mmozuras
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -42042,7 +42352,7 @@
 
 
 /***/ }),
-/* 383 */
+/* 348 */
 /*!*******************************!*\
   !*** ./~/moment/locale/lv.js ***!
   \*******************************/
@@ -42054,7 +42364,7 @@
 	//! author : Jānis Elmeris : https://github.com/JanisE
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -42149,7 +42459,7 @@
 
 
 /***/ }),
-/* 384 */
+/* 349 */
 /*!*******************************!*\
   !*** ./~/moment/locale/me.js ***!
   \*******************************/
@@ -42160,7 +42470,7 @@
 	//! author : Miodrag Nikač <miodrag@restartit.me> : https://github.com/miodragnikac
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -42270,7 +42580,7 @@
 
 
 /***/ }),
-/* 385 */
+/* 350 */
 /*!*******************************!*\
   !*** ./~/moment/locale/mi.js ***!
   \*******************************/
@@ -42281,7 +42591,7 @@
 	//! author : John Corrigan <robbiecloset@gmail.com> : https://github.com/johnideal
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -42343,7 +42653,7 @@
 
 
 /***/ }),
-/* 386 */
+/* 351 */
 /*!*******************************!*\
   !*** ./~/moment/locale/mk.js ***!
   \*******************************/
@@ -42354,7 +42664,7 @@
 	//! author : Borislav Mickov : https://github.com/B0k0
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -42442,7 +42752,7 @@
 
 
 /***/ }),
-/* 387 */
+/* 352 */
 /*!*******************************!*\
   !*** ./~/moment/locale/ml.js ***!
   \*******************************/
@@ -42453,7 +42763,7 @@
 	//! author : Floyd Pink : https://github.com/floydpink
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -42532,7 +42842,7 @@
 
 
 /***/ }),
-/* 388 */
+/* 353 */
 /*!*******************************!*\
   !*** ./~/moment/locale/mr.js ***!
   \*******************************/
@@ -42544,7 +42854,7 @@
 	//! author : Vivek Athalye : https://github.com/vnathalye
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -42702,7 +43012,7 @@
 
 
 /***/ }),
-/* 389 */
+/* 354 */
 /*!*******************************!*\
   !*** ./~/moment/locale/ms.js ***!
   \*******************************/
@@ -42713,7 +43023,7 @@
 	//! author : Weldan Jamili : https://github.com/weldan
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -42793,7 +43103,7 @@
 
 
 /***/ }),
-/* 390 */
+/* 355 */
 /*!**********************************!*\
   !*** ./~/moment/locale/ms-my.js ***!
   \**********************************/
@@ -42805,7 +43115,7 @@
 	//! author : Weldan Jamili : https://github.com/weldan
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -42885,7 +43195,7 @@
 
 
 /***/ }),
-/* 391 */
+/* 356 */
 /*!*******************************!*\
   !*** ./~/moment/locale/mt.js ***!
   \*******************************/
@@ -42896,7 +43206,7 @@
 	//! author : Alessandro Maruccia : https://github.com/alesma
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -42954,7 +43264,7 @@
 
 
 /***/ }),
-/* 392 */
+/* 357 */
 /*!*******************************!*\
   !*** ./~/moment/locale/my.js ***!
   \*******************************/
@@ -42967,7 +43277,7 @@
 	//! author : Tin Aung Lin : https://github.com/thanyawzinmin
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -43059,7 +43369,7 @@
 
 
 /***/ }),
-/* 393 */
+/* 358 */
 /*!*******************************!*\
   !*** ./~/moment/locale/nb.js ***!
   \*******************************/
@@ -43071,7 +43381,7 @@
 	//!           Sigurd Gartmann : https://github.com/sigurdga
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -43131,7 +43441,7 @@
 
 
 /***/ }),
-/* 394 */
+/* 359 */
 /*!*******************************!*\
   !*** ./~/moment/locale/ne.js ***!
   \*******************************/
@@ -43142,7 +43452,7 @@
 	//! author : suvash : https://github.com/suvash
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -43263,7 +43573,7 @@
 
 
 /***/ }),
-/* 395 */
+/* 360 */
 /*!*******************************!*\
   !*** ./~/moment/locale/nl.js ***!
   \*******************************/
@@ -43275,7 +43585,7 @@
 	//! author : Jacob Middag : https://github.com/middagj
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -43360,7 +43670,7 @@
 
 
 /***/ }),
-/* 396 */
+/* 361 */
 /*!**********************************!*\
   !*** ./~/moment/locale/nl-be.js ***!
   \**********************************/
@@ -43372,7 +43682,7 @@
 	//! author : Jacob Middag : https://github.com/middagj
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -43457,7 +43767,7 @@
 
 
 /***/ }),
-/* 397 */
+/* 362 */
 /*!*******************************!*\
   !*** ./~/moment/locale/nn.js ***!
   \*******************************/
@@ -43468,7 +43778,7 @@
 	//! author : https://github.com/mechuwind
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -43526,7 +43836,7 @@
 
 
 /***/ }),
-/* 398 */
+/* 363 */
 /*!**********************************!*\
   !*** ./~/moment/locale/pa-in.js ***!
   \**********************************/
@@ -43537,7 +43847,7 @@
 	//! author : Harpreet Singh : https://github.com/harpreetkhalsagtbit
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -43659,7 +43969,7 @@
 
 
 /***/ }),
-/* 399 */
+/* 364 */
 /*!*******************************!*\
   !*** ./~/moment/locale/pl.js ***!
   \*******************************/
@@ -43670,7 +43980,7 @@
 	//! author : Rafal Hirsz : https://github.com/evoL
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -43794,7 +44104,7 @@
 
 
 /***/ }),
-/* 400 */
+/* 365 */
 /*!*******************************!*\
   !*** ./~/moment/locale/pt.js ***!
   \*******************************/
@@ -43805,7 +44115,7 @@
 	//! author : Jefferson : https://github.com/jalex79
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -43868,7 +44178,7 @@
 
 
 /***/ }),
-/* 401 */
+/* 366 */
 /*!**********************************!*\
   !*** ./~/moment/locale/pt-br.js ***!
   \**********************************/
@@ -43879,7 +44189,7 @@
 	//! author : Caio Ribeiro Pereira : https://github.com/caio-ribeiro-pereira
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -43938,7 +44248,7 @@
 
 
 /***/ }),
-/* 402 */
+/* 367 */
 /*!*******************************!*\
   !*** ./~/moment/locale/ro.js ***!
   \*******************************/
@@ -43950,7 +44260,7 @@
 	//! author : Valentin Agachi : https://github.com/avaly
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -44023,7 +44333,7 @@
 
 
 /***/ }),
-/* 403 */
+/* 368 */
 /*!*******************************!*\
   !*** ./~/moment/locale/ru.js ***!
   \*******************************/
@@ -44036,7 +44346,7 @@
 	//! author : Коренберг Марк : https://github.com/socketpair
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -44216,7 +44526,7 @@
 
 
 /***/ }),
-/* 404 */
+/* 369 */
 /*!*******************************!*\
   !*** ./~/moment/locale/sd.js ***!
   \*******************************/
@@ -44227,7 +44537,7 @@
 	//! author : Narain Sagar : https://github.com/narainsagar
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -44323,7 +44633,7 @@
 
 
 /***/ }),
-/* 405 */
+/* 370 */
 /*!*******************************!*\
   !*** ./~/moment/locale/se.js ***!
   \*******************************/
@@ -44334,7 +44644,7 @@
 	//! authors : Bård Rolstad Henriksen : https://github.com/karamell
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -44393,7 +44703,7 @@
 
 
 /***/ }),
-/* 406 */
+/* 371 */
 /*!*******************************!*\
   !*** ./~/moment/locale/si.js ***!
   \*******************************/
@@ -44404,7 +44714,7 @@
 	//! author : Sampath Sitinamaluwa : https://github.com/sampathsris
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -44473,7 +44783,7 @@
 
 
 /***/ }),
-/* 407 */
+/* 372 */
 /*!*******************************!*\
   !*** ./~/moment/locale/sk.js ***!
   \*******************************/
@@ -44485,7 +44795,7 @@
 	//! based on work of petrbela : https://github.com/petrbela
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -44639,7 +44949,7 @@
 
 
 /***/ }),
-/* 408 */
+/* 373 */
 /*!*******************************!*\
   !*** ./~/moment/locale/sl.js ***!
   \*******************************/
@@ -44650,7 +44960,7 @@
 	//! author : Robert Sedovšek : https://github.com/sedovsek
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -44821,7 +45131,7 @@
 
 
 /***/ }),
-/* 409 */
+/* 374 */
 /*!*******************************!*\
   !*** ./~/moment/locale/sq.js ***!
   \*******************************/
@@ -44834,7 +45144,7 @@
 	//! author : Oerd Cukalla : https://github.com/oerd
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -44900,7 +45210,7 @@
 
 
 /***/ }),
-/* 410 */
+/* 375 */
 /*!*******************************!*\
   !*** ./~/moment/locale/sr.js ***!
   \*******************************/
@@ -44911,7 +45221,7 @@
 	//! author : Milan Janačković<milanjanackovic@gmail.com> : https://github.com/milan-j
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -45020,7 +45330,7 @@
 
 
 /***/ }),
-/* 411 */
+/* 376 */
 /*!************************************!*\
   !*** ./~/moment/locale/sr-cyrl.js ***!
   \************************************/
@@ -45031,7 +45341,7 @@
 	//! author : Milan Janačković<milanjanackovic@gmail.com> : https://github.com/milan-j
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -45140,7 +45450,7 @@
 
 
 /***/ }),
-/* 412 */
+/* 377 */
 /*!*******************************!*\
   !*** ./~/moment/locale/ss.js ***!
   \*******************************/
@@ -45151,7 +45461,7 @@
 	//! author : Nicolai Davies<mail@nicolai.io> : https://github.com/nicolaidavies
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -45238,7 +45548,7 @@
 
 
 /***/ }),
-/* 413 */
+/* 378 */
 /*!*******************************!*\
   !*** ./~/moment/locale/sv.js ***!
   \*******************************/
@@ -45249,7 +45559,7 @@
 	//! author : Jens Alm : https://github.com/ulmus
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -45316,7 +45626,7 @@
 
 
 /***/ }),
-/* 414 */
+/* 379 */
 /*!*******************************!*\
   !*** ./~/moment/locale/sw.js ***!
   \*******************************/
@@ -45327,7 +45637,7 @@
 	//! author : Fahad Kassim : https://github.com/fadsel
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -45384,7 +45694,7 @@
 
 
 /***/ }),
-/* 415 */
+/* 380 */
 /*!*******************************!*\
   !*** ./~/moment/locale/ta.js ***!
   \*******************************/
@@ -45395,7 +45705,7 @@
 	//! author : Arjunkumar Krishnamoorthy : https://github.com/tk120404
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -45523,7 +45833,7 @@
 
 
 /***/ }),
-/* 416 */
+/* 381 */
 /*!*******************************!*\
   !*** ./~/moment/locale/te.js ***!
   \*******************************/
@@ -45534,7 +45844,7 @@
 	//! author : Krishna Chaitanya Thota : https://github.com/kcthota
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -45621,7 +45931,7 @@
 
 
 /***/ }),
-/* 417 */
+/* 382 */
 /*!********************************!*\
   !*** ./~/moment/locale/tet.js ***!
   \********************************/
@@ -45633,7 +45943,7 @@
 	//! author : Onorio De J. Afonso : https://github.com/marobo
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -45698,7 +46008,7 @@
 
 
 /***/ }),
-/* 418 */
+/* 383 */
 /*!*******************************!*\
   !*** ./~/moment/locale/th.js ***!
   \*******************************/
@@ -45709,7 +46019,7 @@
 	//! author : Kridsada Thanabulpong : https://github.com/sirn
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -45774,7 +46084,7 @@
 
 
 /***/ }),
-/* 419 */
+/* 384 */
 /*!**********************************!*\
   !*** ./~/moment/locale/tl-ph.js ***!
   \**********************************/
@@ -45785,7 +46095,7 @@
 	//! author : Dan Hagman : https://github.com/hagmandan
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -45845,7 +46155,7 @@
 
 
 /***/ }),
-/* 420 */
+/* 385 */
 /*!********************************!*\
   !*** ./~/moment/locale/tlh.js ***!
   \********************************/
@@ -45856,7 +46166,7 @@
 	//! author : Dominika Kruk : https://github.com/amaranthrose
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -45976,7 +46286,7 @@
 
 
 /***/ }),
-/* 421 */
+/* 386 */
 /*!*******************************!*\
   !*** ./~/moment/locale/tr.js ***!
   \*******************************/
@@ -45988,7 +46298,7 @@
 	//!           Burak Yiğit Kaya: https://github.com/BYK
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -46075,7 +46385,7 @@
 
 
 /***/ }),
-/* 422 */
+/* 387 */
 /*!********************************!*\
   !*** ./~/moment/locale/tzl.js ***!
   \********************************/
@@ -46087,7 +46397,7 @@
 	//! author : Iustì Canun
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -46176,7 +46486,7 @@
 
 
 /***/ }),
-/* 423 */
+/* 388 */
 /*!********************************!*\
   !*** ./~/moment/locale/tzm.js ***!
   \********************************/
@@ -46187,7 +46497,7 @@
 	//! author : Abdel Said : https://github.com/abdelsaid
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -46243,7 +46553,7 @@
 
 
 /***/ }),
-/* 424 */
+/* 389 */
 /*!*************************************!*\
   !*** ./~/moment/locale/tzm-latn.js ***!
   \*************************************/
@@ -46254,7 +46564,7 @@
 	//! author : Abdel Said : https://github.com/abdelsaid
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -46310,7 +46620,7 @@
 
 
 /***/ }),
-/* 425 */
+/* 390 */
 /*!*******************************!*\
   !*** ./~/moment/locale/uk.js ***!
   \*******************************/
@@ -46322,7 +46632,7 @@
 	//! Author : Menelion Elensúle : https://github.com/Oire
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -46471,7 +46781,7 @@
 
 
 /***/ }),
-/* 426 */
+/* 391 */
 /*!*******************************!*\
   !*** ./~/moment/locale/ur.js ***!
   \*******************************/
@@ -46483,7 +46793,7 @@
 	//! author : Zack : https://github.com/ZackVision
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -46579,7 +46889,7 @@
 
 
 /***/ }),
-/* 427 */
+/* 392 */
 /*!*******************************!*\
   !*** ./~/moment/locale/uz.js ***!
   \*******************************/
@@ -46590,7 +46900,7 @@
 	//! author : Sardor Muminov : https://github.com/muminoff
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -46646,7 +46956,7 @@
 
 
 /***/ }),
-/* 428 */
+/* 393 */
 /*!************************************!*\
   !*** ./~/moment/locale/uz-latn.js ***!
   \************************************/
@@ -46657,7 +46967,7 @@
 	//! author : Rasulbek Mirzayev : github.com/Rasulbeeek
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -46713,7 +47023,7 @@
 
 
 /***/ }),
-/* 429 */
+/* 394 */
 /*!*******************************!*\
   !*** ./~/moment/locale/vi.js ***!
   \*******************************/
@@ -46724,7 +47034,7 @@
 	//! author : Bang Nguyen : https://github.com/bangnk
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -46801,7 +47111,7 @@
 
 
 /***/ }),
-/* 430 */
+/* 395 */
 /*!*************************************!*\
   !*** ./~/moment/locale/x-pseudo.js ***!
   \*************************************/
@@ -46812,7 +47122,7 @@
 	//! author : Andrew Hood : https://github.com/andrewhood125
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -46878,7 +47188,7 @@
 
 
 /***/ }),
-/* 431 */
+/* 396 */
 /*!*******************************!*\
   !*** ./~/moment/locale/yo.js ***!
   \*******************************/
@@ -46889,7 +47199,7 @@
 	//! author : Atolagbe Abisoye : https://github.com/andela-batolagbe
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -46947,7 +47257,7 @@
 
 
 /***/ }),
-/* 432 */
+/* 397 */
 /*!**********************************!*\
   !*** ./~/moment/locale/zh-cn.js ***!
   \**********************************/
@@ -46959,7 +47269,7 @@
 	//! author : Zeno Zeng : https://github.com/zenozeng
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -47067,7 +47377,7 @@
 
 
 /***/ }),
-/* 433 */
+/* 398 */
 /*!**********************************!*\
   !*** ./~/moment/locale/zh-hk.js ***!
   \**********************************/
@@ -47080,7 +47390,7 @@
 	//! author : Konstantin : https://github.com/skfd
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -47181,7 +47491,7 @@
 
 
 /***/ }),
-/* 434 */
+/* 399 */
 /*!**********************************!*\
   !*** ./~/moment/locale/zh-tw.js ***!
   \**********************************/
@@ -47193,7 +47503,7 @@
 	//! author : Chris Lam : https://github.com/hehachris
 	
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(/*! ../moment */ 313)) :
+	    true ? factory(__webpack_require__(/*! ../moment */ 278)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, (function (moment) { 'use strict';
@@ -47294,807 +47604,7 @@
 
 
 /***/ }),
-/* 435 */,
-/* 436 */,
-/* 437 */,
-/* 438 */,
-/* 439 */,
-/* 440 */,
-/* 441 */,
-/* 442 */,
-/* 443 */,
-/* 444 */,
-/* 445 */,
-/* 446 */,
-/* 447 */,
-/* 448 */
-/*!****************************************************!*\
-  !*** ./components/view/content/info/InfoManage.js ***!
-  \****************************************************/
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(/*! react */ 1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var InfoManage = function (_React$Component) {
-	    _inherits(InfoManage, _React$Component);
-	
-	    function InfoManage(props) {
-	        _classCallCheck(this, InfoManage);
-	
-	        var _this = _possibleConstructorReturn(this, (InfoManage.__proto__ || Object.getPrototypeOf(InfoManage)).call(this, props));
-	
-	        _this.state = {};
-	        console.log("Info manage Init");
-	
-	        return _this;
-	    }
-	
-	    _createClass(InfoManage, [{
-	        key: 'componentDidMount',
-	        value: function componentDidMount() {
-	            //get user info
-	        }
-	    }, {
-	        key: 'componentWillReceiveProps',
-	        value: function componentWillReceiveProps(nextProps) {}
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            var display = this.props.display;
-	
-	            return _react2.default.createElement(
-	                'div',
-	                { style: { display: !display && 'none' } },
-	                'InfoManager'
-	            );
-	        }
-	    }]);
-	
-	    return InfoManage;
-	}(_react2.default.Component);
-	
-	exports.default = InfoManage;
-
-/***/ }),
-/* 449 */
-/*!*****************************************************!*\
-  !*** ./components/view/content/user/UserProfile.js ***!
-  \*****************************************************/
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(/*! react */ 1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var UserProfile = function (_React$Component) {
-	    _inherits(UserProfile, _React$Component);
-	
-	    function UserProfile(props) {
-	        _classCallCheck(this, UserProfile);
-	
-	        var _this = _possibleConstructorReturn(this, (UserProfile.__proto__ || Object.getPrototypeOf(UserProfile)).call(this, props));
-	
-	        _this.state = {
-	            user_name: '',
-	            name: '',
-	            power: '',
-	            reg_date: ''
-	        };
-	        _this.update = _this.update.bind(_this);
-	        return _this;
-	    }
-	
-	    _createClass(UserProfile, [{
-	        key: 'update',
-	        value: function update() {}
-	    }, {
-	        key: 'componentDidMount',
-	        value: function componentDidMount() {
-	            //get user info
-	            //loading
-	        }
-	    }, {
-	        key: 'componentWillReceiveProps',
-	        value: function componentWillReceiveProps(nextProps) {}
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            var _this2 = this;
-	
-	            var display = this.props.display;
-	            var _state = this.state,
-	                user_name = _state.user_name,
-	                name = _state.name,
-	                power = _state.power,
-	                reg_date = _state.reg_date;
-	
-	            return _react2.default.createElement(
-	                'div',
-	                { className: 'container-fluid', style: { display: !display && 'none' } },
-	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'col-lg-12 col-md-12' },
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'card' },
-	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'header' },
-	                            _react2.default.createElement(
-	                                'h4',
-	                                { className: 'title' },
-	                                '\u4FEE\u6539\u4E2A\u4EBA\u4FE1\u606F'
-	                            )
-	                        ),
-	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'content' },
-	                            _react2.default.createElement(
-	                                'form',
-	                                null,
-	                                _react2.default.createElement(
-	                                    'div',
-	                                    { className: 'row' },
-	                                    _react2.default.createElement(
-	                                        'div',
-	                                        { className: 'col-md-12' },
-	                                        _react2.default.createElement(
-	                                            'div',
-	                                            { className: 'form-group' },
-	                                            _react2.default.createElement(
-	                                                'label',
-	                                                null,
-	                                                '\u7528\u6237\u540D'
-	                                            ),
-	                                            _react2.default.createElement('input', { type: 'text',
-	                                                className: 'form-control border-input',
-	                                                onChange: function onChange(e) {
-	                                                    _this2.setState({ username: e.target.value });
-	                                                },
-	                                                disabled: true,
-	                                                placeholder: '\u767B\u5F55\u540D', value: 'falling'
-	                                            })
-	                                        )
-	                                    )
-	                                ),
-	                                _react2.default.createElement(
-	                                    'div',
-	                                    { className: 'row' },
-	                                    _react2.default.createElement(
-	                                        'div',
-	                                        { className: 'col-md-12' },
-	                                        _react2.default.createElement(
-	                                            'div',
-	                                            { className: 'form-group' },
-	                                            _react2.default.createElement(
-	                                                'label',
-	                                                null,
-	                                                '\u59D3\u540D'
-	                                            ),
-	                                            _react2.default.createElement('input', { type: 'text',
-	                                                onChange: function onChange(e) {
-	                                                    _this2.setState({ name: e.target.value });
-	                                                },
-	                                                className: 'form-control border-input',
-	                                                placeholder: '',
-	                                                value: name
-	                                            })
-	                                        )
-	                                    )
-	                                ),
-	                                _react2.default.createElement(
-	                                    'div',
-	                                    { className: 'row' },
-	                                    _react2.default.createElement(
-	                                        'div',
-	                                        { className: 'col-md-6' },
-	                                        _react2.default.createElement(
-	                                            'div',
-	                                            { className: 'form-group' },
-	                                            _react2.default.createElement(
-	                                                'label',
-	                                                null,
-	                                                '\u6743\u9650'
-	                                            ),
-	                                            _react2.default.createElement('input', { type: 'text',
-	                                                value: power,
-	                                                disabled: true,
-	                                                className: 'form-control border-input'
-	                                            })
-	                                        )
-	                                    ),
-	                                    _react2.default.createElement(
-	                                        'div',
-	                                        { className: 'col-md-6' },
-	                                        _react2.default.createElement(
-	                                            'div',
-	                                            { className: 'form-group' },
-	                                            _react2.default.createElement(
-	                                                'label',
-	                                                null,
-	                                                '\u6CE8\u518C\u65E5\u671F'
-	                                            ),
-	                                            _react2.default.createElement('input', { type: 'text',
-	                                                value: reg_date,
-	                                                disabled: true,
-	                                                className: 'form-control border-input'
-	                                            })
-	                                        )
-	                                    )
-	                                ),
-	                                _react2.default.createElement(
-	                                    'div',
-	                                    { className: 'text-center' },
-	                                    _react2.default.createElement(
-	                                        'button',
-	                                        { type: 'button', className: 'btn btn-info btn-fill btn-wd',
-	                                            onClick: function onClick(e) {
-	                                                _this2.update();
-	                                            }
-	                                        },
-	                                        '\u66F4\u65B0\u4FE1\u606F'
-	                                    )
-	                                )
-	                            )
-	                        )
-	                    )
-	                )
-	            );
-	        }
-	    }]);
-	
-	    return UserProfile;
-	}(_react2.default.Component);
-	
-	exports.default = UserProfile;
-
-/***/ }),
-/* 450 */
-/*!**************************************!*\
-  !*** ./~/react-datetime/DateTime.js ***!
-  \**************************************/
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var assign = __webpack_require__(/*! object-assign */ 451),
-		PropTypes = __webpack_require__(/*! prop-types */ 219),
-		createClass = __webpack_require__(/*! create-react-class */ 259),
-		moment = __webpack_require__(/*! moment */ 313),
-		React = __webpack_require__(/*! react */ 1),
-		CalendarContainer = __webpack_require__(/*! ./src/CalendarContainer */ 452)
-		;
-	
-	var TYPES = PropTypes;
-	var Datetime = createClass({
-		propTypes: {
-			// value: TYPES.object | TYPES.string,
-			// defaultValue: TYPES.object | TYPES.string,
-			onFocus: TYPES.func,
-			onBlur: TYPES.func,
-			onChange: TYPES.func,
-			onViewModeChange: TYPES.func,
-			locale: TYPES.string,
-			utc: TYPES.bool,
-			input: TYPES.bool,
-			// dateFormat: TYPES.string | TYPES.bool,
-			// timeFormat: TYPES.string | TYPES.bool,
-			inputProps: TYPES.object,
-			timeConstraints: TYPES.object,
-			viewMode: TYPES.oneOf(['years', 'months', 'days', 'time']),
-			isValidDate: TYPES.func,
-			open: TYPES.bool,
-			strictParsing: TYPES.bool,
-			closeOnSelect: TYPES.bool,
-			closeOnTab: TYPES.bool
-		},
-	
-		getDefaultProps: function() {
-			var nof = function() {};
-			return {
-				className: '',
-				defaultValue: '',
-				inputProps: {},
-				input: true,
-				onFocus: nof,
-				onBlur: nof,
-				onChange: nof,
-				onViewModeChange: nof,
-				timeFormat: true,
-				timeConstraints: {},
-				dateFormat: true,
-				strictParsing: true,
-				closeOnSelect: false,
-				closeOnTab: true,
-				utc: false
-			};
-		},
-	
-		getInitialState: function() {
-			var state = this.getStateFromProps( this.props );
-	
-			if ( state.open === undefined )
-				state.open = !this.props.input;
-	
-			state.currentView = this.props.dateFormat ? (this.props.viewMode || state.updateOn || 'days') : 'time';
-	
-			return state;
-		},
-	
-		getStateFromProps: function( props ) {
-			var formats = this.getFormats( props ),
-				date = props.value || props.defaultValue,
-				selectedDate, viewDate, updateOn, inputValue
-				;
-	
-			if ( date && typeof date === 'string' )
-				selectedDate = this.localMoment( date, formats.datetime );
-			else if ( date )
-				selectedDate = this.localMoment( date );
-	
-			if ( selectedDate && !selectedDate.isValid() )
-				selectedDate = null;
-	
-			viewDate = selectedDate ?
-				selectedDate.clone().startOf('month') :
-				this.localMoment().startOf('month')
-			;
-	
-			updateOn = this.getUpdateOn(formats);
-	
-			if ( selectedDate )
-				inputValue = selectedDate.format(formats.datetime);
-			else if ( date.isValid && !date.isValid() )
-				inputValue = '';
-			else
-				inputValue = date || '';
-	
-			return {
-				updateOn: updateOn,
-				inputFormat: formats.datetime,
-				viewDate: viewDate,
-				selectedDate: selectedDate,
-				inputValue: inputValue,
-				open: props.open
-			};
-		},
-	
-		getUpdateOn: function( formats ) {
-			if ( formats.date.match(/[lLD]/) ) {
-				return 'days';
-			} else if ( formats.date.indexOf('M') !== -1 ) {
-				return 'months';
-			} else if ( formats.date.indexOf('Y') !== -1 ) {
-				return 'years';
-			}
-	
-			return 'days';
-		},
-	
-		getFormats: function( props ) {
-			var formats = {
-					date: props.dateFormat || '',
-					time: props.timeFormat || ''
-				},
-				locale = this.localMoment( props.date, null, props ).localeData()
-				;
-	
-			if ( formats.date === true ) {
-				formats.date = locale.longDateFormat('L');
-			}
-			else if ( this.getUpdateOn(formats) !== 'days' ) {
-				formats.time = '';
-			}
-	
-			if ( formats.time === true ) {
-				formats.time = locale.longDateFormat('LT');
-			}
-	
-			formats.datetime = formats.date && formats.time ?
-				formats.date + ' ' + formats.time :
-				formats.date || formats.time
-			;
-	
-			return formats;
-		},
-	
-		componentWillReceiveProps: function( nextProps ) {
-			var formats = this.getFormats( nextProps ),
-				updatedState = {}
-			;
-	
-			if ( nextProps.value !== this.props.value ||
-				formats.datetime !== this.getFormats( this.props ).datetime ) {
-				updatedState = this.getStateFromProps( nextProps );
-			}
-	
-			if ( updatedState.open === undefined ) {
-				if ( typeof nextProps.open !== 'undefined' ) {
-					updatedState.open = nextProps.open;
-				} else if ( this.props.closeOnSelect && this.state.currentView !== 'time' ) {
-					updatedState.open = false;
-				} else {
-					updatedState.open = this.state.open;
-				}
-			}
-	
-			if ( nextProps.viewMode !== this.props.viewMode ) {
-				updatedState.currentView = nextProps.viewMode;
-			}
-	
-			if ( nextProps.locale !== this.props.locale ) {
-				if ( this.state.viewDate ) {
-					var updatedViewDate = this.state.viewDate.clone().locale( nextProps.locale );
-					updatedState.viewDate = updatedViewDate;
-				}
-				if ( this.state.selectedDate ) {
-					var updatedSelectedDate = this.state.selectedDate.clone().locale( nextProps.locale );
-					updatedState.selectedDate = updatedSelectedDate;
-					updatedState.inputValue = updatedSelectedDate.format( formats.datetime );
-				}
-			}
-	
-			if ( nextProps.utc !== this.props.utc ) {
-				if ( nextProps.utc ) {
-					if ( this.state.viewDate )
-						updatedState.viewDate = this.state.viewDate.clone().utc();
-					if ( this.state.selectedDate ) {
-						updatedState.selectedDate = this.state.selectedDate.clone().utc();
-						updatedState.inputValue = updatedState.selectedDate.format( formats.datetime );
-					}
-				} else {
-					if ( this.state.viewDate )
-						updatedState.viewDate = this.state.viewDate.clone().local();
-					if ( this.state.selectedDate ) {
-						updatedState.selectedDate = this.state.selectedDate.clone().local();
-						updatedState.inputValue = updatedState.selectedDate.format(formats.datetime);
-					}
-				}
-			}
-			//we should only show a valid date if we are provided a isValidDate function. Removed in 2.10.3
-			/*if (this.props.isValidDate) {
-				updatedState.viewDate = updatedState.viewDate || this.state.viewDate;
-				while (!this.props.isValidDate(updatedState.viewDate)) {
-					updatedState.viewDate = updatedState.viewDate.add(1, 'day');
-				}
-			}*/
-			this.setState( updatedState );
-		},
-	
-		onInputChange: function( e ) {
-			var value = e.target === null ? e : e.target.value,
-				localMoment = this.localMoment( value, this.state.inputFormat ),
-				update = { inputValue: value }
-				;
-	
-			if ( localMoment.isValid() && !this.props.value ) {
-				update.selectedDate = localMoment;
-				update.viewDate = localMoment.clone().startOf('month');
-			} else {
-				update.selectedDate = null;
-			}
-	
-			return this.setState( update, function() {
-				return this.props.onChange( localMoment.isValid() ? localMoment : this.state.inputValue );
-			});
-		},
-	
-		onInputKey: function( e ) {
-			if ( e.which === 9 && this.props.closeOnTab ) {
-				this.closeCalendar();
-			}
-		},
-	
-		showView: function( view ) {
-			var me = this;
-			return function() {
-				me.state.currentView !== view && me.props.onViewModeChange( view );
-				me.setState({ currentView: view });
-			};
-		},
-	
-		setDate: function( type ) {
-			var me = this,
-				nextViews = {
-					month: 'days',
-					year: 'months'
-				}
-			;
-			return function( e ) {
-				me.setState({
-					viewDate: me.state.viewDate.clone()[ type ]( parseInt(e.target.getAttribute('data-value'), 10) ).startOf( type ),
-					currentView: nextViews[ type ]
-				});
-				me.props.onViewModeChange( nextViews[ type ] );
-			};
-		},
-	
-		addTime: function( amount, type, toSelected ) {
-			return this.updateTime( 'add', amount, type, toSelected );
-		},
-	
-		subtractTime: function( amount, type, toSelected ) {
-			return this.updateTime( 'subtract', amount, type, toSelected );
-		},
-	
-		updateTime: function( op, amount, type, toSelected ) {
-			var me = this;
-	
-			return function() {
-				var update = {},
-					date = toSelected ? 'selectedDate' : 'viewDate'
-				;
-	
-				update[ date ] = me.state[ date ].clone()[ op ]( amount, type );
-	
-				me.setState( update );
-			};
-		},
-	
-		allowedSetTime: ['hours', 'minutes', 'seconds', 'milliseconds'],
-		setTime: function( type, value ) {
-			var index = this.allowedSetTime.indexOf( type ) + 1,
-				state = this.state,
-				date = (state.selectedDate || state.viewDate).clone(),
-				nextType
-				;
-	
-			// It is needed to set all the time properties
-			// to not to reset the time
-			date[ type ]( value );
-			for (; index < this.allowedSetTime.length; index++) {
-				nextType = this.allowedSetTime[index];
-				date[ nextType ]( date[nextType]() );
-			}
-	
-			if ( !this.props.value ) {
-				this.setState({
-					selectedDate: date,
-					inputValue: date.format( state.inputFormat )
-				});
-			}
-			this.props.onChange( date );
-		},
-	
-		updateSelectedDate: function( e, close ) {
-			var target = e.target,
-				modifier = 0,
-				viewDate = this.state.viewDate,
-				currentDate = this.state.selectedDate || viewDate,
-				date
-				;
-	
-			if (target.className.indexOf('rdtDay') !== -1) {
-				if (target.className.indexOf('rdtNew') !== -1)
-					modifier = 1;
-				else if (target.className.indexOf('rdtOld') !== -1)
-					modifier = -1;
-	
-				date = viewDate.clone()
-					.month( viewDate.month() + modifier )
-					.date( parseInt( target.getAttribute('data-value'), 10 ) );
-			} else if (target.className.indexOf('rdtMonth') !== -1) {
-				date = viewDate.clone()
-					.month( parseInt( target.getAttribute('data-value'), 10 ) )
-					.date( currentDate.date() );
-			} else if (target.className.indexOf('rdtYear') !== -1) {
-				date = viewDate.clone()
-					.month( currentDate.month() )
-					.date( currentDate.date() )
-					.year( parseInt( target.getAttribute('data-value'), 10 ) );
-			}
-	
-			date.hours( currentDate.hours() )
-				.minutes( currentDate.minutes() )
-				.seconds( currentDate.seconds() )
-				.milliseconds( currentDate.milliseconds() );
-	
-			if ( !this.props.value ) {
-				var open = !( this.props.closeOnSelect && close );
-				if ( !open ) {
-					this.props.onBlur( date );
-				}
-	
-				this.setState({
-					selectedDate: date,
-					viewDate: date.clone().startOf('month'),
-					inputValue: date.format( this.state.inputFormat ),
-					open: open
-				});
-			} else {
-				if ( this.props.closeOnSelect && close ) {
-					this.closeCalendar();
-				}
-			}
-	
-			this.props.onChange( date );
-		},
-	
-		openCalendar: function( e ) {
-			if ( !this.state.open ) {
-				this.setState({ open: true }, function() {
-					this.props.onFocus( e );
-				});
-			}
-		},
-	
-		closeCalendar: function() {
-			this.setState({ open: false }, function () {
-				this.props.onBlur( this.state.selectedDate || this.state.inputValue );
-			});
-		},
-	
-		handleClickOutside: function() {
-			if ( this.props.input && this.state.open && !this.props.open ) {
-				this.setState({ open: false }, function() {
-					this.props.onBlur( this.state.selectedDate || this.state.inputValue );
-				});
-			}
-		},
-	
-		localMoment: function( date, format, props ) {
-			props = props || this.props;
-			var momentFn = props.utc ? moment.utc : moment;
-			var m = momentFn( date, format, props.strictParsing );
-			if ( props.locale )
-				m.locale( props.locale );
-			return m;
-		},
-	
-		componentProps: {
-			fromProps: ['value', 'isValidDate', 'renderDay', 'renderMonth', 'renderYear', 'timeConstraints'],
-			fromState: ['viewDate', 'selectedDate', 'updateOn'],
-			fromThis: ['setDate', 'setTime', 'showView', 'addTime', 'subtractTime', 'updateSelectedDate', 'localMoment', 'handleClickOutside']
-		},
-	
-		getComponentProps: function() {
-			var me = this,
-				formats = this.getFormats( this.props ),
-				props = {dateFormat: formats.date, timeFormat: formats.time}
-				;
-	
-			this.componentProps.fromProps.forEach( function( name ) {
-				props[ name ] = me.props[ name ];
-			});
-			this.componentProps.fromState.forEach( function( name ) {
-				props[ name ] = me.state[ name ];
-			});
-			this.componentProps.fromThis.forEach( function( name ) {
-				props[ name ] = me[ name ];
-			});
-	
-			return props;
-		},
-	
-		render: function() {
-			// TODO: Make a function or clean up this code,
-			// logic right now is really hard to follow
-			var className = 'rdt' + (this.props.className ?
-	                  ( Array.isArray( this.props.className ) ?
-	                  ' ' + this.props.className.join( ' ' ) : ' ' + this.props.className) : ''),
-				children = [];
-	
-			if ( this.props.input ) {
-				var finalInputProps = assign({
-					type: 'text',
-					className: 'form-control',
-					onClick: this.openCalendar,
-					onFocus: this.openCalendar,
-					onChange: this.onInputChange,
-					onKeyDown: this.onInputKey,
-					value: this.state.inputValue,
-				}, this.props.inputProps);
-				if ( this.props.renderInput ) {
-					children = [ React.createElement('div', { key: 'i' }, this.props.renderInput( finalInputProps, this.openCalendar )) ];
-				} else {
-					children = [ React.createElement('input', assign({ key: 'i' }, finalInputProps ))];
-				}
-			} else {
-				className += ' rdtStatic';
-			}
-	
-			if ( this.state.open )
-				className += ' rdtOpen';
-	
-			return React.createElement( 'div', { className: className }, children.concat(
-				React.createElement( 'div',
-					{ key: 'dt', className: 'rdtPicker' },
-					React.createElement( CalendarContainer, { view: this.state.currentView, viewProps: this.getComponentProps(), onClickOutside: this.handleClickOutside })
-				)
-			));
-		}
-	});
-	
-	// Make moment accessible through the Datetime class
-	Datetime.moment = moment;
-	
-	module.exports = Datetime;
-
-
-/***/ }),
-/* 451 */
-/*!***************************************************!*\
-  !*** ./~/react-datetime/~/object-assign/index.js ***!
-  \***************************************************/
-/***/ (function(module, exports) {
-
-	'use strict';
-	var propIsEnumerable = Object.prototype.propertyIsEnumerable;
-	
-	function ToObject(val) {
-		if (val == null) {
-			throw new TypeError('Object.assign cannot be called with null or undefined');
-		}
-	
-		return Object(val);
-	}
-	
-	function ownEnumerableKeys(obj) {
-		var keys = Object.getOwnPropertyNames(obj);
-	
-		if (Object.getOwnPropertySymbols) {
-			keys = keys.concat(Object.getOwnPropertySymbols(obj));
-		}
-	
-		return keys.filter(function (key) {
-			return propIsEnumerable.call(obj, key);
-		});
-	}
-	
-	module.exports = Object.assign || function (target, source) {
-		var from;
-		var keys;
-		var to = ToObject(target);
-	
-		for (var s = 1; s < arguments.length; s++) {
-			from = arguments[s];
-			keys = ownEnumerableKeys(Object(from));
-	
-			for (var i = 0; i < keys.length; i++) {
-				to[keys[i]] = from[keys[i]];
-			}
-		}
-	
-		return to;
-	};
-
-
-/***/ }),
-/* 452 */
+/* 400 */
 /*!***************************************************!*\
   !*** ./~/react-datetime/src/CalendarContainer.js ***!
   \***************************************************/
@@ -48104,10 +47614,10 @@
 	
 	var React = __webpack_require__(/*! react */ 1),
 		createClass = __webpack_require__(/*! create-react-class */ 259),
-		DaysView = __webpack_require__(/*! ./DaysView */ 453),
-		MonthsView = __webpack_require__(/*! ./MonthsView */ 455),
-		YearsView = __webpack_require__(/*! ./YearsView */ 456),
-		TimeView = __webpack_require__(/*! ./TimeView */ 457)
+		DaysView = __webpack_require__(/*! ./DaysView */ 401),
+		MonthsView = __webpack_require__(/*! ./MonthsView */ 403),
+		YearsView = __webpack_require__(/*! ./YearsView */ 404),
+		TimeView = __webpack_require__(/*! ./TimeView */ 405)
 		;
 	
 	var CalendarContainer = createClass({
@@ -48127,7 +47637,7 @@
 
 
 /***/ }),
-/* 453 */
+/* 401 */
 /*!******************************************!*\
   !*** ./~/react-datetime/src/DaysView.js ***!
   \******************************************/
@@ -48137,8 +47647,8 @@
 	
 	var React = __webpack_require__(/*! react */ 1),
 		createClass = __webpack_require__(/*! create-react-class */ 259),
-		moment = __webpack_require__(/*! moment */ 313),
-		onClickOutside = __webpack_require__(/*! react-onclickoutside */ 454).default
+		moment = __webpack_require__(/*! moment */ 278),
+		onClickOutside = __webpack_require__(/*! react-onclickoutside */ 402).default
 		;
 	
 	var DateTimePickerDays = onClickOutside( createClass({
@@ -48280,7 +47790,7 @@
 
 
 /***/ }),
-/* 454 */
+/* 402 */
 /*!*********************************************!*\
   !*** ./~/react-onclickoutside/lib/index.js ***!
   \*********************************************/
@@ -48632,7 +48142,7 @@
 
 
 /***/ }),
-/* 455 */
+/* 403 */
 /*!********************************************!*\
   !*** ./~/react-datetime/src/MonthsView.js ***!
   \********************************************/
@@ -48642,7 +48152,7 @@
 	
 	var React = __webpack_require__(/*! react */ 1),
 		createClass = __webpack_require__(/*! create-react-class */ 259),
-		onClickOutside = __webpack_require__(/*! react-onclickoutside */ 454).default
+		onClickOutside = __webpack_require__(/*! react-onclickoutside */ 402).default
 		;
 	
 	var DateTimePickerMonths = onClickOutside( createClass({
@@ -48748,7 +48258,7 @@
 
 
 /***/ }),
-/* 456 */
+/* 404 */
 /*!*******************************************!*\
   !*** ./~/react-datetime/src/YearsView.js ***!
   \*******************************************/
@@ -48758,7 +48268,7 @@
 	
 	var React = __webpack_require__(/*! react */ 1),
 		createClass = __webpack_require__(/*! create-react-class */ 259),
-		onClickOutside = __webpack_require__(/*! react-onclickoutside */ 454).default
+		onClickOutside = __webpack_require__(/*! react-onclickoutside */ 402).default
 		;
 	
 	var DateTimePickerYears = onClickOutside( createClass({
@@ -48862,7 +48372,7 @@
 
 
 /***/ }),
-/* 457 */
+/* 405 */
 /*!******************************************!*\
   !*** ./~/react-datetime/src/TimeView.js ***!
   \******************************************/
@@ -48872,8 +48382,8 @@
 	
 	var React = __webpack_require__(/*! react */ 1),
 		createClass = __webpack_require__(/*! create-react-class */ 259),
-		assign = __webpack_require__(/*! object-assign */ 451),
-		onClickOutside = __webpack_require__(/*! react-onclickoutside */ 454).default
+		assign = __webpack_require__(/*! object-assign */ 277),
+		onClickOutside = __webpack_require__(/*! react-onclickoutside */ 402).default
 		;
 	
 	var DateTimePickerTime = onClickOutside( createClass({
@@ -49106,7 +48616,7 @@
 
 
 /***/ }),
-/* 458 */
+/* 406 */
 /*!*************************************************!*\
   !*** ./~/react-datetime/css/react-datetime.css ***!
   \*************************************************/
@@ -49115,7 +48625,7 @@
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(/*! !../../css-loader!./react-datetime.css */ 459);
+	var content = __webpack_require__(/*! !../../css-loader!./react-datetime.css */ 407);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// Prepare cssTransformation
 	var transform;
@@ -49140,7 +48650,7 @@
 	}
 
 /***/ }),
-/* 459 */
+/* 407 */
 /*!****************************************************************!*\
   !*** ./~/css-loader!./~/react-datetime/css/react-datetime.css ***!
   \****************************************************************/
@@ -49155,6 +48665,1470 @@
 	
 	// exports
 
+
+/***/ }),
+/* 408 */
+/*!****************************************************!*\
+  !*** ./components/view/content/info/InfoManage.js ***!
+  \****************************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _FormContent = __webpack_require__(/*! ./formContent/FormContent */ 410);
+	
+	var _FormContent2 = _interopRequireDefault(_FormContent);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var InfoManage = function (_React$Component) {
+	    _inherits(InfoManage, _React$Component);
+	
+	    function InfoManage(props) {
+	        _classCallCheck(this, InfoManage);
+	
+	        var _this = _possibleConstructorReturn(this, (InfoManage.__proto__ || Object.getPrototypeOf(InfoManage)).call(this, props));
+	
+	        _this.state = {
+	            type: 'hq',
+	            user_name: ''
+	        };
+	        return _this;
+	    }
+	
+	    _createClass(InfoManage, [{
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            //get user info
+	        }
+	    }, {
+	        key: 'componentWillReceiveProps',
+	        value: function componentWillReceiveProps(nextProps) {}
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var _this2 = this;
+	
+	            var display = this.props.display;
+	            var _state = this.state,
+	                user_name = _state.user_name,
+	                type = _state.type;
+	
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'container-fluid', style: { display: !display && 'none' } },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'col-lg-12 col-md-12' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'card' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'header' },
+	                            _react2.default.createElement(
+	                                'h4',
+	                                { className: 'title' },
+	                                '\u5F55\u5165\u7BA1\u7406'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'content' },
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: 'row' },
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'col-md-12' },
+	                                    _react2.default.createElement(
+	                                        'div',
+	                                        { className: 'input-group' },
+	                                        _react2.default.createElement(
+	                                            'span',
+	                                            { className: 'input-group-addon' },
+	                                            _react2.default.createElement('i', { className: 'fa fa-search' }),
+	                                            '                                '
+	                                        ),
+	                                        _react2.default.createElement('input', {
+	                                            type: 'text',
+	                                            value: user_name,
+	                                            onChange: function onChange(e) {
+	                                                _this2.setState({ user_name: e.target.value });
+	                                            },
+	                                            onKeyDown: function onKeyDown(e) {
+	                                                e.keyCode === 13 && _this2.search();
+	                                            },
+	                                            className: 'form-control',
+	                                            placeholder: '\u8BF7\u8F93\u5165\u7528\u6237\u540D'
+	                                        }),
+	                                        _react2.default.createElement(
+	                                            'span',
+	                                            { className: 'input-group-btn' },
+	                                            _react2.default.createElement(
+	                                                'button',
+	                                                { className: 'btn btn-default',
+	                                                    type: 'button' },
+	                                                '\u641C\u7D22'
+	                                            )
+	                                        )
+	                                    )
+	                                )
+	                            ),
+	                            _react2.default.createElement('hr', null),
+	                            _react2.default.createElement(_FormContent2.default, {
+	                                type: type
+	                            })
+	                        )
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return InfoManage;
+	}(_react2.default.Component);
+	
+	exports.default = InfoManage;
+
+/***/ }),
+/* 409 */
+/*!*****************************************************!*\
+  !*** ./components/view/content/user/UserProfile.js ***!
+  \*****************************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var UserProfile = function (_React$Component) {
+	    _inherits(UserProfile, _React$Component);
+	
+	    function UserProfile(props) {
+	        _classCallCheck(this, UserProfile);
+	
+	        var _this = _possibleConstructorReturn(this, (UserProfile.__proto__ || Object.getPrototypeOf(UserProfile)).call(this, props));
+	
+	        _this.state = {
+	            user_name: '',
+	            name: '',
+	            power: '',
+	            reg_date: ''
+	        };
+	        _this.update = _this.update.bind(_this);
+	        return _this;
+	    }
+	
+	    _createClass(UserProfile, [{
+	        key: 'update',
+	        value: function update() {}
+	    }, {
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            //get user info
+	            //loading
+	        }
+	    }, {
+	        key: 'componentWillReceiveProps',
+	        value: function componentWillReceiveProps(nextProps) {}
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var _this2 = this;
+	
+	            var display = this.props.display;
+	            var _state = this.state,
+	                user_name = _state.user_name,
+	                name = _state.name,
+	                power = _state.power,
+	                reg_date = _state.reg_date;
+	
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'container-fluid', style: { display: !display && 'none' } },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'col-lg-12 col-md-12' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'card' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'header' },
+	                            _react2.default.createElement(
+	                                'h4',
+	                                { className: 'title' },
+	                                '\u4FEE\u6539\u4E2A\u4EBA\u4FE1\u606F'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'content' },
+	                            _react2.default.createElement(
+	                                'form',
+	                                null,
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'row' },
+	                                    _react2.default.createElement(
+	                                        'div',
+	                                        { className: 'col-md-12' },
+	                                        _react2.default.createElement(
+	                                            'div',
+	                                            { className: 'form-group' },
+	                                            _react2.default.createElement(
+	                                                'label',
+	                                                null,
+	                                                '\u7528\u6237\u540D'
+	                                            ),
+	                                            _react2.default.createElement('input', { type: 'text',
+	                                                className: 'form-control border-input',
+	                                                onChange: function onChange(e) {
+	                                                    _this2.setState({ username: e.target.value });
+	                                                },
+	                                                disabled: true,
+	                                                placeholder: '\u767B\u5F55\u540D', value: 'falling'
+	                                            })
+	                                        )
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'row' },
+	                                    _react2.default.createElement(
+	                                        'div',
+	                                        { className: 'col-md-12' },
+	                                        _react2.default.createElement(
+	                                            'div',
+	                                            { className: 'form-group' },
+	                                            _react2.default.createElement(
+	                                                'label',
+	                                                null,
+	                                                '\u59D3\u540D'
+	                                            ),
+	                                            _react2.default.createElement('input', { type: 'text',
+	                                                onChange: function onChange(e) {
+	                                                    _this2.setState({ name: e.target.value });
+	                                                },
+	                                                className: 'form-control border-input',
+	                                                placeholder: '',
+	                                                value: name
+	                                            })
+	                                        )
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'row' },
+	                                    _react2.default.createElement(
+	                                        'div',
+	                                        { className: 'col-md-6' },
+	                                        _react2.default.createElement(
+	                                            'div',
+	                                            { className: 'form-group' },
+	                                            _react2.default.createElement(
+	                                                'label',
+	                                                null,
+	                                                '\u6743\u9650'
+	                                            ),
+	                                            _react2.default.createElement('input', { type: 'text',
+	                                                value: power,
+	                                                disabled: true,
+	                                                className: 'form-control border-input'
+	                                            })
+	                                        )
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'div',
+	                                        { className: 'col-md-6' },
+	                                        _react2.default.createElement(
+	                                            'div',
+	                                            { className: 'form-group' },
+	                                            _react2.default.createElement(
+	                                                'label',
+	                                                null,
+	                                                '\u6CE8\u518C\u65E5\u671F'
+	                                            ),
+	                                            _react2.default.createElement('input', { type: 'text',
+	                                                value: reg_date,
+	                                                disabled: true,
+	                                                className: 'form-control border-input'
+	                                            })
+	                                        )
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'text-center' },
+	                                    _react2.default.createElement(
+	                                        'button',
+	                                        { type: 'button', className: 'btn btn-info btn-fill btn-wd',
+	                                            onClick: function onClick(e) {
+	                                                _this2.update();
+	                                            }
+	                                        },
+	                                        '\u66F4\u65B0\u4FE1\u606F'
+	                                    )
+	                                )
+	                            )
+	                        )
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return UserProfile;
+	}(_react2.default.Component);
+	
+	exports.default = UserProfile;
+
+/***/ }),
+/* 410 */
+/*!*****************************************************************!*\
+  !*** ./components/view/content/info/formContent/FormContent.js ***!
+  \*****************************************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	__webpack_require__(/*! react-datetime/css/react-datetime.css */ 406);
+	
+	var _Hq_lxContent = __webpack_require__(/*! ./Hq_lxContent */ 411);
+	
+	var _Hq_lxContent2 = _interopRequireDefault(_Hq_lxContent);
+	
+	var _QjContent = __webpack_require__(/*! ./QjContent */ 412);
+	
+	var _QjContent2 = _interopRequireDefault(_QjContent);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var FormContent = function (_React$Component) {
+	    _inherits(FormContent, _React$Component);
+	
+	    function FormContent(props) {
+	        _classCallCheck(this, FormContent);
+	
+	        var _this = _possibleConstructorReturn(this, (FormContent.__proto__ || Object.getPrototypeOf(FormContent)).call(this, props));
+	
+	        _this.state = {
+	            name: '',
+	            pinyin: '',
+	            used_name: '',
+	            sex: '男',
+	            nationality: '',
+	            passport: '',
+	            passport_date: ''
+	        };
+	        _this.update = _this.update.bind(_this);
+	        _this.getContent = _this.getContent.bind(_this);
+	        return _this;
+	    }
+	
+	    _createClass(FormContent, [{
+	        key: 'getContent',
+	        value: function getContent(contentFormData) {}
+	    }, {
+	        key: 'update',
+	        value: function update() {}
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var type = this.props.type;
+	            var _state = this.state,
+	                name = _state.name,
+	                nationality = _state.nationality,
+	                passport = _state.passport,
+	                passport_date = _state.passport_date;
+	
+	
+	            return _react2.default.createElement(
+	                'div',
+	                null,
+	                (type === 'hq' || type === 'lx') && _react2.default.createElement(_Hq_lxContent2.default, {
+	                    type: type,
+	                    getContent: this.getContent
+	                }),
+	                type === 'qj' && _react2.default.createElement(_QjContent2.default, {
+	                    getContent: this.getContent
+	                })
+	            );
+	        }
+	    }]);
+	
+	    return FormContent;
+	}(_react2.default.Component);
+	
+	exports.default = FormContent;
+
+/***/ }),
+/* 411 */
+/*!******************************************************************!*\
+  !*** ./components/view/content/info/formContent/Hq_lxContent.js ***!
+  \******************************************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactDatetime = __webpack_require__(/*! react-datetime */ 276);
+	
+	var _reactDatetime2 = _interopRequireDefault(_reactDatetime);
+	
+	__webpack_require__(/*! react-datetime/css/react-datetime.css */ 406);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Hq_lxContent = function (_React$Component) {
+	    _inherits(Hq_lxContent, _React$Component);
+	
+	    function Hq_lxContent(props) {
+	        _classCallCheck(this, Hq_lxContent);
+	
+	        var _this = _possibleConstructorReturn(this, (Hq_lxContent.__proto__ || Object.getPrototypeOf(Hq_lxContent)).call(this, props));
+	
+	        _this.state = {
+	            name: '',
+	            pinyin: '',
+	            used_name: '',
+	            sex: '男',
+	            nationality: '',
+	            passport: '',
+	            passport_date: ''
+	        };
+	        _this.update = _this.update.bind(_this);
+	
+	        return _this;
+	    }
+	
+	    _createClass(Hq_lxContent, [{
+	        key: 'update',
+	        value: function update() {
+	
+	            this.props.getContent();
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var _this2 = this;
+	
+	            var type = this.props.type;
+	            var _state = this.state,
+	                name = _state.name,
+	                pinyin = _state.pinyin,
+	                used_name = _state.used_name,
+	                sex = _state.sex,
+	                nationality = _state.nationality,
+	                passport = _state.passport,
+	                passport_date = _state.passport_date;
+	
+	            return _react2.default.createElement(
+	                'div',
+	                null,
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'row' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'col-md-3' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                '\u4E2D\u6587\u540D*'
+	                            ),
+	                            _react2.default.createElement('input', { type: 'text',
+	                                onChange: function onChange(e) {
+	                                    _this2.setState({ name: e.target.value });
+	                                },
+	                                className: 'form-control border-input',
+	                                placeholder: '',
+	                                value: name
+	                            })
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'col-md-3' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                '\u62FC\u97F3*'
+	                            ),
+	                            _react2.default.createElement('input', { type: 'text',
+	                                onChange: function onChange(e) {
+	                                    _this2.setState({ name: e.target.value });
+	                                },
+	                                className: 'form-control border-input',
+	                                placeholder: '', value: name })
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'col-md-3' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                '\u66FE\u7528\u540D'
+	                            ),
+	                            _react2.default.createElement('input', { type: 'text',
+	                                onChange: function onChange(e) {
+	                                    _this2.setState({ name: e.target.value });
+	                                },
+	                                className: 'form-control border-input',
+	                                placeholder: '', value: name })
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'col-md-2' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                '\u6C11\u65CF*'
+	                            ),
+	                            _react2.default.createElement('input', { type: 'text',
+	                                onChange: function onChange(e) {
+	                                    _this2.setState({ nationality: e.target.value });
+	                                },
+	                                className: 'form-control border-input',
+	                                placeholder: '', value: nationality })
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'col-md-1' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                '\u6027\u522B*'
+	                            ),
+	                            _react2.default.createElement(
+	                                'select',
+	                                {
+	                                    onChange: function onChange(e) {
+	                                        _this2.setState({ sex: e.target.value });
+	                                    },
+	                                    className: 'form-control border-input'
+	                                },
+	                                _react2.default.createElement(
+	                                    'option',
+	                                    null,
+	                                    '\u7537'
+	                                ),
+	                                _react2.default.createElement(
+	                                    'option',
+	                                    null,
+	                                    '\u5973'
+	                                )
+	                            )
+	                        )
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'row' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'col-md-3' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                '\u62A4\u7167\u53F7\u7801*'
+	                            ),
+	                            _react2.default.createElement('input', { type: 'text',
+	                                onChange: function onChange(e) {
+	                                    _this2.setState({ passport: e.target.value });
+	                                },
+	                                className: 'form-control border-input',
+	                                placeholder: '',
+	                                value: passport
+	                            })
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'col-md-3' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                '\u62A4\u7167\u6709\u6548\u671F*'
+	                            ),
+	                            _react2.default.createElement(_reactDatetime2.default, {
+	                                className: 'border-input',
+	                                viewMode: 'days',
+	                                dateFormat: 'YYYY-MM-DD',
+	                                timeFormat: false,
+	                                closeOnSelect: true,
+	                                closeOnTab: true
+	                            })
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'col-md-3' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                '\u51FA\u751F\u65E5\u65E5\u671F'
+	                            ),
+	                            _react2.default.createElement(_reactDatetime2.default, {
+	                                className: 'border-input',
+	                                viewMode: 'days',
+	                                dateFormat: 'YYYY-MM-DD',
+	                                timeFormat: false,
+	                                closeOnSelect: true,
+	                                closeOnTab: true
+	                            })
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'col-md-3' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                '\u8EAB\u4EFD\u8BC1\u53F7'
+	                            ),
+	                            _react2.default.createElement('input', { type: 'text',
+	                                onChange: function onChange(e) {
+	                                    _this2.setState({ passport: e.target.value });
+	                                },
+	                                className: 'form-control border-input',
+	                                placeholder: '',
+	                                value: passport
+	                            })
+	                        )
+	                    )
+	                ),
+	                _react2.default.createElement('hr', null),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'row' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'col-md-4' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                '\u6D77\u5916\u8054\u7CFB\u7535\u8BDD*'
+	                            ),
+	                            _react2.default.createElement('input', { type: 'text',
+	                                onChange: function onChange(e) {
+	                                    _this2.setState({ passport: e.target.value });
+	                                },
+	                                className: 'form-control border-input',
+	                                placeholder: '',
+	                                value: passport
+	                            }),
+	                            _react2.default.createElement('div', null)
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'col-md-4' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                '\u4E2D\u56FD\u8054\u7CFB\u7535\u8BDD1'
+	                            ),
+	                            _react2.default.createElement('input', { type: 'text',
+	                                onChange: function onChange(e) {
+	                                    _this2.setState({ passport: e.target.value });
+	                                },
+	                                className: 'form-control border-input',
+	                                placeholder: '',
+	                                value: passport
+	                            }),
+	                            _react2.default.createElement('div', null)
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'col-md-4' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                '\u4E2D\u56FD\u8054\u7CFB\u7535\u8BDD2'
+	                            ),
+	                            _react2.default.createElement('input', { type: 'text',
+	                                onChange: function onChange(e) {
+	                                    _this2.setState({ passport: e.target.value });
+	                                },
+	                                className: 'form-control border-input',
+	                                placeholder: '',
+	                                value: passport
+	                            }),
+	                            _react2.default.createElement('div', null)
+	                        )
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'row' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'col-md-4' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                '\u5FAE\u4FE1'
+	                            ),
+	                            _react2.default.createElement('input', { type: 'text',
+	                                onChange: function onChange(e) {
+	                                    _this2.setState({ passport: e.target.value });
+	                                },
+	                                className: 'form-control border-input',
+	                                placeholder: '',
+	                                value: passport
+	                            }),
+	                            _react2.default.createElement('div', null)
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'col-md-4' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                '\u90AE\u7BB1'
+	                            ),
+	                            _react2.default.createElement('input', { type: 'text',
+	                                onChange: function onChange(e) {
+	                                    _this2.setState({ passport: e.target.value });
+	                                },
+	                                className: 'form-control border-input',
+	                                placeholder: '',
+	                                value: passport
+	                            }),
+	                            _react2.default.createElement('div', null)
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'col-md-4' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                'QQ'
+	                            ),
+	                            _react2.default.createElement('input', { type: 'text',
+	                                onChange: function onChange(e) {
+	                                    _this2.setState({ passport: e.target.value });
+	                                },
+	                                className: 'form-control border-input',
+	                                placeholder: '',
+	                                value: passport
+	                            }),
+	                            _react2.default.createElement('div', null)
+	                        )
+	                    )
+	                ),
+	                _react2.default.createElement('hr', null),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'row' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'col-md-4' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                '\u73B0\u56FD\u7C4D*'
+	                            ),
+	                            _react2.default.createElement('input', { type: 'text',
+	                                onChange: function onChange(e) {
+	                                    _this2.setState({ passport: e.target.value });
+	                                },
+	                                className: 'form-control border-input',
+	                                placeholder: '',
+	                                value: passport
+	                            }),
+	                            _react2.default.createElement('div', null)
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'col-md-4' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                '\u65C5\u5C45\u5730*'
+	                            ),
+	                            _react2.default.createElement('input', { type: 'text',
+	                                onChange: function onChange(e) {
+	                                    _this2.setState({ passport: e.target.value });
+	                                },
+	                                className: 'form-control border-input',
+	                                placeholder: '',
+	                                value: passport
+	                            }),
+	                            _react2.default.createElement('div', null)
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'col-md-4' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                '\u4E2D\u56FD\u5C45\u4F4F\u5730'
+	                            ),
+	                            _react2.default.createElement('input', { type: 'text',
+	                                onChange: function onChange(e) {
+	                                    _this2.setState({ passport: e.target.value });
+	                                },
+	                                className: 'form-control border-input',
+	                                placeholder: '',
+	                                value: passport
+	                            }),
+	                            _react2.default.createElement('div', null)
+	                        )
+	                    )
+	                ),
+	                _react2.default.createElement('hr', null),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'row' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'col-md-4' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                '\u6240\u4ECE\u4E8B\u884C\u4E1A'
+	                            ),
+	                            _react2.default.createElement('input', { type: 'text',
+	                                onChange: function onChange(e) {
+	                                    _this2.setState({ passport: e.target.value });
+	                                },
+	                                className: 'form-control border-input',
+	                                placeholder: '',
+	                                value: passport
+	                            }),
+	                            _react2.default.createElement('div', null)
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'col-md-4' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                '\u516C\u53F8/\u5355\u4F4D\u540D\u79F0'
+	                            ),
+	                            _react2.default.createElement('input', { type: 'text',
+	                                onChange: function onChange(e) {
+	                                    _this2.setState({ passport: e.target.value });
+	                                },
+	                                className: 'form-control border-input',
+	                                placeholder: '',
+	                                value: passport
+	                            }),
+	                            _react2.default.createElement('div', null)
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'col-md-4' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                '\u804C\u52A1'
+	                            ),
+	                            _react2.default.createElement('input', { type: 'text',
+	                                onChange: function onChange(e) {
+	                                    _this2.setState({ passport: e.target.value });
+	                                },
+	                                className: 'form-control border-input',
+	                                placeholder: '',
+	                                value: passport
+	                            }),
+	                            _react2.default.createElement('div', null)
+	                        )
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'row' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'col-md-4' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                '\u6587\u5316\u7A0B\u5EA6'
+	                            ),
+	                            _react2.default.createElement('input', { type: 'text',
+	                                onChange: function onChange(e) {
+	                                    _this2.setState({ passport: e.target.value });
+	                                },
+	                                className: 'form-control border-input',
+	                                placeholder: '',
+	                                value: passport
+	                            }),
+	                            _react2.default.createElement('div', null)
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'col-md-4' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                '\u5065\u5EB7\u72B6\u6001'
+	                            ),
+	                            _react2.default.createElement('input', { type: 'text',
+	                                onChange: function onChange(e) {
+	                                    _this2.setState({ passport: e.target.value });
+	                                },
+	                                className: 'form-control border-input',
+	                                placeholder: '',
+	                                value: passport
+	                            }),
+	                            _react2.default.createElement('div', null)
+	                        )
+	                    )
+	                ),
+	                type === 'lx' && _react2.default.createElement(
+	                    'div',
+	                    null,
+	                    _react2.default.createElement('hr', null),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'row' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'col-md-3' },
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: 'form-group' },
+	                                _react2.default.createElement(
+	                                    'label',
+	                                    null,
+	                                    '\u6BD5\u4E1A\u9662\u6821\u82F1\u6587\u540D*'
+	                                ),
+	                                _react2.default.createElement('input', { type: 'text',
+	                                    onChange: function onChange(e) {
+	                                        _this2.setState({ passport: e.target.value });
+	                                    },
+	                                    className: 'form-control border-input',
+	                                    placeholder: '',
+	                                    value: passport
+	                                }),
+	                                _react2.default.createElement('div', null)
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'col-md-3' },
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: 'form-group' },
+	                                _react2.default.createElement(
+	                                    'label',
+	                                    null,
+	                                    '\u6BD5\u4E1A\u9662\u6821\u4E2D\u6587\u540D*'
+	                                ),
+	                                _react2.default.createElement('input', { type: 'text',
+	                                    onChange: function onChange(e) {
+	                                        _this2.setState({ passport: e.target.value });
+	                                    },
+	                                    className: 'form-control border-input',
+	                                    placeholder: '',
+	                                    value: passport
+	                                }),
+	                                _react2.default.createElement('div', null)
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'col-md-3' },
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: 'form-group' },
+	                                _react2.default.createElement(
+	                                    'label',
+	                                    null,
+	                                    '\u5B66\u4F4D*'
+	                                ),
+	                                _react2.default.createElement('input', { type: 'text',
+	                                    onChange: function onChange(e) {
+	                                        _this2.setState({ passport: e.target.value });
+	                                    },
+	                                    className: 'form-control border-input',
+	                                    placeholder: '',
+	                                    value: passport
+	                                }),
+	                                _react2.default.createElement('div', null)
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'col-md-4' },
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: 'form-group' },
+	                                _react2.default.createElement(
+	                                    'label',
+	                                    null,
+	                                    '\u6BD5\u4E1A\u65F6\u95F4*'
+	                                ),
+	                                _react2.default.createElement(_reactDatetime2.default, {
+	                                    className: 'border-input',
+	                                    viewMode: 'days',
+	                                    dateFormat: 'YYYY-MM-DD',
+	                                    timeFormat: false,
+	                                    closeOnSelect: true,
+	                                    closeOnTab: true
+	                                }),
+	                                _react2.default.createElement('div', null)
+	                            )
+	                        )
+	                    )
+	                ),
+	                _react2.default.createElement('hr', null),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'row' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'col-md-4' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                '\u7167\u7247'
+	                            ),
+	                            _react2.default.createElement('input', { type: 'file',
+	                                className: 'form-control border-input',
+	                                placeholder: ''
+	                            }),
+	                            _react2.default.createElement('div', null)
+	                        )
+	                    )
+	                ),
+	                _react2.default.createElement('hr', null),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'text-center' },
+	                    _react2.default.createElement(
+	                        'button',
+	                        { type: 'button', className: 'btn btn-info btn-fill btn-wd',
+	                            onClick: function onClick(e) {
+	                                _this2.update();
+	                            }
+	                        },
+	                        '\u5F55\u5165'
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return Hq_lxContent;
+	}(_react2.default.Component);
+	
+	exports.default = Hq_lxContent;
+
+/***/ }),
+/* 412 */
+/*!***************************************************************!*\
+  !*** ./components/view/content/info/formContent/QjContent.js ***!
+  \***************************************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	__webpack_require__(/*! react-datetime/css/react-datetime.css */ 406);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var QjContent = function (_React$Component) {
+	    _inherits(QjContent, _React$Component);
+	
+	    function QjContent(props) {
+	        _classCallCheck(this, QjContent);
+	
+	        var _this = _possibleConstructorReturn(this, (QjContent.__proto__ || Object.getPrototypeOf(QjContent)).call(this, props));
+	
+	        _this.state = {
+	            name: '',
+	            pinyin: '',
+	            used_name: '',
+	            sex: '男',
+	            nationality: '',
+	            passport: '',
+	            passport_date: ''
+	        };
+	        _this.update = _this.update.bind(_this);
+	
+	        return _this;
+	    }
+	
+	    _createClass(QjContent, [{
+	        key: 'update',
+	        value: function update() {
+	
+	            this.props.getContent();
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var _this2 = this;
+	
+	            var _state = this.state,
+	                name = _state.name,
+	                pinyin = _state.pinyin,
+	                used_name = _state.used_name,
+	                sex = _state.sex,
+	                nationality = _state.nationality,
+	                passport = _state.passport,
+	                passport_date = _state.passport_date;
+	
+	            return _react2.default.createElement(
+	                'div',
+	                null,
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'row' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'col-md-3' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                '\u4E2D\u6587\u540D*'
+	                            ),
+	                            _react2.default.createElement('input', { type: 'text',
+	                                onChange: function onChange(e) {
+	                                    _this2.setState({ name: e.target.value });
+	                                },
+	                                className: 'form-control border-input',
+	                                placeholder: '',
+	                                value: name
+	                            })
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'col-md-3' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                '\u8EAB\u4EFD\u8BC1\u53F7*'
+	                            ),
+	                            _react2.default.createElement('input', { type: 'text',
+	                                onChange: function onChange(e) {
+	                                    _this2.setState({ name: e.target.value });
+	                                },
+	                                className: 'form-control border-input',
+	                                placeholder: '',
+	                                value: name
+	                            })
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'col-md-3' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                '\u540D\u65CF*'
+	                            ),
+	                            _react2.default.createElement('input', { type: 'text',
+	                                onChange: function onChange(e) {
+	                                    _this2.setState({ name: e.target.value });
+	                                },
+	                                className: 'form-control border-input',
+	                                placeholder: '',
+	                                value: name
+	                            })
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'col-md-2' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                '\u6027\u522B*'
+	                            ),
+	                            _react2.default.createElement(
+	                                'select',
+	                                {
+	                                    onChange: function onChange(e) {
+	                                        _this2.setState({ sex: e.target.value });
+	                                    },
+	                                    className: 'form-control border-input'
+	                                },
+	                                _react2.default.createElement(
+	                                    'option',
+	                                    null,
+	                                    '\u7537'
+	                                ),
+	                                _react2.default.createElement(
+	                                    'option',
+	                                    null,
+	                                    '\u5973'
+	                                )
+	                            )
+	                        )
+	                    )
+	                ),
+	                _react2.default.createElement('hr', null),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'row' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'col-md-3' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                '\u4E0E\u534E\u4FA8\u5173\u7CFB'
+	                            ),
+	                            _react2.default.createElement('input', { type: 'text',
+	                                onChange: function onChange(e) {
+	                                    _this2.setState({ name: e.target.value });
+	                                },
+	                                className: 'form-control border-input',
+	                                placeholder: '',
+	                                value: name
+	                            })
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'col-md-3' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                '\u8054\u7CFB\u7535\u8BDD'
+	                            ),
+	                            _react2.default.createElement('input', { type: 'text',
+	                                onChange: function onChange(e) {
+	                                    _this2.setState({ name: e.target.value });
+	                                },
+	                                className: 'form-control border-input',
+	                                placeholder: '',
+	                                value: name
+	                            })
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'col-md-3' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'form-group' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                null,
+	                                '\u8054\u7CFB\u7535\u8BDD1'
+	                            ),
+	                            _react2.default.createElement('input', { type: 'text',
+	                                onChange: function onChange(e) {
+	                                    _this2.setState({ name: e.target.value });
+	                                },
+	                                className: 'form-control border-input',
+	                                placeholder: '',
+	                                value: name
+	                            })
+	                        )
+	                    )
+	                ),
+	                _react2.default.createElement('hr', null),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'text-center' },
+	                    _react2.default.createElement(
+	                        'button',
+	                        { type: 'button', className: 'btn btn-info btn-fill btn-wd',
+	                            onClick: function onClick(e) {
+	                                _this2.update();
+	                            }
+	                        },
+	                        '\u5F55\u5165'
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return QjContent;
+	}(_react2.default.Component);
+	
+	exports.default = QjContent;
 
 /***/ })
 /******/ ]);
