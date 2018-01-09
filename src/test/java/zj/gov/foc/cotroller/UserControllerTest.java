@@ -23,17 +23,17 @@ public class UserControllerTest {
     }
 
     @Resource
-    UserController loginController;
+    UserController UserController;
 
     @Test
     public void testreg(){
-        loginController.reg("yu","test","test","yu","管理员","..");
-        loginController.reg("","test","test","yu","管理员","..");
-        loginController.reg("yuuuuuuuuuuuuu","test","test","yu","管理员","..");
+        UserController.reg("yu","test","test","yu","管理员","..");
+        UserController.reg("","test","test","yu","管理员","..");
+        UserController.reg("yuuuuuuuuuuuuu","test","test","yu","管理员","..");
     }
     @Test
     public void testchangePwd(){
-        loginController.changePwd("yu","123","321","321");
+        UserController.changePwd("yu","123","321","321");
     }
 
 

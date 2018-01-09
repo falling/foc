@@ -62,6 +62,8 @@ public class HQBean {
   }
 
 
+
+
   public String getUsedName() {
     return usedName;
   }
