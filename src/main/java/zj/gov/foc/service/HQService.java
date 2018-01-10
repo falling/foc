@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import zj.gov.foc.po.HQBean;
 import zj.gov.foc.repository.HQRepository;
+import zj.gov.foc.util.InputDeal;
 import zj.gov.foc.vo.HQVO;
 
 
@@ -16,7 +17,6 @@ public class HQService {
 
     @Autowired
     HQRepository hqRepository;
-    InputDeal inputDeal;
 
 
     public HQVO addHQ(String chName, String usedName, String pyName, String sex, String ethnicity, String passportNo,
@@ -27,19 +27,19 @@ public class HQService {
 
         HQVO hqvo = new HQVO() ;
         HQBean hqBean = new HQBean();
-        if(!inputDeal.isChinesecCharacters(chName)){
+        if(!InputDeal.isChineseCharacters(chName)){
             hqvo.setWarning("中文名字为2-20个汉字");
             return hqvo;
         }
-        else if (!inputDeal.isPY(pyName)){
+        else if (!InputDeal.isPY(pyName)){
             hqvo.setWarning("拼音为1-50个字母");
             return hqvo;
         }
-        else  if (!inputDeal.isPassportNO(passportNo)){
+        else  if (!InputDeal.isPassportNO(passportNo)){
             hqvo.setWarning("护照号格式不正确");
             return hqvo;
         }
-        else  if (!inputDeal.isIDNum(idNum)){
+        else  if (!InputDeal.isIDNum(idNum)){
             hqvo.setWarning("身份证格式不正确");
             return hqvo;
         }

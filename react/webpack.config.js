@@ -3,6 +3,7 @@ var path = require('path');
 module.exports = {
     entry: './app.js',
     devtool: 'sourcemaps',
+    // devtool: false,
     cache: true,
     output: {
         path: '../src/main/resources/static',
@@ -24,7 +25,7 @@ module.exports = {
             }, {
                 // 图片加载器
                 test: /\.(gif|jpg|png|woff|woff2|svg|eot|otf|ttf)\??.*$/,
-                loader: 'url-loader?limit=1024&name=/images/[name].[ext]'
+                loader: 'url-loader?limit=4096&name=/images/[name].[ext]'
             }
         ]
     }

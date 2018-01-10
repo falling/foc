@@ -1,6 +1,5 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
-import {Title} from '../config/Title'
 export default class Sidebar extends React.Component {
 
     constructor(props) {

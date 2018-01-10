@@ -1,10 +1,22 @@
 import React from 'react';
 import {Title} from "../config/Title";
+import 'whatwg-fetch';
+import {Link} from 'react-router-dom'
 
 
 export default class Header extends React.Component {
+    constructor() {
+        super();
+        this.state = {};
+    }
+
+    componentDidMount() {
+
+    }
+
     render() {
-        return(
+        const {user} = this.props;
+        return (
             <nav className="navbar navbar-default">
                 <div className="container-fluid">
                     <div className="navbar-header">
@@ -17,20 +29,30 @@ export default class Header extends React.Component {
                         <div className="navbar-brand overDefault">{Title[this.props.title]}</div>
                     </div>
                     <div className="collapse navbar-collapse">
-                        <ul className="nav navbar-nav navbar-right">
-                            <li>
-                                <a href="#">
-                                    <i className="ti-user"/>
-                                    <p>falling</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i className="ti-settings"/>
-                                    <p>注销</p>
-                                </a>
-                            </li>
-                        </ul>
+                        {(user !== null && user.name !== null) ? <ul className="nav navbar-nav navbar-right">
+                                <li>
+                                    <a href="#">
+                                        <i className="ti-user paddingRight"/>
+                                        <p>{user.name}</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i className="ti-settings paddingRight"/>
+                                        <p>注销</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            :
+                            <ul className="nav navbar-nav navbar-right">
+                                <li >
+                                    <Link to="/">
+                                        <i className="ti-settings paddingRight"/>
+                                        <p>登陆</p>
+                                    </Link>
+                                </li>
+                            </ul>
+                        }
 
                     </div>
                 </div>

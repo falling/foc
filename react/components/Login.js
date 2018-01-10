@@ -17,7 +17,6 @@ export default class Login extends React.Component {
     }
     componentDidMount() {
         this._notificationSystem = this.refs.notificationSystem;
-        localStorage.clear();
     }
 
     login(){

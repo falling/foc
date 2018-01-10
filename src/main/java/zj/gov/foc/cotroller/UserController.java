@@ -22,6 +22,15 @@ public class UserController {
         return userVO;
     }
 
+    @RequestMapping("/userInfo")
+    public UserVO getInfo(HttpSession httpSession){
+        UserVO vo = (UserVO) httpSession.getAttribute("user");
+        if(vo==null){
+            return new UserVO();
+        }
+        return (UserVO) httpSession.getAttribute("user");
+    }
+
     public UserVO reg(String username, String password, String rePwd, String name, String power , String remarks){
         Timestamp regData = new Timestamp(System.currentTimeMillis());
         return userService.reg(username, password, rePwd , name, power ,regData,remarks);

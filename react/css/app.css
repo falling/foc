@@ -536,3 +536,6 @@ ul.list li.active {
 .overDefault{
     cursor: default;
 }
+.paddingRight{
+    padding-right: 8px;
+}

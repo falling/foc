@@ -8,23 +8,33 @@ import UserCreate from "./view/content/user/UserCreate";
 import InfoCreate from "./view/content/info/InfoCreate";
 import InfoManage from "./view/content/info/InfoManage";
 import UserProfile from "./view/content/user/UserProfile";
+import 'whatwg-fetch';
 
 export default class Manager extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
+            user: null,
         };
     }
 
     componentDidMount() {
         //get user info
+        fetch('/userInfo', {
+            method: 'post',
+            credentials: 'include',
+        }).then(response => response.json())
+            .then(user => {
+                this.setState({user: user})
+            })
     }
 
     componentWillReceiveProps(nextProps) {
     }
 
     render() {
+        const {user} = this.state;
         let urlId = +this.props.match.params.id;
         return (
             <div>
@@ -36,6 +46,7 @@ export default class Manager extends React.Component {
                     <div className="main-panel">
                         <Header
                             title ={this.props.match.params.id}
+                            user = {user}
                         />
 
                         <div className="content">
