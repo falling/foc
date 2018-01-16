@@ -1175,7 +1175,7 @@ hr {
 }
 
 .has-error .form-control {
-    background-color: #FFC0A4;
+    /*background-color: #FFC0A4;*/
     color: #EB5E28;
 }
 

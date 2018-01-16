@@ -1,23 +1,25 @@
 import React from 'react';
+import {Form, Input, Select} from 'antd';
 
-export default class UserCreate extends React.Component {
+const FormItem = Form.Item;
+const Option = Select.Option;
+
+class UserCreateForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            username:'',
-            name:'',
-            power:'user'
-        };
         this.create = this.create.bind(this);
     }
 
-    create(){
-        const {username,name,power} = this.state;
-        console.log("create:",username,name,power);
+    create(e) {
+        e.preventDefault();
+        this.props.form.validateFieldsAndScroll((err, values) => {
+            if (!err) {
+                console.log('Received values of form: ', values);
+            }
+        });
     }
 
     componentDidMount() {
-        //get user info
     }
 
     componentWillReceiveProps(nextProps) {
@@ -25,7 +27,7 @@ export default class UserCreate extends React.Component {
 
     render() {
         const {display} = this.props;
-        const {username,name} = this.state;
+        const {getFieldDecorator} = this.props.form;
         return (
             <div className="container-fluid" style={{display: !display && 'none'}}>
                 <div className="col-lg-12 col-md-12">
@@ -34,39 +36,51 @@ export default class UserCreate extends React.Component {
                             <h4 className="title">创建用户</h4>
                         </div>
                         <div className="content">
-                            <form>
+                            <Form onSubmit={e=>{this.create(e)}}>
                                 <div className="row">
                                     <div className="col-md-12">
-                                        <div className="form-group">
-                                            <label>用户名</label>
-                                            <input type="text"
-                                                   className="form-control border-input"
-                                                   onChange={e=>{this.setState({username:e.target.value})}}
-                                                   placeholder="登录名" value={username}/>
-                                        </div>
+                                        <FormItem
+                                            className="form-group">
+                                            <label>用户名*</label>
+                                            {getFieldDecorator('userName', {
+                                                rules: [{required: true, message: '请输入用户名'}],
+                                            })(
+                                                <Input
+                                                    placeholder="用户名"
+                                                    className="form-control border-input"
+                                                />
+                                            )}
+                                        </FormItem>
                                     </div>
                                 </div>
                                 <div className="row">
                                     <div className="col-md-12">
-                                        <div className="form-group">
-                                            <label>姓名</label>
-                                            <input type="text"
-                                                   onChange={e=>{this.setState({name:e.target.value})}}
-                                                   className="form-control border-input"
-                                                   placeholder="" value={name}/>
-                                        </div>
+                                        <FormItem
+                                            className="form-group">
+                                            <label>姓名*</label>
+                                            {getFieldDecorator('name', {
+                                                rules: [{required: true, message: '请输入姓名'}],
+                                            })(
+                                                <Input
+                                                    placeholder="姓名"
+                                                    className="form-control border-input"
+                                                />
+                                            )}
+                                        </FormItem>
                                     </div>
                                 </div>
                                 <div className="row">
                                     <div className="col-md-12">
                                         <div className="form-group">
                                             <label>权限</label>
-                                            <select
-                                                onChange={e=>{this.setState({power:e.target.value})}}
-                                                className="form-control border-input">
-                                                <option value="user">普通用户</option>
-                                                <option value="admin">管理员</option>
-                                            </select>
+                                            {getFieldDecorator('power', {
+                                                initialValue: 'user',
+                                            })(
+                                                <Select>
+                                                    <Option value="user">普通用户</Option>
+                                                    <Option value="admin">管理员</Option>
+                                                </Select>
+                                            )}
                                         </div>
                                     </div>
                                 </div>
@@ -79,12 +93,11 @@ export default class UserCreate extends React.Component {
                                 </div>
 
                                 <div className="text-center">
-                                    <button type="button" className="btn btn-info btn-fill btn-wd"
-                                            onClick={e=>{this.create()}}
+                                    <button type="submit" className="btn btn-info btn-fill btn-wd"
                                     >创建用户
                                     </button>
                                 </div>
-                            </form>
+                            </Form>
                         </div>
                     </div>
                 </div>
@@ -92,3 +105,6 @@ export default class UserCreate extends React.Component {
         )
     }
 }
+
+const UserCreate = Form.create()(UserCreateForm);
+export default UserCreate;
