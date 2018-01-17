@@ -1,7 +1,6 @@
 import React from 'react';
 import 'whatwg-fetch';
-import NotificationSystem from 'react-notification-system';
-
+import {message} from 'antd';
 
 
 export default class Login extends React.Component {
@@ -16,7 +15,6 @@ export default class Login extends React.Component {
         this.login =this.login.bind(this);
     }
     componentDidMount() {
-        this._notificationSystem = this.refs.notificationSystem;
     }
 
     login(){
@@ -38,11 +36,7 @@ export default class Login extends React.Component {
              if (user.status>= 0){
                  this.props.history.push("/manager/0");
              }else{
-                 this._notificationSystem.addNotification({
-                     message: user.warning,
-                     level: 'error',
-                     position:'tc'
-                 })
+                 message.error(user.info,5);
              }
         })
     }
@@ -88,7 +82,6 @@ export default class Login extends React.Component {
                                     </button>
                                 </div>
                             </div>
-                            <NotificationSystem ref="notificationSystem" />
                         </div>
                     </div>
                 </div>

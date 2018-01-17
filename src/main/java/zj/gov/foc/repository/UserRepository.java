@@ -1,10 +1,12 @@
 package zj.gov.foc.repository;
 
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.Repository;
 import zj.gov.foc.po.UserBean;
 
 import java.sql.Timestamp;
+import java.util.Date;
 
 public interface UserRepository extends Repository<UserBean, Integer> {
 
@@ -43,4 +45,8 @@ public interface UserRepository extends Repository<UserBean, Integer> {
      * @param newPwd*/
     @Query(value = "update user set pwd = ?1 where username = ?2",nativeQuery = true)
     void changePwd(String username,String newPwd);
+
+    @Modifying
+    @Query(value = "INSERT INTO user(user_name, pwd, name, power, reg_date, remarks, del) VALUES (?1,?2,?3,?4,?5,?6,?7)",nativeQuery = true)
+    int insert(String username, String password, String name, String power, Date date, String remarks, String del);
 }

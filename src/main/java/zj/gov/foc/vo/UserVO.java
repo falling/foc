@@ -1,26 +1,12 @@
 package zj.gov.foc.vo;
 
-public class UserVO {
+public class UserVO extends BaseVO{
     private Long id;
     private String pwd;
     private String name;
     private String power;
     private String remarks;
     private String username;
-    private int status;
-    private String warning;
-
-    public int getStatus() {
-        return status;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
-    }
-
-    public String getWarning() { return warning; }
-
-    public void setWarning(String warning) { this.warning = warning; }
 
     public Long getId() {
         return id;

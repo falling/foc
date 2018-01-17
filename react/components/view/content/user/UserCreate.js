@@ -1,5 +1,7 @@
 import React from 'react';
-import {Form, Input, Select} from 'antd';
+import {Form, Input, Select, message} from 'antd';
+import 'whatwg-fetch';
+
 
 const FormItem = Form.Item;
 const Option = Select.Option;
@@ -7,14 +9,54 @@ const Option = Select.Option;
 class UserCreateForm extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            loading: false,
+            userNameError: '',
+        }
         this.create = this.create.bind(this);
+        this.checkName = this.checkName.bind(this);
+    }
+
+    checkName(name) {
+        let formData = new FormData();
+        formData.append("username", name);
+        fetch('/checkName', {
+            method: 'post',
+            credentials: 'include',
+            body: formData
+        }).then(response => response.json())
+            .then(json => {
+                if (json.status < 0) {
+                    this.props.form.setFields({
+                        username: {
+                            value: name,
+                            errors: [new Error(json.info)],
+                        },
+                    });
+                }
+            })
     }
 
     create(e) {
         e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
-                console.log('Received values of form: ', values);
+                this.setState({loading: true});//loading
+                fetch('/createUser', {
+                    method: 'post',
+                    credentials: 'include',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(values)
+                }).then(response => response.json()
+                ).then(user => {
+                    this.setState({loading: false});
+                    if (user.status >= 0) {
+                        message.success(user.info, 5);
+                    } else {
+                        message.error(user.info, 5);
+                    }
+                    this.props.form.resetFields();
+                })
             }
         });
     }
@@ -27,7 +69,8 @@ class UserCreateForm extends React.Component {
 
     render() {
         const {display} = this.props;
-        const {getFieldDecorator} = this.props.form;
+        const {getFieldDecorator, getFieldError} = this.props.form;
+        const {userNameError} = this.state;
         return (
             <div className="container-fluid" style={{display: !display && 'none'}}>
                 <div className="col-lg-12 col-md-12">
@@ -36,18 +79,21 @@ class UserCreateForm extends React.Component {
                             <h4 className="title">创建用户</h4>
                         </div>
                         <div className="content">
-                            <Form onSubmit={e=>{this.create(e)}}>
+                            <Form>
                                 <div className="row">
                                     <div className="col-md-12">
                                         <FormItem
                                             className="form-group">
                                             <label>用户名*</label>
-                                            {getFieldDecorator('userName', {
+                                            {getFieldDecorator('username', {
                                                 rules: [{required: true, message: '请输入用户名'}],
                                             })(
                                                 <Input
                                                     placeholder="用户名"
                                                     className="form-control border-input"
+                                                    onBlur={e => {
+                                                        this.checkName(e.target.value)
+                                                    }}
                                                 />
                                             )}
                                         </FormItem>
@@ -93,7 +139,12 @@ class UserCreateForm extends React.Component {
                                 </div>
 
                                 <div className="text-center">
-                                    <button type="submit" className="btn btn-info btn-fill btn-wd"
+                                    <button
+                                        type="button"
+                                        className="btn btn-info btn-fill btn-wd"
+                                        onClick={e => {
+                                            this.create(e)
+                                        }}
                                     >创建用户
                                     </button>
                                 </div>

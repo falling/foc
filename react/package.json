@@ -34,8 +34,8 @@
       [
         "import",
         {
-          "libraryName":"react-router-dom",
-          "style":true
+          "libraryName": "react-router-dom",
+          "style": true
         }
       ]
     ]
@@ -46,7 +46,6 @@
     "file-loader": "^1.1.6",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
-    "react-notification-system": "^0.2.16",
     "react-router-dom": "^4.2.2",
     "rest": "^1.3.1",
     "webpack": "^1.12.2",

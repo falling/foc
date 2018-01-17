@@ -4,7 +4,7 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
-import zj.gov.foc.vo.UserVO;
+import zj.gov.foc.vo.VO;
 
 /**
  * Created by User: falling
@@ -17,9 +17,9 @@ import zj.gov.foc.vo.UserVO;
 @Component
 public class LoginInterceptor {
     @Around("execution(* zj.gov.foc.cotroller.UserController.login(..))")
-    public UserVO LoginLog(ProceedingJoinPoint point) throws Throwable {
+    public VO LoginLog(ProceedingJoinPoint point) throws Throwable {
         Object[] args = point.getArgs();
-        UserVO result = (UserVO) point.proceed(args);
+        VO result = (VO) point.proceed(args);
         if(result.getStatus()>=0){
             System.out.println("登陆成功！");
             //log 登陆时间
