@@ -45,6 +45,10 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
     margin: 30px 0 15px;
 }
 
+a {
+    text-decoration: none;
+}
+
 h1, .h1 {
     font-size: 3.2em;
 }
@@ -335,7 +339,7 @@ hr {
     margin-top: 20px;
 }
 
-.sidebar .nav li > a,.nav li> div > a,
+.sidebar .nav li > a, .nav li > div > a,
 .off-canvas-sidebar .nav li > a {
     margin: 10px 0px;
     padding-left: 25px;
@@ -343,19 +347,19 @@ hr {
     opacity: .7;
 }
 
-.nav li> div > a{
+.nav li > div > a {
     position: relative;
     display: block;
     padding: 10px 25px;
-    color:#66615B;
-}
-.nav li.active> div > a{
-    position: relative;
-    display: block;
-    padding: 10px 25px;
-    color:#EB5E28;
+    color: #66615B;
 }
 
+.nav li.active > div > a {
+    position: relative;
+    display: block;
+    padding: 10px 25px;
+    color: #EB5E28;
+}
 
 .sidebar .nav li:hover > a,
 .off-canvas-sidebar .nav li:hover > a {
@@ -1120,7 +1124,7 @@ hr {
     box-shadow: none;
 }
 
-.input-with-icon{
+.input-with-icon {
     position: relative;
 }
 
@@ -1134,21 +1138,25 @@ hr {
     -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
     -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s
 }
+
 .input-with-icon .form-control:focus {
     border-color: #ffa000;
     outline: 0;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(255, 160, 0, .6)
 }
-.login .login-container .login-form .btn-primary-outline-login{
-    border-color:#ffa000;
+
+.login .login-container .login-form .btn-primary-outline-login {
+    border-color: #ffa000;
     color: #ffa000;
     background-color: transparent;
 }
-.login .login-container .login-form .btn-primary-outline-login:hover{
-    border-color:#ffa000;
+
+.login .login-container .login-form .btn-primary-outline-login:hover {
+    border-color: #ffa000;
     color: #fff;
     background-color: #ffa000;
 }
+
 .form-control:focus {
     background-color: #FFFFFF;
     -webkit-box-shadow: none;
@@ -1200,9 +1208,11 @@ hr {
 .form-control.border-input {
     border: 1px solid #CCC5B9;
 }
-.border-input .form-control{
+
+.border-input .form-control {
     border: 1px solid #CCC5B9;
 }
+
 .open .form-control {
     border-bottom-color: transparent;
 }

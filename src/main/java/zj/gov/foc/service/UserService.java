@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import zj.gov.foc.po.UserBean;
 import zj.gov.foc.repository.UserRepository;
 import zj.gov.foc.vo.UserVO;
+import zj.gov.foc.vo.VO;
 
 import javax.transaction.Transactional;
 import java.sql.Timestamp;
@@ -93,5 +94,30 @@ public class UserService {
         }
         int result = userRepository.insert(user.getUsername(), "123456", user.getName(), user.getPower(), new Date(), "", "0");
         return result != 0 ? "创建成功":"创建失败";
+    }
+
+    public VO search(String username) {
+        UserBean bean =  userRepository.searchUser(username);
+        if(bean==null){
+            return null;
+        }
+        UserVO vo = new UserVO();
+        vo.setId(bean.getUser_id());
+        vo.setName(bean.getName());
+        vo.setPower(bean.getPower());
+        vo.setUsername(bean.getUser_name());
+        vo.setRemarks(bean.getRemarks());
+        vo.setReg_date(bean.getReg_date());
+        return vo;
+    }
+
+    @Transactional
+    public int update(UserVO user) {
+        return userRepository.updateUserInfo(user.getName(),user.getPower(),user.getId());
+    }
+
+    @Transactional
+    public int delete(Long id) {
+        return userRepository.deleteUser(id);
     }
 }

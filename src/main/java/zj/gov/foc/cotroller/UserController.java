@@ -52,6 +52,33 @@ public class UserController {
         }
     }
 
+    @RequestMapping("/searchUser")
+    public VO searchUser(@RequestParam("username")String username){
+        VO vo = userService.search(username);
+        if(vo == null){
+            return Response.warning("该用户不存在");
+        }else {
+            return Response.success(vo);
+        }
+    }
+
+
+    @RequestMapping("/updateUser")
+    public VO updateUser(@RequestBody UserVO user){
+        if(userService.update(user) == 1){
+            return Response.success("修改成功");
+        }
+        return Response.success("修改失败");
+    }
+
+    @RequestMapping("/deleteUser")
+    public VO deleteUser(@RequestParam("id") Long id){
+        if(userService.delete(id) == 1){
+            return Response.success("删除成功");
+        }
+        return Response.success("删除失败");
+    }
+
     public VO reg(String username, String password, String rePwd, String name, String power , String remarks){
         Timestamp regData = new Timestamp(System.currentTimeMillis());
         return userService.reg(username, password, rePwd , name, power ,regData,remarks);

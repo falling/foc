@@ -23,7 +23,7 @@ public class Response {
     }
 
     public static VO success(String message) {
-        return ACK(new BaseVO(), message);
+        return success(new BaseVO(), message);
     }
 
     public static VO warning() {
@@ -31,26 +31,26 @@ public class Response {
     }
 
     public static VO warning(String message) {
-        return NAK(new BaseVO(), message);
+        return warning(new BaseVO(), message);
     }
 
 
-    public static <T extends VO> T ACK(T t) {
-        return ACK(t,"success");
+    public static <T extends VO> T success(T t) {
+        return success(t,"success");
     }
 
-    public static <T extends VO> T NAK(T t) {
-        return NAK(t,"failed");
+    public static <T extends VO> T warning(T t) {
+        return warning(t,"failed");
     }
 
 
-    public static <T extends VO> T ACK(T t, String message) {
+    public static <T extends VO> T success(T t, String message) {
         t.setStatus(1);
         t.setInfo(message);
         return t;
     }
 
-    public static <T extends VO> T NAK(T t, String message) {
+    public static <T extends VO> T warning(T t, String message) {
         t.setStatus(-1);
         t.setInfo(message);
         return t;

@@ -1,33 +1,110 @@
 import React from 'react';
+import 'whatwg-fetch';
+import {Form, Input, message, Select} from 'antd';
 
-export default class UserManage extends React.Component {
+const Search = Input.Search;
+const FormItem = Form.Item;
+const Option = Select.Option;
+
+
+class UserManageForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            user_name: '',
-            name: '',
-            power: '',
-            reg_date: ''
+            updateLoading:false,
+            deleteLoading:false
         };
         this.search = this.search.bind(this);
         this.update = this.update.bind(this);
         this.delete = this.delete.bind(this);
     }
 
-    search() {
+    search(username) {
+        let formData = new FormData();
+        formData.append("username", username);
+        fetch("/searchUser", {
+            method: 'post',
+            credentials: 'include',
+            body: formData
+        }).then(response => response.json())
+            .then(json => {
+                if (json.status > 0) {
+                    delete json.status;
+                    delete json.info;
+                    delete json.pwd;
+                    delete json.remarks;
 
+                    this.props.form.setFieldsValue(json);
+                } else {
+                    message.error(json.info, 5);
+                }
+            })
     }
 
     update() {
-
+        const {getFieldValue} = this.props.form;
+        if(getFieldValue('id') === undefined){
+            message.error("请先搜索需要修改的用户", 5);
+            return;
+        }
+        this.setState({ updateLoading: true });
+        this.props.form.validateFieldsAndScroll((err, values) => {
+            if (!err) {
+                fetch('/updateUser', {
+                    method: 'post',
+                    credentials: 'include',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(values)
+                }).then(response => response.json()
+                ).then(user => {
+                    this.setState({updateLoading: false});
+                    if (user.status >= 0) {
+                        message.success(user.info, 5);
+                    } else {
+                        message.error(user.info, 5);
+                    }
+                    this.props.form.resetFields();
+                })
+            }else{
+                this.setState({ updateLoading: false});
+            }
+        });
     }
 
     delete() {
+        const {getFieldValue} = this.props.form;
+        if(getFieldValue('id') === undefined){
+            message.error("请先搜索需要修改的用户", 5);
+            return;
+        }
+        let formData = new FormData();
+        formData.append("id", getFieldValue('id'));
+        if(!confirm('确定要删除该用户吗?')) return;
 
+        this.setState({ deleteLoading: true });
+        this.props.form.validateFieldsAndScroll((err, values) => {
+            if (!err) {
+                fetch('/deleteUser', {
+                    method: 'post',
+                    credentials: 'include',
+                    body: formData
+                }).then(response => response.json()
+                ).then(user => {
+                    this.setState({deleteLoading: false});
+                    if (user.status >= 0) {
+                        message.success(user.info, 5);
+                    } else {
+                        message.error(user.info, 5);
+                    }
+                    this.props.form.resetFields();
+                })
+            }else{
+                this.setState({ deleteLoading: false});
+            }
+        });
     }
 
     componentDidMount() {
-        //get user info
     }
 
     componentWillReceiveProps(nextProps) {
@@ -35,104 +112,113 @@ export default class UserManage extends React.Component {
 
     render() {
         const {display} = this.props;
-        const {user_name, name, power, reg_date} = this.state;
+        const {getFieldDecorator} = this.props.form;
+        const {updateLoading} = this.state;
         return (
             <div className="container-fluid" style={{display: !display && 'none'}}>
                 <div className="col-lg-12 col-md-12">
                     <div className="card">
                         <div className="header">
-                            <h4 className="title">更改权限</h4>
+                            <h4 className="title">管理用户</h4>
                         </div>
                         <div className="content">
+                            <Form>
+                                {getFieldDecorator('id')(
+                                    <Input
+                                        style={{display:'none'}}
+                                        disabled
+                                    />
+                                )}
+                                <div className="row">
+                                    <div className="col-md-12">
+                                        <div className="form-group">
+                                            <Search
+                                                placeholder="请输入用户名"
+                                                onSearch={value => this.search(value)}
+                                                enterButton
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            </Form>
+                            <Form>
+                                <div className="row">
+                                    <div className="col-md-12">
+                                        <FormItem className="form-group">
+                                            <label>用户名</label>
+                                            {getFieldDecorator('username')(
+                                                <Input
+                                                    className="form-control border-input"
+                                                    disabled
+                                                />
+                                            )}
+                                        </FormItem>
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className="col-md-12">
+                                        <FormItem className="form-group">
+                                            <label>姓名</label>
+                                            {getFieldDecorator('name',{
+                                                rules: [{required: true, message: '请输入姓名'}],
+                                            })(
+                                                <Input
+                                                    className="form-control border-input"
+                                                />
+                                            )}
+                                        </FormItem>
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className="col-md-6">
+                                        <FormItem className="form-group">
+                                            <label>权限</label>
+                                            {getFieldDecorator('power', {
+                                                initialValue: 'user',
+                                            })(
+                                                <Select>
+                                                    <Option value="user">普通用户</Option>
+                                                    <Option value="admin">管理员</Option>
+                                                </Select>
+                                            )}
+                                        </FormItem>
+                                    </div>
+                                    <div className="col-md-6">
+                                        <FormItem className="form-group">
+                                            <label>注册日期</label>
+                                            {getFieldDecorator('reg_date')(
+                                                <Input
+                                                    className="form-control border-input"
+                                                    disabled
+                                                />
+                                            )}
+                                        </FormItem>
+                                    </div>
+                                </div>
 
-                            <div className="row">
-                                <div className="col-md-12">
-                                    <div className="input-group">
-                                        <span className="input-group-addon"><i className="fa fa-search"/>                                </span>
-                                        <input
-                                            type="text"
-                                            value={user_name}
-                                            onChange={e => {
-                                                this.setState({user_name: e.target.value})
+                                <div className="text-center">
+                                    <button className="btn btn-info btn-fill btn-wd"
+                                            style={{marginRight:10}}
+                                            onClick={e => {
+                                                this.update()
                                             }}
-                                            onKeyDown={e => {
-                                                e.keyCode === 13 && this.search()
+                                            disabled={updateLoading}
+                                    >
+                                        {updateLoading&&
+                                        <i style={{marginRight:5}} className="anticon anticon-spin anticon-loading"/>}
+                                        更新用户权限
+                                    </button>
+                                    <button
+                                        style={{marginLeft:10}}
+                                        type="button"
+                                        className="btn btn-danger btn-fill btn-wd"
+                                            onClick={e => {
+                                                this.delete()
                                             }}
-                                            className="form-control"
-                                            placeholder="请输入用户名"
-                                        />
-                                        <span className="input-group-btn"><button className="btn btn-default" type="button">搜索</button></span>
-                                    </div>
+                                    >删除用户
+                                    </button>
                                 </div>
-                            </div>
-
-                            <div className="row">
-                                <div className="col-md-12">
-                                    <div className="form-group">
-                                        <label>用户名</label>
-                                        <input type="text"
-                                               className="form-control border-input"
-                                               onChange={e => {
-                                                   this.setState({username: e.target.value})
-                                               }}
-                                               disabled
-                                               placeholder="登录名" value="falling"
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="row">
-                                <div className="col-md-12">
-                                    <div className="form-group">
-                                        <label>姓名</label>
-                                        <input type="text"
-                                               onChange={e => {
-                                                   this.setState({name: e.target.value})
-                                               }}
-                                               className="form-control border-input"
-                                               placeholder=""
-                                               value={name}
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="row">
-                                <div className="col-md-6">
-                                    <div className="form-group">
-                                        <label>权限</label>
-                                        <input type="text"
-                                               value={power}
-                                               disabled
-                                               className="form-control border-input"
-                                        />
-                                    </div>
-                                </div>
-                                <div className="col-md-6">
-                                    <div className="form-group">
-                                        <label>注册日期</label>
-                                        <input type="text"
-                                               value={reg_date}
-                                               disabled
-                                               className="form-control border-input"
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="text-center">
-                                <button type="button" className="btn btn-info btn-fill btn-wd"
-                                        onClick={e => {
-                                            this.update()
-                                        }}
-                                >更新用户权限
-                                </button>
-                                <button type="button" className="btn btn-danger btn-fill btn-wd"
-                                        onClick={e => {
-                                            confirm('确定要删除该用户吗?') && this.delete()
-                                        }}
-                                >删除用户
-                                </button>
-                            </div>
+                            </Form>
 
                         </div>
                     </div>
@@ -141,3 +227,6 @@ export default class UserManage extends React.Component {
         )
     }
 }
+
+const UserManage = Form.create()(UserManageForm);
+export default UserManage;

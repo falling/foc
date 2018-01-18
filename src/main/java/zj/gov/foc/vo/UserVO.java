@@ -1,5 +1,7 @@
 package zj.gov.foc.vo;
 
+import java.util.Date;
+
 public class UserVO extends BaseVO{
     private Long id;
     private String pwd;
@@ -7,6 +9,15 @@ public class UserVO extends BaseVO{
     private String power;
     private String remarks;
     private String username;
+    private Date reg_date;
+
+    public Date getReg_date() {
+        return reg_date;
+    }
+
+    public void setReg_date(Date reg_date) {
+        this.reg_date = reg_date;
+    }
 
     public Long getId() {
         return id;
