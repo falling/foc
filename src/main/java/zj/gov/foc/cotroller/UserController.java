@@ -11,7 +11,6 @@ import zj.gov.foc.vo.UserVO;
 import zj.gov.foc.vo.VO;
 
 import javax.servlet.http.HttpSession;
-import java.sql.Timestamp;
 
 @RestController
 public class UserController {
@@ -68,7 +67,7 @@ public class UserController {
         if(userService.update(user) == 1){
             return Response.success("修改成功");
         }
-        return Response.success("修改失败");
+        return Response.warning("修改失败");
     }
 
     @RequestMapping("/deleteUser")
@@ -76,7 +75,7 @@ public class UserController {
         if(userService.delete(id) == 1){
             return Response.success("删除成功");
         }
-        return Response.success("删除失败");
+        return Response.warning("删除失败");
     }
 
 }

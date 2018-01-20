@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class HQVO extends BaseVO{
 
-    private long hqId;
+    private Long hqId;
     private String chName;
     private String usedName;
     private String pyName;
@@ -30,21 +30,35 @@ public class HQVO extends BaseVO{
     private String position;
     private String education;
     private String health;
-    private String registrant;
+    private Long registrant;
     private String photo;
     private Date regDate;
     private String remarks;
     private String del;
 
 
+    public void setHqId(Long hqId) {
+        this.hqId = hqId;
+    }
 
-
-    public long getHqId() {
+    public Long getHqId() {
         return hqId;
     }
 
-    public void setHqId(long hqId) {
-        this.hqId = hqId;
+    public String getoTel() {
+        return oTel;
+    }
+
+    public void setoTel(String oTel) {
+        this.oTel = oTel;
+    }
+
+    public Long getRegistrant() {
+        return registrant;
+    }
+
+    public void setRegistrant(Long registrant) {
+        this.registrant = registrant;
     }
 
 
@@ -126,15 +140,6 @@ public class HQVO extends BaseVO{
 
     public void setIdNum(String idNum) {
         this.idNum = idNum;
-    }
-
-
-    public String getOTel() {
-        return oTel;
-    }
-
-    public void setOTel(String oTel) {
-        this.oTel = oTel;
     }
 
 
@@ -262,16 +267,6 @@ public class HQVO extends BaseVO{
     public void setHealth(String health) {
         this.health = health;
     }
-
-
-    public String getRegistrant() {
-        return registrant;
-    }
-
-    public void setRegistrant(String registrant) {
-        this.registrant = registrant;
-    }
-
 
     public String getPhoto() {
         return photo;

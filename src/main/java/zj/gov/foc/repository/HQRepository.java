@@ -5,42 +5,10 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.Repository;
 import zj.gov.foc.po.HQBean;
 
-
 import java.util.Date;
-import java.util.List;
 
-public interface HQRepository extends Repository<HQBean, Integer> {
-    /**
-     * insertHQ
-     * @param chName
-     * @param usedName
-     * @param pyName
-     * @param sex
-     * @param ethnicity
-     * @param passportNo
-     * @param dateExpriy
-     * @param dateBirth
-     * @param idNum
-     * @param oTel
-     * @param cnTel
-     * @param cnTe2
-     * @param wechat
-     * @param mail
-     * @param qqNum
-     * @param nativePlace
-     * @param nationality
-     * @param residence
-     * @param cnResidence
-     * @param presentIndustry
-     * @param comName
-     * @param position
-     * @param education
-     * @param health
-     * @param registrant
-     * @param photo
-     * @param regDate
-     * @param remarks
-     * */
+public interface HQRepository extends Repository<HQBean, Long> {
+
     @Modifying
     @Query(value = "insert into hq (ch_Name,used_Name,py_Name,sex,ethnicity,passport_No,\n" +
             "            date_Expriy,date_Birth,id_Num,o_Tel,cn_Tel,cn_Te2,wechat,mail,qq_Num,native_Place,nationality,\n" +
@@ -51,7 +19,9 @@ public interface HQRepository extends Repository<HQBean, Integer> {
                  Date dateExpriy, Date dateBirth, String idNum, String oTel, String cnTel, String cnTe2,
                  String wechat, String mail, String qqNum, String nativePlace, String nationality,
                  String residence, String cnResidence, String presentIndustry, String comName, String position,
-                 String education, String health, String registrant, String photo, Date regDate, String remarks);
+                 String education, String health, Long registrant, String photo, Date regDate, String remarks);
+
+    HQBean save(HQBean hqBean);
 
     /**
      * deleteHQ
@@ -72,10 +42,7 @@ public interface HQRepository extends Repository<HQBean, Integer> {
                  Date dateExpriy, Date dateBirth, String idNum, String oTel, String cnTel, String cnTe2,
                  String wechat, String mail, String qqNum, String nativePlace, String nationality,
                  String residence, String cnResidence, String presentIndustry, String comName, String position,
-                 String education, String health, String registrant, String photo, Date regDate, String remarks,long hqid);
-
-
-
+                 String education, String health, Long registrant, String photo, Date regDate, String remarks, long hqid);
 
 
 }

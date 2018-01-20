@@ -1,5 +1,4 @@
 import React from 'react';
-import 'react-datetime/css/react-datetime.css'
 
 export default class QjContent extends React.Component {
     constructor(props) {

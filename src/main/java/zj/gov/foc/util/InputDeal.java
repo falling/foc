@@ -10,7 +10,7 @@ public class InputDeal {
         return isNum.matches();
     }
     public static boolean isPY(String str){
-        Pattern pattern = Pattern.compile("^[a-zA-Z]+$");
+        Pattern pattern = Pattern.compile("^[a-z|A-Z]+$");
         Matcher isNum = pattern.matcher(str);
         return isNum.matches();
     }

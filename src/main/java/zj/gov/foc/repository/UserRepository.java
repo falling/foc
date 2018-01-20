@@ -7,8 +7,9 @@ import zj.gov.foc.po.UserBean;
 
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.List;
 
-public interface UserRepository extends Repository<UserBean, Integer> {
+public interface UserRepository extends Repository<UserBean, Long> {
 
     /**
      * login
@@ -51,4 +52,8 @@ public interface UserRepository extends Repository<UserBean, Integer> {
     @Modifying
     @Query(value = "update user set del = 1 where user_id =?1",nativeQuery = true)
     int deleteUser(Long id);
+
+
+    @Query(value = "select * from user where user_name like ?1",nativeQuery = true)
+    List<UserBean> seachByusername(String username);
 }

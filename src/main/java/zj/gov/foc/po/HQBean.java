@@ -12,7 +12,7 @@ import javax.persistence.Table;
 public class HQBean {
   @Id
   @GeneratedValue
-  private long hqId;
+  private Long hqId;
   private String chName;
   private String usedName;
   private String pyName;
@@ -37,23 +37,38 @@ public class HQBean {
   private String position;
   private String education;
   private String health;
-  private String registrant;
+  private Long registrant;
   private String photo;
   private java.sql.Date regDate;
   private String remarks;
   private String del;
 
 
-  public long getHqId() {
-    return hqId;
-  }
+    public Long getHqId() {
+        return hqId;
+    }
 
-  public void setHqId(long hqId) {
-    this.hqId = hqId;
-  }
+    public void setHqId(Long hqId) {
+        this.hqId = hqId;
+    }
 
+    public String getoTel() {
+        return oTel;
+    }
 
-  public String getChName() {
+    public void setoTel(String oTel) {
+        this.oTel = oTel;
+    }
+
+    public Long getRegistrant() {
+        return registrant;
+    }
+
+    public void setRegistrant(Long registrant) {
+        this.registrant = registrant;
+    }
+
+    public String getChName() {
     return chName;
   }
 
@@ -136,13 +151,6 @@ public class HQBean {
   }
 
 
-  public String getOTel() {
-    return oTel;
-  }
-
-  public void setOTel(String oTel) {
-    this.oTel = oTel;
-  }
 
 
   public String getCnTel() {
@@ -271,13 +279,6 @@ public class HQBean {
   }
 
 
-  public String getRegistrant() {
-    return registrant;
-  }
-
-  public void setRegistrant(String registrant) {
-    this.registrant = registrant;
-  }
 
 
   public String getPhoto() {

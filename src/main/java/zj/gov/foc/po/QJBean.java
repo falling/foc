@@ -1,4 +1,4 @@
-package com.sample;
+package zj.gov.foc.po;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,8 +11,8 @@ public class QJBean {
 
   @Id
   @GeneratedValue
-  private long oId;
-  private long qjId;
+  private Long oId;
+  private Long qjId;
   private String chName;
   private String sex;
   private String ethnicity;

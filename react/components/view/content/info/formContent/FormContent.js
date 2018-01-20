@@ -1,5 +1,4 @@
 import React from 'react';
-import 'react-datetime/css/react-datetime.css'
 import Hq_lxContent from "./Hq_lxContent";
 import QjContent from "./QjContent";
 

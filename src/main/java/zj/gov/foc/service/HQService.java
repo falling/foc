@@ -2,16 +2,11 @@ package zj.gov.foc.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import zj.gov.foc.po.HQBean;
 import zj.gov.foc.repository.HQRepository;
 import zj.gov.foc.util.InputDeal;
 import zj.gov.foc.vo.HQVO;
 
-
 import javax.transaction.Transactional;
-
-import java.util.Date;
-import java.util.List;
 
 
 @Service
@@ -20,13 +15,14 @@ public class HQService {
     @Autowired
     HQRepository hqRepository ;
 
+    @Transactional
     public HQVO addHQ(HQVO hqvo){
 
         if(!InputDeal.isChineseCharacters(hqvo.getChName())){
             hqvo.setInfo("中文名字为2-20个汉字");
             return hqvo;
         }
-        else if (!InputDeal.isPY(hqvo.getChName())){
+        else if (!InputDeal.isPY(hqvo.getPyName())){
             hqvo.setInfo("拼音为1-50个字母");
             return hqvo;
         }
@@ -39,7 +35,7 @@ public class HQService {
             return hqvo;
         }
         int rs= hqRepository.insertHQ( hqvo.getChName(), hqvo.getUsedName(), hqvo.getPyName(), hqvo.getSex(), hqvo.getEthnicity(), hqvo.getPassportNo(),
-                 hqvo.getDateExpriy(), hqvo.getDateBirth(),hqvo.getIdNum(), hqvo.getOTel(), hqvo.getCnTel(), hqvo.getCnTe2(), hqvo.getWechat(), hqvo.getMail(),
+                 hqvo.getDateExpriy(), hqvo.getDateBirth(),hqvo.getIdNum(), hqvo.getoTel(), hqvo.getCnTel(), hqvo.getCnTe2(), hqvo.getWechat(), hqvo.getMail(),
                 hqvo.getQqNum(), hqvo.getNativePlace(), hqvo.getNationality(), hqvo.getResidence(), hqvo.getCnResidence(), hqvo.getPresentIndustry(),
                 hqvo.getComName(), hqvo.getPosition(), hqvo.getEducation(), hqvo.getHealth(), hqvo.getRegistrant(), hqvo.getPhoto(), hqvo.getRegDate(),hqvo.getRemarks());
         if(rs > 0){
@@ -54,7 +50,7 @@ public class HQService {
     public int  modifyHQ(HQVO hqvo){
 
         int rs = hqRepository.modifyHQ(hqvo.getChName(), hqvo.getUsedName(), hqvo.getPyName(), hqvo.getSex(), hqvo.getEthnicity(), hqvo.getPassportNo(),
-                hqvo.getDateExpriy(), hqvo.getDateBirth(), hqvo.getIdNum(), hqvo.getOTel(), hqvo.getCnTel(), hqvo.getCnTe2(), hqvo.getWechat(), hqvo.getMail(),
+                hqvo.getDateExpriy(), hqvo.getDateBirth(), hqvo.getIdNum(), hqvo.getoTel(), hqvo.getCnTel(), hqvo.getCnTe2(), hqvo.getWechat(), hqvo.getMail(),
                 hqvo.getQqNum(), hqvo.getNativePlace(), hqvo.getNationality(), hqvo.getResidence(), hqvo.getCnResidence(), hqvo.getPresentIndustry(),
                 hqvo.getComName(), hqvo.getPosition(), hqvo.getEducation(), hqvo.getHealth(), hqvo.getRegistrant(), hqvo.getPhoto(), hqvo.getRegDate(), hqvo.getRemarks(),hqvo.getHqId());
         return rs;

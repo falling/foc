@@ -70,7 +70,7 @@ class UserCreateForm extends React.Component {
     render() {
         const {display} = this.props;
         const {getFieldDecorator, getFieldError} = this.props.form;
-        const {userNameError} = this.state;
+        const {loading} = this.state;
         return (
             <div className="container-fluid" style={{display: !display && 'none'}}>
                 <div className="col-lg-12 col-md-12">
@@ -145,7 +145,10 @@ class UserCreateForm extends React.Component {
                                         onClick={e => {
                                             this.create(e)
                                         }}
-                                    >创建用户
+                                        disabled={loading}
+                                    >{loading&&
+                                    <i style={{marginRight:5}} className="anticon anticon-spin anticon-loading"/>}
+                                    创建用户
                                     </button>
                                 </div>
                             </Form>

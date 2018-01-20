@@ -10,7 +10,7 @@ import javax.persistence.Table;
 public class LogBean {
   @Id
   @GeneratedValue
-  private long logId;
+  private Long logId;
   private java.sql.Timestamp logDate;
   private long oId;
   private long operatingUser;

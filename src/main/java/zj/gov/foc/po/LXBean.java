@@ -13,7 +13,7 @@ public class LXBean {
 
   @Id
   @GeneratedValue
-  private long lxId;
+  private Long lxId;
   private String chName;
   private String usedName;
   private String pyName;
@@ -38,7 +38,7 @@ public class LXBean {
   private String position;
   private String education;
   private String health;
-  private String registrant;
+  private Long registrant;
   private String photo;
   private java.sql.Timestamp regDate;
   private String remarks;
@@ -273,15 +273,25 @@ public class LXBean {
     this.health = health;
   }
 
+  public void setLxId(Long lxId) {
+    this.lxId = lxId;
+  }
 
-  public String getRegistrant() {
+  public String getoTel() {
+    return oTel;
+  }
+
+  public void setoTel(String oTel) {
+    this.oTel = oTel;
+  }
+
+  public Long getRegistrant() {
     return registrant;
   }
 
-  public void setRegistrant(String registrant) {
+  public void setRegistrant(Long registrant) {
     this.registrant = registrant;
   }
-
 
   public String getPhoto() {
     return photo;

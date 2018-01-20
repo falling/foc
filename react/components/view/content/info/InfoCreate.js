@@ -1,5 +1,4 @@
 import React from 'react';
-import 'react-datetime/css/react-datetime.css'
 import FormContent from "./formContent/FormContent";
 
 export default class InfoCreate extends React.Component {
