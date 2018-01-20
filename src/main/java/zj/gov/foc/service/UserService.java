@@ -58,24 +58,6 @@ public class UserService {
         return userVO;
     }
 
-    /**
-     * if change successful
-     *
-     * @return Warning
-     */
-    public UserVO changePwd(String username, String oldPwd, String newPwd, String reNewPwd) {
-        UserVO userVO = new UserVO();
-        UserBean userBean = userRepository.searchUser(username);
-        if (userBean == null) {
-            userVO.setInfo("该用户不存在");
-            return userVO;
-        } else if (newPwd.equals(reNewPwd)) {
-            userVO.setInfo("密码不一致");
-            return userVO;
-        }
-        userRepository.changePwd(username, newPwd);
-        return userVO;
-    }
 
 
     public String checkName(String username) {

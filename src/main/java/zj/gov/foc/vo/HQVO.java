@@ -1,7 +1,9 @@
 package zj.gov.foc.vo;
 
 
-public class HQVO {
+import java.util.Date;
+
+public class HQVO extends BaseVO{
 
     private long hqId;
     private String chName;
@@ -10,8 +12,8 @@ public class HQVO {
     private String sex;
     private String ethnicity;
     private String passportNo;
-    private java.sql.Date dateExpriy;
-    private java.sql.Date dateBirth;
+    private Date dateExpriy;
+    private Date dateBirth;
     private String idNum;
     private String oTel;
     private String cnTel;
@@ -30,11 +32,9 @@ public class HQVO {
     private String health;
     private String registrant;
     private String photo;
-    private java.sql.Date regDate;
+    private Date regDate;
     private String remarks;
     private String del;
-    private String warning;
-
 
 
 
@@ -102,20 +102,20 @@ public class HQVO {
     }
 
 
-    public java.sql.Date getDateExpriy() {
+    public Date getDateExpriy() {
         return dateExpriy;
     }
 
-    public void setDateExpriy(java.sql.Date dateExpriy) {
+    public void setDateExpriy(Date dateExpriy) {
         this.dateExpriy = dateExpriy;
     }
 
 
-    public java.sql.Date getDateBirth() {
+    public Date getDateBirth() {
         return dateBirth;
     }
 
-    public void setDateBirth(java.sql.Date dateBirth) {
+    public void setDateBirth(Date dateBirth) {
         this.dateBirth = dateBirth;
     }
 
@@ -282,11 +282,11 @@ public class HQVO {
     }
 
 
-    public java.sql.Date getRegDate() {
+    public Date getRegDate() {
         return regDate;
     }
 
-    public void setRegDate(java.sql.Date regDate) {
+    public void setRegDate(Date regDate) {
         this.regDate = regDate;
     }
 
@@ -309,13 +309,7 @@ public class HQVO {
     }
 
 
-    public String getWarning() {
-        return warning;
-    }
 
-    public void setWarning(String warning) {
-        this.warning = warning;
-    }
 
 }
 

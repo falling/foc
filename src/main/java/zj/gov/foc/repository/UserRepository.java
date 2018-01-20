@@ -39,12 +39,6 @@ public interface UserRepository extends Repository<UserBean, Integer> {
     @Query(value = "SELECT * FROM user WHERE user_name=?1 AND del = '0'",nativeQuery = true)
     UserBean searchUser(String username);
 
-    /**
-     * search changePwd
-     * @param username
-     * @param newPwd*/
-    @Query(value = "update user set pwd = ?1 where user_name = ?2",nativeQuery = true)
-    void changePwd(String username,String newPwd);
 
     @Modifying
     @Query(value = "INSERT INTO user(user_name, pwd, name, power, reg_date, remarks, del) VALUES (?1,?2,?3,?4,?5,?6,?7)",nativeQuery = true)

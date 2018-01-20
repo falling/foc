@@ -79,11 +79,4 @@ public class UserController {
         return Response.success("删除失败");
     }
 
-    public VO reg(String username, String password, String rePwd, String name, String power , String remarks){
-        Timestamp regData = new Timestamp(System.currentTimeMillis());
-        return userService.reg(username, password, rePwd , name, power ,regData,remarks);
-    }
-    public VO changePwd(String username,String oldPwd ,String newPwd,String reNewPwd){
-        return userService.changePwd(username,oldPwd,newPwd,reNewPwd);
-    }
 }

@@ -23,10 +23,10 @@ public class UserControllerTest {
     }
 
     @Resource
-    UserController UserController;
+    UserController UserController ;
 
-    @Test
-    public void testreg(){
+    /* @Test
+   public void testreg(){
         UserController.reg("yu","test","test","yu","管理员","..");
         UserController.reg("","test","test","yu","管理员","..");
         UserController.reg("yuuuuuuuuuuuuu","test","test","yu","管理员","..");
@@ -34,7 +34,7 @@ public class UserControllerTest {
     @Test
     public void testchangePwd(){
         UserController.changePwd("yu","123","321","321");
-    }
+    }*/
 
 
 }
