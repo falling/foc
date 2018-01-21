@@ -63,8 +63,11 @@ public class UserController {
 
 
     @RequestMapping("/updateUser")
-    public VO updateUser(@RequestBody UserVO user){
+    public VO updateUser(@RequestBody UserVO user,HttpSession httpSession){
+        UserVO userVO = (UserVO) httpSession.getAttribute("user");
+        user.setId(userVO.getId());
         if(userService.update(user) == 1){
+            httpSession.setAttribute("user",user);
             return Response.success("修改成功");
         }
         return Response.warning("修改失败");

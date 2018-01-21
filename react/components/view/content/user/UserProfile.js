@@ -1,24 +1,45 @@
 import React from 'react';
-
+import 'whatwg-fetch';
+import {message} from 'antd';
 export default class UserProfile extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            user_name:'',
-            name:'',
-            power:'',
-            reg_date:''
+            user:{
+                reg_date:'',
+                name : "",
+                power : "",
+                username :""
+            },
         };
         this.update = this.update.bind(this);
     }
 
     update(){
-
+        fetch('/updateUser',{
+            method: 'post',
+            credentials: 'include',
+            headers: {'Content-Type': 'application/json'},
+            body:JSON.stringify(this.state.user)
+        }).then(response=>response.json())
+            .then(json=>{
+                if(json.status>0){
+                    message.success(json.info);
+                }else{
+                    message.warning(json.info);
+                }
+            })
     }
 
     componentDidMount() {
         //get user info
-        //loading
+        fetch('/userInfo', {
+            method: 'post',
+            credentials: 'include',
+        }).then(response => response.json())
+            .then(user => {
+                this.setState({user: user})
+            })
     }
 
     componentWillReceiveProps(nextProps) {
@@ -26,7 +47,7 @@ export default class UserProfile extends React.Component {
 
     render() {
         const {display} = this.props;
-        const {user_name,name,power,reg_date} = this.state;
+        const {user} = this.state;
         return (
             <div className="container-fluid" style={{display: !display && 'none'}}>
                 <div className="col-lg-12 col-md-12">
@@ -42,11 +63,8 @@ export default class UserProfile extends React.Component {
                                             <label>用户名</label>
                                             <input type="text"
                                                    className="form-control border-input"
-                                                   onChange={e => {
-                                                       this.setState({username: e.target.value})
-                                                   }}
                                                    disabled
-                                                   placeholder="登录名" value="falling"
+                                                   value={user.username}
                                             />
                                         </div>
                                     </div>
@@ -57,11 +75,12 @@ export default class UserProfile extends React.Component {
                                             <label>姓名</label>
                                             <input type="text"
                                                    onChange={e => {
-                                                       this.setState({name: e.target.value})
+                                                       user.name = e.target.value;
+                                                       this.setState({user: user})
                                                    }}
                                                    className="form-control border-input"
                                                    placeholder=""
-                                                   value={name}
+                                                   value={user.name}
                                             />
                                         </div>
                                     </div>
@@ -71,7 +90,7 @@ export default class UserProfile extends React.Component {
                                         <div className="form-group">
                                             <label>权限</label>
                                             <input type="text"
-                                                   value={power}
+                                                   value={user.power}
                                                    disabled
                                                    className="form-control border-input"
                                             />
@@ -81,7 +100,7 @@ export default class UserProfile extends React.Component {
                                         <div className="form-group">
                                             <label>注册日期</label>
                                             <input type="text"
-                                                   value={reg_date}
+                                                   value={user.reg_date}
                                                    disabled
                                                    className="form-control border-input"
                                             />

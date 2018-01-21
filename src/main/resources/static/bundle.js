@@ -32021,7 +32021,7 @@
 	            }), _react2.default.createElement('div', { className: 'main-panel' }, _react2.default.createElement(_Header2.default, {
 	                title: this.props.match.params.id,
 	                user: user
-	            }), _react2.default.createElement('div', { className: 'content' }, _react2.default.createElement(_InfoSearch2.default, { display: urlId === 0 }), _react2.default.createElement(_UserCreate2.default, { display: urlId === 1 }), _react2.default.createElement(_UserManage2.default, { display: urlId === 2 }), _react2.default.createElement(_InfoCreate2.default, { display: urlId === 3 }), _react2.default.createElement(_InfoManage2.default, { display: urlId === 4 }), _react2.default.createElement(_UserProfile2.default, { display: urlId === 5 })), _react2.default.createElement('footer', { className: 'footer' }, _react2.default.createElement('div', { className: 'container-fluid' }, _react2.default.createElement('nav', { className: 'pull-left' }, _react2.default.createElement('ul', null, _react2.default.createElement('li', null, _react2.default.createElement('a', { href: 'http://www.creative-tim.com' }, 'Creative Tim')), _react2.default.createElement('li', null, _react2.default.createElement('a', { href: 'http://blog.creative-tim.com' }, 'Blog')), _react2.default.createElement('li', null, _react2.default.createElement('a', { href: 'http://www.creative-tim.com/license' }, 'Licenses')))), _react2.default.createElement('div', { className: 'copyright pull-right' }, '\xA9', _react2.default.createElement('script', null, 'document.write(new Date().getFullYear())'), ', made with ', _react2.default.createElement('i', { className: 'fa fa-heart heart' }), ' by ', _react2.default.createElement('a', {
+	            }), _react2.default.createElement('div', { className: 'content' }, _react2.default.createElement(_InfoSearch2.default, { display: urlId === 0 }), _react2.default.createElement(_InfoCreate2.default, { display: urlId === 1 }), _react2.default.createElement(_InfoManage2.default, { display: urlId === 2 }), _react2.default.createElement(_UserProfile2.default, { display: urlId === 3 }), _react2.default.createElement(_UserCreate2.default, { display: urlId === 4 }), _react2.default.createElement(_UserManage2.default, { display: urlId === 5 })), _react2.default.createElement('footer', { className: 'footer' }, _react2.default.createElement('div', { className: 'container-fluid' }, _react2.default.createElement('nav', { className: 'pull-left' }, _react2.default.createElement('ul', null, _react2.default.createElement('li', null, _react2.default.createElement('a', { href: 'http://www.creative-tim.com' }, 'Creative Tim')), _react2.default.createElement('li', null, _react2.default.createElement('a', { href: 'http://blog.creative-tim.com' }, 'Blog')), _react2.default.createElement('li', null, _react2.default.createElement('a', { href: 'http://www.creative-tim.com/license' }, 'Licenses')))), _react2.default.createElement('div', { className: 'copyright pull-right' }, '\xA9', _react2.default.createElement('script', null, 'document.write(new Date().getFullYear())'), ', made with ', _react2.default.createElement('i', { className: 'fa fa-heart heart' }), ' by ', _react2.default.createElement('a', {
 	                href: 'http://www.creative-tim.com' }, 'Creative Tim')))))));
 	        }
 	    }]);
@@ -32125,7 +32125,7 @@
 	        key: 'render',
 	        value: function render() {
 	            var activityIndex = +this.props.index;
-	            return _react2.default.createElement('div', { className: 'sidebar', 'data-background-color': 'white', 'data-active-color': 'danger' }, _react2.default.createElement('div', { className: 'sidebar-wrapper', id: 'accordion' }, _react2.default.createElement('div', { className: 'sidebar-wrapper' }, _react2.default.createElement('div', { className: 'logo' }, _react2.default.createElement('a', { className: 'simple-text overDefault' }, 'FOC')), _react2.default.createElement('ul', { className: 'nav' }, _react2.default.createElement('li', { className: activityIndex === 0 ? "active" : "" }, _react2.default.createElement(_reactRouterDom.Link, { to: '/manager/0' }, _react2.default.createElement('i', { className: 'ti-panel' }), _react2.default.createElement('p', null, '\u67E5\u8BE2'))), _react2.default.createElement('li', { className: activityIndex === 1 || activityIndex === 2 ? "active" : "" }, _react2.default.createElement('a', { 'data-toggle': 'collapse', 'data-parent': '#accordion', href: '#userManager' }, _react2.default.createElement('i', { className: 'ti-view-list-alt' }), _react2.default.createElement('p', null, '\u7528\u6237\u7BA1\u7406')), _react2.default.createElement('div', { className: 'collapse', id: 'userManager' }, _react2.default.createElement('ul', { className: 'list' }, _react2.default.createElement('li', { className: activityIndex === 1 ? "active" : "" }, _react2.default.createElement(_reactRouterDom.Link, { to: '/manager/1' }, '\u521B\u5EFA\u7528\u6237')), _react2.default.createElement('li', { className: activityIndex === 2 ? "active" : "" }, _react2.default.createElement(_reactRouterDom.Link, { to: '/manager/2' }, '\u7BA1\u7406\u7528\u6237'))))), _react2.default.createElement('li', { className: activityIndex === 3 || activityIndex === 4 ? "active" : "" }, _react2.default.createElement('a', { 'data-toggle': 'collapse', 'data-parent': '#accordion', href: '#infoManager' }, _react2.default.createElement('i', { className: 'ti-text' }), _react2.default.createElement('p', null, '\u5F55\u5165\u4FE1\u606F\u7BA1\u7406')), _react2.default.createElement('div', { className: 'collapse', id: 'infoManager' }, _react2.default.createElement('ul', { className: 'list' }, _react2.default.createElement('li', { className: activityIndex === 3 ? "active" : "" }, _react2.default.createElement(_reactRouterDom.Link, { to: '/manager/3' }, '\u5F55\u5165\u4FE1\u606F')), _react2.default.createElement('li', { className: activityIndex === 4 ? "active" : "" }, _react2.default.createElement(_reactRouterDom.Link, { to: '/manager/4' }, '\u67E5\u8BE2\u5F55\u5165'))))), _react2.default.createElement('li', { className: activityIndex === 5 ? "active" : "" }, _react2.default.createElement(_reactRouterDom.Link, { to: '/manager/5' }, _react2.default.createElement('i', { className: 'ti-user' }), _react2.default.createElement('p', null, '\u4FEE\u6539\u4E2A\u4EBA\u4FE1\u606F')))))));
+	            return _react2.default.createElement('div', { className: 'sidebar', 'data-background-color': 'white', 'data-active-color': 'danger' }, _react2.default.createElement('div', { className: 'sidebar-wrapper', id: 'accordion' }, _react2.default.createElement('div', { className: 'sidebar-wrapper' }, _react2.default.createElement('div', { className: 'logo' }, _react2.default.createElement('a', { className: 'simple-text overDefault' }, 'FOC')), _react2.default.createElement('ul', { className: 'nav' }, _react2.default.createElement('li', { className: activityIndex === 0 ? "active" : "" }, _react2.default.createElement(_reactRouterDom.Link, { to: '/manager/0' }, _react2.default.createElement('i', { className: 'ti-panel' }), _react2.default.createElement('p', null, '\u67E5\u8BE2'))), _react2.default.createElement('li', { className: activityIndex === 1 || activityIndex === 2 ? "active" : "" }, _react2.default.createElement('a', { 'data-toggle': 'collapse', 'data-parent': '#accordion', href: '#infoManager' }, _react2.default.createElement('i', { className: 'ti-text' }), _react2.default.createElement('p', null, '\u5F55\u5165\u4FE1\u606F\u7BA1\u7406')), _react2.default.createElement('div', { className: 'collapse', id: 'infoManager' }, _react2.default.createElement('ul', { className: 'list' }, _react2.default.createElement('li', { className: activityIndex === 1 ? "active" : "" }, _react2.default.createElement(_reactRouterDom.Link, { to: '/manager/1' }, '\u5F55\u5165\u4FE1\u606F')), _react2.default.createElement('li', { className: activityIndex === 2 ? "active" : "" }, _react2.default.createElement(_reactRouterDom.Link, { to: '/manager/2' }, '\u67E5\u8BE2\u5F55\u5165'))))), _react2.default.createElement('li', { className: activityIndex === 3 ? "active" : "" }, _react2.default.createElement(_reactRouterDom.Link, { to: '/manager/3' }, _react2.default.createElement('i', { className: 'ti-user' }), _react2.default.createElement('p', null, '\u4FEE\u6539\u4E2A\u4EBA\u4FE1\u606F'))), _react2.default.createElement('li', { className: activityIndex === 4 || activityIndex === 5 ? "active" : "" }, _react2.default.createElement('a', { 'data-toggle': 'collapse', 'data-parent': '#accordion', href: '#userManager' }, _react2.default.createElement('i', { className: 'ti-view-list-alt' }), _react2.default.createElement('p', null, '\u7528\u6237\u7BA1\u7406')), _react2.default.createElement('div', { className: 'collapse', id: 'userManager' }, _react2.default.createElement('ul', { className: 'list' }, _react2.default.createElement('li', { className: activityIndex === 4 ? "active" : "" }, _react2.default.createElement(_reactRouterDom.Link, { to: '/manager/4' }, '\u521B\u5EFA\u7528\u6237')), _react2.default.createElement('li', { className: activityIndex === 5 ? "active" : "" }, _react2.default.createElement(_reactRouterDom.Link, { to: '/manager/5' }, '\u7BA1\u7406\u7528\u6237')))))))));
 	        }
 	    }]);
 	
@@ -80026,6 +80026,10 @@
 	    value: true
 	});
 	
+	var _message3 = __webpack_require__(/*! antd/lib/message */ 257);
+	
+	var _message4 = _interopRequireDefault(_message3);
+	
 	var _createClass = function () {
 	    function defineProperties(target, props) {
 	        for (var i = 0; i < props.length; i++) {
@@ -80036,9 +80040,13 @@
 	    };
 	}();
 	
+	__webpack_require__(/*! antd/lib/message/style */ 361);
+	
 	var _react = __webpack_require__(/*! react */ 1);
 	
 	var _react2 = _interopRequireDefault(_react);
+	
+	__webpack_require__(/*! whatwg-fetch */ 366);
 	
 	function _interopRequireDefault(obj) {
 	    return obj && obj.__esModule ? obj : { default: obj };
@@ -80071,10 +80079,12 @@
 	        var _this = _possibleConstructorReturn(this, (UserProfile.__proto__ || Object.getPrototypeOf(UserProfile)).call(this, props));
 	
 	        _this.state = {
-	            user_name: '',
-	            name: '',
-	            power: '',
-	            reg_date: ''
+	            user: {
+	                reg_date: '',
+	                name: "",
+	                power: "",
+	                username: ""
+	            }
 	        };
 	        _this.update = _this.update.bind(_this);
 	        return _this;
@@ -80082,12 +80092,36 @@
 	
 	    _createClass(UserProfile, [{
 	        key: 'update',
-	        value: function update() {}
+	        value: function update() {
+	            fetch('/updateUser', {
+	                method: 'post',
+	                credentials: 'include',
+	                headers: { 'Content-Type': 'application/json' },
+	                body: JSON.stringify(this.state.user)
+	            }).then(function (response) {
+	                return response.json();
+	            }).then(function (json) {
+	                if (json.status > 0) {
+	                    _message4.default.success(json.info);
+	                } else {
+	                    _message4.default.warning(json.info);
+	                }
+	            });
+	        }
 	    }, {
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
+	            var _this2 = this;
+	
 	            //get user info
-	            //loading
+	            fetch('/userInfo', {
+	                method: 'post',
+	                credentials: 'include'
+	            }).then(function (response) {
+	                return response.json();
+	            }).then(function (user) {
+	                _this2.setState({ user: user });
+	            });
 	        }
 	    }, {
 	        key: 'componentWillReceiveProps',
@@ -80095,40 +80129,34 @@
 	    }, {
 	        key: 'render',
 	        value: function render() {
-	            var _this2 = this;
+	            var _this3 = this;
 	
 	            var display = this.props.display;
-	            var _state = this.state,
-	                user_name = _state.user_name,
-	                name = _state.name,
-	                power = _state.power,
-	                reg_date = _state.reg_date;
+	            var user = this.state.user;
 	
 	            return _react2.default.createElement('div', { className: 'container-fluid', style: { display: !display && 'none' } }, _react2.default.createElement('div', { className: 'col-lg-12 col-md-12' }, _react2.default.createElement('div', { className: 'card' }, _react2.default.createElement('div', { className: 'header' }, _react2.default.createElement('h4', { className: 'title' }, '\u4FEE\u6539\u4E2A\u4EBA\u4FE1\u606F')), _react2.default.createElement('div', { className: 'content' }, _react2.default.createElement('form', null, _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-md-12' }, _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('label', null, '\u7528\u6237\u540D'), _react2.default.createElement('input', { type: 'text',
 	                className: 'form-control border-input',
-	                onChange: function onChange(e) {
-	                    _this2.setState({ username: e.target.value });
-	                },
 	                disabled: true,
-	                placeholder: '\u767B\u5F55\u540D', value: 'falling'
+	                value: user.username
 	            })))), _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-md-12' }, _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('label', null, '\u59D3\u540D'), _react2.default.createElement('input', { type: 'text',
 	                onChange: function onChange(e) {
-	                    _this2.setState({ name: e.target.value });
+	                    user.name = e.target.value;
+	                    _this3.setState({ user: user });
 	                },
 	                className: 'form-control border-input',
 	                placeholder: '',
-	                value: name
+	                value: user.name
 	            })))), _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-md-6' }, _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('label', null, '\u6743\u9650'), _react2.default.createElement('input', { type: 'text',
-	                value: power,
+	                value: user.power,
 	                disabled: true,
 	                className: 'form-control border-input'
 	            }))), _react2.default.createElement('div', { className: 'col-md-6' }, _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('label', null, '\u6CE8\u518C\u65E5\u671F'), _react2.default.createElement('input', { type: 'text',
-	                value: reg_date,
+	                value: user.reg_date,
 	                disabled: true,
 	                className: 'form-control border-input'
 	            })))), _react2.default.createElement('div', { className: 'text-center' }, _react2.default.createElement('button', { type: 'button', className: 'btn btn-info btn-fill btn-wd',
 	                onClick: function onClick(e) {
-	                    _this2.update();
+	                    _this3.update();
 	                }
 	            }, '\u66F4\u65B0\u4FE1\u606F')))))));
 	        }

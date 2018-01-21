@@ -51,11 +51,11 @@ export default class Manager extends React.Component {
 
                         <div className="content">
                             <InfoSearch display={urlId===0}/>
-                            <UserCreate display={urlId===1}/>
-                            <UserManage display={urlId===2}/>
-                            <InfoCreate display={urlId===3}/>
-                            <InfoManage display={urlId===4}/>
-                            <UserProfile display={urlId===5}/>
+                            <InfoCreate display={urlId===1}/>
+                            <InfoManage display={urlId===2}/>
+                            <UserProfile display={urlId===3}/>
+                            <UserCreate display={urlId===4}/>
+                            <UserManage display={urlId===5}/>
                         </div>
 
 

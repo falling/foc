@@ -28,6 +28,8 @@ public class UserService {
         userVO.setName(userBean.getName());
         userVO.setUsername(userBean.getUser_name());
         userVO.setPower(userBean.getPower());
+        userVO.setReg_date(userBean.getReg_date());
+        userVO.setRemarks(userBean.getRemarks());
         return userVO;
     }
 
