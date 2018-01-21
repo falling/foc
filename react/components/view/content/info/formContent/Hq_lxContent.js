@@ -1,5 +1,5 @@
 import React from 'react';
-import {Form, Input, Select, message, DatePicker,Upload} from 'antd';
+import {Form, Input, Select, message, DatePicker, Upload} from 'antd';
 import 'whatwg-fetch';
 import moment from 'moment';
 import PicturesWall from "../../../../uiCompoment/PicturesWall";
@@ -15,12 +15,13 @@ class Hq_lxContentForm extends React.Component {
             loading: false,
             updating: false
         };
-        this.url='';
+        this.url = '';
         this.update = this.update.bind(this);
         this.getPhotoUrl = this.getPhotoUrl.bind(this);
 
     }
-    getPhotoUrl(url){
+
+    getPhotoUrl(url) {
         this.url = url;
     }
 
@@ -28,10 +29,10 @@ class Hq_lxContentForm extends React.Component {
         // this.props.getContent();
         e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, values) => {
-            if(!err){
-                this.setState({loading:true});
+            if (!err) {
+                this.setState({loading: true});
                 values.photo = this.url;
-                fetch('/addHQInfo',{
+                fetch('/addHQInfo', {
                     method: 'post',
                     credentials: 'include',
                     headers: {'Content-Type': 'application/json'},
@@ -46,7 +47,7 @@ class Hq_lxContentForm extends React.Component {
                     }
                     // this.props.form.resetFields();
                 })
-            }else{
+            } else {
             }
         })
 
@@ -63,7 +64,7 @@ class Hq_lxContentForm extends React.Component {
                     <div className="col-md-3">
                         <FormItem className="form-group">
                             <label>中文名*</label>
-                            {getFieldDecorator('chName', {
+                            {getFieldDecorator('ch_name', {
                                 rules: [{
                                     required: true,
                                     pattern: /^[\u4e00-\u9fa5]+$/,
@@ -80,7 +81,7 @@ class Hq_lxContentForm extends React.Component {
                     <div className="col-md-3">
                         <FormItem className="form-group">
                             <label>拼音*</label>
-                            {getFieldDecorator('pyName', {
+                            {getFieldDecorator('py_name', {
                                 rules: [{
                                     required: true,
                                     pattern: /^[a-z|A-Z| ]+$/,
@@ -97,7 +98,7 @@ class Hq_lxContentForm extends React.Component {
                     <div className="col-md-2">
                         <FormItem className="form-group">
                             <label>曾用名</label>
-                            {getFieldDecorator('usedName', {
+                            {getFieldDecorator('used_name', {
                                 rules: [{
                                     pattern: /^[\u4e00-\u9fa5]+$/,
                                     message: '请输入中文'
@@ -147,11 +148,11 @@ class Hq_lxContentForm extends React.Component {
                     <div className="col-md-3">
                         <FormItem className="form-group">
                             <label>护照号码*</label>
-                            {getFieldDecorator('passportNo', {
+                            {getFieldDecorator('passport_no', {
                                 validateTrigger: 'onBlur',
                                 rules: [{
                                     required: true,
-                                    pattern:/^1[45][0-9]{7}|([P|p|S|s]\d{7})|([S|s|G|g]\d{8})|([Gg|Tt|Ss|Ll|Qq|Dd|Aa|Ff]\d{8})|([H|h|M|m]\d{8,10})$/,
+                                    pattern: /^1[45][0-9]{7}|([P|p|S|s]\d{7})|([S|s|G|g]\d{8})|([Gg|Tt|Ss|Ll|Qq|Dd|Aa|Ff]\d{8})|([H|h|M|m]\d{8,10})$/,
                                     message: '请输入护照号码'
                                 }],
                             })(
@@ -165,7 +166,7 @@ class Hq_lxContentForm extends React.Component {
                     <div className="col-md-3">
                         <FormItem className="form-group">
                             <label>护照有效期*</label>
-                            {getFieldDecorator('dateExpriy', {
+                            {getFieldDecorator('date_expriy', {
                                 rules: [{
                                     required: true,
                                     message: '请选择护照有效期'
@@ -180,7 +181,7 @@ class Hq_lxContentForm extends React.Component {
                     <div className="col-md-3">
                         <FormItem className="form-group">
                             <label>出生日日期*</label>
-                            {getFieldDecorator('dateBirth', {
+                            {getFieldDecorator('date_birth', {
                                 rules: [{required: true, message: '请选择出生日期'}],
                             })(
                                 <DatePicker
@@ -192,7 +193,7 @@ class Hq_lxContentForm extends React.Component {
                     <div className="col-md-3">
                         <FormItem className="form-group">
                             <label>身份证号*</label>
-                            {getFieldDecorator('idNum', {
+                            {getFieldDecorator('id_num', {
                                 validateTrigger: 'onBlur',
                                 rules: [{
                                     required: true,
@@ -213,7 +214,7 @@ class Hq_lxContentForm extends React.Component {
                     <div className="col-md-4">
                         <FormItem className="form-group">
                             <label>海外联系电话*</label>
-                            {getFieldDecorator('oTel', {
+                            {getFieldDecorator('o_tel', {
                                 rules: [{
                                     required: true,
                                     message: '请输入海外联系电话'
@@ -230,7 +231,7 @@ class Hq_lxContentForm extends React.Component {
                     <div className="col-md-4">
                         <FormItem className="form-group">
                             <label>中国联系电话1</label>
-                            {getFieldDecorator('cnTel')(
+                            {getFieldDecorator('cn_tel')(
                                 <Input
                                     placeholder="中国联系电话1"
                                     className="form-control border-input"
@@ -242,7 +243,7 @@ class Hq_lxContentForm extends React.Component {
                     <div className="col-md-4">
                         <FormItem className="form-group">
                             <label>中国联系电话2</label>
-                            {getFieldDecorator('cnTel2')(
+                            {getFieldDecorator('cn_te2')(
                                 <Input
                                     placeholder="中国联系电话2"
                                     className="form-control border-input"
@@ -287,7 +288,7 @@ class Hq_lxContentForm extends React.Component {
                     <div className="col-md-4">
                         <FormItem className="form-group">
                             <label>QQ</label>
-                            {getFieldDecorator('qqNum', {
+                            {getFieldDecorator('qq_num', {
                                 rules: [{
                                     required: false,
                                     pattern: /[1-9][0-9]{4,14}/,
@@ -343,7 +344,7 @@ class Hq_lxContentForm extends React.Component {
                     <div className="col-md-4">
                         <FormItem className="form-group">
                             <label>中国居住地*</label>
-                            {getFieldDecorator('cnResidence', {
+                            {getFieldDecorator('cn_residence', {
                                 rules: [{
                                     required: true,
                                     pattern: /^[\u4e00-\u9fa5]+$/,
@@ -365,7 +366,7 @@ class Hq_lxContentForm extends React.Component {
                     <div className="col-md-4">
                         <FormItem className="form-group">
                             <label>所从事行业</label>
-                            {getFieldDecorator('presentIndustry')(
+                            {getFieldDecorator('present_industry')(
                                 <Input
                                     placeholder="所从事行业"
                                     className="form-control border-input"
@@ -377,7 +378,7 @@ class Hq_lxContentForm extends React.Component {
                     <div className="col-md-4">
                         <FormItem className="form-group">
                             <label>公司/单位名称</label>
-                            {getFieldDecorator('comName')(
+                            {getFieldDecorator('com_name')(
                                 <Input
                                     placeholder="公司/单位"
                                     className="form-control border-input"
@@ -489,11 +490,9 @@ class Hq_lxContentForm extends React.Component {
                     <div className="col-md-4">
                         <div className="form-group">
                             <label>照片</label>
-                            {getFieldDecorator('file')(
-                                <PicturesWall
-                                    getUrl={this.getPhotoUrl}
-                                />
-                            )}
+                            <PicturesWall
+                                getUrl={this.getPhotoUrl}
+                            />
                             <div/>
                         </div>
                     </div>
@@ -506,8 +505,8 @@ class Hq_lxContentForm extends React.Component {
                                 this.update(e)
                             }}
                             disabled={loading}
-                    >{loading&&
-                    <i style={{marginRight:5}} className="anticon anticon-spin anticon-loading"/>}
+                    >{loading &&
+                    <i style={{marginRight: 5}} className="anticon anticon-spin anticon-loading"/>}
                         录入
                     </button>
                 </div>

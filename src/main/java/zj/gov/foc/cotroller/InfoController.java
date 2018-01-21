@@ -36,9 +36,14 @@ public class InfoController {
     @RequestMapping("/addHQInfo")
     public VO addHQInfo(@RequestBody HQVO hqvo,HttpSession httpSession) {
         UserVO userVO = (UserVO) httpSession.getAttribute("user");
+        if(userVO == null){
+            return Response.warning("未登录");
+        }
         hqvo.setRegistrant(userVO.getId());
+        hqvo.setReg_date(new Date());
+        hqvo.setDel("0");
         HQVO hqvo1 = hqService.addHQ(hqvo);
-        if(hqvo1.getInfo().equals("创建成功")){
+        if(hqvo1.getInfo().equals("录入成功")){
             return Response.success(hqvo1.getInfo());
         }else{
             return Response.warning(hqvo1.getInfo());
