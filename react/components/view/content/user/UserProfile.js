@@ -6,7 +6,7 @@ export default class UserProfile extends React.Component {
         super(props);
         this.state = {
             user:{
-                reg_date:'',
+                reg_date:"",
                 name : "",
                 power : "",
                 username :""
@@ -32,13 +32,14 @@ export default class UserProfile extends React.Component {
     }
 
     componentDidMount() {
-        //get user info
         fetch('/userInfo', {
             method: 'post',
             credentials: 'include',
         }).then(response => response.json())
             .then(user => {
-                this.setState({user: user})
+                if (user.username!==null){
+                    this.setState({user: user})
+                }
             })
     }
 

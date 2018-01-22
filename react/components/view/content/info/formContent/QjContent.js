@@ -1,4 +1,9 @@
 import React from 'react';
+import 'whatwg-fetch';
+import {Form, Input, Select, message, DatePicker, Upload} from 'antd';
+
+const FormItem = Form.Item;
+const Option = Select.Option;
 
 export default class QjContent extends React.Component {
     constructor(props) {
@@ -15,14 +20,38 @@ export default class QjContent extends React.Component {
         this.update = this.update.bind(this);
 
     }
+
+    search(){
+
+    }
     update(){
 
         this.props.getContent();
     }
     render(){
-        const {name,pinyin,used_name,sex,nationality,passport,passport_date} = this.state;
+        const {name} = this.state;
+        const {getFieldDecorator} = this.props.form
         return(
             <div>
+                <Form>
+                    {getFieldDecorator('id')(
+                        <Input
+                            style={{display:'none'}}
+                            disabled
+                        />
+                    )}
+                    <div className="row">
+                        <div className="col-md-12">
+                            <div className="form-group">
+                                <Search
+                                    placeholder="请输入用户名"
+                                    onSearch={value => this.search(value)}
+                                    enterButton
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </Form>
                 <div className="row">
                     <div className="col-md-3">
                         <div className="form-group">

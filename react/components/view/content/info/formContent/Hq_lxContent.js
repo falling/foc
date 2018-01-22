@@ -1,5 +1,5 @@
 import React from 'react';
-import {Form, Input, Select, message, DatePicker, Upload} from 'antd';
+import {Form, Input, Select, message, DatePicker} from 'antd';
 import 'whatwg-fetch';
 import moment from 'moment';
 import PicturesWall from "../../../../uiCompoment/PicturesWall";
@@ -30,9 +30,10 @@ class Hq_lxContentForm extends React.Component {
         e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
+                const {type} = this.props;
                 this.setState({loading: true});
                 values.photo = this.url;
-                fetch('/addHQInfo', {
+                fetch(type==='lx'?'/addLXInfo':'/addHQInfo', {
                     method: 'post',
                     credentials: 'include',
                     headers: {'Content-Type': 'application/json'},
@@ -192,11 +193,10 @@ class Hq_lxContentForm extends React.Component {
                     </div>
                     <div className="col-md-3">
                         <FormItem className="form-group">
-                            <label>身份证号*</label>
+                            <label>身份证号</label>
                             {getFieldDecorator('id_num', {
                                 validateTrigger: 'onBlur',
                                 rules: [{
-                                    required: true,
                                     pattern: /(^[1-9]\d{5}(18|19|([23]\d))\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$)|(^[1-9]\d{5}\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{2}[0-9Xx]$)/,
                                     message: '请输入身份证号',
                                 }],
@@ -433,25 +433,29 @@ class Hq_lxContentForm extends React.Component {
                     <hr/>
                     <div className="row">
                         <div className="col-md-3">
-                            <div className="form-group">
+                            <FormItem className="form-group">
                                 <label>毕业院校英文名*</label>
-                                <input type="text"
-                                       onChange={e => {
-                                           this.setState({passport: e.target.value})
-                                       }}
-                                       className="form-control border-input"
-                                       placeholder=""
-                                />
+                                {getFieldDecorator('en_cname', {
+                                    rules: [{
+                                        required: true,
+                                        message: '请输入毕业院校英文名'
+                                    }],
+                                })(
+                                    <Input
+                                        placeholder=""
+                                        className="form-control border-input"
+                                    />
+                                )}
                                 <div/>
-                            </div>
+                            </FormItem>
                         </div>
                         <div className="col-md-3">
                             <FormItem className="form-group">
                                 <label>毕业院校中文名*</label>
-                                {getFieldDecorator('degree', {
+                                {getFieldDecorator('ch_cname', {
                                     rules: [{
                                         required: true,
-                                        message: '请输入毕业院校'
+                                        message: '请输入毕业院校中文名'
                                     }],
                                 })(
                                     <Input
@@ -463,24 +467,31 @@ class Hq_lxContentForm extends React.Component {
                             </FormItem>
                         </div>
                         <div className="col-md-3">
-                            <div className="form-group">
+                            <FormItem className="form-group">
                                 <label>学位*</label>
-                                <input type="text"
-                                       onChange={e => {
-                                           this.setState({passport: e.target.value})
-                                       }}
-                                       className="form-control border-input"
-                                       placeholder=""
-                                />
+                                {getFieldDecorator('degree', {
+                                    rules: [{
+                                        required: true,
+                                        message: '请输入学位'
+                                    }],
+                                })(
+                                    <Input
+                                        className="form-control border-input"
+                                    />
+                                )}
                                 <div/>
-                            </div>
+                            </FormItem>
                         </div>
-                        <div className="col-md-4">
-                            <div className="form-group">
+
+                        <div className="col-md-3">
+                            <FormItem className="form-group">
                                 <label>毕业时间*</label>
-                                <DatePicker/>
-                                <div/>
-                            </div>
+                                {getFieldDecorator('gra_date', {
+                                    rules: [{required: true, message: '请选择毕业时间'}],
+                                })(
+                                    <DatePicker/>
+                                )}
+                            </FormItem>
                         </div>
                     </div>
                 </div>

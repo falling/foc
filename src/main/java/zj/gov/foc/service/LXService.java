@@ -1,7 +1,9 @@
 package zj.gov.foc.service;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import zj.gov.foc.po.LxBean;
 import zj.gov.foc.repository.LXRepository;
 import zj.gov.foc.vo.LxVO;
 
@@ -17,7 +19,9 @@ public class LXService {
     LXRepository lxRepository;
 
 
-    public LxVO addLX(LxVO lxVO) {
-        return lxRepository.save(lxVO);
+    public boolean addLX(LxVO lxVO) {
+        LxBean bean = new LxBean();
+        BeanUtils.copyProperties(lxVO,bean);
+        return lxRepository.save(bean) != null;
     }
 }

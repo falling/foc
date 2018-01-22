@@ -67,11 +67,10 @@ public class InfoController {
         lxVO.setRegistrant(userVO.getId());
         lxVO.setReg_date(new Date());
         lxVO.setDel("0");
-        LxVO lxVO1 = lxService.addLX(lxVO);
-        if(lxVO1 == null){
-            return Response.success("录入失败");
+        if(lxService.addLX(lxVO)){
+            return Response.success("录入成功");
         }else{
-            return Response.warning("录入成功");
+            return Response.warning("录入失败");
         }
     }
 
