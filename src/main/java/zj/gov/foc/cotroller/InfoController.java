@@ -8,12 +8,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import zj.gov.foc.service.HQService;
+import zj.gov.foc.service.LXService;
 import zj.gov.foc.util.Response;
 import zj.gov.foc.vo.HQVO;
+import zj.gov.foc.vo.LxVO;
 import zj.gov.foc.vo.UserVO;
 import zj.gov.foc.vo.VO;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
@@ -33,6 +34,13 @@ public class InfoController {
     @Autowired
     HQService hqService ;
 
+    @Autowired
+    LXService lxService ;
+
+    @Value("${upload-path}")
+    private String path;
+
+
     @RequestMapping("/addHQInfo")
     public VO addHQInfo(@RequestBody HQVO hqvo,HttpSession httpSession) {
         UserVO userVO = (UserVO) httpSession.getAttribute("user");
@@ -50,11 +58,26 @@ public class InfoController {
         }
     }
 
-    @Value("${upload-path}")
-    private String path;
+    @RequestMapping("/addLXInfo")
+    public VO addLXInfo(@RequestBody LxVO lxVO, HttpSession httpSession) {
+        UserVO userVO = (UserVO) httpSession.getAttribute("user");
+        if(userVO == null){
+            return Response.warning("未登录");
+        }
+        lxVO.setRegistrant(userVO.getId());
+        lxVO.setReg_date(new Date());
+        lxVO.setDel("0");
+        LxVO lxVO1 = lxService.addLX(lxVO);
+        if(lxVO1 == null){
+            return Response.success("录入失败");
+        }else{
+            return Response.warning("录入成功");
+        }
+    }
+
 
     @RequestMapping("/fileUpload")
-    public VO fileUpload(@RequestParam("file") MultipartFile file ,HttpServletRequest request) {
+    public VO fileUpload(@RequestParam("file") MultipartFile file) {
         if (!file.isEmpty()) {
             try {
                 File targetFile = new File(path);
@@ -63,7 +86,7 @@ public class InfoController {
                 }
                 String newFileName =new Date().getTime()+"_"+file.getOriginalFilename();
                 Files.copy(file.getInputStream(), Paths.get(path, newFileName));
-                return Response.success(newFileName);
+                return Response.success("/"+newFileName);
             } catch (IOException | RuntimeException e) {
                 e.printStackTrace();
                 return Response.warning(e.getMessage());
@@ -72,4 +95,6 @@ public class InfoController {
             return Response.warning("文件为空");
         }
     }
+
+
 }

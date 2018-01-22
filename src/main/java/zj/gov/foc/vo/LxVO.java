@@ -1,18 +1,8 @@
-package zj.gov.foc.po;
+package zj.gov.foc.vo;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
 import java.util.Date;
 
-@Entity
-@Table(name = "lx")
-public class LxBean {
-
-
-    @Id
-    @GeneratedValue
+public class LxVO extends BaseVO{
     private Long lx_id;
     private String ch_name;
     private String used_name;
@@ -264,6 +254,22 @@ public class LxBean {
         this.photo = photo;
     }
 
+    public Date getReg_date() {
+        return reg_date;
+    }
+
+    public void setReg_date(Date reg_date) {
+        this.reg_date = reg_date;
+    }
+
+    public Date getGra_date() {
+        return gra_date;
+    }
+
+    public void setGra_date(Date gra_date) {
+        this.gra_date = gra_date;
+    }
+
     public String getRemarks() {
         return remarks;
     }
@@ -296,21 +302,6 @@ public class LxBean {
         this.degree = degree;
     }
 
-    public Date getReg_date() {
-        return reg_date;
-    }
-
-    public void setReg_date(Date reg_date) {
-        this.reg_date = reg_date;
-    }
-
-    public Date getGra_date() {
-        return gra_date;
-    }
-
-    public void setGra_date(Date gra_date) {
-        this.gra_date = gra_date;
-    }
 
     public String getDel() {
         return del;
