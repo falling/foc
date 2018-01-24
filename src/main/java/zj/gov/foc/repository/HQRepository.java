@@ -45,4 +45,6 @@ public interface HQRepository extends Repository<HQBean, Long> {
                  String education, String health, Long registrant, String photo, Date regDate, String remarks, long hqid);
 
 
+    @Query(value = "SELECT * FROM hq WHERE passport_no = ?1 and del='0'",nativeQuery = true)
+    HQBean loadByPassport(String passport_no);
 }

@@ -7,6 +7,7 @@ import zj.gov.foc.po.HQBean;
 import zj.gov.foc.repository.HQRepository;
 import zj.gov.foc.util.InputDeal;
 import zj.gov.foc.vo.HQVO;
+import zj.gov.foc.vo.VO;
 
 import javax.transaction.Transactional;
 
@@ -36,6 +37,10 @@ public class HQService {
             hqvo.setInfo("身份证格式不正确");
             return hqvo;
         }
+        if(hqRepository.loadByPassport(hqvo.getPassport_no())!=null){
+            hqvo.setInfo("身份证格式不正确");
+        }
+
         HQBean bean = new HQBean();
         BeanUtils.copyProperties(hqvo,bean);
         HQBean new_bean =hqRepository.save(bean);
@@ -57,4 +62,13 @@ public class HQService {
     }
 
 
+    public VO loadByPassport(String passport_no) {
+        HQBean bean = hqRepository.loadByPassport(passport_no);
+        HQVO vo = null;
+        if(bean!=null){
+            vo = new HQVO();
+            BeanUtils.copyProperties(bean,vo);
+        }
+        return vo;
+    }
 }

@@ -50929,6 +50929,10 @@
 	    return obj && obj.__esModule ? obj : { default: obj };
 	}
 	
+	function _objectDestructuringEmpty(obj) {
+	    if (obj == null) throw new TypeError("Cannot destructure undefined");
+	}
+	
 	function _classCallCheck(instance, Constructor) {
 	    if (!(instance instanceof Constructor)) {
 	        throw new TypeError("Cannot call a class as a function");
@@ -50955,15 +50959,7 @@
 	
 	        var _this = _possibleConstructorReturn(this, (FormContent.__proto__ || Object.getPrototypeOf(FormContent)).call(this, props));
 	
-	        _this.state = {
-	            name: '',
-	            pinyin: '',
-	            used_name: '',
-	            sex: '男',
-	            nationality: '',
-	            passport: '',
-	            passport_date: ''
-	        };
+	        _this.state = {};
 	        _this.update = _this.update.bind(_this);
 	        _this.getContent = _this.getContent.bind(_this);
 	        return _this;
@@ -50976,17 +50972,21 @@
 	        key: "update",
 	        value: function update() {}
 	    }, {
+	        key: "componentWillReceiveProps",
+	        value: function componentWillReceiveProps(nextProps) {}
+	    }, {
 	        key: "render",
 	        value: function render() {
-	            var type = this.props.type;
-	            var _state = this.state,
-	                name = _state.name,
-	                nationality = _state.nationality,
-	                passport = _state.passport,
-	                passport_date = _state.passport_date;
+	            var _props = this.props,
+	                type = _props.type,
+	                info = _props.info;
+	
+	            _objectDestructuringEmpty(this.state);
 	
 	            return _react2.default.createElement("div", null, (type === 'hq' || type === 'lx') && _react2.default.createElement(_Hq_lxContent2.default, {
+	                info: info,
 	                type: type,
+	                mode: info ? 'view' : 'add',
 	                getContent: this.getContent
 	            }), type === 'qj' && _react2.default.createElement(_QjContent2.default, {
 	                getContent: this.getContent
@@ -51028,9 +51028,9 @@
 	
 	var _select2 = _interopRequireDefault(_select);
 	
-	var _message3 = __webpack_require__(/*! antd/lib/message */ 257);
+	var _message4 = __webpack_require__(/*! antd/lib/message */ 257);
 	
-	var _message4 = _interopRequireDefault(_message3);
+	var _message5 = _interopRequireDefault(_message4);
 	
 	var _createClass = function () {
 	    function defineProperties(target, props) {
@@ -51104,8 +51104,11 @@
 	            updating: false
 	        };
 	        _this.url = '';
+	        _this.photo = '';
+	        _this.add = _this.add.bind(_this);
 	        _this.update = _this.update.bind(_this);
 	        _this.getPhotoUrl = _this.getPhotoUrl.bind(_this);
+	        _this.delete = _this.delete.bind(_this);
 	
 	        return _this;
 	    }
@@ -51117,7 +51120,21 @@
 	        }
 	    }, {
 	        key: 'update',
-	        value: function update(e) {
+	        value: function update() {}
+	    }, {
+	        key: 'delete',
+	        value: function _delete() {
+	            var getFieldValue = this.props.form.getFieldValue;
+	
+	            if (getFieldValue('passport_no') === undefined) {
+	                _message5.default.error("请先搜索需要修改的记录", 5);
+	                return;
+	            }
+	            if (!confirm('确定要删除该用户吗?')) return;
+	        }
+	    }, {
+	        key: 'add',
+	        value: function add(e) {
 	            var _this2 = this;
 	
 	            // this.props.getContent();
@@ -51138,9 +51155,9 @@
 	                    }).then(function (json) {
 	                        _this2.setState({ loading: false });
 	                        if (json.status >= 0) {
-	                            _message4.default.success(json.info, 5);
+	                            _message5.default.success(json.info, 5);
 	                        } else {
-	                            _message4.default.error(json.info, 5);
+	                            _message5.default.error(json.info, 5);
 	                        }
 	                        // this.props.form.resetFields();
 	                    });
@@ -51148,15 +51165,36 @@
 	            });
 	        }
 	    }, {
+	        key: 'componentWillReceiveProps',
+	        value: function componentWillReceiveProps(nextProps) {
+	            if (nextProps.info && nextProps.info.passport_no !== this.props.info.passport_no) {
+	                delete nextProps.info.status;
+	                delete nextProps.info.info;
+	                delete nextProps.info.del;
+	                delete nextProps.info.remarks;
+	                delete nextProps.info.native_place;
+	                delete nextProps.info.date_expriy;
+	                nextProps.info.date_birth = (0, _moment2.default)(nextProps.info.date_birth);
+	                nextProps.info.date_expriy = (0, _moment2.default)(nextProps.info.date_expriy);
+	                this.photo = nextProps.info.photo;
+	                this.props.form.setFieldsValue(nextProps.info);
+	            }
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
 	            var _this3 = this;
 	
-	            var type = this.props.type;
+	            var _props = this.props,
+	                type = _props.type,
+	                mode = _props.mode;
 	            var getFieldDecorator = this.props.form.getFieldDecorator;
 	            var loading = this.state.loading;
 	
-	            return _react2.default.createElement(_form2.default, null, _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-md-3' }, _react2.default.createElement(FormItem, { className: 'form-group' }, _react2.default.createElement('label', null, '\u4E2D\u6587\u540D*'), getFieldDecorator('ch_name', {
+	            return _react2.default.createElement(_form2.default, null, mode !== 'view' && getFieldDecorator('passport_no')(_react2.default.createElement(_input2.default, {
+	                style: { display: 'none' },
+	                disabled: true
+	            })), _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-md-3' }, _react2.default.createElement(FormItem, { className: 'form-group' }, _react2.default.createElement('label', null, '\u4E2D\u6587\u540D*'), getFieldDecorator('ch_name', {
 	                rules: [{
 	                    required: true,
 	                    pattern: /^[\u4e00-\u9fa5]+$/,
@@ -51329,14 +51367,27 @@
 	            })), _react2.default.createElement('div', null))), _react2.default.createElement('div', { className: 'col-md-3' }, _react2.default.createElement(FormItem, { className: 'form-group' }, _react2.default.createElement('label', null, '\u6BD5\u4E1A\u65F6\u95F4*'), getFieldDecorator('gra_date', {
 	                rules: [{ required: true, message: '请选择毕业时间' }]
 	            })(_react2.default.createElement(_datePicker2.default, null)))))), _react2.default.createElement('hr', null), _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-md-4' }, _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('label', null, '\u7167\u7247'), _react2.default.createElement(_PicturesWall2.default, {
+	                url: mode === 'view' ? this.photo : '',
 	                getUrl: this.getPhotoUrl
-	            }), _react2.default.createElement('div', null)))), _react2.default.createElement('hr', null), _react2.default.createElement('div', { className: 'text-center' }, _react2.default.createElement('button', { type: 'button',
+	            }), _react2.default.createElement('div', null)))), _react2.default.createElement('hr', null), _react2.default.createElement('div', { className: 'text-center' }, mode === 'add' && _react2.default.createElement('button', { type: 'button',
+	                className: 'btn btn-info btn-fill btn-wd',
+	                onClick: function onClick(e) {
+	                    _this3.add(e);
+	                },
+	                disabled: loading
+	            }, loading && _react2.default.createElement('i', { style: { marginRight: 5 }, className: 'anticon anticon-spin anticon-loading' }), '\u5F55\u5165'), mode === 'view' && _react2.default.createElement('div', null, _react2.default.createElement('button', { type: 'button',
 	                className: 'btn btn-info btn-fill btn-wd',
 	                onClick: function onClick(e) {
 	                    _this3.update(e);
 	                },
 	                disabled: loading
-	            }, loading && _react2.default.createElement('i', { style: { marginRight: 5 }, className: 'anticon anticon-spin anticon-loading' }), '\u5F55\u5165')));
+	            }, loading && _react2.default.createElement('i', { style: { marginRight: 5 }, className: 'anticon anticon-spin anticon-loading' }), '\u66F4\u65B0'), _react2.default.createElement('button', {
+	                style: { marginLeft: 10 },
+	                type: 'button',
+	                className: 'btn btn-danger btn-fill btn-wd',
+	                onClick: function onClick(e) {
+	                    _this3.delete();
+	                } }, '\u5220\u9664'))));
 	        }
 	    }]);
 	
@@ -75193,11 +75244,27 @@
 	            });
 	        }
 	    }, {
+	        key: 'componentWillReceiveProps',
+	        value: function componentWillReceiveProps(nextProps) {
+	            if (nextProps.url !== '') {
+	                this.setState({ fileList: [{
+	                        uid: -1,
+	                        name: nextProps.url.split('_')[1],
+	                        status: 'done',
+	                        url: nextProps.url
+	                    }] });
+	            }
+	        }
+	    }, {
 	        key: 'handleChange',
 	        value: function handleChange(_ref) {
 	            var fileList = _ref.fileList;
 	
 	            var file = fileList[0];
+	            if (!file) {
+	                this.setState({ fileList: fileList });
+	                return;
+	            }
 	            if (file.status === 'done' && file.response.status > 0) {
 	                _message5.default.success("上传成功");
 	                this.props.getUrl(file.response.info);
@@ -79956,6 +80023,10 @@
 	
 	var _select2 = _interopRequireDefault(_select);
 	
+	var _message2 = __webpack_require__(/*! antd/lib/message */ 257);
+	
+	var _message3 = _interopRequireDefault(_message2);
+	
 	var _form = __webpack_require__(/*! antd/lib/form */ 376);
 	
 	var _form2 = _interopRequireDefault(_form);
@@ -79976,6 +80047,8 @@
 	
 	__webpack_require__(/*! antd/lib/select/style */ 578);
 	
+	__webpack_require__(/*! antd/lib/message/style */ 361);
+	
 	__webpack_require__(/*! antd/lib/form/style */ 566);
 	
 	__webpack_require__(/*! antd/lib/input/style */ 572);
@@ -79987,6 +80060,8 @@
 	var _FormContent = __webpack_require__(/*! ./formContent/FormContent */ 583);
 	
 	var _FormContent2 = _interopRequireDefault(_FormContent);
+	
+	__webpack_require__(/*! whatwg-fetch */ 366);
 	
 	function _interopRequireDefault(obj) {
 	    return obj && obj.__esModule ? obj : { default: obj };
@@ -80025,7 +80100,7 @@
 	
 	        _this.state = {
 	            type: 'hq',
-	            user_name: ''
+	            info: {}
 	        };
 	        _this.search = _this.search.bind(_this);
 	        return _this;
@@ -80034,7 +80109,26 @@
 	    _createClass(InfoManage, [{
 	        key: 'search',
 	        value: function search(value) {
-	            console.log(value);
+	            var _this2 = this;
+	
+	            var type = this.state.type;
+	
+	            var formData = new FormData();
+	            formData.append("passport_no", value);
+	            formData.append("type", type);
+	            fetch('/loadByPassport', {
+	                method: 'post',
+	                credentials: 'include',
+	                body: formData
+	            }).then(function (response) {
+	                return response.json();
+	            }).then(function (json) {
+	                if (json.status > 0) {
+	                    _this2.setState({ info: json });
+	                } else {
+	                    _message3.default.error(json.info, 5);
+	                }
+	            });
 	        }
 	    }, {
 	        key: 'componentDidMount',
@@ -80047,21 +80141,24 @@
 	    }, {
 	        key: 'render',
 	        value: function render() {
-	            var _this2 = this;
+	            var _this3 = this;
 	
 	            var display = this.props.display;
 	            var _state = this.state,
-	                user_name = _state.user_name,
+	                info = _state.info,
 	                type = _state.type;
 	
-	            return _react2.default.createElement('div', { className: 'container-fluid', style: { display: !display && 'none' } }, _react2.default.createElement('div', { className: 'col-lg-12 col-md-12' }, _react2.default.createElement('div', { className: 'card' }, _react2.default.createElement('div', { className: 'header' }, _react2.default.createElement('h4', { className: 'title' }, '\u5F55\u5165\u7BA1\u7406')), _react2.default.createElement('div', { className: 'content' }, _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-md-12' }, _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement(Search, { addonBefore: _react2.default.createElement(_select2.default, { defaultValue: '\u534E\u4FA8' }, _react2.default.createElement(Option, { value: '\u534E\u4FA8' }, '\u534E\u4FA8'), _react2.default.createElement(Option, { value: '\u7559\u5B66' }, '\u7559\u5B66'), _react2.default.createElement(Option, { value: '\u4FA8\u7737' }, '\u4FA8\u7737')),
+	            return _react2.default.createElement('div', { className: 'container-fluid', style: { display: !display && 'none' } }, _react2.default.createElement('div', { className: 'col-lg-12 col-md-12' }, _react2.default.createElement('div', { className: 'card' }, _react2.default.createElement('div', { className: 'header' }, _react2.default.createElement('h4', { className: 'title' }, '\u5F55\u5165\u7BA1\u7406')), _react2.default.createElement('div', { className: 'content' }, _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-md-12' }, _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement(Search, { addonBefore: _react2.default.createElement(_select2.default, { onChange: function onChange(value) {
+	                        return _this3.setState({ type: value });
+	                    }, defaultValue: '\u534E\u4FA8' }, _react2.default.createElement(Option, { value: 'hq' }, '\u534E\u4FA8'), _react2.default.createElement(Option, { value: 'lx' }, '\u7559\u5B66'), _react2.default.createElement(Option, { value: 'qj' }, '\u4FA8\u7737')),
 	                placeholder: '\u8BF7\u8F93\u5165\u62A4\u7167\u53F7\u7801',
 	                onSearch: function onSearch(value) {
-	                    return _this2.search(value);
+	                    return _this3.search(value);
 	                },
 	                enterButton: true
 	            })))), _react2.default.createElement('hr', null), _react2.default.createElement(_FormContent2.default, {
-	                type: type
+	                type: type,
+	                info: info
 	            })))));
 	        }
 	    }]);

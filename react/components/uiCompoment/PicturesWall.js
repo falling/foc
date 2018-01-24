@@ -21,8 +21,25 @@ export default class PicturesWall extends React.Component {
         });
     }
 
+    componentWillReceiveProps(nextProps) {
+        if(nextProps.url!==''){
+            this.setState({fileList:[
+                    {
+                        uid: -1,
+                        name: nextProps.url.split('_')[1],
+                        status: 'done',
+                        url: nextProps.url,
+                    }
+                ]});
+        }
+    }
+
     handleChange({fileList}){
         let file = fileList[0];
+        if(!file){
+            this.setState({ fileList })
+            return;
+        }
         if(file.status === 'done' && file.response.status>0){
             message.success("上传成功");
             this.props.getUrl(file.response.info);

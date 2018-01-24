@@ -70,7 +70,30 @@ public class InfoController {
         if(lxService.addLX(lxVO)){
             return Response.success("录入成功");
         }else{
-            return Response.warning("录入失败");
+            return Response.warning("录入失败，该护照已经添加");
+        }
+    }
+
+
+    @RequestMapping("/loadByPassport")
+    public VO loadByPassport(@RequestParam("passport_no")String passport_no,@RequestParam("type")String type){
+        if(type.equals("lx")){
+            VO result = lxService.loadByPassport(passport_no);
+            if(result==null){
+                return Response.warning("用户不存在");
+            }else{
+                return Response.success(result);
+            }
+        }else if(type.equals("hq")){
+            VO result = hqService.loadByPassport(passport_no);
+            if(result==null){
+                return Response.warning("用户不存在");
+            }else{
+                return Response.success(result);
+            }
+
+        }else{
+            return Response.warning("未开放");
         }
     }
 

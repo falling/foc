@@ -19,7 +19,7 @@ SET FOREIGN_KEY_CHECKS=0;
 -- Table structure for hq
 -- ----------------------------
 DROP TABLE IF EXISTS `hq`;
-CREATE TABLE `hq` (
+ALTER TABLE `hq` (
   `hq_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `ch_name` varchar(20) NOT NULL DEFAULT ' ',
   `used_name` varchar(20) DEFAULT ' ',

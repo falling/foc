@@ -8,7 +8,6 @@ import zj.gov.foc.vo.UserVO;
 import zj.gov.foc.vo.VO;
 
 import javax.transaction.Transactional;
-import java.sql.Timestamp;
 import java.util.Date;
 
 @Service
@@ -32,35 +31,6 @@ public class UserService {
         userVO.setRemarks(userBean.getRemarks());
         return userVO;
     }
-
-    /**
-     * if registration successful
-     *
-     * @return Warning
-     */
-
-    public UserVO reg(String username, String pwd, String rePwd, String name, String power, Timestamp reg_date, String remarks) {
-        UserVO userVO = new UserVO();
-        if ((username == null) || (username.length() > 10) || "".equals(username)) {
-            userVO.setInfo("用户账号必须是1-10个字符");
-            return userVO;
-        } else if ((pwd == null) || (pwd.length() > 20) || "".equals(pwd)) {
-            userVO.setInfo("密码长度必须是1-20个字符");
-            return userVO;
-        } else if (pwd.equals(rePwd)) {
-            userVO.setInfo("密码不一致");
-            return userVO;
-        }
-        UserBean userBean = userRepository.searchUser(username);
-        if (userBean != null) {
-            userVO.setInfo("用户名已存在");
-            return userVO;
-        }
-        userRepository.reg(username, pwd, name, power, reg_date, remarks);
-        return userVO;
-    }
-
-
 
     public String checkName(String username) {
         UserBean userBean = userRepository.searchUser(username);

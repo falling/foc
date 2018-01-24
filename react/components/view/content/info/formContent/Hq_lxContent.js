@@ -13,11 +13,14 @@ class Hq_lxContentForm extends React.Component {
         super(props);
         this.state = {
             loading: false,
-            updating: false
+            updating: false,
         };
         this.url = '';
+        this.photo = '';
+        this.add = this.add.bind(this);
         this.update = this.update.bind(this);
         this.getPhotoUrl = this.getPhotoUrl.bind(this);
+        this.delete = this.delete.bind(this);
 
     }
 
@@ -25,7 +28,21 @@ class Hq_lxContentForm extends React.Component {
         this.url = url;
     }
 
-    update(e) {
+    update() {
+
+    }
+
+    delete() {
+        const {getFieldValue} = this.props.form;
+        if (getFieldValue('passport_no') === undefined) {
+            message.error("请先搜索需要修改的记录", 5);
+            return;
+        }
+        if (!confirm('确定要删除该用户吗?')) return;
+
+    }
+
+    add(e) {
         // this.props.getContent();
         e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, values) => {
@@ -33,7 +50,7 @@ class Hq_lxContentForm extends React.Component {
                 const {type} = this.props;
                 this.setState({loading: true});
                 values.photo = this.url;
-                fetch(type==='lx'?'/addLXInfo':'/addHQInfo', {
+                fetch(type === 'lx' ? '/addLXInfo' : '/addHQInfo', {
                     method: 'post',
                     credentials: 'include',
                     headers: {'Content-Type': 'application/json'},
@@ -54,13 +71,35 @@ class Hq_lxContentForm extends React.Component {
 
     }
 
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.info && nextProps.info.passport_no !== this.props.info.passport_no) {
+            delete nextProps.info.status;
+            delete nextProps.info.info;
+            delete nextProps.info.del;
+            delete nextProps.info.remarks;
+            delete nextProps.info.native_place;
+            delete nextProps.info.date_expriy;
+            nextProps.info.date_birth = moment(nextProps.info.date_birth);
+            nextProps.info.date_expriy = moment(nextProps.info.date_expriy);
+            this.photo = nextProps.info.photo;
+            this.props.form.setFieldsValue(nextProps.info);
+        }
+    }
+
     render() {
-        const {type} = this.props;
+        const {type, mode} = this.props;
         const {getFieldDecorator} = this.props.form;
         const {loading} = this.state;
-
         return (
             <Form>
+                {mode !== 'view' &&
+                getFieldDecorator('passport_no')(
+                    <Input
+                        style={{display: 'none'}}
+                        disabled
+                    />
+                )
+                }
                 <div className="row">
                     <div className="col-md-3">
                         <FormItem className="form-group">
@@ -497,29 +536,54 @@ class Hq_lxContentForm extends React.Component {
                 </div>
                 }
                 <hr/>
-                <div className="row">
-                    <div className="col-md-4">
-                        <div className="form-group">
-                            <label>照片</label>
-                            <PicturesWall
-                                getUrl={this.getPhotoUrl}
-                            />
-                            <div/>
+
+                    <div className="row">
+                        <div className="col-md-4">
+                            <div className="form-group">
+                                <label>照片</label>
+                                <PicturesWall
+                                    url = {mode ==='view'?this.photo:''}
+                                    getUrl={this.getPhotoUrl}
+                                />
+                                <div/>
+                            </div>
                         </div>
                     </div>
-                </div>
                 <hr/>
                 <div className="text-center">
-                    <button type="button"
-                            className="btn btn-info btn-fill btn-wd"
-                            onClick={e => {
-                                this.update(e)
-                            }}
-                            disabled={loading}
+                    {mode === 'add' && <button type="button"
+                                               className="btn btn-info btn-fill btn-wd"
+                                               onClick={e => {
+                                                   this.add(e)
+                                               }}
+                                               disabled={loading}
                     >{loading &&
                     <i style={{marginRight: 5}} className="anticon anticon-spin anticon-loading"/>}
                         录入
-                    </button>
+                    </button>}
+                    {mode === 'view' &&
+                    <div>
+                        <button type="button"
+                                className="btn btn-info btn-fill btn-wd"
+                                onClick={e => {
+                                    this.update(e)
+                                }}
+                                disabled={loading}
+                        >{loading &&
+                        <i style={{marginRight: 5}} className="anticon anticon-spin anticon-loading"/>}
+                            更新
+                        </button>
+
+                        <button
+                            style={{marginLeft: 10}}
+                            type="button"
+                            className="btn btn-danger btn-fill btn-wd"
+                            onClick={e => {
+                                this.delete()
+                            }}>删除
+                        </button>
+                    </div>
+                    }
                 </div>
             </Form>
         )

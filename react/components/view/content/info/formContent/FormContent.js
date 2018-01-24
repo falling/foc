@@ -6,13 +6,6 @@ export default class FormContent extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: '',
-            pinyin: '',
-            used_name: '',
-            sex: '男',
-            nationality: '',
-            passport: '',
-            passport_date: '',
         };
         this.update = this.update.bind(this);
         this.getContent = this.getContent.bind(this);
@@ -25,16 +18,21 @@ export default class FormContent extends React.Component {
     update() {
 
     }
+    componentWillReceiveProps(nextProps) {
+
+    }
 
     render() {
-        const {type} = this.props;
-        const {name, nationality, passport, passport_date} = this.state;
+        const {type,info} = this.props;
+        const {} = this.state;
 
         return (
             <div>
                 {(type === 'hq' || type === 'lx') &&
                 <Hq_lxContent
+                    info={info}
                     type={type}
+                    mode={info?'view':'add'}
                     getContent={this.getContent}
                 />
                 }
