@@ -29,7 +29,7 @@ public interface HQRepository extends Repository<HQBean, Long> {
      * return ture or false
      * */
     @Modifying
-    @Query(value = "update hq set del = 1 where hq_id = ?1 ",nativeQuery = true)
+    @Query(value = "update hq set del = '1' where hq_id = ?1 ",nativeQuery = true)
     int deleteHQ(long hqid);
 
 

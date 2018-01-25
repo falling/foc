@@ -66,9 +66,10 @@ public class HQService {
     public int  modifyHQ(HQVO hqvo){
         return 0;
     }
+
     @Transactional
-    public int  deleteHQ(long hqid){
-        return hqRepository.deleteHQ(hqid);
+    public boolean deleteHQ(long hqid){
+        return hqRepository.deleteHQ(hqid) == 1;
     }
 
 

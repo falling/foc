@@ -105,6 +105,23 @@ public class InfoController {
         return Response.success("更新成功");
     }
 
+    @RequestMapping("/deleteInfo")
+    public VO deleteInfo(@RequestParam("id")Long id,@RequestParam("type") String type) {
+        boolean result =false;
+        if(type.equals("lx")){
+            result = lxService.delete(id);
+        }else if(type.equals("hq")){
+            result = hqService.deleteHQ(id);
+        }else if(type.equals("qj")){
+
+        }
+        if(result){
+            return Response.success("删除成功");
+        }else{
+            return Response.warning("删除失败");
+        }
+    }
+
 
     @RequestMapping("/fileUpload")
     public VO fileUpload(@RequestParam("file") MultipartFile file) {

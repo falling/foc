@@ -113,7 +113,7 @@ class UserManageForm extends React.Component {
     render() {
         const {display} = this.props;
         const {getFieldDecorator} = this.props.form;
-        const {updateLoading} = this.state;
+        const {updateLoading,deleteLoading} = this.state;
         return (
             <div className="container-fluid" style={{display: !display && 'none'}}>
                 <div className="col-lg-12 col-md-12">
@@ -211,6 +211,7 @@ class UserManageForm extends React.Component {
                                     <button
                                         style={{marginLeft:10}}
                                         type="button"
+                                        disabled={deleteLoading}
                                         className="btn btn-danger btn-fill btn-wd"
                                             onClick={e => {
                                                 this.delete()

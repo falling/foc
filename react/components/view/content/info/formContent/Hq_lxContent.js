@@ -14,6 +14,7 @@ class Hq_lxContentForm extends React.Component {
         this.state = {
             loading: false,
             updating: false,
+            deleteLoading: false,
             registrant: '',
         };
         this.url = '';
@@ -66,6 +67,27 @@ class Hq_lxContentForm extends React.Component {
             return;
         }
         if (!confirm('确定要删除该用户吗?')) return;
+
+        this.setState({deleteLoading: true});
+        let formData = new FormData();
+        const {type} = this.props;
+        formData.append("id",this.props.form.getFieldValue(type==='hq'?'hq_id':'lx_id'));
+        formData.append('type',type);
+        fetch('/deleteInfo', {
+            method: 'post',
+            credentials: 'include',
+            body: formData
+        }).then(response => response.json()
+        ).then(result => {
+            this.setState({deleteLoading: false});
+            if (result.status >= 0) {
+                message.success(result.info, 5);
+            } else {
+                message.error(result.info, 5);
+            }
+            this.clean = true;
+            this.props.form.resetFields();
+        })
 
     }
 
@@ -120,7 +142,7 @@ class Hq_lxContentForm extends React.Component {
     render() {
         const {type, mode} = this.props;
         const {getFieldDecorator} = this.props.form;
-        const {loading} = this.state;
+        const {loading, deleteLoading} = this.state;
         return (
             <Form>
                 {getFieldDecorator('lx_id')(
@@ -665,6 +687,7 @@ class Hq_lxContentForm extends React.Component {
                             style={{marginLeft: 10}}
                             type="button"
                             className="btn btn-danger btn-fill btn-wd"
+                            disabled={deleteLoading}
                             onClick={e => {
                                 this.delete()
                             }}>删除

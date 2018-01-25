@@ -60,4 +60,9 @@ public class LXService {
         BeanUtils.copyProperties(vo,bean);
         return lxRepository.save(bean);
     }
+
+    @Transactional
+    public boolean delete(Long id) {
+        return lxRepository.delete(id) ==1;
+    }
 }

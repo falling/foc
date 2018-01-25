@@ -32524,7 +32524,9 @@
 	
 	            var display = this.props.display;
 	            var getFieldDecorator = this.props.form.getFieldDecorator;
-	            var updateLoading = this.state.updateLoading;
+	            var _state = this.state,
+	                updateLoading = _state.updateLoading,
+	                deleteLoading = _state.deleteLoading;
 	
 	            return _react2.default.createElement('div', { className: 'container-fluid', style: { display: !display && 'none' } }, _react2.default.createElement('div', { className: 'col-lg-12 col-md-12' }, _react2.default.createElement('div', { className: 'card' }, _react2.default.createElement('div', { className: 'header' }, _react2.default.createElement('h4', { className: 'title' }, '\u7BA1\u7406\u7528\u6237')), _react2.default.createElement('div', { className: 'content' }, _react2.default.createElement(_form2.default, null, getFieldDecorator('id')(_react2.default.createElement(_input2.default, {
 	                style: { display: 'none' },
@@ -32556,6 +32558,7 @@
 	            }, updateLoading && _react2.default.createElement('i', { style: { marginRight: 5 }, className: 'anticon anticon-spin anticon-loading' }), '\u66F4\u65B0\u7528\u6237\u6743\u9650'), _react2.default.createElement('button', {
 	                style: { marginLeft: 10 },
 	                type: 'button',
+	                disabled: deleteLoading,
 	                className: 'btn btn-danger btn-fill btn-wd',
 	                onClick: function onClick(e) {
 	                    _this5.delete();
@@ -51031,9 +51034,9 @@
 	
 	var _select2 = _interopRequireDefault(_select);
 	
-	var _message6 = __webpack_require__(/*! antd/lib/message */ 257);
+	var _message8 = __webpack_require__(/*! antd/lib/message */ 257);
 	
-	var _message7 = _interopRequireDefault(_message6);
+	var _message9 = _interopRequireDefault(_message8);
 	
 	var _createClass = function () {
 	    function defineProperties(target, props) {
@@ -51105,6 +51108,7 @@
 	        _this.state = {
 	            loading: false,
 	            updating: false,
+	            deleteLoading: false,
 	            registrant: ''
 	        };
 	        _this.url = '';
@@ -51148,9 +51152,9 @@
 	                    }).then(function (json) {
 	                        _this2.setState({ loading: false });
 	                        if (json.status >= 0) {
-	                            _message7.default.success(json.info, 5);
+	                            _message9.default.success(json.info, 5);
 	                        } else {
-	                            _message7.default.error(json.info, 5);
+	                            _message9.default.error(json.info, 5);
 	                        }
 	                        _this2.clean = true;
 	                        _this2.props.form.resetFields();
@@ -51161,27 +51165,52 @@
 	    }, {
 	        key: 'delete',
 	        value: function _delete() {
+	            var _this3 = this;
+	
 	            var getFieldValue = this.props.form.getFieldValue;
 	
 	            if (getFieldValue('passport_no') === undefined) {
-	                _message7.default.error("请先搜索需要修改的记录", 5);
+	                _message9.default.error("请先搜索需要修改的记录", 5);
 	                return;
 	            }
 	            if (!confirm('确定要删除该用户吗?')) return;
+	
+	            this.setState({ deleteLoading: true });
+	            var formData = new FormData();
+	            var type = this.props.type;
+	
+	            formData.append("id", this.props.form.getFieldValue(type === 'hq' ? 'hq_id' : 'lx_id'));
+	            formData.append('type', type);
+	            fetch('/deleteInfo', {
+	                method: 'post',
+	                credentials: 'include',
+	                body: formData
+	            }).then(function (response) {
+	                return response.json();
+	            }).then(function (result) {
+	                _this3.setState({ deleteLoading: false });
+	                if (result.status >= 0) {
+	                    _message9.default.success(result.info, 5);
+	                } else {
+	                    _message9.default.error(result.info, 5);
+	                }
+	                _this3.clean = true;
+	                _this3.props.form.resetFields();
+	            });
 	        }
 	    }, {
 	        key: 'add',
 	        value: function add(e) {
-	            var _this3 = this;
+	            var _this4 = this;
 	
 	            // this.props.getContent();
 	            e.preventDefault();
 	            this.props.form.validateFieldsAndScroll(function (err, values) {
 	                if (!err) {
-	                    var type = _this3.props.type;
+	                    var type = _this4.props.type;
 	
-	                    _this3.setState({ loading: true });
-	                    values.photo = _this3.url;
+	                    _this4.setState({ loading: true });
+	                    values.photo = _this4.url;
 	                    fetch(type === 'lx' ? '/addLXInfo' : '/addHQInfo', {
 	                        method: 'post',
 	                        credentials: 'include',
@@ -51190,11 +51219,11 @@
 	                    }).then(function (response) {
 	                        return response.json();
 	                    }).then(function (json) {
-	                        _this3.setState({ loading: false });
+	                        _this4.setState({ loading: false });
 	                        if (json.status >= 0) {
-	                            _message7.default.success(json.info, 5);
+	                            _message9.default.success(json.info, 5);
 	                        } else {
-	                            _message7.default.error(json.info, 5);
+	                            _message9.default.error(json.info, 5);
 	                        }
 	                        // this.props.form.resetFields();
 	                    });
@@ -51224,13 +51253,15 @@
 	    }, {
 	        key: 'render',
 	        value: function render() {
-	            var _this4 = this;
+	            var _this5 = this;
 	
 	            var _props = this.props,
 	                type = _props.type,
 	                mode = _props.mode;
 	            var getFieldDecorator = this.props.form.getFieldDecorator;
-	            var loading = this.state.loading;
+	            var _state = this.state,
+	                loading = _state.loading,
+	                deleteLoading = _state.deleteLoading;
 	
 	            return _react2.default.createElement(_form2.default, null, getFieldDecorator('lx_id')(_react2.default.createElement(_input2.default, {
 	                style: { display: 'none' },
@@ -51444,21 +51475,22 @@
 	            })), _react2.default.createElement('div', null))))), _react2.default.createElement('hr', null), _react2.default.createElement('div', { className: 'text-center' }, mode === 'add' && _react2.default.createElement('button', { type: 'button',
 	                className: 'btn btn-info btn-fill btn-wd',
 	                onClick: function onClick(e) {
-	                    _this4.add(e);
+	                    _this5.add(e);
 	                },
 	                disabled: loading
 	            }, loading && _react2.default.createElement('i', { style: { marginRight: 5 }, className: 'anticon anticon-spin anticon-loading' }), '\u5F55\u5165'), mode === 'view' && _react2.default.createElement('div', null, _react2.default.createElement('button', { type: 'button',
 	                className: 'btn btn-info btn-fill btn-wd',
 	                onClick: function onClick(e) {
-	                    _this4.update(e);
+	                    _this5.update(e);
 	                },
 	                disabled: loading
 	            }, loading && _react2.default.createElement('i', { style: { marginRight: 5 }, className: 'anticon anticon-spin anticon-loading' }), '\u66F4\u65B0'), _react2.default.createElement('button', {
 	                style: { marginLeft: 10 },
 	                type: 'button',
 	                className: 'btn btn-danger btn-fill btn-wd',
+	                disabled: deleteLoading,
 	                onClick: function onClick(e) {
-	                    _this4.delete();
+	                    _this5.delete();
 	                } }, '\u5220\u9664'))));
 	        }
 	    }]);
