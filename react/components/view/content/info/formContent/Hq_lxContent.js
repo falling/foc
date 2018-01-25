@@ -14,9 +14,11 @@ class Hq_lxContentForm extends React.Component {
         this.state = {
             loading: false,
             updating: false,
+            registrant: '',
         };
         this.url = '';
         this.photo = '';
+        this.clean = false;
         this.add = this.add.bind(this);
         this.update = this.update.bind(this);
         this.getPhotoUrl = this.getPhotoUrl.bind(this);
@@ -26,10 +28,35 @@ class Hq_lxContentForm extends React.Component {
 
     getPhotoUrl(url) {
         this.url = url;
+        this.photo = '';
+        this.clean = false;
     }
 
     update() {
-
+        const {getFieldValue} = this.props.form;
+        this.props.form.validateFieldsAndScroll((err, values) => {
+            if (!err) {
+                values.photo = this.url || this.photo;
+                this.setState({loading: true});
+                const {type} = this.props;
+                fetch(type === 'lx' ? '/updateLXInfo' : '/updateHQInfo', {
+                    method: 'post',
+                    credentials: 'include',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(values)
+                }).then(response => response.json()
+                ).then(json => {
+                    this.setState({loading: false});
+                    if (json.status >= 0) {
+                        message.success(json.info, 5);
+                    } else {
+                        message.error(json.info, 5);
+                    }
+                    this.clean = true;
+                    this.props.form.resetFields();
+                })
+            }
+        })
     }
 
     delete() {
@@ -72,17 +99,21 @@ class Hq_lxContentForm extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        if (nextProps.info && nextProps.info.passport_no !== this.props.info.passport_no) {
-            delete nextProps.info.status;
-            delete nextProps.info.info;
-            delete nextProps.info.del;
-            delete nextProps.info.remarks;
-            delete nextProps.info.native_place;
-            delete nextProps.info.date_expriy;
-            nextProps.info.date_birth = moment(nextProps.info.date_birth);
-            nextProps.info.date_expriy = moment(nextProps.info.date_expriy);
-            this.photo = nextProps.info.photo;
-            this.props.form.setFieldsValue(nextProps.info);
+        if (nextProps.info && nextProps.fresh !== this.props.fresh) {
+            let info = nextProps.info;
+            delete info.status;
+            delete info.info;
+            info.date_birth = info.date_birth ? moment(info.date_birth) : '';
+            info.date_expriy = info.date_expriy ? moment(info.date_expriy) : '';
+            if (this.props.type === 'lx') {
+                info.gra_date = info.gra_date ? moment(info.gra_date) : '';
+            }
+            this.photo = info.photo;
+            this.props.form.setFieldsValue(info);
+        }
+        if (nextProps.type && nextProps.type !== this.props.type) {
+            this.clean = true;
+            this.props.form.resetFields();
         }
     }
 
@@ -92,13 +123,17 @@ class Hq_lxContentForm extends React.Component {
         const {loading} = this.state;
         return (
             <Form>
-                {mode !== 'view' &&
-                getFieldDecorator('passport_no')(
+                {getFieldDecorator('lx_id')(
                     <Input
                         style={{display: 'none'}}
                         disabled
-                    />
-                )
+                    />)
+                }
+                {getFieldDecorator('hq_id')(
+                    <Input
+                        style={{display: 'none'}}
+                        disabled
+                    />)
                 }
                 <div className="row">
                     <div className="col-md-3">
@@ -139,6 +174,7 @@ class Hq_lxContentForm extends React.Component {
                         <FormItem className="form-group">
                             <label>曾用名</label>
                             {getFieldDecorator('used_name', {
+                                initialValue: '',
                                 rules: [{
                                     pattern: /^[\u4e00-\u9fa5]+$/,
                                     message: '请输入中文'
@@ -234,6 +270,7 @@ class Hq_lxContentForm extends React.Component {
                         <FormItem className="form-group">
                             <label>身份证号</label>
                             {getFieldDecorator('id_num', {
+                                initialValue: '',
                                 validateTrigger: 'onBlur',
                                 rules: [{
                                     pattern: /(^[1-9]\d{5}(18|19|([23]\d))\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$)|(^[1-9]\d{5}\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{2}[0-9Xx]$)/,
@@ -252,10 +289,10 @@ class Hq_lxContentForm extends React.Component {
                 <div className="row">
                     <div className="col-md-4">
                         <FormItem className="form-group">
-                            <label>海外联系电话*</label>
+                            <label>海外联系电话</label>
                             {getFieldDecorator('o_tel', {
+                                initialValue: '',
                                 rules: [{
-                                    required: true,
                                     message: '请输入海外联系电话'
                                 }],
                             })(
@@ -270,7 +307,9 @@ class Hq_lxContentForm extends React.Component {
                     <div className="col-md-4">
                         <FormItem className="form-group">
                             <label>中国联系电话1</label>
-                            {getFieldDecorator('cn_tel')(
+                            {getFieldDecorator('cn_tel', {
+                                initialValue: '',
+                            })(
                                 <Input
                                     placeholder="中国联系电话1"
                                     className="form-control border-input"
@@ -282,7 +321,9 @@ class Hq_lxContentForm extends React.Component {
                     <div className="col-md-4">
                         <FormItem className="form-group">
                             <label>中国联系电话2</label>
-                            {getFieldDecorator('cn_te2')(
+                            {getFieldDecorator('cn_te2', {
+                                initialValue: '',
+                            })(
                                 <Input
                                     placeholder="中国联系电话2"
                                     className="form-control border-input"
@@ -297,7 +338,9 @@ class Hq_lxContentForm extends React.Component {
                     <div className="col-md-4">
                         <FormItem className="form-group">
                             <label>微信</label>
-                            {getFieldDecorator('wechat')(
+                            {getFieldDecorator('wechat', {
+                                initialValue: '',
+                            })(
                                 <Input
                                     placeholder="微信"
                                     className="form-control border-input"
@@ -310,6 +353,7 @@ class Hq_lxContentForm extends React.Component {
                         <FormItem className="form-group">
                             <label>邮箱</label>
                             {getFieldDecorator('mail', {
+                                initialValue: '',
                                 rules: [{
                                     type: 'email',
                                     required: false,
@@ -328,8 +372,8 @@ class Hq_lxContentForm extends React.Component {
                         <FormItem className="form-group">
                             <label>QQ</label>
                             {getFieldDecorator('qq_num', {
+                                initialValue: '',
                                 rules: [{
-                                    required: false,
                                     pattern: /[1-9][0-9]{4,14}/,
                                     message: 'qq格式不正确'
                                 }]
@@ -405,7 +449,9 @@ class Hq_lxContentForm extends React.Component {
                     <div className="col-md-4">
                         <FormItem className="form-group">
                             <label>所从事行业</label>
-                            {getFieldDecorator('present_industry')(
+                            {getFieldDecorator('present_industry', {
+                                initialValue: '',
+                            })(
                                 <Input
                                     placeholder="所从事行业"
                                     className="form-control border-input"
@@ -417,7 +463,9 @@ class Hq_lxContentForm extends React.Component {
                     <div className="col-md-4">
                         <FormItem className="form-group">
                             <label>公司/单位名称</label>
-                            {getFieldDecorator('com_name')(
+                            {getFieldDecorator('com_name', {
+                                initialValue: '',
+                            })(
                                 <Input
                                     placeholder="公司/单位"
                                     className="form-control border-input"
@@ -429,7 +477,9 @@ class Hq_lxContentForm extends React.Component {
                     <div className="col-md-4">
                         <FormItem className="form-group">
                             <label>职务</label>
-                            {getFieldDecorator('position')(
+                            {getFieldDecorator('position', {
+                                initialValue: '',
+                            })(
                                 <Input
                                     placeholder="公司/单位"
                                     className="form-control border-input"
@@ -444,7 +494,9 @@ class Hq_lxContentForm extends React.Component {
                     <div className="col-md-4">
                         <FormItem className="form-group">
                             <label>文化程度</label>
-                            {getFieldDecorator('education')(
+                            {getFieldDecorator('education', {
+                                initialValue: '',
+                            })(
                                 <Input
                                     placeholder="文化程度"
                                     className="form-control border-input"
@@ -456,7 +508,9 @@ class Hq_lxContentForm extends React.Component {
                     <div className="col-md-4">
                         <FormItem className="form-group">
                             <label>健康状态</label>
-                            {getFieldDecorator('health')(
+                            {getFieldDecorator('health', {
+                                initialValue: '',
+                            })(
                                 <Input
                                     placeholder="健康状态"
                                     className="form-control border-input"
@@ -537,18 +591,51 @@ class Hq_lxContentForm extends React.Component {
                 }
                 <hr/>
 
-                    <div className="row">
-                        <div className="col-md-4">
-                            <div className="form-group">
-                                <label>照片</label>
-                                <PicturesWall
-                                    url = {mode ==='view'?this.photo:''}
-                                    getUrl={this.getPhotoUrl}
-                                />
-                                <div/>
-                            </div>
+                <div className="row">
+                    <div className="col-md-4">
+                        <div className="form-group">
+                            <label>照片</label>
+                            <PicturesWall
+                                clean={this.clean}
+                                url={mode === 'view' ? this.photo : ''}
+                                getUrl={this.getPhotoUrl}
+                            />
+                            <div/>
                         </div>
                     </div>
+                </div>
+                {<div>
+                    <hr/>
+                    <div className="row">
+                        <div className="col-md-4">
+                            <FormItem className="form-group">
+                                <label>登记人</label>
+                                {getFieldDecorator('registrant_name', {
+                                    rules: [{required: true, message: '请选择毕业时间'}],
+                                })(
+                                    <Input
+                                        className="form-control border-input"
+                                        disabled
+                                    />
+                                )}
+                                <div/>
+                            </FormItem>
+                        </div>
+                        <div className="col-md-4">
+                            <FormItem className="form-group">
+                                <label>登记时间</label>
+                                {getFieldDecorator('reg_date', {})(
+                                    <Input
+                                        disabled
+                                        className="form-control border-input"
+                                    />
+                                )}
+                                <div/>
+                            </FormItem>
+                        </div>
+                    </div>
+                </div>}
+
                 <hr/>
                 <div className="text-center">
                     {mode === 'add' && <button type="button"

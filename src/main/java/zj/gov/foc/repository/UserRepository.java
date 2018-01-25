@@ -56,4 +56,7 @@ public interface UserRepository extends Repository<UserBean, Long> {
 
     @Query(value = "select * from user where user_name like ?1",nativeQuery = true)
     List<UserBean> seachByusername(String username);
+
+    @Query(value = "SELECT * FROM user WHERE user_id = ?1",nativeQuery = true)
+    UserBean getById(Long registrant);
 }

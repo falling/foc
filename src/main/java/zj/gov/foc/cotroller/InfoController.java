@@ -20,7 +20,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Date;
+import java.sql.Date;
 
 /**
  * Created by User: falling
@@ -32,28 +32,25 @@ import java.util.Date;
 public class InfoController {
 
     @Autowired
-    HQService hqService ;
+    HQService hqService;
 
     @Autowired
-    LXService lxService ;
+    LXService lxService;
 
     @Value("${upload-path}")
     private String path;
 
 
     @RequestMapping("/addHQInfo")
-    public VO addHQInfo(@RequestBody HQVO hqvo,HttpSession httpSession) {
+    public VO addHQInfo(@RequestBody HQVO hqvo, HttpSession httpSession) {
         UserVO userVO = (UserVO) httpSession.getAttribute("user");
-        if(userVO == null){
+        if (userVO == null) {
             return Response.warning("未登录");
         }
-        hqvo.setRegistrant(userVO.getId());
-        hqvo.setReg_date(new Date());
-        hqvo.setDel("0");
-        HQVO hqvo1 = hqService.addHQ(hqvo);
-        if(hqvo1.getInfo().equals("录入成功")){
+        HQVO hqvo1 = hqService.addHQ(hqvo,userVO);
+        if (hqvo1.getInfo().equals("录入成功")) {
             return Response.success(hqvo1.getInfo());
-        }else{
+        } else {
             return Response.warning(hqvo1.getInfo());
         }
     }
@@ -61,40 +58,51 @@ public class InfoController {
     @RequestMapping("/addLXInfo")
     public VO addLXInfo(@RequestBody LxVO lxVO, HttpSession httpSession) {
         UserVO userVO = (UserVO) httpSession.getAttribute("user");
-        if(userVO == null){
+        if (userVO == null) {
             return Response.warning("未登录");
         }
-        lxVO.setRegistrant(userVO.getId());
-        lxVO.setReg_date(new Date());
-        lxVO.setDel("0");
-        if(lxService.addLX(lxVO)){
+
+        if (lxService.addLX(lxVO,userVO.getId())) {
             return Response.success("录入成功");
-        }else{
+        } else {
             return Response.warning("录入失败，该护照已经添加");
         }
     }
 
 
     @RequestMapping("/loadByPassport")
-    public VO loadByPassport(@RequestParam("passport_no")String passport_no,@RequestParam("type")String type){
-        if(type.equals("lx")){
+    public VO loadByPassport(@RequestParam("passport_no") String passport_no, @RequestParam("type") String type) {
+        if (type.equals("lx")) {
             VO result = lxService.loadByPassport(passport_no);
-            if(result==null){
+            if (result == null) {
                 return Response.warning("用户不存在");
-            }else{
+            } else {
                 return Response.success(result);
             }
-        }else if(type.equals("hq")){
+        } else if (type.equals("hq")) {
             VO result = hqService.loadByPassport(passport_no);
-            if(result==null){
+            if (result == null) {
                 return Response.warning("用户不存在");
-            }else{
+            } else {
                 return Response.success(result);
             }
 
-        }else{
+        } else {
             return Response.warning("未开放");
         }
+    }
+
+    @RequestMapping("/updateLXInfo")
+    public VO updateLXInfo(@RequestBody LxVO vo) {
+        lxService.update(vo);
+        return Response.success("更新成功");
+    }
+
+
+    @RequestMapping("/updateHQInfo")
+    public VO updateHQInfo(@RequestBody HQVO vo) {
+        hqService.update(vo);
+        return Response.success("更新成功");
     }
 
 
@@ -103,12 +111,12 @@ public class InfoController {
         if (!file.isEmpty()) {
             try {
                 File targetFile = new File(path);
-                if(!targetFile.exists()){
+                if (!targetFile.exists()) {
                     targetFile.mkdirs();
                 }
-                String newFileName =new Date().getTime()+"_"+file.getOriginalFilename();
+                String newFileName = new Date(System.currentTimeMillis()).getTime() + "_" + file.getOriginalFilename();
                 Files.copy(file.getInputStream(), Paths.get(path, newFileName));
-                return Response.success("/"+newFileName);
+                return Response.success("/" + newFileName);
             } catch (IOException | RuntimeException e) {
                 e.printStackTrace();
                 return Response.warning(e.getMessage());

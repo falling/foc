@@ -13,7 +13,6 @@ export default class InfoManage extends React.Component {
         super(props);
         this.state = {
             type: 'hq',
-            info:{},
         };
         this.search = this.search.bind(this);
     }
@@ -46,7 +45,7 @@ export default class InfoManage extends React.Component {
 
     render() {
         const {display} = this.props;
-        const {info, type} = this.state;
+        const {type,info} = this.state;
         return (
             <div className="container-fluid" style={{display: !display && 'none'}}>
                 <div className="col-lg-12 col-md-12">

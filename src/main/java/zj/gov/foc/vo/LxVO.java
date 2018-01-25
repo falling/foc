@@ -1,6 +1,6 @@
 package zj.gov.foc.vo;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class LxVO extends BaseVO{
     private Long lx_id;
@@ -19,7 +19,7 @@ public class LxVO extends BaseVO{
     private String wechat;
     private String mail;
     private String qq_num;
-    private String native_place;
+//    private String native_place;
     private String nationality;
     private String residence;
     private String cn_residence;
@@ -28,15 +28,15 @@ public class LxVO extends BaseVO{
     private String position;
     private String education;
     private String health;
-    private Long registrant;
+    private String registrant_name;
     private String photo;
     private Date reg_date;
-    private String remarks;
+//    private String remarks;
     private String en_cname;
     private String ch_cname;
     private String degree;
     private Date gra_date;
-    private String del;
+//    private String del;
 
     public Long getLx_id() {
         return lx_id;
@@ -166,13 +166,13 @@ public class LxVO extends BaseVO{
         this.qq_num = qq_num;
     }
 
-    public String getNative_place() {
-        return native_place;
-    }
+//    public String getNative_place() {
+//        return native_place;
+//    }
 
-    public void setNative_place(String native_place) {
-        this.native_place = native_place;
-    }
+//    public void setNative_place(String native_place) {
+//        this.native_place = native_place;
+//    }
 
     public String getNationality() {
         return nationality;
@@ -238,12 +238,13 @@ public class LxVO extends BaseVO{
         this.health = health;
     }
 
-    public Long getRegistrant() {
-        return registrant;
+
+    public String getRegistrant_name() {
+        return registrant_name;
     }
 
-    public void setRegistrant(Long registrant) {
-        this.registrant = registrant;
+    public void setRegistrant_name(String registrant_name) {
+        this.registrant_name = registrant_name;
     }
 
     public String getPhoto() {
@@ -270,13 +271,13 @@ public class LxVO extends BaseVO{
         this.gra_date = gra_date;
     }
 
-    public String getRemarks() {
-        return remarks;
-    }
+//    public String getRemarks() {
+//        return remarks;
+//    }
 
-    public void setRemarks(String remarks) {
-        this.remarks = remarks;
-    }
+//    public void setRemarks(String remarks) {
+//        this.remarks = remarks;
+//    }
 
     public String getEn_cname() {
         return en_cname;
@@ -303,11 +304,11 @@ public class LxVO extends BaseVO{
     }
 
 
-    public String getDel() {
-        return del;
-    }
+//    public String getDel() {
+//        return del;
+//    }
 
-    public void setDel(String del) {
-        this.del = del;
-    }
+//    public void setDel(String del) {
+//        this.del = del;
+//    }
 }

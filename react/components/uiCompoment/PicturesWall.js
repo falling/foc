@@ -22,7 +22,7 @@ export default class PicturesWall extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        if(nextProps.url!==''){
+        if(nextProps.url){
             this.setState({fileList:[
                     {
                         uid: -1,
@@ -32,11 +32,16 @@ export default class PicturesWall extends React.Component {
                     }
                 ]});
         }
+        if(nextProps.clean){
+            this.props.getUrl('');
+            this.setState({fileList:[]});
+        }
     }
 
     handleChange({fileList}){
         let file = fileList[0];
         if(!file){
+            this.props.getUrl('');
             this.setState({ fileList })
             return;
         }

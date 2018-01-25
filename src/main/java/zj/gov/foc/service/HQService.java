@@ -5,21 +5,27 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import zj.gov.foc.po.HQBean;
 import zj.gov.foc.repository.HQRepository;
+import zj.gov.foc.repository.UserRepository;
 import zj.gov.foc.util.InputDeal;
 import zj.gov.foc.vo.HQVO;
+import zj.gov.foc.vo.UserVO;
 import zj.gov.foc.vo.VO;
 
 import javax.transaction.Transactional;
+import java.sql.Date;
 
 
 @Service
 public class HQService {
 
     @Autowired
-    HQRepository hqRepository ;
+    HQRepository hqRepository;
+
+    @Autowired
+    UserRepository userRepository;
 
     @Transactional
-    public HQVO addHQ(HQVO hqvo){
+    public HQVO addHQ(HQVO hqvo, UserVO userVO){
 
         if(!InputDeal.isChineseCharacters(hqvo.getCh_name())){
             hqvo.setInfo("中文名字为2-20个汉字");
@@ -38,11 +44,15 @@ public class HQService {
             return hqvo;
         }
         if(hqRepository.loadByPassport(hqvo.getPassport_no())!=null){
-            hqvo.setInfo("身份证格式不正确");
+            hqvo.setInfo("该护照已经录入");
         }
 
         HQBean bean = new HQBean();
         BeanUtils.copyProperties(hqvo,bean);
+        bean.setRegistrant(userVO.getId());
+        bean.setReg_date(new Date(System.currentTimeMillis()));
+        bean.setDel("0");
+        bean.setRemarks("");
         HQBean new_bean =hqRepository.save(bean);
         if(new_bean != null){
             hqvo.setInfo("录入成功");
@@ -68,7 +78,19 @@ public class HQService {
         if(bean!=null){
             vo = new HQVO();
             BeanUtils.copyProperties(bean,vo);
+            String registrant_name = userRepository
+                    .getById(bean.getRegistrant())
+                    .getName();
+            vo.setRegistrant_name(registrant_name);
+
         }
         return vo;
+    }
+
+    @Transactional
+    public HQBean update(HQVO vo) {
+        HQBean bean = hqRepository.getById(vo.getHq_id());
+        BeanUtils.copyProperties(vo,bean);
+        return hqRepository.save(bean);
     }
 }

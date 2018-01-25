@@ -7,6 +7,7 @@ export default class FormContent extends React.Component {
         super(props);
         this.state = {
         };
+        this.fresh = 1;
         this.update = this.update.bind(this);
         this.getContent = this.getContent.bind(this);
     }
@@ -25,11 +26,12 @@ export default class FormContent extends React.Component {
     render() {
         const {type,info} = this.props;
         const {} = this.state;
-
+        this.fresh +=1;
         return (
             <div>
                 {(type === 'hq' || type === 'lx') &&
                 <Hq_lxContent
+                    fresh={this.fresh}
                     info={info}
                     type={type}
                     mode={info?'view':'add'}

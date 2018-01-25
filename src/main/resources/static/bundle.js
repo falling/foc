@@ -50960,6 +50960,7 @@
 	        var _this = _possibleConstructorReturn(this, (FormContent.__proto__ || Object.getPrototypeOf(FormContent)).call(this, props));
 	
 	        _this.state = {};
+	        _this.fresh = 1;
 	        _this.update = _this.update.bind(_this);
 	        _this.getContent = _this.getContent.bind(_this);
 	        return _this;
@@ -50983,7 +50984,9 @@
 	
 	            _objectDestructuringEmpty(this.state);
 	
+	            this.fresh += 1;
 	            return _react2.default.createElement("div", null, (type === 'hq' || type === 'lx') && _react2.default.createElement(_Hq_lxContent2.default, {
+	                fresh: this.fresh,
 	                info: info,
 	                type: type,
 	                mode: info ? 'view' : 'add',
@@ -51016,21 +51019,21 @@
 	
 	var _form2 = _interopRequireDefault(_form);
 	
-	var _datePicker = __webpack_require__(/*! antd/lib/date-picker */ 585);
-	
-	var _datePicker2 = _interopRequireDefault(_datePicker);
-	
 	var _input = __webpack_require__(/*! antd/lib/input */ 503);
 	
 	var _input2 = _interopRequireDefault(_input);
+	
+	var _datePicker = __webpack_require__(/*! antd/lib/date-picker */ 585);
+	
+	var _datePicker2 = _interopRequireDefault(_datePicker);
 	
 	var _select = __webpack_require__(/*! antd/lib/select */ 512);
 	
 	var _select2 = _interopRequireDefault(_select);
 	
-	var _message4 = __webpack_require__(/*! antd/lib/message */ 257);
+	var _message6 = __webpack_require__(/*! antd/lib/message */ 257);
 	
-	var _message5 = _interopRequireDefault(_message4);
+	var _message7 = _interopRequireDefault(_message6);
 	
 	var _createClass = function () {
 	    function defineProperties(target, props) {
@@ -51044,9 +51047,9 @@
 	
 	__webpack_require__(/*! antd/lib/form/style */ 566);
 	
-	__webpack_require__(/*! antd/lib/date-picker/style */ 752);
-	
 	__webpack_require__(/*! antd/lib/input/style */ 572);
+	
+	__webpack_require__(/*! antd/lib/date-picker/style */ 752);
 	
 	__webpack_require__(/*! antd/lib/select/style */ 578);
 	
@@ -51101,10 +51104,12 @@
 	
 	        _this.state = {
 	            loading: false,
-	            updating: false
+	            updating: false,
+	            registrant: ''
 	        };
 	        _this.url = '';
 	        _this.photo = '';
+	        _this.clean = false;
 	        _this.add = _this.add.bind(_this);
 	        _this.update = _this.update.bind(_this);
 	        _this.getPhotoUrl = _this.getPhotoUrl.bind(_this);
@@ -51117,35 +51122,23 @@
 	        key: 'getPhotoUrl',
 	        value: function getPhotoUrl(url) {
 	            this.url = url;
+	            this.photo = '';
+	            this.clean = false;
 	        }
 	    }, {
 	        key: 'update',
-	        value: function update() {}
-	    }, {
-	        key: 'delete',
-	        value: function _delete() {
-	            var getFieldValue = this.props.form.getFieldValue;
-	
-	            if (getFieldValue('passport_no') === undefined) {
-	                _message5.default.error("请先搜索需要修改的记录", 5);
-	                return;
-	            }
-	            if (!confirm('确定要删除该用户吗?')) return;
-	        }
-	    }, {
-	        key: 'add',
-	        value: function add(e) {
+	        value: function update() {
 	            var _this2 = this;
 	
-	            // this.props.getContent();
-	            e.preventDefault();
+	            var getFieldValue = this.props.form.getFieldValue;
+	
 	            this.props.form.validateFieldsAndScroll(function (err, values) {
 	                if (!err) {
+	                    values.photo = _this2.url || _this2.photo;
+	                    _this2.setState({ loading: true });
 	                    var type = _this2.props.type;
 	
-	                    _this2.setState({ loading: true });
-	                    values.photo = _this2.url;
-	                    fetch(type === 'lx' ? '/addLXInfo' : '/addHQInfo', {
+	                    fetch(type === 'lx' ? '/updateLXInfo' : '/updateHQInfo', {
 	                        method: 'post',
 	                        credentials: 'include',
 	                        headers: { 'Content-Type': 'application/json' },
@@ -51155,9 +51148,53 @@
 	                    }).then(function (json) {
 	                        _this2.setState({ loading: false });
 	                        if (json.status >= 0) {
-	                            _message5.default.success(json.info, 5);
+	                            _message7.default.success(json.info, 5);
 	                        } else {
-	                            _message5.default.error(json.info, 5);
+	                            _message7.default.error(json.info, 5);
+	                        }
+	                        _this2.clean = true;
+	                        _this2.props.form.resetFields();
+	                    });
+	                }
+	            });
+	        }
+	    }, {
+	        key: 'delete',
+	        value: function _delete() {
+	            var getFieldValue = this.props.form.getFieldValue;
+	
+	            if (getFieldValue('passport_no') === undefined) {
+	                _message7.default.error("请先搜索需要修改的记录", 5);
+	                return;
+	            }
+	            if (!confirm('确定要删除该用户吗?')) return;
+	        }
+	    }, {
+	        key: 'add',
+	        value: function add(e) {
+	            var _this3 = this;
+	
+	            // this.props.getContent();
+	            e.preventDefault();
+	            this.props.form.validateFieldsAndScroll(function (err, values) {
+	                if (!err) {
+	                    var type = _this3.props.type;
+	
+	                    _this3.setState({ loading: true });
+	                    values.photo = _this3.url;
+	                    fetch(type === 'lx' ? '/addLXInfo' : '/addHQInfo', {
+	                        method: 'post',
+	                        credentials: 'include',
+	                        headers: { 'Content-Type': 'application/json' },
+	                        body: JSON.stringify(values)
+	                    }).then(function (response) {
+	                        return response.json();
+	                    }).then(function (json) {
+	                        _this3.setState({ loading: false });
+	                        if (json.status >= 0) {
+	                            _message7.default.success(json.info, 5);
+	                        } else {
+	                            _message7.default.error(json.info, 5);
 	                        }
 	                        // this.props.form.resetFields();
 	                    });
@@ -51167,23 +51204,27 @@
 	    }, {
 	        key: 'componentWillReceiveProps',
 	        value: function componentWillReceiveProps(nextProps) {
-	            if (nextProps.info && nextProps.info.passport_no !== this.props.info.passport_no) {
-	                delete nextProps.info.status;
-	                delete nextProps.info.info;
-	                delete nextProps.info.del;
-	                delete nextProps.info.remarks;
-	                delete nextProps.info.native_place;
-	                delete nextProps.info.date_expriy;
-	                nextProps.info.date_birth = (0, _moment2.default)(nextProps.info.date_birth);
-	                nextProps.info.date_expriy = (0, _moment2.default)(nextProps.info.date_expriy);
-	                this.photo = nextProps.info.photo;
-	                this.props.form.setFieldsValue(nextProps.info);
+	            if (nextProps.info && nextProps.fresh !== this.props.fresh) {
+	                var info = nextProps.info;
+	                delete info.status;
+	                delete info.info;
+	                info.date_birth = info.date_birth ? (0, _moment2.default)(info.date_birth) : '';
+	                info.date_expriy = info.date_expriy ? (0, _moment2.default)(info.date_expriy) : '';
+	                if (this.props.type === 'lx') {
+	                    info.gra_date = info.gra_date ? (0, _moment2.default)(info.gra_date) : '';
+	                }
+	                this.photo = info.photo;
+	                this.props.form.setFieldsValue(info);
+	            }
+	            if (nextProps.type && nextProps.type !== this.props.type) {
+	                this.clean = true;
+	                this.props.form.resetFields();
 	            }
 	        }
 	    }, {
 	        key: 'render',
 	        value: function render() {
-	            var _this3 = this;
+	            var _this4 = this;
 	
 	            var _props = this.props,
 	                type = _props.type,
@@ -51191,7 +51232,10 @@
 	            var getFieldDecorator = this.props.form.getFieldDecorator;
 	            var loading = this.state.loading;
 	
-	            return _react2.default.createElement(_form2.default, null, mode !== 'view' && getFieldDecorator('passport_no')(_react2.default.createElement(_input2.default, {
+	            return _react2.default.createElement(_form2.default, null, getFieldDecorator('lx_id')(_react2.default.createElement(_input2.default, {
+	                style: { display: 'none' },
+	                disabled: true
+	            })), getFieldDecorator('hq_id')(_react2.default.createElement(_input2.default, {
 	                style: { display: 'none' },
 	                disabled: true
 	            })), _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-md-3' }, _react2.default.createElement(FormItem, { className: 'form-group' }, _react2.default.createElement('label', null, '\u4E2D\u6587\u540D*'), getFieldDecorator('ch_name', {
@@ -51213,6 +51257,7 @@
 	                placeholder: '\u62FC\u97F3',
 	                className: 'form-control border-input'
 	            })))), _react2.default.createElement('div', { className: 'col-md-2' }, _react2.default.createElement(FormItem, { className: 'form-group' }, _react2.default.createElement('label', null, '\u66FE\u7528\u540D'), getFieldDecorator('used_name', {
+	                initialValue: '',
 	                rules: [{
 	                    pattern: /^[\u4e00-\u9fa5]+$/,
 	                    message: '请输入中文'
@@ -51257,6 +51302,7 @@
 	                    return current > (0, _moment2.default)().endOf('day');
 	                }
 	            })))), _react2.default.createElement('div', { className: 'col-md-3' }, _react2.default.createElement(FormItem, { className: 'form-group' }, _react2.default.createElement('label', null, '\u8EAB\u4EFD\u8BC1\u53F7'), getFieldDecorator('id_num', {
+	                initialValue: '',
 	                validateTrigger: 'onBlur',
 	                rules: [{
 	                    pattern: /(^[1-9]\d{5}(18|19|([23]\d))\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$)|(^[1-9]\d{5}\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{2}[0-9Xx]$)/,
@@ -51265,24 +51311,31 @@
 	            })(_react2.default.createElement(_input2.default, {
 	                placeholder: '\u8EAB\u4EFD\u8BC1\u53F7',
 	                className: 'form-control border-input'
-	            }))))), _react2.default.createElement('hr', null), _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-md-4' }, _react2.default.createElement(FormItem, { className: 'form-group' }, _react2.default.createElement('label', null, '\u6D77\u5916\u8054\u7CFB\u7535\u8BDD*'), getFieldDecorator('o_tel', {
+	            }))))), _react2.default.createElement('hr', null), _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-md-4' }, _react2.default.createElement(FormItem, { className: 'form-group' }, _react2.default.createElement('label', null, '\u6D77\u5916\u8054\u7CFB\u7535\u8BDD'), getFieldDecorator('o_tel', {
+	                initialValue: '',
 	                rules: [{
-	                    required: true,
 	                    message: '请输入海外联系电话'
 	                }]
 	            })(_react2.default.createElement(_input2.default, {
 	                placeholder: '\u6D77\u5916\u8054\u7CFB\u7535\u8BDD',
 	                className: 'form-control border-input'
-	            })), _react2.default.createElement('div', null))), _react2.default.createElement('div', { className: 'col-md-4' }, _react2.default.createElement(FormItem, { className: 'form-group' }, _react2.default.createElement('label', null, '\u4E2D\u56FD\u8054\u7CFB\u7535\u8BDD1'), getFieldDecorator('cn_tel')(_react2.default.createElement(_input2.default, {
+	            })), _react2.default.createElement('div', null))), _react2.default.createElement('div', { className: 'col-md-4' }, _react2.default.createElement(FormItem, { className: 'form-group' }, _react2.default.createElement('label', null, '\u4E2D\u56FD\u8054\u7CFB\u7535\u8BDD1'), getFieldDecorator('cn_tel', {
+	                initialValue: ''
+	            })(_react2.default.createElement(_input2.default, {
 	                placeholder: '\u4E2D\u56FD\u8054\u7CFB\u7535\u8BDD1',
 	                className: 'form-control border-input'
-	            })), _react2.default.createElement('div', null))), _react2.default.createElement('div', { className: 'col-md-4' }, _react2.default.createElement(FormItem, { className: 'form-group' }, _react2.default.createElement('label', null, '\u4E2D\u56FD\u8054\u7CFB\u7535\u8BDD2'), getFieldDecorator('cn_te2')(_react2.default.createElement(_input2.default, {
+	            })), _react2.default.createElement('div', null))), _react2.default.createElement('div', { className: 'col-md-4' }, _react2.default.createElement(FormItem, { className: 'form-group' }, _react2.default.createElement('label', null, '\u4E2D\u56FD\u8054\u7CFB\u7535\u8BDD2'), getFieldDecorator('cn_te2', {
+	                initialValue: ''
+	            })(_react2.default.createElement(_input2.default, {
 	                placeholder: '\u4E2D\u56FD\u8054\u7CFB\u7535\u8BDD2',
 	                className: 'form-control border-input'
-	            })), _react2.default.createElement('div', null)))), _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-md-4' }, _react2.default.createElement(FormItem, { className: 'form-group' }, _react2.default.createElement('label', null, '\u5FAE\u4FE1'), getFieldDecorator('wechat')(_react2.default.createElement(_input2.default, {
+	            })), _react2.default.createElement('div', null)))), _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-md-4' }, _react2.default.createElement(FormItem, { className: 'form-group' }, _react2.default.createElement('label', null, '\u5FAE\u4FE1'), getFieldDecorator('wechat', {
+	                initialValue: ''
+	            })(_react2.default.createElement(_input2.default, {
 	                placeholder: '\u5FAE\u4FE1',
 	                className: 'form-control border-input'
 	            })), _react2.default.createElement('div', null))), _react2.default.createElement('div', { className: 'col-md-4' }, _react2.default.createElement(FormItem, { className: 'form-group' }, _react2.default.createElement('label', null, '\u90AE\u7BB1'), getFieldDecorator('mail', {
+	                initialValue: '',
 	                rules: [{
 	                    type: 'email',
 	                    required: false,
@@ -51292,8 +51345,8 @@
 	                placeholder: '\u90AE\u7BB1',
 	                className: 'form-control border-input'
 	            })), _react2.default.createElement('div', null))), _react2.default.createElement('div', { className: 'col-md-4' }, _react2.default.createElement(FormItem, { className: 'form-group' }, _react2.default.createElement('label', null, 'QQ'), getFieldDecorator('qq_num', {
+	                initialValue: '',
 	                rules: [{
-	                    required: false,
 	                    pattern: /[1-9][0-9]{4,14}/,
 	                    message: 'qq格式不正确'
 	                }]
@@ -51326,19 +51379,29 @@
 	            })(_react2.default.createElement(_input2.default, {
 	                placeholder: '\u8BF7\u8F93\u5165\u4E2D\u56FD\u5C45\u4F4F\u5730',
 	                className: 'form-control border-input'
-	            })), _react2.default.createElement('div', null)))), _react2.default.createElement('hr', null), _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-md-4' }, _react2.default.createElement(FormItem, { className: 'form-group' }, _react2.default.createElement('label', null, '\u6240\u4ECE\u4E8B\u884C\u4E1A'), getFieldDecorator('present_industry')(_react2.default.createElement(_input2.default, {
+	            })), _react2.default.createElement('div', null)))), _react2.default.createElement('hr', null), _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-md-4' }, _react2.default.createElement(FormItem, { className: 'form-group' }, _react2.default.createElement('label', null, '\u6240\u4ECE\u4E8B\u884C\u4E1A'), getFieldDecorator('present_industry', {
+	                initialValue: ''
+	            })(_react2.default.createElement(_input2.default, {
 	                placeholder: '\u6240\u4ECE\u4E8B\u884C\u4E1A',
 	                className: 'form-control border-input'
-	            })), _react2.default.createElement('div', null))), _react2.default.createElement('div', { className: 'col-md-4' }, _react2.default.createElement(FormItem, { className: 'form-group' }, _react2.default.createElement('label', null, '\u516C\u53F8/\u5355\u4F4D\u540D\u79F0'), getFieldDecorator('com_name')(_react2.default.createElement(_input2.default, {
+	            })), _react2.default.createElement('div', null))), _react2.default.createElement('div', { className: 'col-md-4' }, _react2.default.createElement(FormItem, { className: 'form-group' }, _react2.default.createElement('label', null, '\u516C\u53F8/\u5355\u4F4D\u540D\u79F0'), getFieldDecorator('com_name', {
+	                initialValue: ''
+	            })(_react2.default.createElement(_input2.default, {
 	                placeholder: '\u516C\u53F8/\u5355\u4F4D',
 	                className: 'form-control border-input'
-	            })), _react2.default.createElement('div', null))), _react2.default.createElement('div', { className: 'col-md-4' }, _react2.default.createElement(FormItem, { className: 'form-group' }, _react2.default.createElement('label', null, '\u804C\u52A1'), getFieldDecorator('position')(_react2.default.createElement(_input2.default, {
+	            })), _react2.default.createElement('div', null))), _react2.default.createElement('div', { className: 'col-md-4' }, _react2.default.createElement(FormItem, { className: 'form-group' }, _react2.default.createElement('label', null, '\u804C\u52A1'), getFieldDecorator('position', {
+	                initialValue: ''
+	            })(_react2.default.createElement(_input2.default, {
 	                placeholder: '\u516C\u53F8/\u5355\u4F4D',
 	                className: 'form-control border-input'
-	            })), _react2.default.createElement('div', null)))), _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-md-4' }, _react2.default.createElement(FormItem, { className: 'form-group' }, _react2.default.createElement('label', null, '\u6587\u5316\u7A0B\u5EA6'), getFieldDecorator('education')(_react2.default.createElement(_input2.default, {
+	            })), _react2.default.createElement('div', null)))), _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-md-4' }, _react2.default.createElement(FormItem, { className: 'form-group' }, _react2.default.createElement('label', null, '\u6587\u5316\u7A0B\u5EA6'), getFieldDecorator('education', {
+	                initialValue: ''
+	            })(_react2.default.createElement(_input2.default, {
 	                placeholder: '\u6587\u5316\u7A0B\u5EA6',
 	                className: 'form-control border-input'
-	            })), _react2.default.createElement('div', null))), _react2.default.createElement('div', { className: 'col-md-4' }, _react2.default.createElement(FormItem, { className: 'form-group' }, _react2.default.createElement('label', null, '\u5065\u5EB7\u72B6\u6001'), getFieldDecorator('health')(_react2.default.createElement(_input2.default, {
+	            })), _react2.default.createElement('div', null))), _react2.default.createElement('div', { className: 'col-md-4' }, _react2.default.createElement(FormItem, { className: 'form-group' }, _react2.default.createElement('label', null, '\u5065\u5EB7\u72B6\u6001'), getFieldDecorator('health', {
+	                initialValue: ''
+	            })(_react2.default.createElement(_input2.default, {
 	                placeholder: '\u5065\u5EB7\u72B6\u6001',
 	                className: 'form-control border-input'
 	            })), _react2.default.createElement('div', null)))), type === 'lx' && _react2.default.createElement('div', null, _react2.default.createElement('hr', null), _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-md-3' }, _react2.default.createElement(FormItem, { className: 'form-group' }, _react2.default.createElement('label', null, '\u6BD5\u4E1A\u9662\u6821\u82F1\u6587\u540D*'), getFieldDecorator('en_cname', {
@@ -51367,18 +51430,27 @@
 	            })), _react2.default.createElement('div', null))), _react2.default.createElement('div', { className: 'col-md-3' }, _react2.default.createElement(FormItem, { className: 'form-group' }, _react2.default.createElement('label', null, '\u6BD5\u4E1A\u65F6\u95F4*'), getFieldDecorator('gra_date', {
 	                rules: [{ required: true, message: '请选择毕业时间' }]
 	            })(_react2.default.createElement(_datePicker2.default, null)))))), _react2.default.createElement('hr', null), _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-md-4' }, _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('label', null, '\u7167\u7247'), _react2.default.createElement(_PicturesWall2.default, {
+	                clean: this.clean,
 	                url: mode === 'view' ? this.photo : '',
 	                getUrl: this.getPhotoUrl
-	            }), _react2.default.createElement('div', null)))), _react2.default.createElement('hr', null), _react2.default.createElement('div', { className: 'text-center' }, mode === 'add' && _react2.default.createElement('button', { type: 'button',
+	            }), _react2.default.createElement('div', null)))), _react2.default.createElement('div', null, _react2.default.createElement('hr', null), _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-md-4' }, _react2.default.createElement(FormItem, { className: 'form-group' }, _react2.default.createElement('label', null, '\u767B\u8BB0\u4EBA'), getFieldDecorator('registrant_name', {
+	                rules: [{ required: true, message: '请选择毕业时间' }]
+	            })(_react2.default.createElement(_input2.default, {
+	                className: 'form-control border-input',
+	                disabled: true
+	            })), _react2.default.createElement('div', null))), _react2.default.createElement('div', { className: 'col-md-4' }, _react2.default.createElement(FormItem, { className: 'form-group' }, _react2.default.createElement('label', null, '\u767B\u8BB0\u65F6\u95F4'), getFieldDecorator('reg_date', {})(_react2.default.createElement(_input2.default, {
+	                disabled: true,
+	                className: 'form-control border-input'
+	            })), _react2.default.createElement('div', null))))), _react2.default.createElement('hr', null), _react2.default.createElement('div', { className: 'text-center' }, mode === 'add' && _react2.default.createElement('button', { type: 'button',
 	                className: 'btn btn-info btn-fill btn-wd',
 	                onClick: function onClick(e) {
-	                    _this3.add(e);
+	                    _this4.add(e);
 	                },
 	                disabled: loading
 	            }, loading && _react2.default.createElement('i', { style: { marginRight: 5 }, className: 'anticon anticon-spin anticon-loading' }), '\u5F55\u5165'), mode === 'view' && _react2.default.createElement('div', null, _react2.default.createElement('button', { type: 'button',
 	                className: 'btn btn-info btn-fill btn-wd',
 	                onClick: function onClick(e) {
-	                    _this3.update(e);
+	                    _this4.update(e);
 	                },
 	                disabled: loading
 	            }, loading && _react2.default.createElement('i', { style: { marginRight: 5 }, className: 'anticon anticon-spin anticon-loading' }), '\u66F4\u65B0'), _react2.default.createElement('button', {
@@ -51386,7 +51458,7 @@
 	                type: 'button',
 	                className: 'btn btn-danger btn-fill btn-wd',
 	                onClick: function onClick(e) {
-	                    _this3.delete();
+	                    _this4.delete();
 	                } }, '\u5220\u9664'))));
 	        }
 	    }]);
@@ -75246,13 +75318,17 @@
 	    }, {
 	        key: 'componentWillReceiveProps',
 	        value: function componentWillReceiveProps(nextProps) {
-	            if (nextProps.url !== '') {
+	            if (nextProps.url) {
 	                this.setState({ fileList: [{
 	                        uid: -1,
 	                        name: nextProps.url.split('_')[1],
 	                        status: 'done',
 	                        url: nextProps.url
 	                    }] });
+	            }
+	            if (nextProps.clean) {
+	                this.props.getUrl('');
+	                this.setState({ fileList: [] });
 	            }
 	        }
 	    }, {
@@ -75262,6 +75338,7 @@
 	
 	            var file = fileList[0];
 	            if (!file) {
+	                this.props.getUrl('');
 	                this.setState({ fileList: fileList });
 	                return;
 	            }
@@ -80099,8 +80176,7 @@
 	        var _this = _possibleConstructorReturn(this, (InfoManage.__proto__ || Object.getPrototypeOf(InfoManage)).call(this, props));
 	
 	        _this.state = {
-	            type: 'hq',
-	            info: {}
+	            type: 'hq'
 	        };
 	        _this.search = _this.search.bind(_this);
 	        return _this;
@@ -80145,8 +80221,8 @@
 	
 	            var display = this.props.display;
 	            var _state = this.state,
-	                info = _state.info,
-	                type = _state.type;
+	                type = _state.type,
+	                info = _state.info;
 	
 	            return _react2.default.createElement('div', { className: 'container-fluid', style: { display: !display && 'none' } }, _react2.default.createElement('div', { className: 'col-lg-12 col-md-12' }, _react2.default.createElement('div', { className: 'card' }, _react2.default.createElement('div', { className: 'header' }, _react2.default.createElement('h4', { className: 'title' }, '\u5F55\u5165\u7BA1\u7406')), _react2.default.createElement('div', { className: 'content' }, _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-md-12' }, _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement(Search, { addonBefore: _react2.default.createElement(_select2.default, { onChange: function onChange(value) {
 	                        return _this3.setState({ type: value });
