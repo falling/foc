@@ -1,12 +1,13 @@
 import React from 'react';
-import {Form, Input, Select, message, DatePicker} from 'antd';
+import {Form, Input, Select, message, DatePicker, Cascader} from 'antd';
 import 'whatwg-fetch';
 import moment from 'moment';
 import PicturesWall from "../../../../uiCompoment/PicturesWall";
-
+import {City} from "../../../../config/City";
 
 const FormItem = Form.Item;
 const Option = Select.Option;
+let options = [];
 
 class Hq_lxContentForm extends React.Component {
     constructor(props) {
@@ -24,8 +25,20 @@ class Hq_lxContentForm extends React.Component {
         this.update = this.update.bind(this);
         this.getPhotoUrl = this.getPhotoUrl.bind(this);
         this.delete = this.delete.bind(this);
-
+        this.getChild = this.getChild.bind(this);
+        options = this.getChild(City);
     }
+
+    getChild(e) {
+        if (e) {
+            return e.map(city => ({
+                label: city.name,
+                value: city.name,
+                children: this.getChild(city.childs)
+            }))
+        }
+    }
+
 
     getPhotoUrl(url) {
         this.url = url;
@@ -37,6 +50,7 @@ class Hq_lxContentForm extends React.Component {
         const {getFieldValue} = this.props.form;
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
+                values.native_place = values.native_place.join("/");
                 values.photo = this.url || this.photo;
                 this.setState({loading: true});
                 const {type} = this.props;
@@ -71,8 +85,8 @@ class Hq_lxContentForm extends React.Component {
         this.setState({deleteLoading: true});
         let formData = new FormData();
         const {type} = this.props;
-        formData.append("id",this.props.form.getFieldValue(type==='hq'?'hq_id':'lx_id'));
-        formData.append('type',type);
+        formData.append("id", this.props.form.getFieldValue(type === 'hq' ? 'hq_id' : 'lx_id'));
+        formData.append('type', type);
         fetch('/deleteInfo', {
             method: 'post',
             credentials: 'include',
@@ -99,6 +113,7 @@ class Hq_lxContentForm extends React.Component {
                 const {type} = this.props;
                 this.setState({loading: true});
                 values.photo = this.url;
+                values.native_place = values.native_place.join("/");
                 fetch(type === 'lx' ? '/addLXInfo' : '/addHQInfo', {
                     method: 'post',
                     credentials: 'include',
@@ -121,6 +136,11 @@ class Hq_lxContentForm extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
+        if (nextProps.type && nextProps.type !== this.props.type) {
+            this.clean = true;
+            this.props.form.resetFields();
+            return;
+        }
         if (nextProps.info && nextProps.fresh !== this.props.fresh) {
             let info = nextProps.info;
             delete info.status;
@@ -131,12 +151,13 @@ class Hq_lxContentForm extends React.Component {
                 info.gra_date = info.gra_date ? moment(info.gra_date) : '';
             }
             this.photo = info.photo;
+            info.native_place = (info.native_place&&info.native_place!==[])?info.native_place.split("/"):[];
             this.props.form.setFieldsValue(info);
         }
-        if (nextProps.type && nextProps.type !== this.props.type) {
-            this.clean = true;
-            this.props.form.resetFields();
-        }
+    }
+
+    componentDidMount() {
+
     }
 
     render() {
@@ -465,6 +486,22 @@ class Hq_lxContentForm extends React.Component {
                         </FormItem>
                     </div>
                 </div>
+                <div className="row">
+                    <div className="col-md-4">
+                        <FormItem className="form-group">
+                            <label>籍贯</label>
+                            {getFieldDecorator('native_place', {
+                                initialValue: [],
+                            })(
+                                <Cascader
+                                    options={options}
+                                    placeholder="籍贯"
+                                />
+                            )}
+                            <div/>
+                        </FormItem>
+                    </div>
+                </div>
 
                 <hr/>
                 <div className="row">
@@ -503,7 +540,7 @@ class Hq_lxContentForm extends React.Component {
                                 initialValue: '',
                             })(
                                 <Input
-                                    placeholder="公司/单位"
+                                    placeholder="职务"
                                     className="form-control border-input"
                                 />
                             )}
@@ -626,14 +663,14 @@ class Hq_lxContentForm extends React.Component {
                         </div>
                     </div>
                 </div>
-                {<div>
+                {mode === 'view'&&
+                <div>
                     <hr/>
                     <div className="row">
                         <div className="col-md-4">
                             <FormItem className="form-group">
                                 <label>登记人</label>
                                 {getFieldDecorator('registrant_name', {
-                                    rules: [{required: true, message: '请选择毕业时间'}],
                                 })(
                                     <Input
                                         className="form-control border-input"

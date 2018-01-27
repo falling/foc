@@ -57,6 +57,7 @@ public class LXService {
     @Transactional
     public LxBean update(LxVO vo) {
         LxBean bean = lxRepository.getById(vo.getLx_id());
+        if(bean == null) return null;
         BeanUtils.copyProperties(vo,bean);
         return lxRepository.save(bean);
     }

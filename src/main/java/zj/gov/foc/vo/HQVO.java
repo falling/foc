@@ -21,7 +21,7 @@ public class HQVO extends BaseVO{
     private String wechat;
     private String mail;
     private String qq_num;
-//    private String native_place;
+    private String native_place;
     private String nationality;
     private String residence;
     private String cn_residence;
@@ -164,13 +164,13 @@ public class HQVO extends BaseVO{
         this.qq_num = qq_num;
     }
 
-//    public String getNative_place() {
-//        return native_place;
-//    }
+    public String getNative_place() {
+        return native_place;
+    }
 
-//    public void setNative_place(String native_place) {
-//        this.native_place = native_place;
-//    }
+    public void setNative_place(String native_place) {
+        this.native_place = native_place;
+    }
 
     public String getNationality() {
         return nationality;

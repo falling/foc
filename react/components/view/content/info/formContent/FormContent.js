@@ -24,7 +24,7 @@ export default class FormContent extends React.Component {
     }
 
     render() {
-        const {type,info} = this.props;
+        const {type,info,mode} = this.props;
         const {} = this.state;
         this.fresh +=1;
         return (
@@ -34,7 +34,7 @@ export default class FormContent extends React.Component {
                     fresh={this.fresh}
                     info={info}
                     type={type}
-                    mode={info?'view':'add'}
+                    mode={mode}
                     getContent={this.getContent}
                 />
                 }

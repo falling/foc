@@ -52,6 +52,7 @@ export default class InfoCreate extends React.Component {
                             <hr/>
                             <FormContent
                                 type={type}
+                                mode= "add"
                             />
                         </div>
                     </div>

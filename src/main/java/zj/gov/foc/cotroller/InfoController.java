@@ -47,7 +47,7 @@ public class InfoController {
         if (userVO == null) {
             return Response.warning("未登录");
         }
-        HQVO hqvo1 = hqService.addHQ(hqvo,userVO);
+        HQVO hqvo1 = hqService.addHQ(hqvo, userVO);
         if (hqvo1.getInfo().equals("录入成功")) {
             return Response.success(hqvo1.getInfo());
         } else {
@@ -62,7 +62,7 @@ public class InfoController {
             return Response.warning("未登录");
         }
 
-        if (lxService.addLX(lxVO,userVO.getId())) {
+        if (lxService.addLX(lxVO, userVO.getId())) {
             return Response.success("录入成功");
         } else {
             return Response.warning("录入失败，该护照已经添加");
@@ -94,8 +94,11 @@ public class InfoController {
 
     @RequestMapping("/updateLXInfo")
     public VO updateLXInfo(@RequestBody LxVO vo) {
-        lxService.update(vo);
-        return Response.success("更新成功");
+        if (lxService.update(vo) != null) {
+            return Response.success("更新成功");
+        } else {
+            return Response.warning("用户不存在");
+        }
     }
 
 
@@ -106,18 +109,18 @@ public class InfoController {
     }
 
     @RequestMapping("/deleteInfo")
-    public VO deleteInfo(@RequestParam("id")Long id,@RequestParam("type") String type) {
-        boolean result =false;
-        if(type.equals("lx")){
+    public VO deleteInfo(@RequestParam("id") Long id, @RequestParam("type") String type) {
+        boolean result = false;
+        if (type.equals("lx")) {
             result = lxService.delete(id);
-        }else if(type.equals("hq")){
+        } else if (type.equals("hq")) {
             result = hqService.deleteHQ(id);
-        }else if(type.equals("qj")){
+        } else if (type.equals("qj")) {
 
         }
-        if(result){
+        if (result) {
             return Response.success("删除成功");
-        }else{
+        } else {
             return Response.warning("删除失败");
         }
     }
