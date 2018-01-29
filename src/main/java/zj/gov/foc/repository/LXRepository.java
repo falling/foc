@@ -5,6 +5,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.Repository;
 import zj.gov.foc.po.LxBean;
 
+import java.util.List;
+
 public interface LXRepository extends Repository<LxBean, Long> {
 
 
@@ -19,4 +21,7 @@ public interface LXRepository extends Repository<LxBean, Long> {
     @Modifying
     @Query(value = "UPDATE lx SET del = '1' WHERE lx_id = ?1",nativeQuery = true)
     int delete(Long id);
+
+    @Query(value = "SELECT * FROM lx WHERE ?!",nativeQuery = true)
+    List<LxBean> search(String sql);
 }

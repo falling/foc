@@ -151,7 +151,14 @@ class Hq_lxContentForm extends React.Component {
                 info.gra_date = info.gra_date ? moment(info.gra_date) : '';
             }
             this.photo = info.photo;
-            info.native_place = (info.native_place&&info.native_place!==[])?info.native_place.split("/"):[];
+
+            if (info.native_place) { // 'a/b/c',[],[a,b,c],
+                if (typeof (info.native_place === "string")) {
+                    info.native_place = info.native_place.split("/")
+                }
+            } else { // undefined,''
+                info.native_place = []
+            }
             this.props.form.setFieldsValue(info);
         }
     }
@@ -663,15 +670,14 @@ class Hq_lxContentForm extends React.Component {
                         </div>
                     </div>
                 </div>
-                {mode === 'view'&&
+                {mode === 'view' &&
                 <div>
                     <hr/>
                     <div className="row">
                         <div className="col-md-4">
                             <FormItem className="form-group">
                                 <label>登记人</label>
-                                {getFieldDecorator('registrant_name', {
-                                })(
+                                {getFieldDecorator('registrant_name', {})(
                                     <Input
                                         className="form-control border-input"
                                         disabled

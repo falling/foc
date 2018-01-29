@@ -7,10 +7,15 @@ import zj.gov.foc.po.LxBean;
 import zj.gov.foc.repository.LXRepository;
 import zj.gov.foc.repository.UserRepository;
 import zj.gov.foc.vo.LxVO;
+import zj.gov.foc.vo.SearchVO;
 import zj.gov.foc.vo.VO;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.transaction.Transactional;
 import java.sql.Date;
+import java.util.List;
 
 /**
  * Created by User: falling
@@ -65,5 +70,17 @@ public class LXService {
     @Transactional
     public boolean delete(Long id) {
         return lxRepository.delete(id) ==1;
+    }
+
+    @PersistenceContext
+    private EntityManager entityManager;
+
+    public SearchVO search(String col, String value) {
+        SearchVO<LxBean> searchVO = new SearchVO<>();
+        String sql = "SELECT * FROM lx WHERE "+col+" LIKE '%"+value+"%' AND del = '0'";
+        Query query = entityManager.createNativeQuery(sql,LxBean.class);
+        List<LxBean> resultList = query.getResultList();
+        searchVO.setResult(resultList);
+        return searchVO;
     }
 }

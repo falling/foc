@@ -8,11 +8,16 @@ import zj.gov.foc.repository.HQRepository;
 import zj.gov.foc.repository.UserRepository;
 import zj.gov.foc.util.InputDeal;
 import zj.gov.foc.vo.HQVO;
+import zj.gov.foc.vo.SearchVO;
 import zj.gov.foc.vo.UserVO;
 import zj.gov.foc.vo.VO;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.transaction.Transactional;
 import java.sql.Date;
+import java.util.List;
 
 
 @Service
@@ -93,5 +98,17 @@ public class HQService {
         HQBean bean = hqRepository.getById(vo.getHq_id());
         BeanUtils.copyProperties(vo,bean);
         return hqRepository.save(bean);
+    }
+
+    @PersistenceContext
+    private EntityManager entityManager;
+
+    public SearchVO search(String col, String value) {
+        SearchVO<HQBean> searchVO = new SearchVO<>();
+        String sql = "SELECT * FROM hq WHERE "+col+" LIKE '%"+value+"%' AND del = '0'";
+        Query query = entityManager.createNativeQuery(sql,HQBean.class);
+        List<HQBean> resultList = query.getResultList();
+        searchVO.setResult(resultList);
+        return searchVO;
     }
 }
