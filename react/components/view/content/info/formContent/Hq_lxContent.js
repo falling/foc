@@ -187,8 +187,7 @@ class Hq_lxContentForm extends React.Component {
                 }
                 <div className="row">
                     <div className="col-md-3">
-                        <FormItem className="form-group">
-                            <label>中文名*</label>
+                        <FormItem className="form-group" label="中文名">
                             {getFieldDecorator('ch_name', {
                                 rules: [{
                                     required: true,
@@ -204,8 +203,7 @@ class Hq_lxContentForm extends React.Component {
                         </FormItem>
                     </div>
                     <div className="col-md-3">
-                        <FormItem className="form-group">
-                            <label>拼音*</label>
+                        <FormItem className="form-group" label="拼音">
                             {getFieldDecorator('py_name', {
                                 rules: [{
                                     required: true,
@@ -221,8 +219,7 @@ class Hq_lxContentForm extends React.Component {
                         </FormItem>
                     </div>
                     <div className="col-md-2">
-                        <FormItem className="form-group">
-                            <label>曾用名</label>
+                        <FormItem className="form-group" label="曾用名">
                             {getFieldDecorator('used_name', {
                                 initialValue: '',
                                 rules: [{
@@ -238,8 +235,7 @@ class Hq_lxContentForm extends React.Component {
                         </FormItem>
                     </div>
                     <div className="col-md-2">
-                        <FormItem className="form-group">
-                            <label>民族*</label>
+                        <FormItem className="form-group" label="民族">
                             {getFieldDecorator('ethnicity', {
                                 rules: [{
                                     required: true,
@@ -256,8 +252,7 @@ class Hq_lxContentForm extends React.Component {
                         </FormItem>
                     </div>
                     <div className="col-md-2">
-                        <FormItem className="form-group">
-                            <label>性别*</label>
+                        <FormItem className="form-group" label="性别">
                             {getFieldDecorator('sex', {
                                 initialValue: '男',
                             })(
@@ -272,8 +267,7 @@ class Hq_lxContentForm extends React.Component {
 
                 <div className="row">
                     <div className="col-md-3">
-                        <FormItem className="form-group">
-                            <label>护照号码*</label>
+                        <FormItem className="form-group" label="护照号码">
                             {getFieldDecorator('passport_no', {
                                 validateTrigger: 'onBlur',
                                 rules: [{
@@ -290,8 +284,7 @@ class Hq_lxContentForm extends React.Component {
                         </FormItem>
                     </div>
                     <div className="col-md-3">
-                        <FormItem className="form-group">
-                            <label>护照有效期*</label>
+                        <FormItem className="form-group" label="护照有效期">
                             {getFieldDecorator('date_expriy', {
                                 rules: [{
                                     required: true,
@@ -305,8 +298,7 @@ class Hq_lxContentForm extends React.Component {
                         </FormItem>
                     </div>
                     <div className="col-md-3">
-                        <FormItem className="form-group">
-                            <label>出生日日期*</label>
+                        <FormItem className="form-group" label="生日">
                             {getFieldDecorator('date_birth', {
                                 rules: [{required: true, message: '请选择出生日期'}],
                             })(
@@ -317,8 +309,7 @@ class Hq_lxContentForm extends React.Component {
                         </FormItem>
                     </div>
                     <div className="col-md-3">
-                        <FormItem className="form-group">
-                            <label>身份证号</label>
+                        <FormItem className="form-group" label="身份证号">
                             {getFieldDecorator('id_num', {
                                 initialValue: '',
                                 validateTrigger: 'onBlur',
@@ -338,8 +329,7 @@ class Hq_lxContentForm extends React.Component {
                 <hr/>
                 <div className="row">
                     <div className="col-md-4">
-                        <FormItem className="form-group">
-                            <label>海外联系电话</label>
+                        <FormItem className="form-group" label="海外联系电话">
                             {getFieldDecorator('o_tel', {
                                 initialValue: '',
                                 rules: [{
@@ -355,8 +345,7 @@ class Hq_lxContentForm extends React.Component {
                         </FormItem>
                     </div>
                     <div className="col-md-4">
-                        <FormItem className="form-group">
-                            <label>中国联系电话1</label>
+                        <FormItem className="form-group" label="中国联系电话1">
                             {getFieldDecorator('cn_tel', {
                                 initialValue: '',
                             })(
@@ -369,8 +358,7 @@ class Hq_lxContentForm extends React.Component {
                         </FormItem>
                     </div>
                     <div className="col-md-4">
-                        <FormItem className="form-group">
-                            <label>中国联系电话2</label>
+                        <FormItem className="form-group" label="中国联系电话2">
                             {getFieldDecorator('cn_te2', {
                                 initialValue: '',
                             })(
@@ -386,8 +374,7 @@ class Hq_lxContentForm extends React.Component {
 
                 <div className="row">
                     <div className="col-md-4">
-                        <FormItem className="form-group">
-                            <label>微信</label>
+                        <FormItem className="form-group" label="微信">
                             {getFieldDecorator('wechat', {
                                 initialValue: '',
                             })(
@@ -400,8 +387,7 @@ class Hq_lxContentForm extends React.Component {
                         </FormItem>
                     </div>
                     <div className="col-md-4">
-                        <FormItem className="form-group">
-                            <label>邮箱</label>
+                        <FormItem className="form-group" label="邮箱">
                             {getFieldDecorator('mail', {
                                 initialValue: '',
                                 rules: [{
@@ -419,8 +405,7 @@ class Hq_lxContentForm extends React.Component {
                         </FormItem>
                     </div>
                     <div className="col-md-4">
-                        <FormItem className="form-group">
-                            <label>QQ</label>
+                        <FormItem className="form-group" label="QQ">
                             {getFieldDecorator('qq_num', {
                                 initialValue: '',
                                 rules: [{
@@ -440,8 +425,7 @@ class Hq_lxContentForm extends React.Component {
                 <hr/>
                 <div className="row">
                     <div className="col-md-4">
-                        <FormItem className="form-group">
-                            <label>现国籍*</label>
+                        <FormItem className="form-group" label="现国籍">
                             {getFieldDecorator('nationality', {
                                 rules: [{
                                     required: true,
@@ -458,8 +442,7 @@ class Hq_lxContentForm extends React.Component {
                         </FormItem>
                     </div>
                     <div className="col-md-4">
-                        <FormItem className="form-group">
-                            <label>旅居地*</label>
+                        <FormItem className="form-group" label="旅居地">
                             {getFieldDecorator('residence', {
                                 rules: [{
                                     required: true,
@@ -475,8 +458,7 @@ class Hq_lxContentForm extends React.Component {
                         </FormItem>
                     </div>
                     <div className="col-md-4">
-                        <FormItem className="form-group">
-                            <label>中国居住地*</label>
+                        <FormItem className="form-group" label="中国居住地">
                             {getFieldDecorator('cn_residence', {
                                 rules: [{
                                     required: true,
@@ -495,8 +477,7 @@ class Hq_lxContentForm extends React.Component {
                 </div>
                 <div className="row">
                     <div className="col-md-4">
-                        <FormItem className="form-group">
-                            <label>籍贯</label>
+                        <FormItem className="form-group" label="籍贯">
                             {getFieldDecorator('native_place', {
                                 initialValue: [],
                             })(
@@ -513,8 +494,7 @@ class Hq_lxContentForm extends React.Component {
                 <hr/>
                 <div className="row">
                     <div className="col-md-4">
-                        <FormItem className="form-group">
-                            <label>所从事行业</label>
+                        <FormItem className="form-group" label="所从事行业">
                             {getFieldDecorator('present_industry', {
                                 initialValue: '',
                             })(
@@ -527,8 +507,7 @@ class Hq_lxContentForm extends React.Component {
                         </FormItem>
                     </div>
                     <div className="col-md-4">
-                        <FormItem className="form-group">
-                            <label>公司/单位名称</label>
+                        <FormItem className="form-group" label="公司/单位名称">
                             {getFieldDecorator('com_name', {
                                 initialValue: '',
                             })(
@@ -541,8 +520,7 @@ class Hq_lxContentForm extends React.Component {
                         </FormItem>
                     </div>
                     <div className="col-md-4">
-                        <FormItem className="form-group">
-                            <label>职务</label>
+                        <FormItem className="form-group" label="职务">
                             {getFieldDecorator('position', {
                                 initialValue: '',
                             })(
@@ -558,8 +536,7 @@ class Hq_lxContentForm extends React.Component {
 
                 <div className="row">
                     <div className="col-md-4">
-                        <FormItem className="form-group">
-                            <label>文化程度</label>
+                        <FormItem className="form-group" label="文化程度">
                             {getFieldDecorator('education', {
                                 initialValue: '',
                             })(
@@ -572,8 +549,7 @@ class Hq_lxContentForm extends React.Component {
                         </FormItem>
                     </div>
                     <div className="col-md-4">
-                        <FormItem className="form-group">
-                            <label>健康状态</label>
+                        <FormItem className="form-group" label="健康状态">
                             {getFieldDecorator('health', {
                                 initialValue: '',
                             })(
@@ -592,8 +568,7 @@ class Hq_lxContentForm extends React.Component {
                     <hr/>
                     <div className="row">
                         <div className="col-md-3">
-                            <FormItem className="form-group">
-                                <label>毕业院校英文名*</label>
+                            <FormItem className="form-group" label="毕业院校英文名">
                                 {getFieldDecorator('en_cname', {
                                     rules: [{
                                         required: true,
@@ -609,8 +584,7 @@ class Hq_lxContentForm extends React.Component {
                             </FormItem>
                         </div>
                         <div className="col-md-3">
-                            <FormItem className="form-group">
-                                <label>毕业院校中文名*</label>
+                            <FormItem className="form-group" label="毕业院校中文名">
                                 {getFieldDecorator('ch_cname', {
                                     rules: [{
                                         required: true,
@@ -626,8 +600,7 @@ class Hq_lxContentForm extends React.Component {
                             </FormItem>
                         </div>
                         <div className="col-md-3">
-                            <FormItem className="form-group">
-                                <label>学位*</label>
+                            <FormItem className="form-group" label="学位">
                                 {getFieldDecorator('degree', {
                                     rules: [{
                                         required: true,
@@ -643,8 +616,7 @@ class Hq_lxContentForm extends React.Component {
                         </div>
 
                         <div className="col-md-3">
-                            <FormItem className="form-group">
-                                <label>毕业时间*</label>
+                            <FormItem className="form-group" label="毕业时间">
                                 {getFieldDecorator('gra_date', {
                                     rules: [{required: true, message: '请选择毕业时间'}],
                                 })(
@@ -675,8 +647,7 @@ class Hq_lxContentForm extends React.Component {
                     <hr/>
                     <div className="row">
                         <div className="col-md-4">
-                            <FormItem className="form-group">
-                                <label>登记人</label>
+                            <FormItem className="form-group" label="登记人">
                                 {getFieldDecorator('registrant_name', {})(
                                     <Input
                                         className="form-control border-input"
@@ -687,8 +658,7 @@ class Hq_lxContentForm extends React.Component {
                             </FormItem>
                         </div>
                         <div className="col-md-4">
-                            <FormItem className="form-group">
-                                <label>登记时间</label>
+                            <FormItem className="form-group" label="登记时间">
                                 {getFieldDecorator('reg_date', {})(
                                     <Input
                                         disabled

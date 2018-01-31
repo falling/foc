@@ -18,78 +18,79 @@ public class UserController {
     UserService userService;
 
     @RequestMapping("/userLogin")
-    public VO login(@RequestParam("username")String username, @RequestParam("password")String password, HttpSession httpSession) {
-        UserVO userVO = userService.login(username,password);
-        if(userVO.getStatus()<0)
+    public VO login(@RequestParam("username") String username, @RequestParam("password") String password, HttpSession httpSession) {
+        UserVO userVO = userService.login(username, password);
+        if (userVO.getStatus() < 0)
             return userVO;
-        httpSession.setAttribute("user",userVO);
+        httpSession.setAttribute("user", userVO);
         return Response.success();
     }
 
     @RequestMapping("/userInfo")
-    public VO getInfo(HttpSession httpSession){
+    public VO getInfo(HttpSession httpSession) {
         UserVO vo = (UserVO) httpSession.getAttribute("user");
-        if(vo==null){
+        if (vo == null) {
             return new UserVO();
         }
         return (UserVO) httpSession.getAttribute("user");
     }
 
     @RequestMapping("/checkName")
-    public VO checkName(@RequestParam("username")String username){
+    public VO checkName(@RequestParam("username") String username) {
         String result = userService.checkName(username);
         return Response.info(result);
     }
 
     @RequestMapping("/createUser")
-    public VO createUser(@RequestBody UserVO user){
+    public VO createUser(@RequestBody UserVO user) {
         String result = userService.create(user);
-        if(result.equals("创建成功")){
-           return Response.success(result);
-        }else{
-           return Response.warning(result);
+        if (result.equals("创建成功")) {
+            return Response.success(result);
+        } else {
+            return Response.warning(result);
         }
     }
 
     @RequestMapping("/searchUser")
-    public VO searchUser(@RequestParam("username")String username){
+    public VO searchUser(@RequestParam("username") String username) {
         VO vo = userService.search(username);
-        if(vo == null){
+        if (vo == null) {
             return Response.warning("该用户不存在");
-        }else {
+        } else {
             return Response.success(vo);
         }
     }
 
 
     @RequestMapping("/updateUser")
-    public VO updateUser(@RequestBody UserVO user,HttpSession httpSession){
+    public VO updateUser(@RequestBody UserVO user, HttpSession httpSession) {
         UserVO userVO = (UserVO) httpSession.getAttribute("user");
         user.setId(userVO.getId());
-        if(userService.update(user) == 1){
-            httpSession.setAttribute("user",user);
+        if (userService.update(user) == 1) {
+            httpSession.setAttribute("user", user);
             return Response.success("修改成功");
         }
         return Response.warning("修改失败");
     }
 
     @RequestMapping("/deleteUser")
-    public VO deleteUser(@RequestParam("id") Long id){
-        if(userService.delete(id) == 1){
+    public VO deleteUser(@RequestParam("id") Long id) {
+        if (userService.delete(id) == 1) {
             return Response.success("删除成功");
         }
         return Response.warning("删除失败");
     }
+
     @RequestMapping("/sighOff")
-    public VO sighOff(HttpSession httpSession){
-        httpSession.setAttribute("user",null);
+    public VO sighOff(HttpSession httpSession) {
+        httpSession.setAttribute("user", null);
         return Response.success("注销成功");
     }
 
     @RequestMapping("/changePwd")
-    public VO changPwd(@RequestParam("password_old")String password_old,@RequestParam("password")String password,HttpSession session){
+    public VO changPwd(@RequestParam("password_old") String password_old, @RequestParam("password") String password, HttpSession session) {
         UserVO userVO = (UserVO) session.getAttribute("user");
-        if(userService.changPwd(password_old,password,userVO.getId())){
+        if (userService.changPwd(password_old, password, userVO.getId())) {
             return Response.success("修改成功");
         }
         return Response.warning("修改失败,密码错误");

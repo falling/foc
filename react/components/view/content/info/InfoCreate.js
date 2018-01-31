@@ -26,7 +26,7 @@ export default class InfoCreate extends React.Component {
         const {display} = this.props;
         const {type} = this.state;
         return (
-            <div style={{display: !display && 'none'}}>
+            <div className="container-fluid" style={{display: !display && 'none'}}>
                 <div className="col-lg-12 col-md-12">
                     <div className="card">
                         <div className="header">

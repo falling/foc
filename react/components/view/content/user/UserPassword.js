@@ -41,23 +41,23 @@ class UserPasswordForm extends React.Component {
 
     changePassword() {
         this.props.form.validateFieldsAndScroll((err, values) => {
-            if(!err){
+            if (!err) {
                 this.setState({loading: true});
                 let formData = new FormData();
-                formData.append("password_old",values.password_old);
-                formData.append("password",values.password);
-                fetch("/changePwd",{
+                formData.append("password_old", values.password_old);
+                formData.append("password", values.password);
+                fetch("/changePwd", {
                     method: 'post',
                     credentials: 'include',
                     body: formData
                 }).then(response => response.json())
-                    .then(result=>{
-                        if(result.status>=0){
+                    .then(result => {
+                        if (result.status >= 0) {
                             message.success(result.info, 5);
-                        }else{
+                        } else {
                             message.error(result.info, 5);
                         }
-                        this.setState({loading:false})
+                        this.setState({loading: false})
                         this.props.form.resetFields();
                     })
             }
@@ -80,14 +80,12 @@ class UserPasswordForm extends React.Component {
                             <Form>
                                 <div className="row">
                                     <div className="col-md-offset-4 col-md-4">
-                                        <FormItem className="form-group" label="原始密码">
+                                        <FormItem label="密码">
                                             {getFieldDecorator('password_old', {
-                                                rules: [{
-                                                    required: true,
-                                                    message: '请输入密码'
-                                                }],
+                                                rules: [{required: true, message: '请输入密码'}],
                                             })(
                                                 <Input
+                                                    type="password"
                                                     placeholder="密码"
                                                     className="form-control border-input"
                                                 />
@@ -97,15 +95,14 @@ class UserPasswordForm extends React.Component {
                                 </div>
                                 <div className="row">
                                     <div className="col-md-offset-4 col-md-4">
-                                        <FormItem className="form-group" label="新密码">
+                                        <FormItem label="新密码">
                                             {getFieldDecorator('password', {
-                                                rules: [{
-                                                    required: true,
-                                                    message: '请输入新密码'
-                                                }],
+                                                rules: [{required: true, message: '请输入新密码'},
+                                                    {validator: this.checkConfirm}],
                                             })(
                                                 <Input
-                                                    placeholder="新密码"
+                                                    type="password"
+                                                    placeholder="请输入新密码"
                                                     className="form-control border-input"
                                                 />
                                             )}
@@ -114,15 +111,15 @@ class UserPasswordForm extends React.Component {
                                 </div>
                                 <div className="row">
                                     <div className="col-md-offset-4 col-md-4">
-                                        <FormItem className="form-group" label="确认密码">
+                                        <FormItem label="确认密码">
                                             {getFieldDecorator('password2', {
-                                                rules: [{
-                                                    required: true,
-                                                    message: '请输入新密码'
-                                                }],
+                                                rules: [{required: true, message: '请确认密码'},
+                                                    {validator: this.checkPassword}],
                                             })(
                                                 <Input
-                                                    placeholder="新密码"
+                                                    type="password"
+                                                    onBlur={this.handleConfirmBlur}
+                                                    placeholder="确认密码"
                                                     className="form-control border-input"
                                                 />
                                             )}
