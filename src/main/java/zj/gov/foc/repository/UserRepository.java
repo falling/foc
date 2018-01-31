@@ -59,4 +59,8 @@ public interface UserRepository extends Repository<UserBean, Long> {
 
     @Query(value = "SELECT * FROM user WHERE user_id = ?1",nativeQuery = true)
     UserBean getById(Long registrant);
+
+    @Modifying
+    @Query(value = "UPDATE user SET pwd = ?2 WHERE user_id = ?1",nativeQuery = true)
+    int changPwd(Long id, String password);
 }

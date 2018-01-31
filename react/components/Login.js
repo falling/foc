@@ -1,6 +1,7 @@
 import React from 'react';
 import 'whatwg-fetch';
 import {message} from 'antd';
+import {Link} from 'react-router-dom'
 
 
 export default class Login extends React.Component {
@@ -50,7 +51,7 @@ export default class Login extends React.Component {
                         <div className="login-container">
                             <img src={require('../image/logo.png')}/>
                             <img src={require('../image/name.png')}/>
-                            <div className="label">v.1.6.2</div>
+                            <div className="label">v.1.0.1</div>
                             <div className="login-form">
                                 <div id="login_modal">
                                     <div className="input-with-icon wfull">
@@ -70,7 +71,7 @@ export default class Login extends React.Component {
                                         <i className="fa fa-lock"/>
                                     </div>
                                     <div className="login-forgot">
-                                        <a className="pointer">忘记密码?</a>
+                                        <Link to="/manager/0" className="pointer">查询用户进入系统</Link>
                                     </div>
                                     <button className="btn btn-lg btn-primary-outline-login wfull login-button"
                                             ref="loginButton"

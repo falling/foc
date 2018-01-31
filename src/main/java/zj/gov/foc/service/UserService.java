@@ -42,17 +42,17 @@ public class UserService {
 
     @Transactional
     public String create(UserVO user) {
-        UserBean userBean= userRepository.searchUser(user.getUsername());
-        if(userBean!=null){
+        UserBean userBean = userRepository.searchUser(user.getUsername());
+        if (userBean != null) {
             return "用户名已经存在";
         }
         int result = userRepository.insert(user.getUsername(), "123456", user.getName(), user.getPower(), new Date(), "", "0");
-        return result != 0 ? "创建成功":"创建失败";
+        return result != 0 ? "创建成功" : "创建失败";
     }
 
     public VO search(String username) {
-        UserBean bean =  userRepository.searchUser(username);
-        if(bean==null){
+        UserBean bean = userRepository.searchUser(username);
+        if (bean == null) {
             return null;
         }
         UserVO vo = new UserVO();
@@ -67,11 +67,17 @@ public class UserService {
 
     @Transactional
     public int update(UserVO user) {
-        return userRepository.updateUserInfo(user.getName(),user.getPower(),user.getId());
+        return userRepository.updateUserInfo(user.getName(), user.getPower(), user.getId());
     }
 
     @Transactional
     public int delete(Long id) {
         return userRepository.deleteUser(id);
+    }
+
+    @Transactional
+    public boolean changPwd(String password_old, String password, Long id) {
+        return userRepository.getById(id).getPwd().equals(password_old)
+                && userRepository.changPwd(id, password) == 1;
     }
 }

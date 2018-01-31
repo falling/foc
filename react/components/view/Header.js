@@ -1,13 +1,36 @@
 import React from 'react';
 import {Title} from "../config/Title";
 import 'whatwg-fetch';
+import {message,Menu,Dropdown,Icon} from 'antd';
 import {Link} from 'react-router-dom'
-
 
 export default class Header extends React.Component {
     constructor() {
         super();
         this.state = {};
+        this.sighOff = this.sighOff.bind(this);
+        this.menu = (
+            <Menu>
+                <Menu.Item key="0">
+                    <Link to="/manager/6">修改密码</Link>
+                </Menu.Item>
+            </Menu>
+        );
+    }
+
+    sighOff() {
+        fetch("/sighOff", {
+            method: 'post',
+            credentials: 'include',
+        }).then(response => response.json())
+            .then(json => {
+                if (json.status >= 0) {
+                    message.success(json.info, 5);
+                    window.location.href = "/";
+                } else {
+                    message.error(json.info, 5);
+                }
+            })
     }
 
     componentDidMount() {
@@ -31,13 +54,15 @@ export default class Header extends React.Component {
                     <div className="collapse navbar-collapse">
                         {(user !== null && user.name !== null) ? <ul className="nav navbar-nav navbar-right">
                                 <li>
-                                    <a href="#">
-                                        <i className="ti-user paddingRight"/>
-                                        <p>{user.name}</p>
-                                    </a>
+                                    <Dropdown overlay={this.menu}>
+                                        <a>
+                                            <i className="ti-user paddingRight"/>
+                                            <p>{user.name}<Icon type="down" /></p>
+                                        </a>
+                                    </Dropdown>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a onClick={e => this.sighOff()}>
                                         <i className="ti-settings paddingRight"/>
                                         <p>注销</p>
                                     </a>
@@ -45,10 +70,10 @@ export default class Header extends React.Component {
                             </ul>
                             :
                             <ul className="nav navbar-nav navbar-right">
-                                <li >
+                                <li>
                                     <Link to="/">
                                         <i className="ti-settings paddingRight"/>
-                                        <p>登陆</p>
+                                        <p>登录</p>
                                     </Link>
                                 </li>
                             </ul>

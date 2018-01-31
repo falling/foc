@@ -55,6 +55,7 @@ export default class InfoSearch extends React.Component {
     }
 
     search(value) {
+        if(!value) return;
         const {type, col} = this.state;
 
         let formData = new FormData();

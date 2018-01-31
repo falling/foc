@@ -80,5 +80,19 @@ public class UserController {
         }
         return Response.warning("删除失败");
     }
+    @RequestMapping("/sighOff")
+    public VO sighOff(HttpSession httpSession){
+        httpSession.setAttribute("user",null);
+        return Response.success("注销成功");
+    }
+
+    @RequestMapping("/changePwd")
+    public VO changPwd(@RequestParam("password_old")String password_old,@RequestParam("password")String password,HttpSession session){
+        UserVO userVO = (UserVO) session.getAttribute("user");
+        if(userService.changPwd(password_old,password,userVO.getId())){
+            return Response.success("修改成功");
+        }
+        return Response.warning("修改失败,密码错误");
+    }
 
 }

@@ -8,6 +8,7 @@ import UserCreate from "./view/content/user/UserCreate";
 import InfoCreate from "./view/content/info/InfoCreate";
 import InfoManage from "./view/content/info/InfoManage";
 import UserProfile from "./view/content/user/UserProfile";
+import UserPassword from "./view/content/user/UserPassword";
 import 'whatwg-fetch';
 
 export default class Manager extends React.Component {
@@ -56,6 +57,7 @@ export default class Manager extends React.Component {
                             <UserProfile display={urlId===3}/>
                             <UserCreate display={urlId===4}/>
                             <UserManage display={urlId===5}/>
+                            <UserPassword display={urlId===6}/>
                         </div>
 
 
