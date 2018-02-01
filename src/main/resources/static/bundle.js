@@ -58419,6 +58419,10 @@
 	    value: true
 	});
 	
+	var _modal = __webpack_require__(/*! antd/lib/modal */ 878);
+	
+	var _modal2 = _interopRequireDefault(_modal);
+	
 	var _table = __webpack_require__(/*! antd/lib/table */ 588);
 	
 	var _table2 = _interopRequireDefault(_table);
@@ -58445,6 +58449,8 @@
 	    };
 	}();
 	
+	__webpack_require__(/*! antd/lib/modal/style */ 906);
+	
 	__webpack_require__(/*! antd/lib/table/style */ 678);
 	
 	__webpack_require__(/*! antd/lib/select/style */ 693);
@@ -58458,6 +58464,10 @@
 	var _react2 = _interopRequireDefault(_react);
 	
 	__webpack_require__(/*! whatwg-fetch */ 505);
+	
+	var _FormContent = __webpack_require__(/*! ./formContent/FormContent */ 814);
+	
+	var _FormContent2 = _interopRequireDefault(_FormContent);
 	
 	function _interopRequireDefault(obj) {
 	    return obj && obj.__esModule ? obj : { default: obj };
@@ -58498,7 +58508,9 @@
 	            type: 'hq',
 	            show: false,
 	            data: [],
-	            loading: false
+	            loading: false,
+	            previewVisible: false,
+	            showData: {}
 	        };
 	        _this.search = _this.search.bind(_this);
 	        _this.showData = _this.showData.bind(_this);
@@ -58542,6 +58554,10 @@
 	        key: 'showData',
 	        value: function showData(record) {
 	            console.log(record);
+	            this.setState({
+	                previewVisible: true,
+	                showData: record
+	            });
 	        }
 	    }, {
 	        key: 'search',
@@ -58586,7 +58602,9 @@
 	                type = _state2.type,
 	                col = _state2.col,
 	                show = _state2.show,
-	                loading = _state2.loading;
+	                loading = _state2.loading,
+	                previewVisible = _state2.previewVisible,
+	                showData = _state2.showData;
 	
 	            var secondSelect = void 0;
 	            if (type === 'hq') {
@@ -58630,7 +58648,14 @@
 	                        return '共 ' + _this3.state.data.length + ' 条数据';
 	                    }
 	                }
-	            })))));
+	            })))), _react2.default.createElement(_modal2.default, { width: '720px', visible: previewVisible, footer: null,
+	                onCancel: function onCancel(e) {
+	                    return _this3.setState({ previewVisible: false });
+	                } }, previewVisible && _react2.default.createElement(_FormContent2.default, {
+	                type: type,
+	                info: showData,
+	                mode: 'view'
+	            })));
 	        }
 	    }]);
 	
@@ -81792,12 +81817,6 @@
 	
 	var _message9 = _interopRequireDefault(_message8);
 	
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
-	    return typeof obj;
-	} : function (obj) {
-	    return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-	};
-	
 	var _createClass = function () {
 	    function defineProperties(target, props) {
 	        for (var i = 0; i < props.length; i++) {
@@ -82008,7 +82027,7 @@
 	                        } else {
 	                            _message9.default.error(json.info, 5);
 	                        }
-	                        // this.props.form.resetFields();
+	                        _this5.props.form.resetFields();
 	                    });
 	                } else {}
 	            });
@@ -82034,7 +82053,7 @@
 	
 	                if (info.native_place) {
 	                    // 'a/b/c',[],[a,b,c],
-	                    if (_typeof(info.native_place === "string")) {
+	                    if (typeof info.native_place === "string") {
 	                        info.native_place = info.native_place.split("/");
 	                    }
 	                } else {
@@ -82046,7 +82065,31 @@
 	        }
 	    }, {
 	        key: 'componentDidMount',
-	        value: function componentDidMount() {}
+	        value: function componentDidMount() {
+	            if (this.props.info) {
+	                var info = this.props.info;
+	                delete info.status;
+	                delete info.info;
+	                info.date_birth = info.date_birth ? (0, _moment2.default)(info.date_birth) : '';
+	                info.date_expriy = info.date_expriy ? (0, _moment2.default)(info.date_expriy) : '';
+	                if (this.props.type === 'lx') {
+	                    info.gra_date = info.gra_date ? (0, _moment2.default)(info.gra_date) : '';
+	                }
+	                this.photo = info.photo;
+	
+	                if (info.native_place) {
+	                    // 'a/b/c',[],[a,b,c],
+	                    if (typeof info.native_place === "string") {
+	                        info.native_place = info.native_place.split("/");
+	                    }
+	                } else {
+	                    // undefined,''
+	                    info.native_place = [];
+	                }
+	                this.photo = info.photo;
+	                this.props.form.setFieldsValue(info);
+	            }
+	        }
 	    }, {
 	        key: 'render',
 	        value: function render() {

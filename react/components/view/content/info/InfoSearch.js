@@ -1,6 +1,7 @@
 import React from 'react';
-import {Input, Select, message, Table} from 'antd';
+import {Input, Select, message, Table, Modal} from 'antd';
 import 'whatwg-fetch';
+import FormContent from "./formContent/FormContent";
 
 const Search = Input.Search;
 const Option = Select.Option;
@@ -15,6 +16,8 @@ export default class InfoSearch extends React.Component {
             show: false,
             data: [],
             loading: false,
+            previewVisible: false,
+            showData: {},
         };
         this.search = this.search.bind(this);
         this.showData = this.showData.bind(this);
@@ -38,7 +41,9 @@ export default class InfoSearch extends React.Component {
             title: '查看',
             key: 'action',
             render: (record) => (
-                <span><a onClick={e=>{this.showData(record)}}>查看</a></span>
+                <span><a onClick={e => {
+                    this.showData(record)
+                }}>查看</a></span>
             ),
         }];
     }
@@ -50,12 +55,16 @@ export default class InfoSearch extends React.Component {
     componentWillReceiveProps(nextProps) {
     }
 
-    showData(record){
+    showData(record) {
         console.log(record)
+        this.setState({
+            previewVisible: true,
+            showData: record,
+        })
     }
 
     search(value) {
-        if(!value) return;
+        if (!value) return;
         const {type, col} = this.state;
 
         let formData = new FormData();
@@ -84,7 +93,7 @@ export default class InfoSearch extends React.Component {
 
     render() {
         const {display} = this.props;
-        const {type, col, show, loading} = this.state;
+        const {type, col, show, loading, previewVisible, showData} = this.state;
         let secondSelect;
         if (type === 'hq') {
             secondSelect =
@@ -156,7 +165,7 @@ export default class InfoSearch extends React.Component {
                                 pagination={{
                                     total: this.state.data.count,
                                     pageSize: 50,
-                                    pageSizeOptions:['10', '50', '100', '200', '500', '1000'],
+                                    pageSizeOptions: ['10', '50', '100', '200', '500', '1000'],
                                     showSizeChanger: true,
                                     showTotal: e => '共 ' + this.state.data.length + ' 条数据'
                                 }}
@@ -165,6 +174,16 @@ export default class InfoSearch extends React.Component {
                         </div>
                     </div>
                 </div>
+                <Modal width="720px" visible={previewVisible} footer={null}
+                       onCancel={e => this.setState({previewVisible: false})}>
+                    {previewVisible &&
+                        <FormContent
+                            type={type}
+                            info={showData}
+                            mode="view"
+                        />
+                    }
+                </Modal>
             </div>
         )
     }

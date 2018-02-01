@@ -127,7 +127,7 @@ class Hq_lxContentForm extends React.Component {
                     } else {
                         message.error(json.info, 5);
                     }
-                    // this.props.form.resetFields();
+                    this.props.form.resetFields();
                 })
             } else {
             }
@@ -153,7 +153,7 @@ class Hq_lxContentForm extends React.Component {
             this.photo = info.photo;
 
             if (info.native_place) { // 'a/b/c',[],[a,b,c],
-                if (typeof (info.native_place === "string")) {
+                if (typeof (info.native_place) === "string") {
                     info.native_place = info.native_place.split("/")
                 }
             } else { // undefined,''
@@ -164,7 +164,27 @@ class Hq_lxContentForm extends React.Component {
     }
 
     componentDidMount() {
+        if(this.props.info){
+            let info = this.props.info;
+            delete info.status;
+            delete info.info;
+            info.date_birth = info.date_birth ? moment(info.date_birth) : '';
+            info.date_expriy = info.date_expriy ? moment(info.date_expriy) : '';
+            if (this.props.type === 'lx') {
+                info.gra_date = info.gra_date ? moment(info.gra_date) : '';
+            }
+            this.photo = info.photo;
 
+            if (info.native_place) { // 'a/b/c',[],[a,b,c],
+                if (typeof (info.native_place) === "string") {
+                    info.native_place = info.native_place.split("/")
+                }
+            } else { // undefined,''
+                info.native_place = []
+            }
+            this.photo = info.photo;
+            this.props.form.setFieldsValue(info);
+        }
     }
 
     render() {

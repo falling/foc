@@ -15,6 +15,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -76,11 +77,21 @@ public class LXService {
     private EntityManager entityManager;
 
     public SearchVO search(String col, String value) {
-        SearchVO<LxBean> searchVO = new SearchVO<>();
+        SearchVO<LxVO> searchVO = new SearchVO<>();
         String sql = "SELECT * FROM lx WHERE "+col+" LIKE '%"+value+"%' AND del = '0'";
         Query query = entityManager.createNativeQuery(sql,LxBean.class);
         List<LxBean> resultList = query.getResultList();
-        searchVO.setResult(resultList);
+        List<LxVO> returnList = new ArrayList<>();
+        resultList.forEach(result->{
+            String registrant_name = userRepository
+                    .getById(result.getRegistrant())
+                    .getName();
+            LxVO vo = new LxVO();
+            BeanUtils.copyProperties(result,vo);
+            vo.setRegistrant_name(registrant_name);
+            returnList.add(vo);
+        });
+        searchVO.setResult(returnList);
         return searchVO;
     }
 }

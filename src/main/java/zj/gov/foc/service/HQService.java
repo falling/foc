@@ -17,6 +17,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -104,11 +105,21 @@ public class HQService {
     private EntityManager entityManager;
 
     public SearchVO search(String col, String value) {
-        SearchVO<HQBean> searchVO = new SearchVO<>();
+        SearchVO<HQVO> searchVO = new SearchVO<>();
         String sql = "SELECT * FROM hq WHERE "+col+" LIKE '%"+value+"%' AND del = '0'";
         Query query = entityManager.createNativeQuery(sql,HQBean.class);
         List<HQBean> resultList = query.getResultList();
-        searchVO.setResult(resultList);
+        List<HQVO> returnList = new ArrayList<>();
+        resultList.forEach(result->{
+            String registrant_name = userRepository
+                    .getById(result.getRegistrant())
+                    .getName();
+            HQVO vo = new HQVO();
+            BeanUtils.copyProperties(result,vo);
+            vo.setRegistrant_name(registrant_name);
+            returnList.add(vo);
+        });
+        searchVO.setResult(returnList);
         return searchVO;
     }
 }
