@@ -58654,7 +58654,7 @@
 	                } }, previewVisible && _react2.default.createElement(_FormContent2.default, {
 	                type: type,
 	                info: showData,
-	                mode: 'view'
+	                mode: 'search'
 	            })));
 	        }
 	    }]);
@@ -82116,6 +82116,7 @@
 	                    message: '请输入中文名'
 	                }]
 	            })(_react2.default.createElement(_input2.default, {
+	                disabled: mode === 'search',
 	                placeholder: '\u4E2D\u6587\u540D',
 	                className: 'form-control border-input'
 	            })))), _react2.default.createElement('div', { className: 'col-md-3' }, _react2.default.createElement(FormItem, { className: 'form-group', label: '\u62FC\u97F3' }, getFieldDecorator('py_name', {
@@ -82125,6 +82126,7 @@
 	                    message: '请输入拼音'
 	                }]
 	            })(_react2.default.createElement(_input2.default, {
+	                disabled: mode === 'search',
 	                placeholder: '\u62FC\u97F3',
 	                className: 'form-control border-input'
 	            })))), _react2.default.createElement('div', { className: 'col-md-2' }, _react2.default.createElement(FormItem, { className: 'form-group', label: '\u66FE\u7528\u540D' }, getFieldDecorator('used_name', {
@@ -82134,6 +82136,7 @@
 	                    message: '请输入中文'
 	                }]
 	            })(_react2.default.createElement(_input2.default, {
+	                disabled: mode === 'search',
 	                placeholder: '\u66FE\u7528\u540D',
 	                className: 'form-control border-input'
 	            })))), _react2.default.createElement('div', { className: 'col-md-2' }, _react2.default.createElement(FormItem, { className: 'form-group', label: '\u6C11\u65CF' }, getFieldDecorator('ethnicity', {
@@ -82143,11 +82146,12 @@
 	                    message: '请输入民族'
 	                }]
 	            })(_react2.default.createElement(_input2.default, {
+	                disabled: mode === 'search',
 	                placeholder: '\u6C11\u65CF',
 	                className: 'form-control border-input'
 	            })))), _react2.default.createElement('div', { className: 'col-md-2' }, _react2.default.createElement(FormItem, { className: 'form-group', label: '\u6027\u522B' }, getFieldDecorator('sex', {
 	                initialValue: '男'
-	            })(_react2.default.createElement(_select2.default, null, _react2.default.createElement(Option, { value: '\u7537' }, '\u7537'), _react2.default.createElement(Option, { value: '\u5973' }, '\u5973')))))), _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-md-3' }, _react2.default.createElement(FormItem, { className: 'form-group', label: '\u62A4\u7167\u53F7\u7801' }, getFieldDecorator('passport_no', {
+	            })(_react2.default.createElement(_select2.default, { disabled: mode === 'search' }, _react2.default.createElement(Option, { value: '\u7537' }, '\u7537'), _react2.default.createElement(Option, { value: '\u5973' }, '\u5973')))))), _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-md-3' }, _react2.default.createElement(FormItem, { className: 'form-group', label: '\u62A4\u7167\u53F7\u7801' }, getFieldDecorator('passport_no', {
 	                validateTrigger: 'onBlur',
 	                rules: [{
 	                    required: true,
@@ -82155,6 +82159,7 @@
 	                    message: '请输入护照号码'
 	                }]
 	            })(_react2.default.createElement(_input2.default, {
+	                disabled: mode === 'search',
 	                placeholder: '\u62A4\u7167\u53F7\u7801',
 	                className: 'form-control border-input'
 	            })))), _react2.default.createElement('div', { className: 'col-md-3' }, _react2.default.createElement(FormItem, { className: 'form-group', label: '\u62A4\u7167\u6709\u6548\u671F' }, getFieldDecorator('date_expriy', {
@@ -82163,12 +82168,14 @@
 	                    message: '请选择护照有效期'
 	                }]
 	            })(_react2.default.createElement(_datePicker2.default, {
+	                disabled: mode === 'search',
 	                disabledDate: function disabledDate(current) {
 	                    return current < (0, _moment2.default)().endOf('day');
 	                }
 	            })))), _react2.default.createElement('div', { className: 'col-md-3' }, _react2.default.createElement(FormItem, { className: 'form-group', label: '\u751F\u65E5' }, getFieldDecorator('date_birth', {
 	                rules: [{ required: true, message: '请选择出生日期' }]
 	            })(_react2.default.createElement(_datePicker2.default, {
+	                disabled: mode === 'search',
 	                disabledDate: function disabledDate(current) {
 	                    return current > (0, _moment2.default)().endOf('day');
 	                }
@@ -82180,6 +82187,7 @@
 	                    message: '请输入身份证号'
 	                }]
 	            })(_react2.default.createElement(_input2.default, {
+	                disabled: mode === 'search',
 	                placeholder: '\u8EAB\u4EFD\u8BC1\u53F7',
 	                className: 'form-control border-input'
 	            }))))), _react2.default.createElement('hr', null), _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-md-4' }, _react2.default.createElement(FormItem, { className: 'form-group', label: '\u6D77\u5916\u8054\u7CFB\u7535\u8BDD' }, getFieldDecorator('o_tel', {
@@ -82188,21 +82196,25 @@
 	                    message: '请输入海外联系电话'
 	                }]
 	            })(_react2.default.createElement(_input2.default, {
+	                disabled: mode === 'search',
 	                placeholder: '\u6D77\u5916\u8054\u7CFB\u7535\u8BDD',
 	                className: 'form-control border-input'
 	            })), _react2.default.createElement('div', null))), _react2.default.createElement('div', { className: 'col-md-4' }, _react2.default.createElement(FormItem, { className: 'form-group', label: '\u4E2D\u56FD\u8054\u7CFB\u7535\u8BDD1' }, getFieldDecorator('cn_tel', {
 	                initialValue: ''
 	            })(_react2.default.createElement(_input2.default, {
+	                disabled: mode === 'search',
 	                placeholder: '\u4E2D\u56FD\u8054\u7CFB\u7535\u8BDD1',
 	                className: 'form-control border-input'
 	            })), _react2.default.createElement('div', null))), _react2.default.createElement('div', { className: 'col-md-4' }, _react2.default.createElement(FormItem, { className: 'form-group', label: '\u4E2D\u56FD\u8054\u7CFB\u7535\u8BDD2' }, getFieldDecorator('cn_te2', {
 	                initialValue: ''
 	            })(_react2.default.createElement(_input2.default, {
+	                disabled: mode === 'search',
 	                placeholder: '\u4E2D\u56FD\u8054\u7CFB\u7535\u8BDD2',
 	                className: 'form-control border-input'
 	            })), _react2.default.createElement('div', null)))), _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-md-4' }, _react2.default.createElement(FormItem, { className: 'form-group', label: '\u5FAE\u4FE1' }, getFieldDecorator('wechat', {
 	                initialValue: ''
 	            })(_react2.default.createElement(_input2.default, {
+	                disabled: mode === 'search',
 	                placeholder: '\u5FAE\u4FE1',
 	                className: 'form-control border-input'
 	            })), _react2.default.createElement('div', null))), _react2.default.createElement('div', { className: 'col-md-4' }, _react2.default.createElement(FormItem, { className: 'form-group', label: '\u90AE\u7BB1' }, getFieldDecorator('mail', {
@@ -82213,6 +82225,7 @@
 	                    message: '邮箱格式不正确'
 	                }]
 	            })(_react2.default.createElement(_input2.default, {
+	                disabled: mode === 'search',
 	                placeholder: '\u90AE\u7BB1',
 	                className: 'form-control border-input'
 	            })), _react2.default.createElement('div', null))), _react2.default.createElement('div', { className: 'col-md-4' }, _react2.default.createElement(FormItem, { className: 'form-group', label: 'QQ' }, getFieldDecorator('qq_num', {
@@ -82222,6 +82235,7 @@
 	                    message: 'qq格式不正确'
 	                }]
 	            })(_react2.default.createElement(_input2.default, {
+	                disabled: mode === 'search',
 	                placeholder: 'qq\u53F7',
 	                className: 'form-control border-input'
 	            })), _react2.default.createElement('div', null)))), _react2.default.createElement('hr', null), _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-md-4' }, _react2.default.createElement(FormItem, { className: 'form-group', label: '\u73B0\u56FD\u7C4D' }, getFieldDecorator('nationality', {
@@ -82231,6 +82245,7 @@
 	                    message: '请输入国籍'
 	                }]
 	            })(_react2.default.createElement(_input2.default, {
+	                disabled: mode === 'search',
 	                placeholder: '\u56FD\u7C4D',
 	                className: 'form-control border-input'
 	            })), _react2.default.createElement('div', null))), _react2.default.createElement('div', { className: 'col-md-4' }, _react2.default.createElement(FormItem, { className: 'form-group', label: '\u65C5\u5C45\u5730' }, getFieldDecorator('residence', {
@@ -82239,6 +82254,7 @@
 	                    message: '请输入居旅地'
 	                }]
 	            })(_react2.default.createElement(_input2.default, {
+	                disabled: mode === 'search',
 	                placeholder: '\u65C5\u5C45\u5730',
 	                className: 'form-control border-input'
 	            })), _react2.default.createElement('div', null))), _react2.default.createElement('div', { className: 'col-md-4' }, _react2.default.createElement(FormItem, { className: 'form-group', label: '\u4E2D\u56FD\u5C45\u4F4F\u5730' }, getFieldDecorator('cn_residence', {
@@ -82248,36 +82264,43 @@
 	                    message: '请输入中国居住地'
 	                }]
 	            })(_react2.default.createElement(_input2.default, {
+	                disabled: mode === 'search',
 	                placeholder: '\u8BF7\u8F93\u5165\u4E2D\u56FD\u5C45\u4F4F\u5730',
 	                className: 'form-control border-input'
 	            })), _react2.default.createElement('div', null)))), _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-md-4' }, _react2.default.createElement(FormItem, { className: 'form-group', label: '\u7C4D\u8D2F' }, getFieldDecorator('native_place', {
 	                initialValue: []
 	            })(_react2.default.createElement(_cascader2.default, {
+	                disabled: mode === 'search',
 	                options: options,
 	                placeholder: '\u7C4D\u8D2F'
 	            })), _react2.default.createElement('div', null)))), _react2.default.createElement('hr', null), _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-md-4' }, _react2.default.createElement(FormItem, { className: 'form-group', label: '\u6240\u4ECE\u4E8B\u884C\u4E1A' }, getFieldDecorator('present_industry', {
 	                initialValue: ''
 	            })(_react2.default.createElement(_input2.default, {
+	                disabled: mode === 'search',
 	                placeholder: '\u6240\u4ECE\u4E8B\u884C\u4E1A',
 	                className: 'form-control border-input'
 	            })), _react2.default.createElement('div', null))), _react2.default.createElement('div', { className: 'col-md-4' }, _react2.default.createElement(FormItem, { className: 'form-group', label: '\u516C\u53F8/\u5355\u4F4D\u540D\u79F0' }, getFieldDecorator('com_name', {
 	                initialValue: ''
 	            })(_react2.default.createElement(_input2.default, {
+	                disabled: mode === 'search',
 	                placeholder: '\u516C\u53F8/\u5355\u4F4D',
 	                className: 'form-control border-input'
 	            })), _react2.default.createElement('div', null))), _react2.default.createElement('div', { className: 'col-md-4' }, _react2.default.createElement(FormItem, { className: 'form-group', label: '\u804C\u52A1' }, getFieldDecorator('position', {
 	                initialValue: ''
 	            })(_react2.default.createElement(_input2.default, {
+	                disabled: mode === 'search',
 	                placeholder: '\u804C\u52A1',
 	                className: 'form-control border-input'
 	            })), _react2.default.createElement('div', null)))), _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-md-4' }, _react2.default.createElement(FormItem, { className: 'form-group', label: '\u6587\u5316\u7A0B\u5EA6' }, getFieldDecorator('education', {
 	                initialValue: ''
 	            })(_react2.default.createElement(_input2.default, {
+	                disabled: mode === 'search',
 	                placeholder: '\u6587\u5316\u7A0B\u5EA6',
 	                className: 'form-control border-input'
 	            })), _react2.default.createElement('div', null))), _react2.default.createElement('div', { className: 'col-md-4' }, _react2.default.createElement(FormItem, { className: 'form-group', label: '\u5065\u5EB7\u72B6\u6001' }, getFieldDecorator('health', {
 	                initialValue: ''
 	            })(_react2.default.createElement(_input2.default, {
+	                disabled: mode === 'search',
 	                placeholder: '\u5065\u5EB7\u72B6\u6001',
 	                className: 'form-control border-input'
 	            })), _react2.default.createElement('div', null)))), type === 'lx' && _react2.default.createElement('div', null, _react2.default.createElement('hr', null), _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-md-3' }, _react2.default.createElement(FormItem, { className: 'form-group', label: '\u6BD5\u4E1A\u9662\u6821\u82F1\u6587\u540D' }, getFieldDecorator('en_cname', {
@@ -82286,7 +82309,8 @@
 	                    message: '请输入毕业院校英文名'
 	                }]
 	            })(_react2.default.createElement(_input2.default, {
-	                placeholder: '',
+	                disabled: mode === 'search',
+	                placeholder: '\u6BD5\u4E1A\u9662\u6821\u82F1\u6587\u540D',
 	                className: 'form-control border-input'
 	            })), _react2.default.createElement('div', null))), _react2.default.createElement('div', { className: 'col-md-3' }, _react2.default.createElement(FormItem, { className: 'form-group', label: '\u6BD5\u4E1A\u9662\u6821\u4E2D\u6587\u540D' }, getFieldDecorator('ch_cname', {
 	                rules: [{
@@ -82294,7 +82318,8 @@
 	                    message: '请输入毕业院校中文名'
 	                }]
 	            })(_react2.default.createElement(_input2.default, {
-	                placeholder: '\u6BD5\u4E1A\u9662\u6821',
+	                disabled: mode === 'search',
+	                placeholder: '\u6BD5\u4E1A\u9662\u6821\u4E2D\u6587\u540D',
 	                className: 'form-control border-input'
 	            })), _react2.default.createElement('div', null))), _react2.default.createElement('div', { className: 'col-md-3' }, _react2.default.createElement(FormItem, { className: 'form-group', label: '\u5B66\u4F4D' }, getFieldDecorator('degree', {
 	                rules: [{
@@ -82302,14 +82327,18 @@
 	                    message: '请输入学位'
 	                }]
 	            })(_react2.default.createElement(_input2.default, {
+	                disabled: mode === 'search',
+	                placeholder: '\u5B66\u4F4D',
 	                className: 'form-control border-input'
 	            })), _react2.default.createElement('div', null))), _react2.default.createElement('div', { className: 'col-md-3' }, _react2.default.createElement(FormItem, { className: 'form-group', label: '\u6BD5\u4E1A\u65F6\u95F4' }, getFieldDecorator('gra_date', {
 	                rules: [{ required: true, message: '请选择毕业时间' }]
-	            })(_react2.default.createElement(_datePicker2.default, null)))))), _react2.default.createElement('hr', null), _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-md-4' }, _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('label', null, '\u7167\u7247'), _react2.default.createElement(_PicturesWall2.default, {
+	            })(_react2.default.createElement(_datePicker2.default, {
+	                disabled: mode === 'search'
+	            })))))), _react2.default.createElement('hr', null), _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-md-4' }, _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('label', null, '\u7167\u7247'), _react2.default.createElement(_PicturesWall2.default, {
 	                clean: this.clean,
-	                url: mode === 'view' ? this.photo : '',
+	                url: mode === 'view' || mode === 'search' ? this.photo : '',
 	                getUrl: this.getPhotoUrl
-	            }), _react2.default.createElement('div', null)))), mode === 'view' && _react2.default.createElement('div', null, _react2.default.createElement('hr', null), _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-md-4' }, _react2.default.createElement(FormItem, { className: 'form-group', label: '\u767B\u8BB0\u4EBA' }, getFieldDecorator('registrant_name', {})(_react2.default.createElement(_input2.default, {
+	            }), _react2.default.createElement('div', null)))), (mode === 'view' || mode === 'search') && _react2.default.createElement('div', null, _react2.default.createElement('hr', null), _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-md-4' }, _react2.default.createElement(FormItem, { className: 'form-group', label: '\u767B\u8BB0\u4EBA' }, getFieldDecorator('registrant_name', {})(_react2.default.createElement(_input2.default, {
 	                className: 'form-control border-input',
 	                disabled: true
 	            })), _react2.default.createElement('div', null))), _react2.default.createElement('div', { className: 'col-md-4' }, _react2.default.createElement(FormItem, { className: 'form-group', label: '\u767B\u8BB0\u65F6\u95F4' }, getFieldDecorator('reg_date', {})(_react2.default.createElement(_input2.default, {

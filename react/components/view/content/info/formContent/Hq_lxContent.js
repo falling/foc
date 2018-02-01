@@ -216,6 +216,7 @@ class Hq_lxContentForm extends React.Component {
                                 }],
                             })(
                                 <Input
+                                    disabled={mode==='search'}
                                     placeholder="中文名"
                                     className="form-control border-input"
                                 />
@@ -232,6 +233,7 @@ class Hq_lxContentForm extends React.Component {
                                 }],
                             })(
                                 <Input
+                                    disabled={mode==='search'}
                                     placeholder="拼音"
                                     className="form-control border-input"
                                 />
@@ -248,6 +250,7 @@ class Hq_lxContentForm extends React.Component {
                                 }],
                             })(
                                 <Input
+                                    disabled={mode==='search'}
                                     placeholder="曾用名"
                                     className="form-control border-input"
                                 />
@@ -264,6 +267,7 @@ class Hq_lxContentForm extends React.Component {
                                 }],
                             })(
                                 <Input
+                                    disabled={mode==='search'}
                                     placeholder="民族"
                                     className="form-control border-input"
                                 />
@@ -276,7 +280,7 @@ class Hq_lxContentForm extends React.Component {
                             {getFieldDecorator('sex', {
                                 initialValue: '男',
                             })(
-                                <Select>
+                                <Select disabled={mode==='search'}>
                                     <Option value="男">男</Option>
                                     <Option value="女">女</Option>
                                 </Select>
@@ -297,6 +301,7 @@ class Hq_lxContentForm extends React.Component {
                                 }],
                             })(
                                 <Input
+                                    disabled={mode==='search'}
                                     placeholder="护照号码"
                                     className="form-control border-input"
                                 />
@@ -312,6 +317,7 @@ class Hq_lxContentForm extends React.Component {
                                 }],
                             })(
                                 <DatePicker
+                                    disabled={mode==='search'}
                                     disabledDate={current => current < moment().endOf('day')}
                                 />
                             )}
@@ -323,6 +329,7 @@ class Hq_lxContentForm extends React.Component {
                                 rules: [{required: true, message: '请选择出生日期'}],
                             })(
                                 <DatePicker
+                                    disabled={mode==='search'}
                                     disabledDate={current => current > moment().endOf('day')}
                                 />
                             )}
@@ -339,6 +346,7 @@ class Hq_lxContentForm extends React.Component {
                                 }],
                             })(
                                 <Input
+                                    disabled={mode==='search'}
                                     placeholder="身份证号"
                                     className="form-control border-input"
                                 />
@@ -357,6 +365,7 @@ class Hq_lxContentForm extends React.Component {
                                 }],
                             })(
                                 <Input
+                                    disabled={mode==='search'}
                                     placeholder="海外联系电话"
                                     className="form-control border-input"
                                 />
@@ -370,6 +379,7 @@ class Hq_lxContentForm extends React.Component {
                                 initialValue: '',
                             })(
                                 <Input
+                                    disabled={mode==='search'}
                                     placeholder="中国联系电话1"
                                     className="form-control border-input"
                                 />
@@ -383,6 +393,7 @@ class Hq_lxContentForm extends React.Component {
                                 initialValue: '',
                             })(
                                 <Input
+                                    disabled={mode==='search'}
                                     placeholder="中国联系电话2"
                                     className="form-control border-input"
                                 />
@@ -399,6 +410,7 @@ class Hq_lxContentForm extends React.Component {
                                 initialValue: '',
                             })(
                                 <Input
+                                    disabled={mode==='search'}
                                     placeholder="微信"
                                     className="form-control border-input"
                                 />
@@ -417,6 +429,7 @@ class Hq_lxContentForm extends React.Component {
                                 }],
                             })(
                                 <Input
+                                    disabled={mode==='search'}
                                     placeholder="邮箱"
                                     className="form-control border-input"
                                 />
@@ -434,6 +447,7 @@ class Hq_lxContentForm extends React.Component {
                                 }]
                             })(
                                 <Input
+                                    disabled={mode==='search'}
                                     placeholder="qq号"
                                     className="form-control border-input"
                                 />
@@ -454,6 +468,7 @@ class Hq_lxContentForm extends React.Component {
                                 }]
                             })(
                                 <Input
+                                    disabled={mode==='search'}
                                     placeholder="国籍"
                                     className="form-control border-input"
                                 />
@@ -470,6 +485,7 @@ class Hq_lxContentForm extends React.Component {
                                 }]
                             })(
                                 <Input
+                                    disabled={mode==='search'}
                                     placeholder="旅居地"
                                     className="form-control border-input"
                                 />
@@ -487,6 +503,7 @@ class Hq_lxContentForm extends React.Component {
                                 }]
                             })(
                                 <Input
+                                    disabled={mode==='search'}
                                     placeholder="请输入中国居住地"
                                     className="form-control border-input"
                                 />
@@ -502,6 +519,7 @@ class Hq_lxContentForm extends React.Component {
                                 initialValue: [],
                             })(
                                 <Cascader
+                                    disabled={mode==='search'}
                                     options={options}
                                     placeholder="籍贯"
                                 />
@@ -519,6 +537,7 @@ class Hq_lxContentForm extends React.Component {
                                 initialValue: '',
                             })(
                                 <Input
+                                    disabled={mode==='search'}
                                     placeholder="所从事行业"
                                     className="form-control border-input"
                                 />
@@ -532,6 +551,7 @@ class Hq_lxContentForm extends React.Component {
                                 initialValue: '',
                             })(
                                 <Input
+                                    disabled={mode==='search'}
                                     placeholder="公司/单位"
                                     className="form-control border-input"
                                 />
@@ -545,6 +565,7 @@ class Hq_lxContentForm extends React.Component {
                                 initialValue: '',
                             })(
                                 <Input
+                                    disabled={mode==='search'}
                                     placeholder="职务"
                                     className="form-control border-input"
                                 />
@@ -561,6 +582,7 @@ class Hq_lxContentForm extends React.Component {
                                 initialValue: '',
                             })(
                                 <Input
+                                    disabled={mode==='search'}
                                     placeholder="文化程度"
                                     className="form-control border-input"
                                 />
@@ -574,6 +596,7 @@ class Hq_lxContentForm extends React.Component {
                                 initialValue: '',
                             })(
                                 <Input
+                                    disabled={mode==='search'}
                                     placeholder="健康状态"
                                     className="form-control border-input"
                                 />
@@ -596,7 +619,8 @@ class Hq_lxContentForm extends React.Component {
                                     }],
                                 })(
                                     <Input
-                                        placeholder=""
+                                        disabled={mode==='search'}
+                                        placeholder="毕业院校英文名"
                                         className="form-control border-input"
                                     />
                                 )}
@@ -612,7 +636,8 @@ class Hq_lxContentForm extends React.Component {
                                     }],
                                 })(
                                     <Input
-                                        placeholder="毕业院校"
+                                        disabled={mode==='search'}
+                                        placeholder="毕业院校中文名"
                                         className="form-control border-input"
                                     />
                                 )}
@@ -628,6 +653,8 @@ class Hq_lxContentForm extends React.Component {
                                     }],
                                 })(
                                     <Input
+                                        disabled={mode==='search'}
+                                        placeholder="学位"
                                         className="form-control border-input"
                                     />
                                 )}
@@ -640,7 +667,9 @@ class Hq_lxContentForm extends React.Component {
                                 {getFieldDecorator('gra_date', {
                                     rules: [{required: true, message: '请选择毕业时间'}],
                                 })(
-                                    <DatePicker/>
+                                    <DatePicker
+                                        disabled={mode==='search'}
+                                    />
                                 )}
                             </FormItem>
                         </div>
@@ -655,14 +684,14 @@ class Hq_lxContentForm extends React.Component {
                             <label>照片</label>
                             <PicturesWall
                                 clean={this.clean}
-                                url={mode === 'view' ? this.photo : ''}
+                                url={(mode === 'view'||mode==='search') ? this.photo : ''}
                                 getUrl={this.getPhotoUrl}
                             />
                             <div/>
                         </div>
                     </div>
                 </div>
-                {mode === 'view' &&
+                {(mode === 'view'||mode === 'search') &&
                 <div>
                     <hr/>
                     <div className="row">

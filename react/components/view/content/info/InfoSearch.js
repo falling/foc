@@ -180,7 +180,7 @@ export default class InfoSearch extends React.Component {
                         <FormContent
                             type={type}
                             info={showData}
-                            mode="view"
+                            mode="search"
                         />
                     }
                 </Modal>
