@@ -497,6 +497,46 @@ hr {
 .off-canvas-sidebar[data-background-color="black"] .nav .divider {
     background-color: rgba(255, 255, 255, 0.2);
 }
+.sidebar[data-background-color="orange"]:after,
+.bootstrap-navbar[data-background-color="orange"]:after {
+    background: #FFA534;
+    background: -moz-linear-gradient(top, #FFA534 0%, rgba(236, 22, 87, 0.7) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #FFA534), color-stop(100%, rgba(236, 22, 87, 0.7)));
+    background: -webkit-linear-gradient(top, #FFA534 0%, rgba(236, 22, 87, 0.7) 100%);
+    background: -o-linear-gradient(top, #FFA534 0%, rgba(236, 22, 87, 0.7) 100%);
+    background: -ms-linear-gradient(top, #FFA534 0%, rgba(236, 22, 87, 0.7) 100%);
+    background: linear-gradient(to bottom, #FFA534 0%, rgba(236, 22, 87, 0.7) 100%);
+    background-size: 150% 150%;
+}
+
+.full-page[data-background-color="orange"]:after {
+    background: #FFA534;
+    background: -moz-linear-gradient(top, #FFA534 0%, rgba(236, 22, 87, 0.6) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #FFA534), color-stop(100%, rgba(236, 22, 87, 0.6)));
+    background: -webkit-linear-gradient(top, #FFA534 0%, rgba(236, 22, 87, 0.6) 100%);
+    background: -o-linear-gradient(top, #FFA534 0%, rgba(236, 22, 87, 0.6) 100%);
+    background: -ms-linear-gradient(top, #FFA534 0%, rgba(236, 22, 87, 0.6) 100%);
+    background: linear-gradient(to bottom, #FFA534 0%, rgba(236, 22, 87, 0.6) 100%);
+    background-size: 150% 150%;
+}
+
+.sidebar .logo p, .sidebar[data-background-color="orange"] .logo p,
+.off-canvas-sidebar .logo p,
+.off-canvas-sidebar[data-background-color="orange"] .logo p {
+    color: #FFFFFF;
+}
+
+.sidebar .logo .simple-text, .sidebar[data-background-color="orange"] .logo .simple-text,
+.off-canvas-sidebar .logo .simple-text,
+.off-canvas-sidebar[data-background-color="orange"] .logo .simple-text {
+    color: #FFFFFF;
+}
+
+.sidebar .nav li:not(.active) > a, .sidebar[data-background-color="orange"] .nav li:not(.active) > a,
+.off-canvas-sidebar .nav li:not(.active) > a,
+.off-canvas-sidebar[data-background-color="orange"] .nav li:not(.active) > a {
+    color: #FAFAFA;
+}
 
 .sidebar[data-active-color="primary"] .nav li.active > a,
 .off-canvas-sidebar[data-active-color="primary"] .nav li.active > a {
@@ -525,6 +565,12 @@ hr {
 .sidebar[data-active-color="danger"] .nav li.active > a,
 .off-canvas-sidebar[data-active-color="danger"] .nav li.active > a {
     color: #EB5E28;
+    opacity: 1;
+}
+
+.sidebar[data-active-color="white"] .nav li.active > a,
+.off-canvas-sidebar[data-active-color="white"] .nav li.active > a {
+    color: #FFFFFF;
     opacity: 1;
 }
 

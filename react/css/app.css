@@ -525,12 +525,12 @@ ul.list {
 
 ul.list li {
     padding: 5px 2px;
-    color: #66615B;
+    color: #FAFAFA;
 }
 
 ul.list li.active {
     padding: 5px 2px;
-    color: #EB5E28;
+    color: #FFFFFF;
 }
 
 .overDefault{

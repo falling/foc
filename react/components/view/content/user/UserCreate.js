@@ -52,10 +52,10 @@ class UserCreateForm extends React.Component {
                     this.setState({loading: false});
                     if (user.status >= 0) {
                         message.success(user.info, 5);
+                        this.props.form.resetFields();
                     } else {
                         message.error(user.info, 5);
                     }
-                    this.props.form.resetFields();
                 })
             }
         });

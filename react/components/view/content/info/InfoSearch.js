@@ -132,7 +132,7 @@ export default class InfoSearch extends React.Component {
                 <div className="col-lg-12 col-md-12">
                     <div className="card">
                         <div className="header">
-                            <h4 className="title">录入管理</h4>
+                            <h4 className="title">信息查询</h4>
                         </div>
                         <div className="content">
                             <div className="row">
@@ -162,6 +162,7 @@ export default class InfoSearch extends React.Component {
                                 rowKey={`${type}_id`}
                                 dataSource={this.state.data}
                                 loading={loading}
+                                scroll={{ y: 240 }}
                                 pagination={{
                                     total: this.state.data.count,
                                     pageSize: 50,

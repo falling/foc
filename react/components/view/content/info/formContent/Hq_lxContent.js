@@ -124,10 +124,10 @@ class Hq_lxContentForm extends React.Component {
                     this.setState({loading: false});
                     if (json.status >= 0) {
                         message.success(json.info, 5);
+                        this.props.form.resetFields();
                     } else {
                         message.error(json.info, 5);
                     }
-                    this.props.form.resetFields();
                 })
             } else {
             }

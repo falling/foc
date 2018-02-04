@@ -38,11 +38,11 @@ public class LXService {
             return false;
         }
         LxBean bean = new LxBean();
+        BeanUtils.copyProperties(lxVO,bean);
         bean.setReg_date(new Date(System.currentTimeMillis()));
         bean.setDel("0");
         bean.setRemarks("");
         bean.setRegistrant(id);
-        BeanUtils.copyProperties(lxVO,bean);
         return lxRepository.save(bean) != null;
     }
 

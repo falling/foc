@@ -206,7 +206,7 @@ class UserManageForm extends React.Component {
                                     >
                                         {updateLoading&&
                                         <i style={{marginRight:5}} className="anticon anticon-spin anticon-loading"/>}
-                                        更新用户权限
+                                        更新用户信息
                                     </button>
                                     <button
                                         style={{marginLeft:10}}

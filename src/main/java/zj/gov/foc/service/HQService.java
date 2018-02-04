@@ -45,12 +45,9 @@ public class HQService {
             hqvo.setInfo("护照号格式不正确");
             return hqvo;
         }
-        else  if (!InputDeal.isIDNum(hqvo.getId_num())){
-            hqvo.setInfo("身份证格式不正确");
-            return hqvo;
-        }
         if(hqRepository.loadByPassport(hqvo.getPassport_no())!=null){
             hqvo.setInfo("该护照已经录入");
+            return hqvo;
         }
 
         HQBean bean = new HQBean();
