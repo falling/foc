@@ -1,4 +1,6 @@
 var path = require('path');
+const webpack = require('webpack');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
     entry: './app.js',
@@ -6,9 +8,39 @@ module.exports = {
     // devtool: false,
     cache: true,
     output: {
-        path: '../src/main/resources/static',
+        path: path.resolve(__dirname, "../src/main/resources/static"),
+        // path: '',
+// ../src/main/resources/static
         filename: 'bundle.js'
     },
+    devServer: {
+        historyApiFallback: true,
+        hot: true,
+        inline: true,
+        progress: true,
+        port: 9090,
+        proxy: {
+            '*': {
+                target: 'http://localhost:8080',
+                changeOrigin: true,
+                secure: false
+            }
+        }
+    },
+    plugins: [
+        // new UglifyJSPlugin(),
+        // new webpack.optimize.UglifyJsPlugin({
+        //     compress: {
+        //         warnings: false
+        //     }
+        // }),
+        // new webpack.DefinePlugin({
+        //     'process.env': {
+        //         NODE_ENV: JSON.stringify(process.env.PRODUCTION),
+        //     }
+        // }),
+        new webpack.HotModuleReplacementPlugin()
+    ],
     module: {
         loaders: [
             {
@@ -31,7 +63,7 @@ module.exports = {
                 loader: 'style-loader!css-loader'
             }, {
                 test: /\.(less)$/,
-                loader: 'style!css!less'
+                loader: 'style-loader!css-loader!less-loader'
             },
             {
                 // 图片加载器
@@ -40,4 +72,4 @@ module.exports = {
             }
         ]
     }
-};
+}

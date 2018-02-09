@@ -11,8 +11,8 @@ class UserManageForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            updateLoading:false,
-            deleteLoading:false
+            updateLoading: false,
+            deleteLoading: false
         };
         this.search = this.search.bind(this);
         this.update = this.update.bind(this);
@@ -43,14 +43,14 @@ class UserManageForm extends React.Component {
 
     update() {
         const {getFieldValue} = this.props.form;
-        if(getFieldValue('id') === undefined){
+        if (getFieldValue('id') === undefined) {
             message.error("请先搜索需要修改的用户", 5);
             return;
         }
-        this.setState({ updateLoading: true });
+        this.setState({updateLoading: true});
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
-                fetch('/updateUser', {
+                fetch('/updateUserManager', {
                     method: 'post',
                     credentials: 'include',
                     headers: {'Content-Type': 'application/json'},
@@ -65,23 +65,23 @@ class UserManageForm extends React.Component {
                     }
                     this.props.form.resetFields();
                 })
-            }else{
-                this.setState({ updateLoading: false});
+            } else {
+                this.setState({updateLoading: false});
             }
         });
     }
 
     delete() {
         const {getFieldValue} = this.props.form;
-        if(getFieldValue('id') === undefined){
+        if (getFieldValue('id') === undefined) {
             message.error("请先搜索需要修改的用户", 5);
             return;
         }
         let formData = new FormData();
         formData.append("id", getFieldValue('id'));
-        if(!confirm('确定要删除该用户吗?')) return;
+        if (!confirm('确定要删除该用户吗?')) return;
 
-        this.setState({ deleteLoading: true });
+        this.setState({deleteLoading: true});
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
                 fetch('/deleteUser', {
@@ -98,8 +98,8 @@ class UserManageForm extends React.Component {
                     }
                     this.props.form.resetFields();
                 })
-            }else{
-                this.setState({ deleteLoading: false});
+            } else {
+                this.setState({deleteLoading: false});
             }
         });
     }
@@ -111,9 +111,9 @@ class UserManageForm extends React.Component {
     }
 
     render() {
-        const {display} = this.props;
+        const {display,user} = this.props;
         const {getFieldDecorator} = this.props.form;
-        const {updateLoading,deleteLoading} = this.state;
+        const {updateLoading, deleteLoading} = this.state;
         return (
             <div className="container-fluid" style={{display: !display && 'none'}}>
                 <div className="col-lg-12 col-md-12">
@@ -125,7 +125,7 @@ class UserManageForm extends React.Component {
                             <Form>
                                 {getFieldDecorator('id')(
                                     <Input
-                                        style={{display:'none'}}
+                                        style={{display: 'none'}}
                                         disabled
                                     />
                                 )}
@@ -159,7 +159,7 @@ class UserManageForm extends React.Component {
                                     <div className="col-md-12">
                                         <FormItem className="form-group">
                                             <label>姓名</label>
-                                            {getFieldDecorator('name',{
+                                            {getFieldDecorator('name', {
                                                 rules: [{required: true, message: '请输入姓名'}],
                                             })(
                                                 <Input
@@ -176,7 +176,7 @@ class UserManageForm extends React.Component {
                                             {getFieldDecorator('power', {
                                                 initialValue: 'user',
                                             })(
-                                                <Select>
+                                                <Select disabled={!(user && user.power === 'root')}>
                                                     <Option value="user">普通用户</Option>
                                                     <Option value="admin">管理员</Option>
                                                 </Select>
@@ -198,24 +198,24 @@ class UserManageForm extends React.Component {
 
                                 <div className="text-center">
                                     <button className="btn btn-info btn-fill btn-wd"
-                                            style={{marginRight:10}}
+                                            style={{marginRight: 10}}
                                             onClick={e => {
                                                 this.update()
                                             }}
                                             disabled={updateLoading}
                                     >
-                                        {updateLoading&&
-                                        <i style={{marginRight:5}} className="anticon anticon-spin anticon-loading"/>}
+                                        {updateLoading &&
+                                        <i style={{marginRight: 5}} className="anticon anticon-spin anticon-loading"/>}
                                         更新用户信息
                                     </button>
                                     <button
-                                        style={{marginLeft:10}}
+                                        style={{marginLeft: 10}}
                                         type="button"
                                         disabled={deleteLoading}
                                         className="btn btn-danger btn-fill btn-wd"
-                                            onClick={e => {
-                                                this.delete()
-                                            }}
+                                        onClick={e => {
+                                            this.delete()
+                                        }}
                                     >删除用户
                                     </button>
                                 </div>

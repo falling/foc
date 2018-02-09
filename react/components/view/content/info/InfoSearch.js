@@ -1,12 +1,12 @@
 import React from 'react';
-import {Input, Select, message, Table, Modal} from 'antd';
+import {Input, Select, message, Table, Modal,Button} from 'antd';
 import 'whatwg-fetch';
 import FormContent from "./formContent/FormContent";
 
 const Search = Input.Search;
 const Option = Select.Option;
 let columns;
-
+let rowSelection;
 export default class InfoSearch extends React.Component {
     constructor(props) {
         super(props);
@@ -18,26 +18,29 @@ export default class InfoSearch extends React.Component {
             loading: false,
             previewVisible: false,
             showData: {},
+            hasSelected:false,
+            selectedRows:[],
         };
         this.search = this.search.bind(this);
         this.showData = this.showData.bind(this);
-
+        this.exportXlsx = this.exportXlsx.bind(this);
         columns = [{
             title: '姓名',
             dataIndex: 'ch_name',
             key: 'ch_name',
-            fixed: 'true'
+            width: '150px'
         }, {
             title: '护照号',
             dataIndex: 'passport_no',
             key: 'passport_no',
-            fixed: 'true',
+            width: '150px'
         }, {
             title: '性别',
             dataIndex: 'sex',
             key: 'sex',
-            fixed: 'true',
+            width: '150px'
         }, {
+            width: '150px',
             title: '查看',
             key: 'action',
             render: (record) => (
@@ -46,6 +49,28 @@ export default class InfoSearch extends React.Component {
                 }}>查看</a></span>
             ),
         }];
+
+        rowSelection = {
+            onChange: (selectedRowKeys, selectedRows) => {
+                console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
+                this.setState({
+                    hasSelected:selectedRowKeys.length>0,
+                    selectedRows:selectedRows,
+                })
+            },
+        };
+    }
+
+    exportXlsx() {
+        // const {selectedRows} = this.state;
+        // let xls = json2xls(selectedRows);
+        // // let blob = new Blob([xls], {type: 'application/octet-binary'}); // pass a useful mime type here
+        // let blob = new File([xls], "filename"); // pass a useful mime type here
+        // let url = window.URL.createObjectURL(blob);
+        // let a = document.createElement('a');
+        // a.href = url;
+        // a.download = "filename.xlsx";
+        // a.click();
     }
 
     componentDidMount() {
@@ -56,7 +81,6 @@ export default class InfoSearch extends React.Component {
     }
 
     showData(record) {
-        console.log(record)
         this.setState({
             previewVisible: true,
             showData: record,
@@ -93,7 +117,7 @@ export default class InfoSearch extends React.Component {
 
     render() {
         const {display} = this.props;
-        const {type, col, show, loading, previewVisible, showData} = this.state;
+        const {type, col, show, loading, previewVisible, showData,hasSelected} = this.state;
         let secondSelect;
         if (type === 'hq') {
             secondSelect =
@@ -158,11 +182,20 @@ export default class InfoSearch extends React.Component {
                             <hr/>
                             {show &&
                             <Table
+                                rowSelection={rowSelection}
                                 columns={columns}
                                 rowKey={`${type}_id`}
                                 dataSource={this.state.data}
                                 loading={loading}
-                                scroll={{ y: 240 }}
+                                scroll={{y: 240}}
+                                footer={() => <Button
+                                    type="primary"
+                                    onClick={this.exportXlsx}
+                                    disabled={!hasSelected}
+                                    loading={loading}
+                                >
+                                    导出
+                                </Button>}
                                 pagination={{
                                     total: this.state.data.count,
                                     pageSize: 50,
@@ -178,11 +211,11 @@ export default class InfoSearch extends React.Component {
                 <Modal width="720px" visible={previewVisible} footer={null}
                        onCancel={e => this.setState({previewVisible: false})}>
                     {previewVisible &&
-                        <FormContent
-                            type={type}
-                            info={showData}
-                            mode="search"
-                        />
+                    <FormContent
+                        type={type}
+                        info={showData}
+                        mode="search"
+                    />
                     }
                 </Modal>
             </div>

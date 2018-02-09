@@ -31,12 +31,22 @@ public class LxVO extends BaseVO{
     private String registrant_name;
     private String photo;
     private Date reg_date;
-//    private String remarks;
+    private String remarks;
     private String en_cname;
     private String ch_cname;
     private String degree;
     private Date gra_date;
+    private String social_services;
 //    private String del;
+
+
+    public String getSocial_services() {
+        return social_services;
+    }
+
+    public void setSocial_services(String social_services) {
+        this.social_services = social_services;
+    }
 
     public Long getLx_id() {
         return lx_id;
@@ -271,13 +281,13 @@ public class LxVO extends BaseVO{
         this.gra_date = gra_date;
     }
 
-//    public String getRemarks() {
-//        return remarks;
-//    }
+    public String getRemarks() {
+        return remarks;
+    }
 
-//    public void setRemarks(String remarks) {
-//        this.remarks = remarks;
-//    }
+    public void setRemarks(String remarks) {
+        this.remarks = remarks;
+    }
 
     public String getEn_cname() {
         return en_cname;

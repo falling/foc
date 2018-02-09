@@ -42,22 +42,23 @@ export default class Manager extends React.Component {
                 <div className="wrapper">
                     <Sidebar
                         index={urlId}
+                        user={user}
                     />
 
                     <div className="main-panel">
                         <Header
-                            title ={this.props.match.params.id}
-                            user = {user}
+                            title={this.props.match.params.id}
+                            user={user}
                         />
 
                         <div className="content">
-                            <InfoSearch display={urlId===0}/>
-                            <InfoCreate display={urlId===1}/>
-                            <InfoManage display={urlId===2}/>
-                            <UserProfile display={urlId===3}/>
-                            <UserCreate display={urlId===4}/>
-                            <UserManage display={urlId===5}/>
-                            <UserPassword display={urlId===6}/>
+                            <InfoSearch display={urlId === 0}/>
+                            <InfoCreate display={urlId === 1}/>
+                            <InfoManage display={urlId === 2}/>
+                            <UserProfile display={urlId === 3}/>
+                            {(user&&user.power&&user.power !== 'user') && <UserCreate display={urlId === 4} user={user}/>}
+                            {(user&&user.power === 'root') && <UserManage display={urlId === 5} user={user}/>}
+                            <UserPassword display={urlId === 6}/>
                         </div>
 
 
@@ -65,7 +66,6 @@ export default class Manager extends React.Component {
                             <div className="container-fluid">
                                 <nav className="pull-left">
                                     <ul>
-
                                         <li>
                                             <a href="http://www.creative-tim.com">
                                                 Creative Tim

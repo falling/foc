@@ -46,7 +46,16 @@ public class LxBean {
     private String ch_cname;
     private String degree;
     private Date gra_date;
+    private String social_services;
     private String del;
+
+    public String getSocial_services() {
+        return social_services;
+    }
+
+    public void setSocial_services(String social_services) {
+        this.social_services = social_services;
+    }
 
     public Long getLx_id() {
         return lx_id;

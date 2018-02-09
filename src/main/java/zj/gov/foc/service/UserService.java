@@ -50,11 +50,17 @@ public class UserService {
         return result != 0 ? "创建成功" : "创建失败";
     }
 
-    public VO search(String username) {
+    public VO search(String username, UserVO user) {
         UserBean bean = userRepository.searchUser(username);
         if (bean == null) {
             return null;
         }
+        String power = user.getPower();
+        String searchPower = bean.getPower();
+        if(power.equals("admin") && !searchPower.equals("user")){
+            return null;
+        }
+
         UserVO vo = new UserVO();
         vo.setId(bean.getUser_id());
         vo.setName(bean.getName());

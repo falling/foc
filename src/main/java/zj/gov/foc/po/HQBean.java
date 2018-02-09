@@ -41,7 +41,16 @@ public class HQBean {
     private String photo;
     private Date reg_date;
     private String remarks;
+    private String social_services;
     private String del;
+
+    public String getSocial_services() {
+        return social_services;
+    }
+
+    public void setSocial_services(String social_services) {
+        this.social_services = social_services;
+    }
 
     public void setPassport_no(String passport_no) {
         this.passport_no = passport_no;

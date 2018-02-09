@@ -1,11 +1,12 @@
 import React from 'react';
 import 'whatwg-fetch';
-import {Form, Input, Select, message, DatePicker, Upload} from 'antd';
+import {Form, Input, Select,message, DatePicker, Upload} from 'antd';
 
 const FormItem = Form.Item;
 const Option = Select.Option;
+const Search = Input.Search;
 
-export default class QjContent extends React.Component {
+class QjContentForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -55,7 +56,7 @@ export default class QjContent extends React.Component {
                 <div className="row">
                     <div className="col-md-3">
                         <div className="form-group">
-                            <label>中文名*</label>
+                            <label>中文名</label>
                             <input type="text"
                                    onChange={e => {
                                        this.setState({name: e.target.value})
@@ -68,7 +69,7 @@ export default class QjContent extends React.Component {
                     </div>
                     <div className="col-md-3">
                         <div className="form-group">
-                            <label>身份证号*</label>
+                            <label>身份证号</label>
                             <input type="text"
                                    onChange={e => {
                                        this.setState({name: e.target.value})
@@ -81,7 +82,7 @@ export default class QjContent extends React.Component {
                     </div>
                     <div className="col-md-3">
                         <div className="form-group">
-                            <label>名族*</label>
+                            <label>民族</label>
                             <input type="text"
                                    onChange={e => {
                                        this.setState({name: e.target.value})
@@ -94,7 +95,7 @@ export default class QjContent extends React.Component {
                     </div>
                     <div className="col-md-2">
                         <div className="form-group">
-                            <label>性别*</label>
+                            <label>性别</label>
                             <select
                                 onChange={e => {
                                     this.setState({sex: e.target.value})
@@ -162,3 +163,5 @@ export default class QjContent extends React.Component {
         )
     }
 }
+const QjContent = Form.create()(QjContentForm);
+export default QjContent;

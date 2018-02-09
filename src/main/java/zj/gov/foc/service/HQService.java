@@ -41,10 +41,6 @@ public class HQService {
             hqvo.setInfo("拼音为1-50个字母");
             return hqvo;
         }
-        else  if (!InputDeal.isPassportNO(hqvo.getPassport_no())){
-            hqvo.setInfo("护照号格式不正确");
-            return hqvo;
-        }
         if(hqRepository.loadByPassport(hqvo.getPassport_no())!=null){
             hqvo.setInfo("该护照已经录入");
             return hqvo;

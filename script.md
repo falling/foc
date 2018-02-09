@@ -14,3 +14,8 @@ mvn spring-boot:run
 ```
 mvn package
 ```
+
+清理
+```
+npm prune
+```

@@ -62,13 +62,14 @@ class UserCreateForm extends React.Component {
     }
 
     componentDidMount() {
+
     }
 
     componentWillReceiveProps(nextProps) {
     }
 
     render() {
-        const {display} = this.props;
+        const {display,user} = this.props;
         const {getFieldDecorator, getFieldError} = this.props.form;
         const {loading} = this.state;
         return (
@@ -86,7 +87,7 @@ class UserCreateForm extends React.Component {
                                             className="form-group">
                                             <label>用户名*</label>
                                             {getFieldDecorator('username', {
-                                                rules: [{required: true, message: '请输入用户名'}],
+                                                rules: [{required: true, message: '请输入用户名'},{max:10,message:'长度最长为10'}],
                                             })(
                                                 <Input
                                                     placeholder="用户名"
@@ -105,7 +106,7 @@ class UserCreateForm extends React.Component {
                                             className="form-group">
                                             <label>姓名*</label>
                                             {getFieldDecorator('name', {
-                                                rules: [{required: true, message: '请输入姓名'}],
+                                                rules: [{required: true, message: '请输入姓名'},{max:10,message:'长度最长为10'}],
                                             })(
                                                 <Input
                                                     placeholder="姓名"
@@ -124,7 +125,7 @@ class UserCreateForm extends React.Component {
                                             })(
                                                 <Select>
                                                     <Option value="user">普通用户</Option>
-                                                    <Option value="admin">管理员</Option>
+                                                    {(user&&user.power==='root')&&<Option value="admin">管理员</Option>}
                                                 </Select>
                                             )}
                                         </div>

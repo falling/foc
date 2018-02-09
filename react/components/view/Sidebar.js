@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
+
 export default class Sidebar extends React.Component {
 
     constructor(props) {
@@ -8,15 +9,20 @@ export default class Sidebar extends React.Component {
             activityIndex: props.index
         }
     }
-    componentDidMount(){
+
+    componentDidMount() {
     }
-    componentWillReceiveProps(nextProps){
+
+    componentWillReceiveProps(nextProps) {
         this.setState({
-            activityIndex:nextProps.index
+            activityIndex: nextProps.index
         })
     }
+
     render() {
+        const {user} = this.props;
         let activityIndex = +this.props.index;
+        console.log(user&&user.power&&user.power !== 'user');
         return (
             <div className="sidebar" data-background-color="orange" data-active-color="white">
 
@@ -56,6 +62,7 @@ export default class Sidebar extends React.Component {
                                     <p>修改个人信息</p>
                                 </Link>
                             </li>
+                            {(user&&user.power&&user.power !== 'user')&&
                             <li className={activityIndex === 4 || activityIndex === 5 ? "active" : ""}>
                                 <a data-toggle="collapse" data-parent="#accordion" href="#userManager">
                                     <i className="ti-view-list-alt"/>
@@ -71,8 +78,7 @@ export default class Sidebar extends React.Component {
                                         </li>
                                     </ul>
                                 </div>
-
-                            </li>
+                            </li>}
                         </ul>
                     </div>
                 </div>

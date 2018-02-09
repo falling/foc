@@ -33,8 +33,18 @@ public class HQVO extends BaseVO{
     private String registrant_name;
     private String photo;
     private Date reg_date;
-//    private String remarks;
+    private String remarks;
+    private String social_services;
 //    private String del;
+
+
+    public String getSocial_services() {
+        return social_services;
+    }
+
+    public void setSocial_services(String social_services) {
+        this.social_services = social_services;
+    }
 
     public Long getHq_id() {
         return hq_id;
@@ -260,13 +270,13 @@ public class HQVO extends BaseVO{
         this.reg_date = reg_date;
     }
 
-//    public String getRemarks() {
-//        return remarks;
-//    }
+    public String getRemarks() {
+        return remarks;
+    }
 
-//    public void setRemarks(String remarks) {
-//        this.remarks = remarks;
-//    }
+    public void setRemarks(String remarks) {
+        this.remarks = remarks;
+    }
 
 //    public String getDel() {
 //        return del;

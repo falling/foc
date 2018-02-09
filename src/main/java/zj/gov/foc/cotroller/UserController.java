@@ -52,10 +52,11 @@ public class UserController {
     }
 
     @RequestMapping("/searchUser")
-    public VO searchUser(@RequestParam("username") String username) {
-        VO vo = userService.search(username);
+    public VO searchUser(@RequestParam("username") String username,HttpSession httpSession) {
+        UserVO user = (UserVO) httpSession.getAttribute("user");
+        VO vo = userService.search(username,user);
         if (vo == null) {
-            return Response.warning("该用户不存在");
+            return Response.warning("该用户不存在或者您无权限查看修改");
         } else {
             return Response.success(vo);
         }
@@ -68,6 +69,14 @@ public class UserController {
         user.setId(userVO.getId());
         if (userService.update(user) == 1) {
             httpSession.setAttribute("user", user);
+            return Response.success("修改成功");
+        }
+        return Response.warning("修改失败");
+    }
+
+    @RequestMapping("/updateUserManager")
+    public VO updateUserManager(@RequestBody UserVO user) {
+        if (userService.update(user) == 1) {
             return Response.success("修改成功");
         }
         return Response.warning("修改失败");
