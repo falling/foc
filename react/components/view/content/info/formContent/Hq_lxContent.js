@@ -4,6 +4,7 @@ import 'whatwg-fetch';
 import moment from 'moment';
 import PicturesWall from "../../../../uiCompoment/PicturesWall";
 import {City} from "../../../../config/City";
+import ReferenceTable from "../../../../uiCompoment/ReferenceTable";
 
 const FormItem = Form.Item;
 const Option = Select.Option;
@@ -14,7 +15,6 @@ class Hq_lxContentForm extends React.Component {
         super(props);
         this.state = {
             loading: false,
-            updating: false,
             deleteLoading: false,
             registrant: '',
         };
@@ -33,6 +33,10 @@ class Hq_lxContentForm extends React.Component {
 
     confirmPassport_no(rule, value, callback) {
         const {type} = this.props;
+        if(this.props.mode !== 'add'){
+            callback();
+            return;
+        }
         let formData = new FormData();
         formData.append("passport_no", value);
         formData.append("type", type);
@@ -748,6 +752,12 @@ class Hq_lxContentForm extends React.Component {
                             <div/>
                         </div>
                     </div>
+                </div>
+                <hr/>
+                <div>
+                    <ReferenceTable
+                        type={type}
+                    />
                 </div>
                 {(mode === 'view' || mode === 'search') &&
                 <div>

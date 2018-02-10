@@ -10,10 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 import zj.gov.foc.service.HQService;
 import zj.gov.foc.service.LXService;
 import zj.gov.foc.util.Response;
-import zj.gov.foc.vo.HQVO;
-import zj.gov.foc.vo.LxVO;
-import zj.gov.foc.vo.UserVO;
-import zj.gov.foc.vo.VO;
+import zj.gov.foc.vo.*;
 
 import javax.servlet.http.HttpSession;
 import java.io.File;
@@ -21,6 +18,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.sql.Date;
+import java.util.List;
 
 /**
  * Created by User: falling
@@ -53,6 +51,22 @@ public class InfoController {
         } else {
             return Response.warning(hqvo1.getInfo());
         }
+    }
+    @RequestMapping("/addQjInfo")
+    public VO addQjInfo(@RequestBody QjVOwithRelation vo) {
+        QjVO qjVO = vo.getValue();
+        List<RelationVO> relationVOList = vo.getRelationList();
+        return Response.success("test");
+//        UserVO userVO = (UserVO) httpSession.getAttribute("user");
+//        if (userVO == null) {
+//            return Response.warning("未登录");
+//        }
+//        HQVO hqvo1 = hqService.addHQ(hqvo, userVO);
+//        if (hqvo1.getInfo().equals("录入成功")) {
+//            return Response.success(hqvo1.getInfo());
+//        } else {
+//            return Response.warning(hqvo1.getInfo());
+//        }
     }
 
     @RequestMapping("/addLXInfo")

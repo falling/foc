@@ -42,6 +42,7 @@ export default class FormContent extends React.Component {
                 {type === 'qj' &&
                 <QjContent
                     getContent = {this.getContent}
+                    mode={mode}
                 />
                 }
 

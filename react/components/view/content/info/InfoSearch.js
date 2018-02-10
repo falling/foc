@@ -52,7 +52,6 @@ export default class InfoSearch extends React.Component {
 
         rowSelection = {
             onChange: (selectedRowKeys, selectedRows) => {
-                console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
                 this.setState({
                     hasSelected:selectedRowKeys.length>0,
                     selectedRows:selectedRows,

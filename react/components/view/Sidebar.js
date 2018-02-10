@@ -22,7 +22,6 @@ export default class Sidebar extends React.Component {
     render() {
         const {user} = this.props;
         let activityIndex = +this.props.index;
-        console.log(user&&user.power&&user.power !== 'user');
         return (
             <div className="sidebar" data-background-color="orange" data-active-color="white">
 

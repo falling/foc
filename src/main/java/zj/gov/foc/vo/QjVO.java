@@ -1,15 +1,6 @@
-package zj.gov.foc.po;
+package zj.gov.foc.vo;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity
-@Table(name = "qj")
-public class QJBean {
-  @Id
-  @GeneratedValue
+public class QjVO extends BaseVO{
   private Long qj_id;
 
   private String ch_name;
@@ -18,7 +9,7 @@ public class QJBean {
   private String passport_no;
   private String tel1;
   private String tel2;
-  private String del;
+//  private String del;
 
   public Long getQj_id() {
     return qj_id;
@@ -60,27 +51,27 @@ public class QJBean {
     this.passport_no = passport_no;
   }
 
-    public String getTel1() {
-        return tel1;
-    }
-
-    public void setTel1(String tel1) {
-        this.tel1 = tel1;
-    }
-
-    public String getTel2() {
-        return tel2;
-    }
-
-    public void setTel2(String tel2) {
-        this.tel2 = tel2;
-    }
-
-    public String getDel() {
-    return del;
+  public String getTel1() {
+    return tel1;
   }
 
-  public void setDel(String del) {
-    this.del = del;
+  public void setTel1(String tel1) {
+    this.tel1 = tel1;
   }
+
+  public String getTel2() {
+    return tel2;
+  }
+
+  public void setTel2(String tel2) {
+    this.tel2 = tel2;
+  }
+
+//  public String getDel() {
+//    return del;
+//  }
+//
+//  public void setDel(String del) {
+//    this.del = del;
+//  }
 }
