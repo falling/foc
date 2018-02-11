@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import zj.gov.foc.service.HQService;
 import zj.gov.foc.service.LXService;
+import zj.gov.foc.service.QJService;
 import zj.gov.foc.util.Response;
 import zj.gov.foc.vo.*;
 
@@ -35,6 +36,9 @@ public class InfoController {
     @Autowired
     LXService lxService;
 
+    @Autowired
+    QJService qjService;
+
     @Value("${upload-path}")
     private String path;
 
@@ -52,23 +56,28 @@ public class InfoController {
             return Response.warning(hqvo1.getInfo());
         }
     }
+
     @RequestMapping("/addQjInfo")
     public VO addQjInfo(@RequestBody QjVOwithRelation vo) {
         QjVO qjVO = vo.getValue();
         List<RelationVO> relationVOList = vo.getRelationList();
-        return Response.success("test");
-//        UserVO userVO = (UserVO) httpSession.getAttribute("user");
-//        if (userVO == null) {
-//            return Response.warning("未登录");
-//        }
-//        HQVO hqvo1 = hqService.addHQ(hqvo, userVO);
-//        if (hqvo1.getInfo().equals("录入成功")) {
-//            return Response.success(hqvo1.getInfo());
-//        } else {
-//            return Response.warning(hqvo1.getInfo());
-//        }
+        if(relationVOList.size()==0){
+            return Response.warning("请添加家庭成员");
+        }
+        qjService.saveWithrelation(qjVO,relationVOList);
+        return Response.success("录入成功");
     }
 
+    @RequestMapping("/updateQjInfo")
+    public VO updateQjInfo(@RequestBody QjVOwithRelation vo) {
+        QjVO qjVO = vo.getValue();
+        List<RelationVO> relationVOList = vo.getRelationList();
+        if(relationVOList.size()==0){
+            return Response.warning("请添加家庭成员");
+        }
+        qjService.updateWithrelation(qjVO,relationVOList);
+        return Response.success("更新成功");
+    }
     @RequestMapping("/addLXInfo")
     public VO addLXInfo(@RequestBody LxVO lxVO, HttpSession httpSession) {
         UserVO userVO = (UserVO) httpSession.getAttribute("user");
@@ -83,9 +92,35 @@ public class InfoController {
         }
     }
 
+    @RequestMapping("/confirmPassport")
+    public VO confirmPassport(@RequestParam("passport_no") String passport_no,
+                             @RequestParam("type") String type,
+                              @RequestParam("id")long id){
+        if (type.equals("lx")) {
+            if (lxService.confirmPassport(passport_no,id)) {
+                return Response.warning("不存在");
+            } else {
+                return Response.success("存在");
+            }
+        } else if (type.equals("hq")) {
+            if (hqService.confirmPassport(passport_no,id)) {
+                return Response.warning("用户不存在");
+            } else {
+                return Response.success("存在");
+            }
+
+        } else {
+            if (qjService.confirmPassport(passport_no,id)) {
+                return Response.warning("不存在");
+            } else {
+                return Response.success("存在");
+            }
+        }
+    }
 
     @RequestMapping("/loadByPassport")
-    public VO loadByPassport(@RequestParam("passport_no") String passport_no, @RequestParam("type") String type) {
+    public VO loadByPassport(@RequestParam("passport_no") String passport_no,
+                             @RequestParam("type") String type){
         if (type.equals("lx")) {
             VO result = lxService.loadByPassport(passport_no);
             if (result == null) {
@@ -102,7 +137,12 @@ public class InfoController {
             }
 
         } else {
-            return Response.warning("未开放");
+            VO result = qjService.loadByPassport(passport_no);
+            if (result == null) {
+                return Response.warning("用户不存在");
+            } else {
+                return Response.success(result);
+            }
         }
     }
 
@@ -130,7 +170,7 @@ public class InfoController {
         } else if (type.equals("hq")) {
             result = hqService.deleteHQ(id);
         } else if (type.equals("qj")) {
-
+            result = qjService.delete(id);
         }
         if (result) {
             return Response.success("删除成功");

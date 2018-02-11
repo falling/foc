@@ -13,16 +13,19 @@ public interface HQRepository extends Repository<HQBean, Long> {
     /**
      * deleteHQ
      * @param hqid
-     * return ture or false
+     * return
      * */
     @Modifying
-    @Query(value = "update hq set del = '1' where hq_id = ?1 ",nativeQuery = true)
+    @Query(value = "update hq set del = '1' where hq_id = ?1 AND del='0'",nativeQuery = true)
     int deleteHQ(long hqid);
 
 
     @Query(value = "SELECT * FROM hq WHERE passport_no = ?1 and del='0'",nativeQuery = true)
     HQBean loadByPassport(String passport_no);
 
-    @Query(value = "SELECT * FROM hq WHERE hq_id = ?1",nativeQuery = true)
+    @Query(value = "SELECT * FROM hq WHERE hq_id = ?1 and del='0'",nativeQuery = true)
     HQBean getById(Long hq_id);
+
+    @Query(value = "SELECT * FROM hq WHERE passport_no = ?1 and hq_id <> ?2 and del='0'",nativeQuery = true)
+    HQBean confirmPassport(String passport_no, long id);
 }

@@ -46,21 +46,21 @@ public interface UserRepository extends Repository<UserBean, Long> {
     int insert(String username, String password, String name, String power, Date date, String remarks, String del);
 
     @Modifying
-    @Query(value = "update user set name= ?1,power = ?2 where user_id = ?3",nativeQuery = true)
+    @Query(value = "update user set name= ?1,power = ?2 where user_id = ?3 and del='0'",nativeQuery = true)
     int updateUserInfo(String name,String power,Long id);
 
     @Modifying
-    @Query(value = "update user set del = 1 where user_id =?1",nativeQuery = true)
+    @Query(value = "update user set del = 1 where user_id =?1 and del='0'",nativeQuery = true)
     int deleteUser(Long id);
 
 
-    @Query(value = "select * from user where user_name like ?1",nativeQuery = true)
+    @Query(value = "select * from user where user_name like ?1 and del='0'",nativeQuery = true)
     List<UserBean> seachByusername(String username);
 
-    @Query(value = "SELECT * FROM user WHERE user_id = ?1",nativeQuery = true)
+    @Query(value = "SELECT * FROM user WHERE user_id = ?1 and del='0'",nativeQuery = true)
     UserBean getById(Long registrant);
 
     @Modifying
-    @Query(value = "UPDATE user SET pwd = ?2 WHERE user_id = ?1",nativeQuery = true)
+    @Query(value = "UPDATE user SET pwd = ?2 WHERE user_id = ?1 and del='0'",nativeQuery = true)
     int changPwd(Long id, String password);
 }

@@ -115,4 +115,8 @@ public class HQService {
         searchVO.setResult(returnList);
         return searchVO;
     }
+
+    public boolean confirmPassport(String passport_no, long id) {
+        return hqRepository.confirmPassport(passport_no,id) == null;
+    }
 }

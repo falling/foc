@@ -10,6 +10,7 @@ export default class RelationTable extends React.Component {
         super(props);
         this.state = {
             data: [],
+            loading:false,
             type:this.props.type==='qj'?'hq':'qj'
         };
         this.handleChange = this.handleChange.bind(this);
@@ -48,9 +49,9 @@ export default class RelationTable extends React.Component {
                     <Option value="祖孙">祖孙</Option>
                     <Option value="外祖孙">外祖孙</Option>
                     <Option value="兄弟姐妹">兄弟姐妹</Option>
-                    <Option value="父子">父子</Option>
-                    <Option value="母子">母子</Option>
-                    <Option value="夫妻">夫妻</Option>
+                    <Option value="父子">父子（女）</Option>
+                    <Option value="母子">母子（女）</Option>
+                    <Option value="夫妻">配偶</Option>
                 </Select>
             ),
         }, {
@@ -67,7 +68,7 @@ export default class RelationTable extends React.Component {
     }
 
     componentWillReceiveProps(nextProps){
-        this.setState({data:nextProps.value})
+        this.setState({data:nextProps.value,loading:nextProps.loading})
     }
 
     componentDidMount() {
@@ -100,6 +101,7 @@ export default class RelationTable extends React.Component {
         let formData = new FormData();
         formData.append("passport_no", value);
         formData.append("type", this.state.type);
+        this.setState({loading:true})
         fetch('/loadByPassport',{
             method: 'post',
             credentials: 'include',
@@ -114,18 +116,24 @@ export default class RelationTable extends React.Component {
                     }else{
                         result.qj_id = json.qj_id;
                     }
-                    result.type = this.state.type;
-
+                    if(this.state.type==='qj'){
+                        result.type = '侨眷';
+                    }else if(this.state.type==='lx'){
+                        result.type = '留学';
+                    }else{
+                        result.type = '华侨';
+                    }
                     if(data.filter(e=>e.o_id===result.o_id&&e.type===result.type)[0]){
                         message.error("不能重复添加",5);
+                        this.setState({loading:false})
                         return;
                     }
                     result.ch_name = json.ch_name;
-                    result.passport_no = json.passport_no
+                    result.passport_no = json.passport_no;
                     result.sex = json.sex;
                     result.relation = '父子';
 
-                    result.key = result.length;
+                    result.key = result.o_id+result.type;
                     data.push(result);
                     this.setState({data:data});
                     if (this.props.onChange) {
@@ -135,12 +143,13 @@ export default class RelationTable extends React.Component {
                 } else {
                     message.error(json.info, 5);
                 }
+                this.setState({loading:false})
             })
     }
 
     render() {
-        const {data} = this.state;
-        const {loading,type} = this.props;
+        const {loading,data} = this.state;
+        const {type} = this.props;
         return (
             <div>
                 <h5>家庭成员</h5>

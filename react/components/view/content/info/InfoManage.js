@@ -63,7 +63,7 @@ export default class InfoManage extends React.Component {
                                                 <Option value="lx">留学</Option>
                                                 <Option value="qj">侨眷</Option>
                                             </Select>}
-                                                placeholder="请输入护照号码"
+                                                placeholder={type==='qj'?'请输入护照号码或身份证号码':'请输入护照号码'}
                                                 onSearch={value => this.search(value)}
                                                 enterButton
                                         />

@@ -33,14 +33,11 @@ class Hq_lxContentForm extends React.Component {
 
     confirmPassport_no(rule, value, callback) {
         const {type} = this.props;
-        if(this.props.mode !== 'add'){
-            callback();
-            return;
-        }
         let formData = new FormData();
         formData.append("passport_no", value);
         formData.append("type", type);
-        fetch('/loadByPassport', {
+        formData.append("id", this.props.form.getFieldValue(`${type}_id`)||0);
+        fetch('/confirmPassport', {
             method: 'post',
             credentials: 'include',
             body: formData
@@ -73,6 +70,10 @@ class Hq_lxContentForm extends React.Component {
 
     update() {
         const {getFieldValue} = this.props.form;
+        if (getFieldValue('passport_no') === undefined) {
+            message.error("请先搜索需要修改的记录", 5);
+            return;
+        }
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
                 values.native_place = values.native_place.join("/");
@@ -105,7 +106,7 @@ class Hq_lxContentForm extends React.Component {
             message.error("请先搜索需要修改的记录", 5);
             return;
         }
-        if (!confirm('确定要删除该用户吗?')) return;
+        if (!confirm('确定要删除吗?')) return;
 
         this.setState({deleteLoading: true});
         let formData = new FormData();

@@ -60,6 +60,10 @@ public class LXService {
         return vo;
     }
 
+    public boolean confirmPassport(String passport_no, long id) {
+        return lxRepository.confirmPassport(passport_no,id)==null;
+    }
+
     @Transactional
     public LxBean update(LxVO vo) {
         LxBean bean = lxRepository.getById(vo.getLx_id());

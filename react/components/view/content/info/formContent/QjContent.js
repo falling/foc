@@ -1,6 +1,6 @@
 import React from 'react';
 import 'whatwg-fetch';
-import {Form, Input, Select,message} from 'antd';
+import {Form, Input, Select, message} from 'antd';
 import ReferenceTable from "../../../../uiCompoment/ReferenceTable";
 
 const FormItem = Form.Item;
@@ -17,19 +17,85 @@ class QjContentForm extends React.Component {
         this.relation = [];
         this.add = this.add.bind(this);
         this.update = this.update.bind(this);
+        this.delete = this.delete.bind(this);
+        this.confirmPassport_no = this.confirmPassport_no.bind(this);
     }
 
-    add(){
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.info && nextProps.fresh !== this.props.fresh) {
+            let info = nextProps.info;
+            delete info.status;
+            delete info.info;
+            let value= info.value;
+            delete value.info;
+            value.relation = info.relationList;
+            value.relation.forEach((relation)=>{
+                relation.key = relation.o_id + relation.type;
+            });
+            console.log(value);
+            this.props.form.setFieldsValue(value);
+        }
+    }
+
+    confirmPassport_no(rule, value, callback) {
+        let formData = new FormData();
+        formData.append("passport_no", value);
+        formData.append("id", this.props.form.getFieldValue("qj_id")||0);
+        formData.append("type", "qj");
+        fetch('/confirmPassport', {
+            method: 'post',
+            credentials: 'include',
+            body: formData
+        }).then(response => response.json())
+            .then(json => {
+                if (json.status > 0) {
+                    callback("该护照或身份证已经录入");
+                }else{
+                    callback();
+                }
+            })
+    }
+
+    delete(){
+        const {getFieldValue} = this.props.form;
+        if (getFieldValue('passport_no') === undefined) {
+            message.error("请先搜索需要修改的记录", 5);
+            return;
+        }
+        if (!confirm('确定要删除吗?')) return;
+        this.setState({deleteLoading: true});
+        this.props.form.validateFieldsAndScroll((err, values) => {
+            if(!err){
+                let formData = new FormData();
+                formData.append("id",this.props.form.getFieldValue("qj_id"))
+                formData.append("type","qj")
+                fetch("/deleteInfo",{
+                    method: 'post',
+                    credentials: 'include',
+                    body: formData
+                }).then(response=>response.json())
+                    .then(result=>{
+                        this.setState({deleteLoading: false});
+                        if (result.status >= 0) {
+                            message.success(result.info, 5);
+                        } else {
+                            message.error(result.info, 5);
+                        }
+                        this.props.form.resetFields();
+                    })
+            }
+        })
+        }
+
+    add() {
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
-                console.log(this.relation);
-                console.log(values);
                 this.setState({loading: true});
-                let postData={};
+                let postData = {};
                 postData.value = values;
                 postData.relationList = values.relation;
                 delete postData.value["relation"];
-                console.log(JSON.stringify(postData));
                 fetch('/addQjInfo', {
                     method: 'post',
                     credentials: 'include',
@@ -49,15 +115,39 @@ class QjContentForm extends React.Component {
             }
         })
     }
-    update(){
 
-        this.props.getContent();
+    update() {
+        this.props.form.validateFieldsAndScroll((err, values) => {
+          if(!err){
+              this.setState({loading: true});
+              let postData = {};
+              postData.value = values;
+              postData.relationList = values.relation;
+              delete postData.value["relation"];
+              fetch('/updateQjInfo', {
+                  method: 'post',
+                  credentials: 'include',
+                  headers: {'Content-Type': 'application/json'},
+                  body: JSON.stringify(postData)
+              }).then(response => response.json()
+              ).then(json => {
+                  this.setState({loading: false});
+                  if (json.status >= 0) {
+                      message.success(json.info, 5);
+                      this.props.form.resetFields();
+                  } else {
+                      message.error(json.info, 5);
+                  }
+              })
+          }
+        })
     }
-    render(){
-        const {loading,deleteLoading} = this.state;
+
+    render() {
+        const {loading, deleteLoading} = this.state;
         const {mode} = this.props;
         const {getFieldDecorator} = this.props.form
-        return(
+        return (
             <Form>
                 {getFieldDecorator('qj_id')(
                     <Input
@@ -85,12 +175,14 @@ class QjContentForm extends React.Component {
                     </div>
                     <div className="col-md-3">
                         <FormItem className="form-group" label="身份证号或护照号">
-                            {getFieldDecorator('id_num', {
+                            {getFieldDecorator('passport_no', {
                                 initialValue: '',
                                 validateTrigger: 'onBlur',
                                 rules: [{
                                     required: true,
                                     message: '身份证号或护照号',
+                                },{
+                                    validator: this.confirmPassport_no,
                                 }],
                             })(
                                 <Input
@@ -168,7 +260,7 @@ class QjContentForm extends React.Component {
                 </div>
                 <hr/>
                 <div>
-                    <FormItem className="form-group" label="海外联系电话">
+                    <FormItem className="form-group">
                         {getFieldDecorator('relation', {
                             initialValue: [],
                         })(
@@ -221,5 +313,6 @@ class QjContentForm extends React.Component {
         )
     }
 }
+
 const QjContent = Form.create()(QjContentForm);
 export default QjContent;
