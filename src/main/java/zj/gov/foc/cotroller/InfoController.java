@@ -44,7 +44,7 @@ public class InfoController {
 
 
     @RequestMapping("/addHQInfo")
-    public VO addHQInfo(@RequestBody HQVO hqvo, HttpSession httpSession) {
+    public VO addHQInfo(@RequestBody HQVOwithRelation hqvo, HttpSession httpSession) {
         UserVO userVO = (UserVO) httpSession.getAttribute("user");
         if (userVO == null) {
             return Response.warning("未登录");
@@ -79,13 +79,13 @@ public class InfoController {
         return Response.success("更新成功");
     }
     @RequestMapping("/addLXInfo")
-    public VO addLXInfo(@RequestBody LxVO lxVO, HttpSession httpSession) {
+    public VO addLXInfo(@RequestBody LxVOwithRelation lxVOwithRelation, HttpSession httpSession) {
         UserVO userVO = (UserVO) httpSession.getAttribute("user");
         if (userVO == null) {
             return Response.warning("未登录");
         }
 
-        if (lxService.addLX(lxVO, userVO.getId())) {
+        if (lxService.addLX(lxVOwithRelation, userVO.getId())) {
             return Response.success("录入成功");
         } else {
             return Response.warning("录入失败，该护照已经添加");
@@ -118,6 +118,32 @@ public class InfoController {
         }
     }
 
+    @RequestMapping("/loadByPassportWithoutRelation")
+    public VO loadByPassportWithoutRelation(@RequestParam("passport_no") String passport_no,
+                                            @RequestParam("type") String type){
+        if (type.equals("lx")) {
+            VO result = lxService.loadByPassportWithoutRelation(passport_no);
+            if (result == null) {
+                return Response.warning("用户不存在");
+            } else {
+                return Response.success(result);
+            }
+        } else if (type.equals("hq")) {
+            VO result = hqService.loadByPassportWithoutRelation(passport_no);
+            if (result == null) {
+                return Response.warning("用户不存在");
+            } else {
+                return Response.success(result);
+            }
+        } else {
+            VO result = qjService.loadByPassportWithoutRelation(passport_no);
+            if (result == null) {
+                return Response.warning("用户不存在");
+            } else {
+                return Response.success(result);
+            }
+        }
+    }
     @RequestMapping("/loadByPassport")
     public VO loadByPassport(@RequestParam("passport_no") String passport_no,
                              @RequestParam("type") String type){
@@ -135,7 +161,6 @@ public class InfoController {
             } else {
                 return Response.success(result);
             }
-
         } else {
             VO result = qjService.loadByPassport(passport_no);
             if (result == null) {

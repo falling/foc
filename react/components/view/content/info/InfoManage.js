@@ -58,7 +58,7 @@ export default class InfoManage extends React.Component {
                                 <div className="col-md-12">
                                     <div className="form-group">
                                         <Search addonBefore={
-                                            <Select onChange={value=>this.setState({type:value})} defaultValue="hq">
+                                            <Select onChange={value=>this.setState({type:value,info:undefined})} defaultValue="hq">
                                                 <Option value="hq">华侨</Option>
                                                 <Option value="lx">留学</Option>
                                                 <Option value="qj">侨眷</Option>

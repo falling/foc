@@ -79,12 +79,18 @@ class Hq_lxContentForm extends React.Component {
                 values.native_place = values.native_place.join("/");
                 values.photo = this.url || this.photo;
                 this.setState({loading: true});
+
+                let postData = {};
+                postData.value = values;
+                postData.relationList = values.relation;
+                delete postData.value["relation"];
+
                 const {type} = this.props;
                 fetch(type === 'lx' ? '/updateLXInfo' : '/updateHQInfo', {
                     method: 'post',
                     credentials: 'include',
                     headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify(values)
+                    body: JSON.stringify(postData)
                 }).then(response => response.json()
                 ).then(json => {
                     this.setState({loading: false});
@@ -140,11 +146,17 @@ class Hq_lxContentForm extends React.Component {
                 this.setState({loading: true});
                 values.photo = this.url;
                 values.native_place = values.native_place.join("/");
+
+                let postData = {};
+                postData.value = values;
+                postData.relationList = values.relation;
+                delete postData.value["relation"];
+
                 fetch(type === 'lx' ? '/addLXInfo' : '/addHQInfo', {
                     method: 'post',
                     credentials: 'include',
                     headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify(values)
+                    body: JSON.stringify(postData)
                 }).then(response => response.json()
                 ).then(json => {
                     this.setState({loading: false});
@@ -169,23 +181,28 @@ class Hq_lxContentForm extends React.Component {
         }
         if (nextProps.info && nextProps.fresh !== this.props.fresh) {
             let info = nextProps.info;
-            delete info.status;
-            delete info.info;
-            info.date_birth = info.date_birth ? moment(info.date_birth) : '';
-            info.date_expriy = info.date_expriy ? moment(info.date_expriy) : '';
+            let value= info.value;
+            delete value.info;
+            delete value.status;
+            value.relation = info.relationList;
+            value.relation.forEach((relation)=>{
+                relation.key = relation.o_id + relation.type;
+            });
+            value.date_birth = value.date_birth ? moment(value.date_birth) : '';
+            value.date_expriy = value.date_expriy ? moment(value.date_expriy) : '';
             if (this.props.type === 'lx') {
-                info.gra_date = info.gra_date ? moment(info.gra_date) : '';
+                value.gra_date = value.gra_date ? moment(value.gra_date) : '';
             }
-            this.photo = info.photo;
+            this.photo = value.photo;
 
-            if (info.native_place) { // 'a/b/c',[],[a,b,c],
-                if (typeof (info.native_place) === "string") {
-                    info.native_place = info.native_place.split("/")
+            if (value.native_place) { // 'a/b/c',[],[a,b,c],
+                if (typeof (value.native_place) === "string") {
+                    value.native_place = value.native_place.split("/")
                 }
             } else { // undefined,''
-                info.native_place = []
+                value.native_place = []
             }
-            this.props.form.setFieldsValue(info);
+            this.props.form.setFieldsValue(value);
         }
     }
 
@@ -654,6 +671,7 @@ class Hq_lxContentForm extends React.Component {
                     <div className="col-md-12">
                         <FormItem className="form-group" label="主要成就">
                             {getFieldDecorator('remarks', {
+                                initialValue: '',
                                 rules: [{
                                     max: 100,
                                     message: '最多输入100字'
@@ -756,9 +774,16 @@ class Hq_lxContentForm extends React.Component {
                 </div>
                 <hr/>
                 <div>
-                    <ReferenceTable
-                        type={type}
-                    />
+                    <FormItem className="form-group">
+                        {getFieldDecorator('relation', {
+                            initialValue: [],
+                        })(
+                            <ReferenceTable
+                                type={type}
+                            />
+                        )}
+                        <div/>
+                    </FormItem>
                 </div>
                 {(mode === 'view' || mode === 'search') &&
                 <div>

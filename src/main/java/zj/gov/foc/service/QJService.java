@@ -91,6 +91,16 @@ public class QJService {
         return vo;
     }
 
+    public VO loadByPassportWithoutRelation(String passport_no) {
+        QJBean bean = qjRepository.loadByPassport(passport_no);
+        QjVO vo = null;
+        if(bean!=null){
+            vo = new QjVO();
+            BeanUtils.copyProperties(bean,vo);
+        }
+        return vo;
+    }
+
     public boolean confirmPassport(String passport_no, long id) {
         return qjRepository.confirmPassport(passport_no,id) == null;
     }

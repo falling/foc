@@ -33,7 +33,6 @@ class QjContentForm extends React.Component {
             value.relation.forEach((relation)=>{
                 relation.key = relation.o_id + relation.type;
             });
-            console.log(value);
             this.props.form.setFieldsValue(value);
         }
     }

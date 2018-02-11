@@ -4,13 +4,14 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import zj.gov.foc.po.HQBean;
+import zj.gov.foc.po.QJBean;
+import zj.gov.foc.po.RelationBean;
 import zj.gov.foc.repository.HQRepository;
+import zj.gov.foc.repository.QJRepository;
+import zj.gov.foc.repository.RelationRepository;
 import zj.gov.foc.repository.UserRepository;
 import zj.gov.foc.util.InputDeal;
-import zj.gov.foc.vo.HQVO;
-import zj.gov.foc.vo.SearchVO;
-import zj.gov.foc.vo.UserVO;
-import zj.gov.foc.vo.VO;
+import zj.gov.foc.vo.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -30,9 +31,16 @@ public class HQService {
     @Autowired
     UserRepository userRepository;
 
-    @Transactional
-    public HQVO addHQ(HQVO hqvo, UserVO userVO){
+    @Autowired
+    RelationRepository relationRepository;
 
+    @Autowired
+    QJRepository qjRepository;
+
+    @Transactional
+    public HQVO addHQ(HQVOwithRelation hqvOwithRelation, UserVO userVO){
+
+        HQVO hqvo = hqvOwithRelation.getValue();
         if(!InputDeal.isChineseCharacters(hqvo.getCh_name())){
             hqvo.setInfo("中文名字为2-20个汉字");
             return hqvo;
@@ -45,7 +53,6 @@ public class HQService {
             hqvo.setInfo("该护照已经录入");
             return hqvo;
         }
-
         HQBean bean = new HQBean();
         BeanUtils.copyProperties(hqvo,bean);
         bean.setRegistrant(userVO.getId());
@@ -54,6 +61,16 @@ public class HQService {
         bean.setRemarks("");
         HQBean new_bean =hqRepository.save(bean);
         if(new_bean != null){
+            List<RelationBean> relationBeanList = new ArrayList<>();
+            List<RelationVO> relationVOList = hqvOwithRelation.getRelationList();
+            relationVOList.forEach(e -> {
+                e.setO_id(bean.getHq_id());
+                RelationBean bean1 = new RelationBean();
+                BeanUtils.copyProperties(e, bean1);
+                bean1.setType("华侨");
+                relationBeanList.add(bean1);
+            });
+            relationRepository.save(relationBeanList);
             hqvo.setInfo("录入成功");
         }else{
             hqvo.setInfo("创建失败");
@@ -62,17 +79,45 @@ public class HQService {
     }
 
     @Transactional
-    public int  modifyHQ(HQVO hqvo){
-        return 0;
-    }
-
-    @Transactional
     public boolean deleteHQ(long hqid){
+        //todo delete relation
         return hqRepository.deleteHQ(hqid) == 1;
     }
 
 
     public VO loadByPassport(String passport_no) {
+        HQBean bean = hqRepository.loadByPassport(passport_no);
+        HQVOwithRelation vo = null;
+        if(bean!=null){
+            vo = new HQVOwithRelation();
+            HQVO hqvo = new HQVO();
+            BeanUtils.copyProperties(bean,hqvo);
+            String registrant_name = userRepository
+                    .getById(bean.getRegistrant())
+                    .getName();
+            hqvo.setRegistrant_name(registrant_name);
+            vo.setValue(hqvo);
+
+            //relation
+            List relations = relationRepository.getByOId(hqvo.getHq_id());
+            List<RelationVO> relationVOList = new ArrayList<>();
+            relations.forEach(e->{
+                RelationVO relationVO = new RelationVO();
+                BeanUtils.copyProperties(e, relationVO);
+                QJBean qjBean = qjRepository.getById(relationVO.getQj_id());
+                relationVO.setSex(qjBean.getSex());
+                relationVO.setPassport_no(qjBean.getPassport_no());
+                relationVO.setCh_name(qjBean.getCh_name());
+                relationVOList.add(relationVO);
+            });
+            vo.setRelationList(relationVOList);
+
+
+        }
+        return vo;
+    }
+
+    public VO loadByPassportWithoutRelation(String passport_no) {
         HQBean bean = hqRepository.loadByPassport(passport_no);
         HQVO vo = null;
         if(bean!=null){
@@ -91,6 +136,7 @@ public class HQService {
     public HQBean update(HQVO vo) {
         HQBean bean = hqRepository.getById(vo.getHq_id());
         BeanUtils.copyProperties(vo,bean);
+        //todo update relation
         return hqRepository.save(bean);
     }
 

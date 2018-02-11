@@ -72,9 +72,10 @@ export default class Sidebar extends React.Component {
                                         <li className={activityIndex === 4 ? "active" : ""}>
                                             <Link to="/manager/4">创建用户</Link>
                                         </li>
+                                        {user.power==='root'&&
                                         <li className={activityIndex === 5 ? "active" : ""}>
                                             <Link to="/manager/5">管理用户</Link>
-                                        </li>
+                                        </li>}
                                     </ul>
                                 </div>
                             </li>}

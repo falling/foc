@@ -49,8 +49,8 @@ export default class RelationTable extends React.Component {
                     <Option value="祖孙">祖孙</Option>
                     <Option value="外祖孙">外祖孙</Option>
                     <Option value="兄弟姐妹">兄弟姐妹</Option>
-                    <Option value="父子">父子（女）</Option>
-                    <Option value="母子">母子（女）</Option>
+                    <Option value="父子（女）">父子（女）</Option>
+                    <Option value="母子（女）">母子（女）</Option>
                     <Option value="夫妻">配偶</Option>
                 </Select>
             ),
@@ -68,7 +68,11 @@ export default class RelationTable extends React.Component {
     }
 
     componentWillReceiveProps(nextProps){
-        this.setState({data:nextProps.value,loading:nextProps.loading})
+        let newData = nextProps.value;
+        if(nextProps.type!=='qj'){
+            newData.forEach(e=>e.type='侨眷')
+        }
+        this.setState({data:newData,loading:nextProps.loading})
     }
 
     componentDidMount() {
@@ -102,7 +106,7 @@ export default class RelationTable extends React.Component {
         formData.append("passport_no", value);
         formData.append("type", this.state.type);
         this.setState({loading:true})
-        fetch('/loadByPassport',{
+        fetch('/loadByPassportWithoutRelation',{
             method: 'post',
             credentials: 'include',
             body: formData
@@ -131,7 +135,7 @@ export default class RelationTable extends React.Component {
                     result.ch_name = json.ch_name;
                     result.passport_no = json.passport_no;
                     result.sex = json.sex;
-                    result.relation = '父子';
+                    result.relation = '祖孙';
 
                     result.key = result.o_id+result.type;
                     data.push(result);

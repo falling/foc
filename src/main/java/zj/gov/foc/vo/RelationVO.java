@@ -6,7 +6,7 @@ package zj.gov.foc.vo;
  * Time: 下午10:29
  * Description:
  */
-public class RelationVO extends BaseVO {
+public class RelationVO{
 
 
     private String ch_name;
