@@ -127,19 +127,19 @@ CREATE TABLE `lx` (
 -- ----------------------------
 -- Table structure for qj
 -- ----------------------------
+-- auto-generated definition
 DROP TABLE IF EXISTS `qj`;
-CREATE TABLE `qj` (
-  `o_id` int(10) unsigned NOT NULL,
-  `qj_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `ch_name` varchar(20) NOT NULL DEFAULT ' ',
-  `sex` varchar(5) NOT NULL DEFAULT ' ',
-  `ethnicity` varchar(10) NOT NULL DEFAULT ' ',
-  `id_num` varchar(20) NOT NULL DEFAULT ' ',
-  `relation` varchar(10) NOT NULL DEFAULT ' ',
-  `tel` varchar(20) NOT NULL DEFAULT ' ',
-  `te2` varchar(20) NOT NULL DEFAULT ' ',
-  `del` varchar(5) NOT NULL DEFAULT ' ',
-  PRIMARY KEY (`qj_id`)
+CREATE TABLE qj
+(
+  qj_id       INT UNSIGNED AUTO_INCREMENT
+    PRIMARY KEY,
+  ch_name     VARCHAR(20) DEFAULT ' ' NOT NULL,
+  sex         VARCHAR(5) DEFAULT ' '  NOT NULL,
+  ethnicity   VARCHAR(10) DEFAULT ' ' NOT NULL,
+  passport_no VARCHAR(20) DEFAULT ' ' NOT NULL,
+  tel1        VARCHAR(20) DEFAULT ' ' NOT NULL,
+  tel2        VARCHAR(20) DEFAULT ' ' NOT NULL,
+  del         VARCHAR(5) DEFAULT ' '  NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -157,3 +157,24 @@ CREATE TABLE `user` (
   `del` varchar(5) NOT NULL DEFAULT ' ',
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Table structure for relationShip
+-- ----------------------------
+DROP TABLE IF EXISTS `relationShip`;
+CREATE TABLE relationship
+(
+  id          INT AUTO_INCREMENT
+    PRIMARY KEY,
+  ch_name     VARCHAR(255) NULL,
+  passport_no VARCHAR(255) NULL,
+  ethnicity   VARCHAR(255) NULL,
+  sex         VARCHAR(255) NULL,
+  tel1        VARCHAR(255) NULL,
+  tel2        VARCHAR(255) NULL,
+  del         VARCHAR(255) NULL,
+  CONSTRAINT relationship_id_uindex
+  UNIQUE (id)
+)
+  ENGINE = InnoDB DEFAULT CHARSET=utf8;
+
