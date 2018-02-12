@@ -172,8 +172,8 @@ public class InfoController {
     }
 
     @RequestMapping("/updateLXInfo")
-    public VO updateLXInfo(@RequestBody LxVO vo) {
-        if (lxService.update(vo) != null) {
+    public VO updateLXInfo(@RequestBody LxVOwithRelation vo) {
+        if (lxService.update(vo)) {
             return Response.success("更新成功");
         } else {
             return Response.warning("用户不存在");
@@ -182,9 +182,12 @@ public class InfoController {
 
 
     @RequestMapping("/updateHQInfo")
-    public VO updateHQInfo(@RequestBody HQVO vo) {
-        hqService.update(vo);
-        return Response.success("更新成功");
+    public VO updateHQInfo(@RequestBody HQVOwithRelation vo) {
+        if(hqService.update(vo)) {
+            return Response.success("更新成功");
+        }else{
+            return Response.warning("用户不存在");
+        }
     }
 
     @RequestMapping("/deleteInfo")

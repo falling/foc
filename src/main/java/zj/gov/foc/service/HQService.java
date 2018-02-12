@@ -61,16 +61,7 @@ public class HQService {
         bean.setRemarks("");
         HQBean new_bean =hqRepository.save(bean);
         if(new_bean != null){
-            List<RelationBean> relationBeanList = new ArrayList<>();
-            List<RelationVO> relationVOList = hqvOwithRelation.getRelationList();
-            relationVOList.forEach(e -> {
-                e.setO_id(bean.getHq_id());
-                RelationBean bean1 = new RelationBean();
-                BeanUtils.copyProperties(e, bean1);
-                bean1.setType("华侨");
-                relationBeanList.add(bean1);
-            });
-            relationRepository.save(relationBeanList);
+            saveHqRalation(bean,hqvOwithRelation);
             hqvo.setInfo("录入成功");
         }else{
             hqvo.setInfo("创建失败");
@@ -81,7 +72,10 @@ public class HQService {
     @Transactional
     public boolean deleteHQ(long hqid){
         //todo delete relation
-        return hqRepository.deleteHQ(hqid) == 1;
+        if(hqRepository.deleteHQ(hqid) == 1){
+            relationRepository.deletebyoId(hqid);
+        }
+        return false;
     }
 
 
@@ -133,11 +127,30 @@ public class HQService {
     }
 
     @Transactional
-    public HQBean update(HQVO vo) {
+    public boolean update(HQVOwithRelation hqvOwithRelation) {
+        HQVO vo = hqvOwithRelation.getValue();
         HQBean bean = hqRepository.getById(vo.getHq_id());
+        if(bean == null) return false;
         BeanUtils.copyProperties(vo,bean);
+        hqRepository.save(bean);
+
         //todo update relation
-        return hqRepository.save(bean);
+        saveHqRalation(bean,hqvOwithRelation);
+        return true;
+    }
+
+    private void saveHqRalation(HQBean bean,HQVOwithRelation hqvOwithRelation){
+        relationRepository.deletebyoId(bean.getHq_id());
+        List<RelationBean> relationBeanList = new ArrayList<>();
+        List<RelationVO> relationVOList = hqvOwithRelation.getRelationList();
+        relationVOList.forEach(e -> {
+            e.setO_id(bean.getHq_id());
+            RelationBean bean1 = new RelationBean();
+            BeanUtils.copyProperties(e, bean1);
+            bean1.setType("华侨");
+            relationBeanList.add(bean1);
+        });
+        relationRepository.save(relationBeanList);
     }
 
     @PersistenceContext

@@ -55,16 +55,7 @@ public class LXService {
         if(lxRepository.save(bean)==null){
             return false;
         }
-        List<RelationBean> relationBeanList = new ArrayList<>();
-        List<RelationVO> relationVOList = lxVOwithRelation.getRelationList();
-        relationVOList.forEach(e -> {
-            e.setO_id(bean.getLx_id());
-            RelationBean bean1 = new RelationBean();
-            BeanUtils.copyProperties(e, bean1);
-            bean1.setType("留学");
-            relationBeanList.add(bean1);
-        });
-        relationRepository.save(relationBeanList);
+        saveLxRelation(bean,lxVOwithRelation);
         return true;
     }
 
@@ -116,18 +107,39 @@ public class LXService {
     }
 
     @Transactional
-    public LxBean update(LxVO vo) {
+    public boolean update(LxVOwithRelation lxVOwithRelation) {
+        LxVO vo = lxVOwithRelation.getValue();
         LxBean bean = lxRepository.getById(vo.getLx_id());
-        if(bean == null) return null;
+        if(bean == null) return false;
         BeanUtils.copyProperties(vo,bean);
+        lxRepository.save(bean);
+
         //todo update relation
-        return lxRepository.save(bean);
+        saveLxRelation(bean,lxVOwithRelation);
+        return true;
+    }
+    private void saveLxRelation(LxBean bean,LxVOwithRelation lxVOwithRelation){
+        relationRepository.deletebyoId(bean.getLx_id());
+        List<RelationBean> relationBeanList = new ArrayList<>();
+        List<RelationVO> relationVOList = lxVOwithRelation.getRelationList();
+        relationVOList.forEach(e -> {
+            e.setO_id(bean.getLx_id());
+            RelationBean bean1 = new RelationBean();
+            BeanUtils.copyProperties(e, bean1);
+            bean1.setType("留学");
+            relationBeanList.add(bean1);
+        });
+        relationRepository.save(relationBeanList);
     }
 
     @Transactional
     public boolean delete(Long id) {
         //todo delete relation
-        return lxRepository.delete(id) ==1;
+        if(lxRepository.delete(id) ==1){
+            relationRepository.deletebyoId(id);
+            return true;
+        }
+        return false;
     }
 
     @PersistenceContext
