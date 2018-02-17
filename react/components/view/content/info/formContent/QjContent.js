@@ -37,6 +37,20 @@ class QjContentForm extends React.Component {
         }
     }
 
+    componentDidMount() {
+        if (this.props.info) {
+            let info = this.props.info;
+            let value= info.value;
+            delete value.info;
+            delete value.status;
+            value.relation = info.relationList;
+            value.relation.forEach((relation)=>{
+                relation.key = relation.o_id + relation.type;
+            });
+            this.props.form.setFieldsValue(value);
+        }
+    }
+
     confirmPassport_no(rule, value, callback) {
         let formData = new FormData();
         formData.append("passport_no", value);
@@ -265,6 +279,7 @@ class QjContentForm extends React.Component {
                         })(
                             <ReferenceTable
                                 type='qj'
+                                mode={mode}
                             />
                         )}
                         <div/>

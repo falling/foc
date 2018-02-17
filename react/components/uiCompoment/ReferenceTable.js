@@ -16,6 +16,19 @@ export default class RelationTable extends React.Component {
         this.handleChange = this.handleChange.bind(this);
         this.onDelete = this.onDelete.bind(this);
         this.handleAdd = this.handleAdd.bind(this);
+
+    }
+
+    componentWillReceiveProps(nextProps){
+        let newData = nextProps.value;
+        if(nextProps.type!=='qj'){
+            newData.forEach(e=>e.type='侨眷')
+        }
+        this.setState({data:newData,loading:nextProps.loading})
+    }
+
+    componentDidMount() {
+        let mode = this.props.mode;
         this.columns = [{
             title: '姓名',
             dataIndex: 'ch_name',
@@ -42,6 +55,7 @@ export default class RelationTable extends React.Component {
             key: 'relation',
             render: (record) => (
                 <Select
+                    disabled={mode==='search'}
                     defaultValue={record.relation}
                     dropdownMatchSelectWidth={false}
                     onChange={value => this.handleChange(value, record.key)}
@@ -54,28 +68,20 @@ export default class RelationTable extends React.Component {
                     <Option value="夫妻">配偶</Option>
                 </Select>
             ),
-        }, {
-            width: '150px',
-            title: '删除',
-            key: 'action',
-            render: (record) => (
-                <Popconfirm title="确定要删除？" onConfirm={() => this.onDelete(record.key)}>
-                    <a>删除</a>
-                </Popconfirm>
-            ),
-        }]
+        }];
 
-    }
-
-    componentWillReceiveProps(nextProps){
-        let newData = nextProps.value;
-        if(nextProps.type!=='qj'){
-            newData.forEach(e=>e.type='侨眷')
+        if(mode!=='search'){
+            this.columns.push({
+                width: '150px',
+                title: '删除',
+                key: 'action',
+                render: (record) => (
+                    <Popconfirm title="确定要删除？" onConfirm={() => this.onDelete(record.key)}>
+                        <a>删除</a>
+                    </Popconfirm>
+                ),
+            });
         }
-        this.setState({data:newData,loading:nextProps.loading})
-    }
-
-    componentDidMount() {
     }
 
 
@@ -153,12 +159,12 @@ export default class RelationTable extends React.Component {
 
     render() {
         const {loading,data} = this.state;
-        const {type} = this.props;
+        const {type,mode} = this.props;
         return (
             <div>
                 <h5>家庭成员</h5>
                 <Table
-                    title={()=><Search
+                    title={()=> mode!=='search' &&<Search
                         className="editable-add-btn"
                         onSearch={this.handleAdd}
                         enterButton

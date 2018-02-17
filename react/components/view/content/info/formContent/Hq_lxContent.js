@@ -27,6 +27,7 @@ class Hq_lxContentForm extends React.Component {
         this.delete = this.delete.bind(this);
         this.getChild = this.getChild.bind(this);
         this.confirmPassport_no = this.confirmPassport_no.bind(this);
+        this.setValue = this.setValue.bind(this);
         options = this.getChild(City);
 
     }
@@ -180,53 +181,40 @@ class Hq_lxContentForm extends React.Component {
             return;
         }
         if (nextProps.info && nextProps.fresh !== this.props.fresh) {
-            let info = nextProps.info;
-            let value= info.value;
-            delete value.info;
-            delete value.status;
-            value.relation = info.relationList;
-            value.relation.forEach((relation)=>{
-                relation.key = relation.o_id + relation.type;
-            });
-            value.date_birth = value.date_birth ? moment(value.date_birth) : '';
-            value.date_expriy = value.date_expriy ? moment(value.date_expriy) : '';
-            if (this.props.type === 'lx') {
-                value.gra_date = value.gra_date ? moment(value.gra_date) : '';
-            }
-            this.photo = value.photo;
-
-            if (value.native_place) { // 'a/b/c',[],[a,b,c],
-                if (typeof (value.native_place) === "string") {
-                    value.native_place = value.native_place.split("/")
-                }
-            } else { // undefined,''
-                value.native_place = []
-            }
-            this.props.form.setFieldsValue(value);
+            this.setValue(nextProps);
         }
+    }
+
+    setValue(props){
+        let info = props.info;
+        let value= info.value;
+        delete value.info;
+        delete value.status;
+        value.relation = info.relationList;
+        value.relation.forEach((relation)=>{
+            relation.key = relation.o_id + relation.type;
+        });
+        value.date_birth = value.date_birth ? moment(value.date_birth) : '';
+        value.date_expriy = value.date_expriy ? moment(value.date_expriy) : '';
+        if (this.props.type === 'lx') {
+            value.gra_date = value.gra_date ? moment(value.gra_date) : '';
+        }
+        this.photo = value.photo;
+
+        if (value.native_place) { // 'a/b/c',[],[a,b,c],
+            if (typeof (value.native_place) === "string") {
+                value.native_place = value.native_place.split("/")
+            }
+        } else { // undefined,''
+            value.native_place = []
+        }
+        this.props.form.setFieldsValue(value);
+
     }
 
     componentDidMount() {
         if (this.props.info) {
-            let info = this.props.info;
-            delete info.status;
-            delete info.info;
-            info.date_birth = info.date_birth ? moment(info.date_birth) : '';
-            info.date_expriy = info.date_expriy ? moment(info.date_expriy) : '';
-            if (this.props.type === 'lx') {
-                info.gra_date = info.gra_date ? moment(info.gra_date) : '';
-            }
-            this.photo = info.photo;
-
-            if (info.native_place) { // 'a/b/c',[],[a,b,c],
-                if (typeof (info.native_place) === "string") {
-                    info.native_place = info.native_place.split("/")
-                }
-            } else { // undefined,''
-                info.native_place = []
-            }
-            this.photo = info.photo;
-            this.props.form.setFieldsValue(info);
+            this.setValue(this.props);
         }
     }
 
@@ -780,6 +768,7 @@ class Hq_lxContentForm extends React.Component {
                         })(
                             <ReferenceTable
                                 type={type}
+                                mode={mode}
                             />
                         )}
                         <div/>

@@ -4,12 +4,12 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import zj.gov.foc.po.LxBean;
-import zj.gov.foc.po.QJBean;
 import zj.gov.foc.po.RelationBean;
 import zj.gov.foc.repository.LXRepository;
 import zj.gov.foc.repository.QJRepository;
 import zj.gov.foc.repository.RelationRepository;
 import zj.gov.foc.repository.UserRepository;
+import zj.gov.foc.util.CommonFunction;
 import zj.gov.foc.vo.*;
 
 import javax.persistence.EntityManager;
@@ -75,15 +75,7 @@ public class LXService {
             //relation
             List relations = relationRepository.getByOId(lxVO.getLx_id());
             List<RelationVO> relationVOList = new ArrayList<>();
-            relations.forEach(e->{
-                RelationVO relationVO = new RelationVO();
-                BeanUtils.copyProperties(e, relationVO);
-                QJBean qjBean = qjRepository.getById(relationVO.getQj_id());
-                relationVO.setSex(qjBean.getSex());
-                relationVO.setPassport_no(qjBean.getPassport_no());
-                relationVO.setCh_name(qjBean.getCh_name());
-                relationVOList.add(relationVO);
-            });
+            CommonFunction.getQJRelationList(relations,relationVOList,qjRepository);
             vo.setRelationList(relationVOList);
         }
         return vo;
@@ -145,12 +137,12 @@ public class LXService {
     @PersistenceContext
     private EntityManager entityManager;
 
-    public SearchVO search(String col, String value) {
-        SearchVO<LxVO> searchVO = new SearchVO<>();
+    public SearchVO<LxVOwithRelation> search(String col, String value) {
+        SearchVO<LxVOwithRelation> searchVO = new SearchVO<>();
         String sql = "SELECT * FROM lx WHERE "+col+" LIKE '%"+value+"%' AND del = '0'";
         Query query = entityManager.createNativeQuery(sql,LxBean.class);
         List<LxBean> resultList = query.getResultList();
-        List<LxVO> returnList = new ArrayList<>();
+        List<LxVOwithRelation> returnList = new ArrayList<>();
         resultList.forEach(result->{
             String registrant_name = userRepository
                     .getById(result.getRegistrant())
@@ -158,7 +150,15 @@ public class LXService {
             LxVO vo = new LxVO();
             BeanUtils.copyProperties(result,vo);
             vo.setRegistrant_name(registrant_name);
-            returnList.add(vo);
+
+            LxVOwithRelation lxVOwithRelation = new LxVOwithRelation();
+            lxVOwithRelation.setValue(vo);
+
+            List relations = relationRepository.getByOId(vo.getLx_id());
+            List<RelationVO> relationVOList = new ArrayList<>();
+            CommonFunction.getQJRelationList(relations,relationVOList,qjRepository);
+            lxVOwithRelation.setRelationList(relationVOList);
+            returnList.add(lxVOwithRelation);
         });
         searchVO.setResult(returnList);
         return searchVO;

@@ -23,7 +23,7 @@ export default class Sidebar extends React.Component {
         const {user} = this.props;
         let activityIndex = +this.props.index;
         return (
-            <div className="sidebar" data-background-color="orange" data-active-color="white">
+            <div className="sidebar" data-background-color="blue" data-active-color="white">
 
                 <div className="sidebar-wrapper" id="accordion">
                     <div className="sidebar-wrapper">

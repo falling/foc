@@ -11,11 +11,12 @@ import zj.gov.foc.repository.HQRepository;
 import zj.gov.foc.repository.LXRepository;
 import zj.gov.foc.repository.QJRepository;
 import zj.gov.foc.repository.RelationRepository;
-import zj.gov.foc.vo.QjVO;
-import zj.gov.foc.vo.QjVOwithRelation;
-import zj.gov.foc.vo.RelationVO;
-import zj.gov.foc.vo.VO;
+import zj.gov.foc.util.CommonFunction;
+import zj.gov.foc.vo.*;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
@@ -137,5 +138,73 @@ public class QJService {
              return true;
          }
          return false;
+    }
+
+    @PersistenceContext
+    private EntityManager entityManager;
+
+    public SearchVO<QjVOwithRelation> search(String col, String value) {
+        SearchVO<QjVOwithRelation> searchVO = new SearchVO<>();
+        if(col.equals("lx_id")){
+            LxBean bean = lxRepository.loadByPassport(value);
+            if (bean == null) {
+                return searchVO;
+            }
+            Long lxId = bean.getLx_id();
+            List<RelationBean> relationBeanList = relationRepository.getByLxId(lxId);
+            List<QjVOwithRelation> returnList = new ArrayList<>();
+            getQjVOwithrelation(relationBeanList, returnList);
+            searchVO.setResult(returnList);
+            return searchVO;
+        }else if(col.equals("hq_id")){
+            HQBean bean = hqRepository.loadByPassport(value);
+            if (bean == null) {
+                return searchVO;
+            }
+            Long hqId = bean.getHq_id();
+            List<RelationBean> relationBeanList = relationRepository.getByHqId(hqId);
+            List<QjVOwithRelation> returnList = new ArrayList<>();
+            getQjVOwithrelation(relationBeanList, returnList);
+            searchVO.setResult(returnList);
+            return searchVO;
+
+        }else{
+            String sql = "SELECT * FROM qj WHERE "+col+" LIKE '%"+value+"%' AND del = '0'";
+            Query query = entityManager.createNativeQuery(sql,QJBean.class);
+            List<QJBean> resultList = query.getResultList();
+            List<QjVOwithRelation> returnList = new ArrayList<>();
+            resultList.forEach(result->{
+                QjVO vo = new QjVO();
+                BeanUtils.copyProperties(result,vo);
+                QjVOwithRelation qjVOwithRelation = new QjVOwithRelation();
+                qjVOwithRelation.setValue(vo);
+
+                List<RelationBean> relations = relationRepository.getByQjID(vo.getQj_id());
+                List<RelationVO> relationVOList = new ArrayList<>();
+                CommonFunction.getQJRelationList(relations,relationVOList,hqRepository,lxRepository);
+                qjVOwithRelation.setRelationList(relationVOList);
+                returnList.add(qjVOwithRelation);
+            });
+            searchVO.setResult(returnList);
+            return searchVO;
+
+        }
+    }
+
+    private void getQjVOwithrelation(List<RelationBean> relationBeanList, List<QjVOwithRelation> returnList) {
+        relationBeanList.forEach(relationBean->{
+            QjVOwithRelation qjVOwithRelation = new QjVOwithRelation();
+            QJBean qjBean = qjRepository.getById(relationBean.getQj_id());
+            QjVO qjVO = new QjVO();
+            BeanUtils.copyProperties(qjBean,qjVO);
+            qjVOwithRelation.setValue(qjVO);
+
+            List<RelationBean> relations = relationRepository.getByQjID(qjVO.getQj_id());
+            List<RelationVO> relationVOList = new ArrayList<>();
+            CommonFunction.getQJRelationList(relations,relationVOList,hqRepository,lxRepository);
+            qjVOwithRelation.setRelationList(relationVOList);
+            returnList.add(qjVOwithRelation);
+
+        });
     }
 }

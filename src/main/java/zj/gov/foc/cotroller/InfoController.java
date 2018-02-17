@@ -208,13 +208,15 @@ public class InfoController {
     }
 
     @RequestMapping("/searchTable")
-    public VO searchTable(@RequestParam("type") String type,@RequestParam("value") String value,@RequestParam("col") String col) {
+    public VO searchTable(@RequestParam("type") String type,
+                          @RequestParam("value") String value,
+                          @RequestParam("col") String col) {
         if (type.equals("lx")){
             return Response.success(lxService.search(col,value));
         }else if (type.equals("hq")){
             return Response.success(hqService.search(col,value));
         }else{
-            return Response.success(lxService.search(col,value));
+            return Response.success(qjService.search(col,value));
         }
     }
 

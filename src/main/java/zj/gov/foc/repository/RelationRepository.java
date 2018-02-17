@@ -29,4 +29,10 @@ public interface RelationRepository extends CrudRepository<RelationBean, Long> {
     @Modifying
     @Query(value = "DELETE FROM relationship WHERE o_id = ?1",nativeQuery = true)
     void deletebyoId(Long id);
+
+    @Query(value = "SELECT * FROM relationship WHERE o_id =?1 AND type = '留学'",nativeQuery = true)
+    List<RelationBean> getByLxId(Long lxId);
+
+    @Query(value = "SELECT * FROM relationship WHERE o_id =?1 AND type = '华侨'",nativeQuery = true)
+    List<RelationBean> getByHqId(Long hqId);
 }

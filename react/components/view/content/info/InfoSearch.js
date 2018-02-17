@@ -80,9 +80,13 @@ export default class InfoSearch extends React.Component {
     }
 
     showData(record) {
+        let sData={};
+        sData.value = record;
+        sData.relationList =record.relationList;
+        delete sData.value.info;
         this.setState({
             previewVisible: true,
-            showData: record,
+            showData: sData,
         })
     }
 
@@ -102,9 +106,14 @@ export default class InfoSearch extends React.Component {
         }).then(response => response.json())
             .then(json => {
                 if (json.status > 0) {
+                    let data = [];
+                    json.result.forEach(e=>{
+                        e.value.relationList = e.relationList;
+                        data.push(e.value);
+                    });
                     this.setState({
                         show: true,
-                        data: json.result,
+                        data: data,
                         loading: false,
                     })
                 } else {
@@ -141,12 +150,9 @@ export default class InfoSearch extends React.Component {
                     onChange={value => this.setState({col: value})}
                     value={col}>
                     <Option value="ch_name">中文姓名</Option>
-                    <Option value="py_name">拼音</Option>
-                    <Option value="passport_no">护照号</Option>
-                    <Option value="nationality">国籍</Option>
-                    <Option value="native_place">籍贯</Option>
-                    <Option value="ch_cname">学校中文名</Option>
-                    <Option value="en_cname">学校英文名</Option>
+                    <Option value="passport_no">护照号或身份证号码</Option>
+                    <Option value="hq_id">华侨护照号</Option>
+                    <Option value="lx_id">留学生护照号</Option>
                 </Select>
         }
 
@@ -207,7 +213,7 @@ export default class InfoSearch extends React.Component {
                         </div>
                     </div>
                 </div>
-                <Modal width="720px" visible={previewVisible} footer={null}
+                <Modal width="1080px" visible={previewVisible} footer={null}
                        onCancel={e => this.setState({previewVisible: false})}>
                     {previewVisible &&
                     <FormContent
