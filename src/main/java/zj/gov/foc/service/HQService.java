@@ -10,7 +10,6 @@ import zj.gov.foc.repository.QJRepository;
 import zj.gov.foc.repository.RelationRepository;
 import zj.gov.foc.repository.UserRepository;
 import zj.gov.foc.util.CommonFunction;
-import zj.gov.foc.util.InputDeal;
 import zj.gov.foc.vo.*;
 
 import javax.persistence.EntityManager;
@@ -38,20 +37,11 @@ public class HQService {
     QJRepository qjRepository;
 
     @Transactional
-    public HQVO addHQ(HQVOwithRelation hqvOwithRelation, UserVO userVO){
-
+    public HQBean addHQ(HQVOwithRelation hqvOwithRelation, UserVO userVO){
         HQVO hqvo = hqvOwithRelation.getValue();
-        if(!InputDeal.isChineseCharacters(hqvo.getCh_name())){
-            hqvo.setInfo("中文名字为2-20个汉字");
-            return hqvo;
-        }
-        else if (!InputDeal.isPY(hqvo.getPy_name())){
-            hqvo.setInfo("拼音为1-50个字母");
-            return hqvo;
-        }
+
         if(hqRepository.loadByPassport(hqvo.getPassport_no())!=null){
-            hqvo.setInfo("该护照已经录入");
-            return hqvo;
+            return null;
         }
         HQBean bean = new HQBean();
         BeanUtils.copyProperties(hqvo,bean);
@@ -61,13 +51,11 @@ public class HQService {
         bean.setRemarks("");
         HQBean new_bean =hqRepository.save(bean);
         if(new_bean != null){
-            hqvo.setHq_id(new_bean.getHq_id());
             saveHqRalation(bean,hqvOwithRelation);
-            hqvo.setInfo("录入成功");
+            return new_bean;
         }else{
-            hqvo.setInfo("创建失败");
+            return null;
         }
-        return hqvo;
     }
 
     @Transactional

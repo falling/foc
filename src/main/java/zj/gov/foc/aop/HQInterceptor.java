@@ -41,10 +41,10 @@ public class HQInterceptor {
     HQRepository hqRepository;
 
     @Around("execution(* zj.gov.foc.service.HQService.addHQ(..))")
-    public HQVO Log_add(ProceedingJoinPoint point) throws Throwable {
+    public HQBean Log_add(ProceedingJoinPoint point) throws Throwable {
         Object[] args = point.getArgs();
-        HQVO result = (HQVO) point.proceed(args);
-        if (result.getInfo().equals("录入成功")) {
+        HQBean result = (HQBean) point.proceed(args);
+        if (result != null) {
             logService.log(generateLogBean("hq", "添加", result.getHq_id(),
                     "", result));
         }

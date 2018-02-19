@@ -49,11 +49,10 @@ public class InfoController {
         if (userVO == null) {
             return Response.warning("未登录");
         }
-        HQVO hqvo1 = hqService.addHQ(hqvo, userVO);
-        if (hqvo1.getInfo().equals("录入成功")) {
-            return Response.success(hqvo1.getInfo());
+        if (hqService.addHQ(hqvo, userVO)!=null) {
+            return Response.success("录入成功");
         } else {
-            return Response.warning(hqvo1.getInfo());
+            return Response.warning("录入失败，该护照已经录入");
         }
     }
 
