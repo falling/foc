@@ -1,5 +1,5 @@
 import React from 'react';
-import {Input, Select, message, Table, Modal,Button} from 'antd';
+import {Input, Select, message, Table, Modal, Button} from 'antd';
 import 'whatwg-fetch';
 import FormContent from "./formContent/FormContent";
 
@@ -18,8 +18,8 @@ export default class InfoSearch extends React.Component {
             loading: false,
             previewVisible: false,
             showData: {},
-            hasSelected:false,
-            selectedRows:[],
+            selectedRows: [],
+            selectedRowKeys: [],
         };
         this.search = this.search.bind(this);
         this.showData = this.showData.bind(this);
@@ -49,40 +49,38 @@ export default class InfoSearch extends React.Component {
                 }}>查看</a></span>
             ),
         }];
-
-        rowSelection = {
-            onChange: (selectedRowKeys, selectedRows) => {
-                this.setState({
-                    hasSelected:selectedRowKeys.length>0,
-                    selectedRows:selectedRows,
-                })
-            },
-        };
     }
 
     exportXlsx() {
-        // const {selectedRows} = this.state;
-        // let xls = json2xls(selectedRows);
-        // // let blob = new Blob([xls], {type: 'application/octet-binary'}); // pass a useful mime type here
-        // let blob = new File([xls], "filename"); // pass a useful mime type here
-        // let url = window.URL.createObjectURL(blob);
-        // let a = document.createElement('a');
-        // a.href = url;
-        // a.download = "filename.xlsx";
-        // a.click();
+        const {selectedRows,type} = this.state;
+        this.setState({loading:true});
+        fetch(`/export${type}`, {
+            method: 'post',
+            credentials: 'include',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(selectedRows)
+        }).then(response => response.blob()
+            .then(blob => {
+                let a = document.createElement('a');
+                let url = window.URL.createObjectURL(blob);
+                a.href = url;
+                a.download = `${new Date().toTimeString()}_${type}.xlsx`;
+                a.click();
+                window.URL.revokeObjectURL(url);
+                this.setState({loading:false});
+            }))
     }
 
     componentDidMount() {
-        //get user info
     }
 
     componentWillReceiveProps(nextProps) {
     }
 
     showData(record) {
-        let sData={};
+        let sData = {};
         sData.value = record;
-        sData.relationList =record.relationList;
+        sData.relationList = record.relationList;
         delete sData.value.info;
         this.setState({
             previewVisible: true,
@@ -107,7 +105,7 @@ export default class InfoSearch extends React.Component {
             .then(json => {
                 if (json.status > 0) {
                     let data = [];
-                    json.result.forEach(e=>{
+                    json.result.forEach(e => {
                         e.value.relationList = e.relationList;
                         data.push(e.value);
                     });
@@ -115,6 +113,8 @@ export default class InfoSearch extends React.Component {
                         show: true,
                         data: data,
                         loading: false,
+                        selectedRowKeys: [],
+                        selectedRows: [],
                     })
                 } else {
                     message.error(json.info, 5);
@@ -125,7 +125,7 @@ export default class InfoSearch extends React.Component {
 
     render() {
         const {display} = this.props;
-        const {type, col, show, loading, previewVisible, showData,hasSelected} = this.state;
+        const {type, col, show, loading, previewVisible, showData, selectedRows, selectedRowKeys} = this.state;
         let secondSelect;
         if (type === 'hq') {
             secondSelect =
@@ -155,7 +155,17 @@ export default class InfoSearch extends React.Component {
                     <Option value="lx_id">留学生护照号</Option>
                 </Select>
         }
-
+        let hasSelected = selectedRowKeys.length > 0;
+        rowSelection = {
+            onChange: (selectedRowKeys, selectedRows) => {
+                this.setState({
+                    selectedRowKeys: selectedRowKeys,
+                    selectedRows: selectedRows,
+                })
+            },
+            selectedRowKeys,
+            selectedRows,
+        };
         return (
             <div className="container-fluid" style={{display: !display && 'none'}}>
                 <div className="col-lg-12 col-md-12">
@@ -169,7 +179,17 @@ export default class InfoSearch extends React.Component {
                                     <div className="form-group">
                                         <Search addonBefore={
                                             <div>
-                                                <Select onChange={value => this.setState({type: value, col: 'ch_name'})}
+                                                <Select onChange={value => {
+                                                    this.setState({
+                                                        type: value,
+                                                        col: 'ch_name',
+                                                        data: [],
+                                                        selectedRowKeys: [],
+                                                        selectedRows: [],
+                                                    });
+
+                                                }
+                                                }
                                                         defaultValue="hq">
                                                     <Option value="hq">华侨</Option>
                                                     <Option value="lx">留学</Option>
@@ -193,14 +213,15 @@ export default class InfoSearch extends React.Component {
                                 dataSource={this.state.data}
                                 loading={loading}
                                 scroll={{y: 240}}
-                                footer={() => <Button
-                                    type="primary"
-                                    onClick={this.exportXlsx}
-                                    disabled={!hasSelected}
-                                    loading={loading}
-                                >
-                                    导出
-                                </Button>}
+                                footer={() =>
+                                    <Button
+                                        type="primary"
+                                        onClick={this.exportXlsx}
+                                        disabled={!hasSelected||loading}
+                                        loading={loading}
+                                    >
+                                        导出
+                                    </Button>}
                                 pagination={{
                                     total: this.state.data.count,
                                     pageSize: 50,
