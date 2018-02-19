@@ -2,13 +2,15 @@
 
 2. search,查看 done
 
-3. 导出 
+3. 导出 done
 
 4. log
 
-5.背景色主色调为蓝色，首页加图片，图片已选定
+5.背景色主色调为蓝色，首页加图片，图片已选定 done
 
-6. fix unique id error
+6. fix unique id error done
+
+7. footer done
 ===
 deploy log:
 
