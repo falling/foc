@@ -183,7 +183,7 @@ public class InfoController {
 
     @RequestMapping("/updateHQInfo")
     public VO updateHQInfo(@RequestBody HQVOwithRelation vo) {
-        if(hqService.update(vo)) {
+        if(hqService.update(vo)!=null) {
             return Response.success("更新成功");
         }else{
             return Response.warning("用户不存在");

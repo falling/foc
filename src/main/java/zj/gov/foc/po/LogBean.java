@@ -4,101 +4,83 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.sql.Date;
 
 @Entity
 @Table(name = "log")
 public class LogBean {
-  @Id
-  @GeneratedValue
-  private Long logId;
-  private java.sql.Timestamp logDate;
-  private long oId;
-  private long operatingUser;
-  private String fields;
-  private String operating;
-  private String oldValue;
-  private String newValue;
-  private String identity;
+    @Id
+    @GeneratedValue
+    private Long log_id;
+    private java.sql.Date log_date;
+    private String identity;
+    private Long o_id;
+    private Long operating_user;
+    private String operating;
+    private String old_value;
+    private String new_value;
 
+    public Long getLog_id() {
+        return log_id;
+    }
 
-  public long getLogId() {
-    return logId;
-  }
+    public void setLog_id(Long log_id) {
+        this.log_id = log_id;
+    }
 
-  public void setLogId(long logId) {
-    this.logId = logId;
-  }
+    public Date getLog_date() {
+        return log_date;
+    }
 
+    public void setLog_date(Date log_date) {
+        this.log_date = log_date;
+    }
 
-  public java.sql.Timestamp getLogDate() {
-    return logDate;
-  }
+    public String getIdentity() {
+        return identity;
+    }
 
-  public void setLogDate(java.sql.Timestamp logDate) {
-    this.logDate = logDate;
-  }
+    public void setIdentity(String identity) {
+        this.identity = identity;
+    }
 
+    public Long getO_id() {
+        return o_id;
+    }
 
-  public long getOId() {
-    return oId;
-  }
+    public void setO_id(Long o_id) {
+        this.o_id = o_id;
+    }
 
-  public void setOId(long oId) {
-    this.oId = oId;
-  }
+    public Long getOperating_user() {
+        return operating_user;
+    }
 
+    public void setOperating_user(Long operating_user) {
+        this.operating_user = operating_user;
+    }
 
-  public long getOperatingUser() {
-    return operatingUser;
-  }
+    public String getOperating() {
+        return operating;
+    }
 
-  public void setOperatingUser(long operatingUser) {
-    this.operatingUser = operatingUser;
-  }
+    public void setOperating(String operating) {
+        this.operating = operating;
+    }
 
+    public String getOld_value() {
+        return old_value;
+    }
 
-  public String getFields() {
-    return fields;
-  }
+    public void setOld_value(String old_value) {
+        this.old_value = old_value;
+    }
 
-  public void setFields(String fields) {
-    this.fields = fields;
-  }
+    public String getNew_value() {
+        return new_value;
+    }
 
-
-  public String getOperating() {
-    return operating;
-  }
-
-  public void setOperating(String operating) {
-    this.operating = operating;
-  }
-
-
-  public String getOldValue() {
-    return oldValue;
-  }
-
-  public void setOldValue(String oldValue) {
-    this.oldValue = oldValue;
-  }
-
-
-  public String getNewValue() {
-    return newValue;
-  }
-
-  public void setNewValue(String newValue) {
-    this.newValue = newValue;
-  }
-
-
-  public String getIdentity() {
-    return identity;
-  }
-
-  public void setIdentity(String identity) {
-    this.identity = identity;
-  }
-
+    public void setNew_value(String new_value) {
+        this.new_value = new_value;
+    }
 }

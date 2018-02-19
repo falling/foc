@@ -5,8 +5,6 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 import zj.gov.foc.po.LoginBean;
 import zj.gov.foc.service.LogService;
 import zj.gov.foc.vo.UserVO;
@@ -29,6 +27,12 @@ public class LoginInterceptor {
     @Autowired
     LogService logService;
 
+    @Autowired
+    HttpServletRequest request;
+
+    @Autowired
+    HttpSession httpSession;
+
     @Around("execution(* zj.gov.foc.cotroller.UserController.login(..))")
     public VO LoginLog(ProceedingJoinPoint point) throws Throwable {
         Object[] args = point.getArgs();
@@ -37,9 +41,8 @@ public class LoginInterceptor {
             System.out.println("登陆成功！");
             LoginBean loginBean = new LoginBean();
             loginBean.setLogin_date(new Date(System.currentTimeMillis()));
-            Long id = ((UserVO)((HttpSession)args[2]).getAttribute("user")).getId();
+            Long id = ((UserVO)httpSession.getAttribute("user")).getId();
             loginBean.setUser_id(id);
-            HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
             loginBean.setIp_id(request.getRemoteAddr());
             logService.loginLog(loginBean);
         }

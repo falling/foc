@@ -63,10 +63,9 @@ CREATE TABLE `log` (
   `identity` varchar(20),
   `o_id` int(10) unsigned,
   `operating_user` int(10) unsigned NOT NULL,
-  `fields` varchar(10) NOT NULL DEFAULT ' ',
   `operating` varchar(10) NOT NULL DEFAULT ' ',
-  `old_value` varchar(100) DEFAULT ' ',
-  `new_value` varchar(100) DEFAULT ' ',
+  `old_value` TEXT,
+  `new_value` TEXT,
   PRIMARY KEY (`log_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

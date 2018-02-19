@@ -61,6 +61,7 @@ public class HQService {
         bean.setRemarks("");
         HQBean new_bean =hqRepository.save(bean);
         if(new_bean != null){
+            hqvo.setHq_id(new_bean.getHq_id());
             saveHqRalation(bean,hqvOwithRelation);
             hqvo.setInfo("录入成功");
         }else{
@@ -73,6 +74,7 @@ public class HQService {
     public boolean deleteHQ(long hqid){
         if(hqRepository.deleteHQ(hqid) == 1){
             relationRepository.deletebyoId(hqid);
+            return true;
         }
         return false;
     }
@@ -118,14 +120,13 @@ public class HQService {
     }
 
     @Transactional
-    public boolean update(HQVOwithRelation hqvOwithRelation) {
+    public HQBean update(HQVOwithRelation hqvOwithRelation) {
         HQVO vo = hqvOwithRelation.getValue();
         HQBean bean = hqRepository.getById(vo.getHq_id());
-        if(bean == null) return false;
+        if(bean == null) return null;
         BeanUtils.copyProperties(vo,bean);
-        hqRepository.save(bean);
         saveHqRalation(bean,hqvOwithRelation);
-        return true;
+        return hqRepository.save(bean);
     }
 
     private void saveHqRalation(HQBean bean,HQVOwithRelation hqvOwithRelation){

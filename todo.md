@@ -13,5 +13,5 @@
 7. footer done
 ===
 deploy log:
-
-sql: create relationShip table and qj table
+code: delete the comment of the filter
+sql: create relationShip table log table and qj table，
