@@ -140,6 +140,7 @@ export default class LogTable extends React.Component {
                 <Table
                     dataSource={data}
                     columns={this.columns}
+                    scroll={{y: 240}}
                     loading={loading}
                     rowKey="log_id"
                 />

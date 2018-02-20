@@ -4,13 +4,11 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
     entry: './app.js',
-    devtool: 'sourcemaps',
-    // devtool: false,
+    // devtool: 'sourcemaps',
+    devtool: false,
     cache: true,
     output: {
         path: path.resolve(__dirname, "../src/main/resources/static"),
-        // path: '',
-// ../src/main/resources/static
         filename: 'bundle.js'
     },
     devServer: {
@@ -28,17 +26,17 @@ module.exports = {
         }
     },
     plugins: [
-        // new UglifyJSPlugin(),
-        // new webpack.optimize.UglifyJsPlugin({
-        //     compress: {
-        //         warnings: false
-        //     }
-        // }),
-        // new webpack.DefinePlugin({
-        //     'process.env': {
-        //         NODE_ENV: JSON.stringify(process.env.PRODUCTION),
-        //     }
-        // }),
+        new UglifyJSPlugin(),
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false
+            }
+        }),
+        new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: JSON.stringify(process.env.PRODUCTION),
+            }
+        }),
         new webpack.HotModuleReplacementPlugin()
     ],
     module: {

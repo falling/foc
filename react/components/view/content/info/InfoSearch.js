@@ -2,6 +2,7 @@ import React from 'react';
 import {Input, Select, message, Table, Modal, Button} from 'antd';
 import 'whatwg-fetch';
 import FormContent from "./formContent/FormContent";
+import LogTable from "../../../uiCompoment/LogTable";
 
 const Search = Input.Search;
 const Option = Select.Option;
@@ -64,7 +65,7 @@ export default class InfoSearch extends React.Component {
                 let a = document.createElement('a');
                 let url = window.URL.createObjectURL(blob);
                 a.href = url;
-                a.download = `${new Date().toTimeString()}_${type}.xlsx`;
+                a.download = `${LogTable.formatDate(new Date().getTime())}_${type}.xlsx`;
                 a.click();
                 window.URL.revokeObjectURL(url);
                 this.setState({loading:false});

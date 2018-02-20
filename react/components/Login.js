@@ -70,9 +70,6 @@ export default class Login extends React.Component {
                                                placeholder="密码"/>
                                         <i className="fa fa-lock"/>
                                     </div>
-                                    <div className="login-forgot">
-                                        <Link to="/manager/0" className="pointer">查询用户进入系统</Link>
-                                    </div>
                                     <button className="btn btn-lg btn-primary-outline-login wfull login-button"
                                             ref="loginButton"
                                             onClick={()=>this.login()}
