@@ -63,8 +63,10 @@ public class InfoController {
         if(relationVOList.size()==0){
             return Response.warning("请添加家庭成员");
         }
-        qjService.saveWithrelation(qjVO,relationVOList);
-        return Response.success("录入成功");
+        if(qjService.saveWithrelation(qjVO,relationVOList)!=null){
+            return Response.success("录入成功");
+        }
+        return Response.success("录入失败");
     }
 
     @RequestMapping("/updateQjInfo")
@@ -84,7 +86,7 @@ public class InfoController {
             return Response.warning("未登录");
         }
 
-        if (lxService.addLX(lxVOwithRelation, userVO.getId())) {
+        if (lxService.addLX(lxVOwithRelation, userVO.getId()) != null) {
             return Response.success("录入成功");
         } else {
             return Response.warning("录入失败，该护照已经添加");
@@ -172,7 +174,7 @@ public class InfoController {
 
     @RequestMapping("/updateLXInfo")
     public VO updateLXInfo(@RequestBody LxVOwithRelation vo) {
-        if (lxService.update(vo)) {
+        if (lxService.update(vo)!=null) {
             return Response.success("更新成功");
         } else {
             return Response.warning("用户不存在");
@@ -193,11 +195,11 @@ public class InfoController {
     public VO deleteInfo(@RequestParam("id") Long id, @RequestParam("type") String type) {
         boolean result = false;
         if (type.equals("lx")) {
-            result = lxService.delete(id);
+            result = lxService.deleteLX(id);
         } else if (type.equals("hq")) {
             result = hqService.deleteHQ(id);
         } else if (type.equals("qj")) {
-            result = qjService.delete(id);
+            result = qjService.deleteQJ(id);
         }
         if (result) {
             return Response.success("删除成功");

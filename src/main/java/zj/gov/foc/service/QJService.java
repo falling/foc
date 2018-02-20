@@ -44,7 +44,7 @@ public class QJService {
 
 
     @Transactional
-    public boolean saveWithrelation(QjVO qjVO, List<RelationVO> relationVOList) {
+    public QJBean saveWithrelation(QjVO qjVO, List<RelationVO> relationVOList) {
         QJBean qjBean = new QJBean();
         BeanUtils.copyProperties(qjVO, qjBean);
         qjBean.setDel("0");
@@ -52,7 +52,7 @@ public class QJService {
         List<RelationBean> relationBeanList = new ArrayList<>();
         RelationCover(relationVOList, bean, relationBeanList);
         relationRepository.save(relationBeanList);
-        return true;
+        return bean;
     }
 
 
@@ -67,7 +67,7 @@ public class QJService {
             vo.setValue(qjVO);
 
             //relation
-            List relations = relationRepository.getByQjID(qjVO.getQj_id());
+            List<RelationBean> relations = relationRepository.getByQjID(qjVO.getQj_id());
             List<RelationVO> relationVOList = new ArrayList<>();
             relations.forEach(e -> {
                 RelationVO relationVO = new RelationVO();
@@ -107,18 +107,19 @@ public class QJService {
     }
 
     @Transactional
-    public boolean updateWithrelation(QjVO qjVO, List<RelationVO> relationVOList) {
+    public QJBean updateWithrelation(QjVO qjVO, List<RelationVO> relationVOList) {
         QJBean bean = qjRepository.getById(qjVO.getQj_id());
-        if (bean == null) return false;
+        if (bean == null) return null;
         BeanUtils.copyProperties(qjVO, bean);
-        if(qjRepository.save(bean) == null) return false;
+        QJBean newBean = qjRepository.save(bean);
+        if(newBean == null) return null;
 
         //relation
         relationRepository.deleteByqjId(bean.getQj_id());
         List<RelationBean> relationBeanList = new ArrayList<>();
         RelationCover(relationVOList, bean, relationBeanList);
         relationRepository.save(relationBeanList);
-        return true;
+        return newBean;
 
     }
 
@@ -132,7 +133,7 @@ public class QJService {
     }
 
     @Transactional
-    public boolean delete(Long id) {
+    public boolean deleteQJ(Long id) {
          if(qjRepository.delete(id)  == 1){
              relationRepository.deleteByqjId(id);
              return true;

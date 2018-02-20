@@ -41,10 +41,10 @@ public class LXService {
     RelationRepository relationRepository;
 
     @Transactional
-    public boolean addLX(LxVOwithRelation lxVOwithRelation, Long id) {
+    public LxBean addLX(LxVOwithRelation lxVOwithRelation, Long id) {
         LxVO lxVO = lxVOwithRelation.getValue();
         if(lxRepository.loadByPassport(lxVO.getPassport_no())!=null){
-            return false;
+            return null;
         }
         LxBean bean = new LxBean();
         BeanUtils.copyProperties(lxVO,bean);
@@ -52,11 +52,12 @@ public class LXService {
         bean.setDel("0");
         bean.setRemarks("");
         bean.setRegistrant(id);
-        if(lxRepository.save(bean)==null){
-            return false;
+        LxBean newBean = lxRepository.save(bean);
+        if(newBean==null){
+            return null;
         }
         saveLxRelation(bean,lxVOwithRelation);
-        return true;
+        return newBean;
     }
 
     public VO loadByPassport(String passport_no) {
@@ -99,16 +100,15 @@ public class LXService {
     }
 
     @Transactional
-    public boolean update(LxVOwithRelation lxVOwithRelation) {
+    public LxBean update(LxVOwithRelation lxVOwithRelation) {
         LxVO vo = lxVOwithRelation.getValue();
         LxBean bean = lxRepository.getById(vo.getLx_id());
-        if(bean == null) return false;
+        if(bean == null) return null;
         BeanUtils.copyProperties(vo,bean);
-        lxRepository.save(bean);
+        LxBean lxBean = lxRepository.save(bean);
 
-        //todo update relation
         saveLxRelation(bean,lxVOwithRelation);
-        return true;
+        return lxBean;
     }
     private void saveLxRelation(LxBean bean,LxVOwithRelation lxVOwithRelation){
         relationRepository.deletebyoId(bean.getLx_id());
@@ -125,8 +125,7 @@ public class LXService {
     }
 
     @Transactional
-    public boolean delete(Long id) {
-        //todo delete relation
+    public boolean deleteLX(Long id) {
         if(lxRepository.delete(id) ==1){
             relationRepository.deletebyoId(id);
             return true;

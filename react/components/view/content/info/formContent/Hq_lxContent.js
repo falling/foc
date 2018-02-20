@@ -5,6 +5,7 @@ import moment from 'moment';
 import PicturesWall from "../../../../uiCompoment/PicturesWall";
 import {City} from "../../../../config/City";
 import ReferenceTable from "../../../../uiCompoment/ReferenceTable";
+import LogTable from "../../../../uiCompoment/LogTable";
 
 const FormItem = Form.Item;
 const Option = Select.Option;
@@ -17,6 +18,7 @@ class Hq_lxContentForm extends React.Component {
             loading: false,
             deleteLoading: false,
             registrant: '',
+            fresh: 0,
         };
         this.url = '';
         this.photo = '';
@@ -37,7 +39,7 @@ class Hq_lxContentForm extends React.Component {
         let formData = new FormData();
         formData.append("passport_no", value);
         formData.append("type", type);
-        formData.append("id", this.props.form.getFieldValue(`${type}_id`)||0);
+        formData.append("id", this.props.form.getFieldValue(`${type}_id`) || 0);
         fetch('/confirmPassport', {
             method: 'post',
             credentials: 'include',
@@ -46,7 +48,7 @@ class Hq_lxContentForm extends React.Component {
             .then(json => {
                 if (json.status > 0) {
                     callback("该护照已经录入");
-                }else{
+                } else {
                     callback();
                 }
             })
@@ -182,16 +184,18 @@ class Hq_lxContentForm extends React.Component {
         }
         if (nextProps.info && nextProps.fresh !== this.props.fresh) {
             this.setValue(nextProps);
+            const {fresh} = this.state;
+            this.setState({fresh: fresh + 1})
         }
     }
 
-    setValue(props){
+    setValue(props) {
         let info = props.info;
-        let value= info.value;
+        let value = info.value;
         delete value.info;
         delete value.status;
         value.relation = info.relationList;
-        value.relation.forEach((relation)=>{
+        value.relation.forEach((relation) => {
             relation.key = relation.o_id + relation.type;
         });
         value.date_birth = value.date_birth ? moment(value.date_birth) : '';
@@ -220,8 +224,9 @@ class Hq_lxContentForm extends React.Component {
 
     render() {
         const {type, mode} = this.props;
-        const {getFieldDecorator} = this.props.form;
-        const {loading, deleteLoading} = this.state;
+        const {getFieldDecorator, getFieldValue} = this.props.form;
+        const {loading, deleteLoading, fresh} = this.state;
+        let o_id = getFieldValue(`${type}_id`);
         return (
             <Form>
                 {getFieldDecorator('lx_id')(
@@ -803,6 +808,15 @@ class Hq_lxContentForm extends React.Component {
                     </div>
                 </div>}
 
+                {mode==='view'&&<div>
+                    <hr/>
+                    <h5>修改记录</h5>
+                    <LogTable
+                        type={type}
+                        o_id={o_id}
+                        fresh={fresh}
+                    />
+                </div>}
                 <hr/>
                 <div className="text-center">
                     {mode === 'add' && <button type="button"

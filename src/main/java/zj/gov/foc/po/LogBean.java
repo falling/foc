@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.sql.Date;
+import java.util.Date;
 
 @Entity
 @Table(name = "log")
@@ -12,7 +12,7 @@ public class LogBean {
     @Id
     @GeneratedValue
     private Long log_id;
-    private java.sql.Date log_date;
+    private Date log_date;
     private String identity;
     private Long o_id;
     private Long operating_user;

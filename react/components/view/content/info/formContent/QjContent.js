@@ -2,6 +2,7 @@ import React from 'react';
 import 'whatwg-fetch';
 import {Form, Input, Select, message} from 'antd';
 import ReferenceTable from "../../../../uiCompoment/ReferenceTable";
+import LogTable from "../../../../uiCompoment/LogTable";
 
 const FormItem = Form.Item;
 const Option = Select.Option;
@@ -13,6 +14,7 @@ class QjContentForm extends React.Component {
         this.state = {
             loading: false,
             deleteLoading: false,
+            fresh:0,
         };
         this.relation = [];
         this.add = this.add.bind(this);
@@ -33,6 +35,8 @@ class QjContentForm extends React.Component {
             value.relation.forEach((relation)=>{
                 relation.key = relation.o_id + relation.type;
             });
+            const {fresh} = this.state;
+            this.setState({fresh: fresh + 1});
             this.props.form.setFieldsValue(value);
         }
     }
@@ -157,9 +161,10 @@ class QjContentForm extends React.Component {
     }
 
     render() {
-        const {loading, deleteLoading} = this.state;
+        const {loading, deleteLoading,fresh} = this.state;
         const {mode} = this.props;
-        const {getFieldDecorator} = this.props.form
+        const {getFieldDecorator,getFieldValue} = this.props.form;
+        let o_id = getFieldValue(`qj_id`);
         return (
             <Form>
                 {getFieldDecorator('qj_id')(
@@ -286,6 +291,15 @@ class QjContentForm extends React.Component {
                     </FormItem>
 
                 </div>
+                {mode==='view'&&<div>
+                    <hr/>
+                    <h5>修改记录</h5>
+                    <LogTable
+                        type="qj"
+                        o_id={o_id}
+                        fresh={fresh}
+                    />
+                </div>}
                 <hr/>
                 <div className="text-center">
                     {mode === 'add' && <button type="button"

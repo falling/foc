@@ -12,7 +12,7 @@ import zj.gov.foc.vo.VO;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.sql.Date;
+import java.util.Date;
 
 /**
  * Created by User: falling
@@ -38,7 +38,6 @@ public class LoginInterceptor {
         Object[] args = point.getArgs();
         VO result = (VO) point.proceed(args);
         if(result.getStatus()>=0){
-            System.out.println("登陆成功！");
             LoginBean loginBean = new LoginBean();
             loginBean.setLogin_date(new Date(System.currentTimeMillis()));
             Long id = ((UserVO)httpSession.getAttribute("user")).getId();
