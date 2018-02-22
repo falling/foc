@@ -33,38 +33,28 @@ export default class Sidebar extends React.Component {
                             </a>
                         </div>
                         <ul className="nav">
+                            <li className={activityIndex === 1 ? "active" : ""}>
+                                <Link to="/manager/1">
+                                    <i className="ti-panel"/>
+                                    <p>信息录入</p>
+                                </Link>
+                            </li>
                             <li className={activityIndex === 0 ? "active" : ""}>
                                 <Link to="/manager/0">
-                                    <i className="ti-panel"/>
-                                    <p>查询</p>
+                                    <i className="ti-search"/>
+                                    <p>信息查询</p>
                                 </Link>
                             </li>
-                            <li className={activityIndex === 1 || activityIndex === 2 ? "active" : ""}>
-                                <a data-toggle="collapse" data-parent="#accordion" href="#infoManager">
-                                    <i className="ti-text"/>
-                                    <p>录入信息管理</p>
-                                </a>
-                                <div className="collapse" id="infoManager">
-                                    <ul className="list">
-                                        <li className={activityIndex === 1 ? "active" : ""}>
-                                            <Link to="/manager/1">录入信息</Link>
-                                        </li>
-                                        <li className={activityIndex === 2 ? "active" : ""}>
-                                            <Link to="/manager/2">查询录入</Link>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li className={activityIndex === 3 ? "active" : ""}>
-                                <Link to="/manager/3">
-                                    <i className="ti-user"/>
-                                    <p>修改个人信息</p>
+                            <li className={activityIndex === 2 ? "active" : ""}>
+                                <Link to="/manager/2">
+                                    <i className="ti-pencil"/>
+                                    <p>信息修改</p>
                                 </Link>
                             </li>
-                            {(user&&user.power&&user.power !== 'user')&&
+                            {(user && user.power && user.power !== 'user') &&
                             <li className={activityIndex === 4 || activityIndex === 5 ? "active" : ""}>
                                 <a data-toggle="collapse" data-parent="#accordion" href="#userManager">
-                                    <i className="ti-view-list-alt"/>
+                                    <i className="ti-user"/>
                                     <p>用户管理</p>
                                 </a>
                                 <div className="collapse" id="userManager">
@@ -72,10 +62,13 @@ export default class Sidebar extends React.Component {
                                         <li className={activityIndex === 4 ? "active" : ""}>
                                             <Link to="/manager/4">创建用户</Link>
                                         </li>
-                                        {user.power==='root'&&
+                                        {user.power === 'root' &&
                                         <li className={activityIndex === 5 ? "active" : ""}>
                                             <Link to="/manager/5">管理用户</Link>
                                         </li>}
+                                        <li className={activityIndex === 3 ? "active" : ""}>
+                                            <Link to="/manager/3">修改个人信息</Link>
+                                        </li>
                                     </ul>
                                 </div>
                             </li>}

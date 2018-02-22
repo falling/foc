@@ -52,44 +52,44 @@ export default class Manager extends React.Component {
                         />
 
                         <div className="content">
+                            {urlId !== 6&&<InfoCreate display={urlId === 1}/>}
                             <InfoSearch display={urlId === 0}/>
-                            {urlId === 1&&<InfoCreate display={urlId === 1}/>}
-                            {urlId === 2&&<InfoManage display={urlId === 2}/>}
+                            {urlId !== 6&&<InfoManage display={urlId === 2}/>}
                             <UserProfile display={urlId === 3}/>
                             {(user&&user.power&&user.power !== 'user') && <UserCreate display={urlId === 4} user={user}/>}
                             {(user&&user.power === 'root') && <UserManage display={urlId === 5} user={user}/>}
-                            <UserPassword display={urlId === 6}/>
+                            {urlId === 6&&<UserPassword display={urlId === 6}/>}
                         </div>
 
 
                         {/*<footer className="footer">*/}
-                            {/*<div className="container-fluid">*/}
-                                {/*<nav className="pull-left">*/}
-                                    {/*<ul>*/}
-                                        {/*<li>*/}
-                                            {/*<a href="http://www.creative-tim.com">*/}
-                                                {/*Creative Tim*/}
-                                            {/*</a>*/}
-                                        {/*</li>*/}
-                                        {/*<li>*/}
-                                            {/*<a href="http://blog.creative-tim.com">*/}
-                                                {/*Blog*/}
-                                            {/*</a>*/}
-                                        {/*</li>*/}
-                                        {/*<li>*/}
-                                            {/*<a href="http://www.creative-tim.com/license">*/}
-                                                {/*Licenses*/}
-                                            {/*</a>*/}
-                                        {/*</li>*/}
-                                    {/*</ul>*/}
-                                {/*</nav>*/}
-                                {/*<div className="copyright pull-right">*/}
-                                    {/*&copy;*/}
-                                    {/*<script>document.write(new Date().getFullYear())</script>*/}
-                                    {/*, made with <i className="fa fa-heart heart"/> by <a*/}
-                                    {/*href="http://www.creative-tim.com">Creative Tim</a>*/}
-                                {/*</div>*/}
-                            {/*</div>*/}
+                        {/*<div className="container-fluid">*/}
+                        {/*<nav className="pull-left">*/}
+                        {/*<ul>*/}
+                        {/*<li>*/}
+                        {/*<a href="http://www.creative-tim.com">*/}
+                        {/*Creative Tim*/}
+                        {/*</a>*/}
+                        {/*</li>*/}
+                        {/*<li>*/}
+                        {/*<a href="http://blog.creative-tim.com">*/}
+                        {/*Blog*/}
+                        {/*</a>*/}
+                        {/*</li>*/}
+                        {/*<li>*/}
+                        {/*<a href="http://www.creative-tim.com/license">*/}
+                        {/*Licenses*/}
+                        {/*</a>*/}
+                        {/*</li>*/}
+                        {/*</ul>*/}
+                        {/*</nav>*/}
+                        {/*<div className="copyright pull-right">*/}
+                        {/*&copy;*/}
+                        {/*<script>document.write(new Date().getFullYear())</script>*/}
+                        {/*, made with <i className="fa fa-heart heart"/> by <a*/}
+                        {/*href="http://www.creative-tim.com">Creative Tim</a>*/}
+                        {/*</div>*/}
+                        {/*</div>*/}
                         {/*</footer>*/}
 
                     </div>

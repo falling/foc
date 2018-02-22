@@ -143,6 +143,21 @@ export default class InfoSearch extends React.Component {
                     <Option value="native_place">籍贯</Option>
                     <Option value="residence">旅居地</Option>
                 </Select>
+        }else if(type === 'lx'){
+            secondSelect =
+                <Select
+                style={{paddingLeft: 20}}
+                dropdownMatchSelectWidth={false}
+                onChange={value => this.setState({col: value})}
+                value={col}>
+                <Option value="ch_name">中文姓名</Option>
+                <Option value="py_name">拼音</Option>
+                <Option value="passport_no">护照号</Option>
+                <Option value="nationality">国籍</Option>
+                <Option value="native_place">籍贯</Option>
+                <Option value="ch_cname">学校中文名</Option>
+                <Option value="en_cname">学校英文名</Option>
+            </Select>
         } else {
             secondSelect =
                 <Select
