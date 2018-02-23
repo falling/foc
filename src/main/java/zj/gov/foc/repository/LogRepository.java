@@ -14,6 +14,6 @@ import java.util.List;
  */
 public interface LogRepository extends CrudRepository<LogBean, Long> {
 
-    @Query(value = "SELECT * FROM log WHERE o_id = ?1 AND identity = ?2 ORDER BY log_date",nativeQuery = true)
+    @Query(value = "SELECT * FROM log WHERE o_id = ?1 AND identity = ?2 ORDER BY log_date DESC",nativeQuery = true)
     List<LogBean> getLogByO_idAndType(Long o_id, String type);
 }

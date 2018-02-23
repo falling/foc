@@ -105,7 +105,7 @@ public class LogInterceptor {
         HQBean result = (HQBean) point.proceed(args);
         if (result != null) {
             logService.log(generateLogBean("hq", "修改", result.getHq_id(),
-                    oldValue, hqService.loadByPassport(result.getPassport_no())));
+                    oldValue, result));
         }
 
         return result;
