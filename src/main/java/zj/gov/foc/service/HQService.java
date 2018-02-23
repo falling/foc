@@ -37,7 +37,7 @@ public class HQService {
     QJRepository qjRepository;
 
     @Transactional
-    public HQBean addHQ(HQVOwithRelation hqvOwithRelation, UserVO userVO){
+    public HQBean addHQ(HQVOWithRelation hqvOwithRelation, UserVO userVO){
         HQVO hqvo = hqvOwithRelation.getValue();
 
         if(hqRepository.loadByPassport(hqvo.getPassport_no())!=null){
@@ -70,9 +70,9 @@ public class HQService {
 
     public VO loadByPassport(String passport_no) {
         HQBean bean = hqRepository.loadByPassport(passport_no);
-        HQVOwithRelation vo = null;
+        HQVOWithRelation vo = null;
         if(bean!=null){
-            vo = new HQVOwithRelation();
+            vo = new HQVOWithRelation();
             HQVO hqvo = new HQVO();
             BeanUtils.copyProperties(bean,hqvo);
             String registrant_name = userRepository
@@ -108,7 +108,7 @@ public class HQService {
     }
 
     @Transactional
-    public HQBean update(HQVOwithRelation hqvOwithRelation) {
+    public HQBean update(HQVOWithRelation hqvOwithRelation) {
         HQVO vo = hqvOwithRelation.getValue();
         HQBean bean = hqRepository.getById(vo.getHq_id());
         if(bean == null) return null;
@@ -117,7 +117,7 @@ public class HQService {
         return hqRepository.save(bean);
     }
 
-    private void saveHqRalation(HQBean bean,HQVOwithRelation hqvOwithRelation){
+    private void saveHqRalation(HQBean bean,HQVOWithRelation hqvOwithRelation){
         relationRepository.deletebyoId(bean.getHq_id());
         List<RelationBean> relationBeanList = new ArrayList<>();
         List<RelationVO> relationVOList = hqvOwithRelation.getRelationList();
@@ -126,6 +126,7 @@ public class HQService {
             RelationBean bean1 = new RelationBean();
             BeanUtils.copyProperties(e, bean1);
             bean1.setType("华侨");
+            bean1.setId(null);
             relationBeanList.add(bean1);
         });
         relationRepository.save(relationBeanList);
@@ -135,11 +136,11 @@ public class HQService {
     private EntityManager entityManager;
 
     public SearchVO search(String col, String value) {
-        SearchVO<HQVOwithRelation> searchVO = new SearchVO<>();
+        SearchVO<HQVOWithRelation> searchVO = new SearchVO<>();
         String sql = "SELECT * FROM hq WHERE "+col+" LIKE '%"+value+"%' AND del = '0'";
         Query query = entityManager.createNativeQuery(sql,HQBean.class);
         List<HQBean> resultList = query.getResultList();
-        List<HQVOwithRelation> returnList = new ArrayList<>();
+        List<HQVOWithRelation> returnList = new ArrayList<>();
         resultList.forEach(result->{
             String registrant_name = userRepository
                     .getById(result.getRegistrant())
@@ -148,7 +149,7 @@ public class HQService {
             BeanUtils.copyProperties(result,vo);
             vo.setRegistrant_name(registrant_name);
 
-            HQVOwithRelation hqvOwithRelation = new HQVOwithRelation();
+            HQVOWithRelation hqvOwithRelation = new HQVOWithRelation();
             hqvOwithRelation.setValue(vo);
 
             List relations = relationRepository.getByOId(vo.getHq_id());

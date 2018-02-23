@@ -44,7 +44,7 @@ public class QJService {
 
 
     @Transactional
-    public QJBean saveWithrelation(QjVO qjVO, List<RelationVO> relationVOList) {
+    public QJBean saveWithRelation(QjVO qjVO, List<RelationVO> relationVOList) {
         QJBean qjBean = new QJBean();
         BeanUtils.copyProperties(qjVO, qjBean);
         qjBean.setDel("0");
@@ -107,7 +107,7 @@ public class QJService {
     }
 
     @Transactional
-    public QJBean updateWithrelation(QjVO qjVO, List<RelationVO> relationVOList) {
+    public QJBean updateWithRelation(QjVO qjVO, List<RelationVO> relationVOList) {
         QJBean bean = qjRepository.getById(qjVO.getQj_id());
         if (bean == null) return null;
         BeanUtils.copyProperties(qjVO, bean);
@@ -128,6 +128,7 @@ public class QJService {
             e.setQj_id(bean.getQj_id());
             RelationBean bean1 = new RelationBean();
             BeanUtils.copyProperties(e, bean1);
+            bean1.setId(null);
             relationBeanList.add(bean1);
         });
     }
@@ -154,7 +155,7 @@ public class QJService {
             Long lxId = bean.getLx_id();
             List<RelationBean> relationBeanList = relationRepository.getByLxId(lxId);
             List<QjVOwithRelation> returnList = new ArrayList<>();
-            getQjVOwithrelation(relationBeanList, returnList);
+            getQjVOwithRelation(relationBeanList, returnList);
             searchVO.setResult(returnList);
             return searchVO;
         }else if(col.equals("hq_id")){
@@ -165,7 +166,7 @@ public class QJService {
             Long hqId = bean.getHq_id();
             List<RelationBean> relationBeanList = relationRepository.getByHqId(hqId);
             List<QjVOwithRelation> returnList = new ArrayList<>();
-            getQjVOwithrelation(relationBeanList, returnList);
+            getQjVOwithRelation(relationBeanList, returnList);
             searchVO.setResult(returnList);
             return searchVO;
 
@@ -192,7 +193,7 @@ public class QJService {
         }
     }
 
-    private void getQjVOwithrelation(List<RelationBean> relationBeanList, List<QjVOwithRelation> returnList) {
+    private void getQjVOwithRelation(List<RelationBean> relationBeanList, List<QjVOwithRelation> returnList) {
         relationBeanList.forEach(relationBean->{
             QjVOwithRelation qjVOwithRelation = new QjVOwithRelation();
             QJBean qjBean = qjRepository.getById(relationBean.getQj_id());

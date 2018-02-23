@@ -133,9 +133,21 @@ export default class RelationTable extends React.Component {
                     }else{
                         result.type = '华侨';
                     }
-                    if(data.filter(e=>e.o_id===result.o_id&&e.type===result.type)[0]){
+                    let bool;
+                    if(type==='qj') {
+                        bool = data.filter(e => {
+                                return e.o_id === result.o_id && e.type === result.type
+                            }
+                        )[0];
+                    }else{
+                        bool = data.filter(e => {
+                                return e.qj_id === result.qj_id && e.type === result.type
+                            }
+                        )[0];
+                    }
+                    if(bool){
                         message.error("不能重复添加",5);
-                        this.setState({loading:false})
+                        this.setState({loading:false});
                         return;
                     }
                     result.ch_name = json.ch_name;

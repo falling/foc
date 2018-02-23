@@ -119,6 +119,7 @@ public class LXService {
             RelationBean bean1 = new RelationBean();
             BeanUtils.copyProperties(e, bean1);
             bean1.setType("留学");
+            bean1.setId(null);
             relationBeanList.add(bean1);
         });
         relationRepository.save(relationBeanList);

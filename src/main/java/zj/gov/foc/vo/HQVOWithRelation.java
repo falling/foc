@@ -9,7 +9,7 @@ import java.util.List;
  * Time: 下午10:02
  * Description:
  */
-public class HQVOwithRelation extends BaseVO{
+public class HQVOWithRelation extends BaseVO{
     private List<RelationVO> relationList = new ArrayList<>();
     private HQVO value;
 

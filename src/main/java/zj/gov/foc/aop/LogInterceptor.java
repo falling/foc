@@ -14,7 +14,10 @@ import zj.gov.foc.po.QJBean;
 import zj.gov.foc.repository.HQRepository;
 import zj.gov.foc.repository.LXRepository;
 import zj.gov.foc.repository.QJRepository;
+import zj.gov.foc.service.HQService;
+import zj.gov.foc.service.LXService;
 import zj.gov.foc.service.LogService;
+import zj.gov.foc.service.QJService;
 import zj.gov.foc.vo.*;
 
 import javax.servlet.http.HttpSession;
@@ -48,6 +51,17 @@ public class LogInterceptor {
     @Autowired
     QJRepository qjRepository;
 
+    @Autowired
+    HQService hqService;
+
+    @Autowired
+    LXService lxService;
+
+    @Autowired
+    QJService qjService;
+
+
+
     @Around("execution(* zj.gov.foc.service.HQService.addHQ(..))")
     public HQBean HQLog_add(ProceedingJoinPoint point) throws Throwable {
         Object[] args = point.getArgs();
@@ -72,7 +86,7 @@ public class LogInterceptor {
         return result;
     }
 
-    @Around("execution(* zj.gov.foc.service.QJService.saveWithrelation(..))")
+    @Around("execution(* zj.gov.foc.service.QJService.saveWithRelation(..))")
     public QJBean QJLog_add(ProceedingJoinPoint point) throws Throwable {
         Object[] args = point.getArgs();
         QJBean result = (QJBean) point.proceed(args);
@@ -86,12 +100,12 @@ public class LogInterceptor {
     @Around("execution(* zj.gov.foc.service.HQService.update(..))")
     public HQBean HQLog_update(ProceedingJoinPoint point) throws Throwable {
         Object[] args = point.getArgs();
-        HQVO vo = ((HQVOwithRelation) args[0]).getValue();
-        String oldValue = objectMapper.writeValueAsString(hqRepository.getById(vo.getHq_id()));
+        HQVO vo = ((HQVOWithRelation) args[0]).getValue();
+        String oldValue = objectMapper.writeValueAsString(hqService.loadByPassport(vo.getPassport_no()));
         HQBean result = (HQBean) point.proceed(args);
         if (result != null) {
             logService.log(generateLogBean("hq", "修改", result.getHq_id(),
-                    oldValue, result));
+                    oldValue, hqService.loadByPassport(result.getPassport_no())));
         }
 
         return result;
@@ -112,7 +126,7 @@ public class LogInterceptor {
         return result;
     }
 
-    @Around("execution(* zj.gov.foc.service.QJService.updateWithrelation(..))")
+    @Around("execution(* zj.gov.foc.service.QJService.updateWithRelation(..))")
     public QJBean QJLog_update(ProceedingJoinPoint point) throws Throwable {
         Object[] args = point.getArgs();
         QjVO vo = (QjVO) args[0];

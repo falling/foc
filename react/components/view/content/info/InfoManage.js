@@ -51,7 +51,7 @@ export default class InfoManage extends React.Component {
                 <div className="col-lg-12 col-md-12">
                     <div className="card">
                         <div className="header">
-                            <h4 className="title">录入管理</h4>
+                            <h4 className="title">信息修改</h4>
                         </div>
                         <div className="content">
                             <div className="row">

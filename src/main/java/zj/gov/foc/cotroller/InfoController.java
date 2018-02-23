@@ -44,7 +44,7 @@ public class InfoController {
 
 
     @RequestMapping("/addHQInfo")
-    public VO addHQInfo(@RequestBody HQVOwithRelation hqvo, HttpSession httpSession) {
+    public VO addHQInfo(@RequestBody HQVOWithRelation hqvo, HttpSession httpSession) {
         UserVO userVO = (UserVO) httpSession.getAttribute("user");
         if (userVO == null) {
             return Response.warning("未登录");
@@ -63,7 +63,7 @@ public class InfoController {
         if(relationVOList.size()==0){
             return Response.warning("请添加家庭成员");
         }
-        if(qjService.saveWithrelation(qjVO,relationVOList)!=null){
+        if(qjService.saveWithRelation(qjVO,relationVOList)!=null){
             return Response.success("录入成功");
         }
         return Response.success("录入失败");
@@ -76,7 +76,7 @@ public class InfoController {
         if(relationVOList.size()==0){
             return Response.warning("请添加家庭成员");
         }
-        qjService.updateWithrelation(qjVO,relationVOList);
+        qjService.updateWithRelation(qjVO,relationVOList);
         return Response.success("更新成功");
     }
     @RequestMapping("/addLXInfo")
@@ -183,7 +183,7 @@ public class InfoController {
 
 
     @RequestMapping("/updateHQInfo")
-    public VO updateHQInfo(@RequestBody HQVOwithRelation vo) {
+    public VO updateHQInfo(@RequestBody HQVOWithRelation vo) {
         if(hqService.update(vo)!=null) {
             return Response.success("更新成功");
         }else{

@@ -40,7 +40,7 @@ public class ExportController {
         String[] title = new String[]{"中文名", "曾用名", "拼音","性别" ,"民族", "护照号",
                 "护照有效期", "出生年月日", "身份证号", "海外联系电话", "中国联系电话1",
                 "中国联系电话2", "微信", "电子邮箱", "QQ", "籍贯", "现国籍", "旅居地", "中国居住地", "所从事行业",
-                "公司/单位名称", "职务", "文化程度", "健康状态", "社会任职", "主要成就","家庭成员"};
+                "公司/单位名称", "职务", "文化程度", "健康状态", "社会任职", "主要成就"};
         String[] exclude = new String[]{"relationList","hq_id","registrant_name","reg_date","photo"};
         return exportXLSX(list,"华侨",title,exclude);
     }
@@ -50,7 +50,7 @@ public class ExportController {
         String[] title = new String[]{"中文名", "曾用名", "拼音","性别" ,"民族", "护照号",
                 "护照有效期", "出生年月日", "身份证号", "海外联系电话", "中国联系电话1",
                 "中国联系电话2", "微信", "电子邮箱", "QQ", "籍贯", "现国籍", "旅居地", "中国居住地", "所从事行业",
-                "公司/单位名称", "职务", "文化程度", "健康状态", "社会任职", "主要成就","毕业院校英文名","毕业院校中文名","学位","毕业时间","家庭成员"};
+                "公司/单位名称", "职务", "文化程度", "健康状态", "社会任职", "主要成就","毕业院校英文名","毕业院校中文名","学位","毕业时间"};
         String[] exclude = new String[]{"relationList","lx_id","registrant_name","reg_date","photo"};
         return exportXLSX(list,"留学",title,exclude);
     }
@@ -82,8 +82,11 @@ public class ExportController {
             // reference
             List<RelationVO> relationVOList = t.getRelationList();
             for (RelationVO relationVO : relationVOList) {
+                CellUtil.createCell(titleRow,indexJ,"家庭成员姓名");
                 CellUtil.createCell(row,indexJ++,String.valueOf(relationVO.getCh_name()));
+                CellUtil.createCell(titleRow,indexJ,"性别");
                 CellUtil.createCell(row,indexJ++,String.valueOf(relationVO.getSex()));
+                CellUtil.createCell(titleRow,indexJ,"关系");
                 CellUtil.createCell(row,indexJ++,String.valueOf(relationVO.getRelation()));
             }
 
