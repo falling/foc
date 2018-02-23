@@ -101,7 +101,7 @@ public class LogInterceptor {
     public HQBean HQLog_update(ProceedingJoinPoint point) throws Throwable {
         Object[] args = point.getArgs();
         HQVO vo = ((HQVOWithRelation) args[0]).getValue();
-        String oldValue = objectMapper.writeValueAsString(hqService.loadByPassport(vo.getPassport_no()));
+        String oldValue = objectMapper.writeValueAsString(hqRepository.getById(vo.getHq_id()));
         HQBean result = (HQBean) point.proceed(args);
         if (result != null) {
             logService.log(generateLogBean("hq", "修改", result.getHq_id(),

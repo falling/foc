@@ -155,7 +155,11 @@ export default class RelationTable extends React.Component {
                     result.sex = json.sex;
                     result.relation = '祖孙';
 
-                    result.key = result.o_id+result.type;
+                    if(result.type==='qj'){
+                        result.key = result.qj_id+result.type;
+                    }else{
+                        result.key = result.o_id+result.type;
+                    }
                     data.push(result);
                     this.setState({data:data});
                     if (this.props.onChange) {

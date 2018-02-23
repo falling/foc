@@ -58,7 +58,7 @@ export default class InfoSearch extends React.Component {
         fetch(`/export${type}`, {
             method: 'post',
             credentials: 'include',
-            headers: {'Content-Type': 'application/json'},
+            headers: {'Content-Type': 'application/json;charset=utf-8'},
             body: JSON.stringify(selectedRows)
         }).then(response => response.blob()
             .then(blob => {

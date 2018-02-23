@@ -16,7 +16,7 @@ import zj.gov.foc.vo.VO;
 public class ControllerErrorHandler {
 
     @ResponseBody
-    @ExceptionHandler(value = Exception.class)
+    @ExceptionHandler(value = Throwable.class)
     public VO errorHandler(Exception ex) {
         ex.printStackTrace();
         return Response.warning("系统异常或数据有误");

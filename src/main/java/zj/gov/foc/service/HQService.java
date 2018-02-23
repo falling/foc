@@ -68,7 +68,7 @@ public class HQService {
     }
 
 
-    public VO loadByPassport(String passport_no) {
+    public HQVOWithRelation loadByPassport(String passport_no) {
         HQBean bean = hqRepository.loadByPassport(passport_no);
         HQVOWithRelation vo = null;
         if(bean!=null){
