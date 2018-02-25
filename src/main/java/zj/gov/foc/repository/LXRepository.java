@@ -22,4 +22,11 @@ public interface LXRepository extends Repository<LxBean, Long> {
 
     @Query(value = "select * from lx WHERE passport_no = ?1 and lx_id <> ?2 and del='0'",nativeQuery = true)
     LxBean confirmPassport(String passport_no, long id);
+
+
+    @Query(value = "SELECT count(*) FROM lx WHERE del='0'",nativeQuery = true)
+    long countLX();
+
+    @Query(value = "SELECT count(DISTINCT nationality) FROM lx WHERE del='0'",nativeQuery = true)
+    long countCountry();
 }

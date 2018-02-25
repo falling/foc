@@ -10,6 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 import zj.gov.foc.service.HQService;
 import zj.gov.foc.service.LXService;
 import zj.gov.foc.service.QJService;
+import zj.gov.foc.service.StatisticsService;
 import zj.gov.foc.util.Response;
 import zj.gov.foc.vo.*;
 
@@ -38,6 +39,9 @@ public class InfoController {
 
     @Autowired
     QJService qjService;
+
+    @Autowired
+    StatisticsService statisticsService;
 
     @Value("${upload-path}")
     private String path;
@@ -219,6 +223,11 @@ public class InfoController {
         }else{
             return Response.success(qjService.search(col,value));
         }
+    }
+
+    @RequestMapping("/statistics")
+    public long[] getStatistics(){
+        return statisticsService.statistics();
     }
 
 

@@ -33,16 +33,16 @@ export default class Sidebar extends React.Component {
                             </a>
                         </div>
                         <ul className="nav">
-                            <li className={activityIndex === 1 ? "active" : ""}>
-                                <Link to="/manager/1">
-                                    <i className="ti-panel"/>
-                                    <p>信息录入</p>
-                                </Link>
-                            </li>
                             <li className={activityIndex === 0 ? "active" : ""}>
                                 <Link to="/manager/0">
                                     <i className="ti-search"/>
                                     <p>信息查询</p>
+                                </Link>
+                            </li>
+                            <li className={activityIndex === 1 ? "active" : ""}>
+                                <Link to="/manager/1">
+                                    <i className="ti-panel"/>
+                                    <p>信息录入</p>
                                 </Link>
                             </li>
                             <li className={activityIndex === 2 ? "active" : ""}>

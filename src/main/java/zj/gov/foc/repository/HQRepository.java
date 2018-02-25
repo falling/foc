@@ -2,10 +2,10 @@ package zj.gov.foc.repository;
 
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.Repository;
+import org.springframework.data.repository.CrudRepository;
 import zj.gov.foc.po.HQBean;
 
-public interface HQRepository extends Repository<HQBean, Long> {
+public interface HQRepository extends CrudRepository<HQBean, Long> {
 
 
     HQBean save(HQBean hqBean);
@@ -28,4 +28,12 @@ public interface HQRepository extends Repository<HQBean, Long> {
 
     @Query(value = "SELECT * FROM hq WHERE passport_no = ?1 and hq_id <> ?2 and del='0'",nativeQuery = true)
     HQBean confirmPassport(String passport_no, long id);
+
+
+    @Query(value = "SELECT count(*) FROM hq WHERE del='0'",nativeQuery = true)
+    long countHQ();
+
+    @Query(value = "SELECT count(DISTINCT nationality) FROM hq WHERE del='0'",nativeQuery = true)
+    long countCountry();
+
 }

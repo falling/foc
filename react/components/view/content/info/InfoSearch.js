@@ -14,17 +14,21 @@ export default class InfoSearch extends React.Component {
         this.state = {
             col: 'ch_name',
             type: 'hq',
-            show: false,
+            show: true,
             data: [],
             loading: false,
             previewVisible: false,
             showData: {},
             selectedRows: [],
             selectedRowKeys: [],
+            hqNumber: 0,
+            lxNumber: 0,
+            countryNumber: 0,
         };
         this.search = this.search.bind(this);
         this.showData = this.showData.bind(this);
         this.exportXlsx = this.exportXlsx.bind(this);
+        this.getStatistics = this.getStatistics.bind(this);
         columns = [{
             title: '姓名',
             dataIndex: 'ch_name',
@@ -53,8 +57,8 @@ export default class InfoSearch extends React.Component {
     }
 
     exportXlsx() {
-        const {selectedRows,type} = this.state;
-        this.setState({loading:true});
+        const {selectedRows, type} = this.state;
+        this.setState({loading: true});
         fetch(`/export${type}`, {
             method: 'post',
             credentials: 'include',
@@ -68,7 +72,7 @@ export default class InfoSearch extends React.Component {
                 a.download = `${LogTable.formatDate(new Date().getTime())}_${type}.xlsx`;
                 a.click();
                 window.URL.revokeObjectURL(url);
-                this.setState({loading:false});
+                this.setState({loading: false});
             }))
     }
 
@@ -76,6 +80,23 @@ export default class InfoSearch extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
+        //get number
+        console.log("update")
+        this.getStatistics();
+    }
+
+    getStatistics() {
+        fetch('/statistics', {
+            method: 'post',
+            credentials: 'include',
+        }).then(response => response.json())
+            .then(json => {
+                this.setState({
+                    hqNumber: json[0],
+                    lxNumber: json[1],
+                    countryNumber: json[2],
+                });
+            })
     }
 
     showData(record) {
@@ -126,7 +147,7 @@ export default class InfoSearch extends React.Component {
 
     render() {
         const {display} = this.props;
-        const {type, col, show, loading, previewVisible, showData, selectedRows, selectedRowKeys} = this.state;
+        const {type, col, show, loading, previewVisible, showData, selectedRows, selectedRowKeys, hqNumber, lxNumber, countryNumber} = this.state;
         let secondSelect;
         if (type === 'hq') {
             secondSelect =
@@ -143,21 +164,21 @@ export default class InfoSearch extends React.Component {
                     <Option value="native_place">籍贯</Option>
                     <Option value="residence">旅居地</Option>
                 </Select>
-        }else if(type === 'lx'){
+        } else if (type === 'lx') {
             secondSelect =
                 <Select
-                style={{paddingLeft: 20}}
-                dropdownMatchSelectWidth={false}
-                onChange={value => this.setState({col: value})}
-                value={col}>
-                <Option value="ch_name">中文姓名</Option>
-                <Option value="py_name">拼音</Option>
-                <Option value="passport_no">护照号</Option>
-                <Option value="nationality">国籍</Option>
-                <Option value="native_place">籍贯</Option>
-                <Option value="ch_cname">学校中文名</Option>
-                <Option value="en_cname">学校英文名</Option>
-            </Select>
+                    style={{paddingLeft: 20}}
+                    dropdownMatchSelectWidth={false}
+                    onChange={value => this.setState({col: value})}
+                    value={col}>
+                    <Option value="ch_name">中文姓名</Option>
+                    <Option value="py_name">拼音</Option>
+                    <Option value="passport_no">护照号</Option>
+                    <Option value="nationality">国籍</Option>
+                    <Option value="native_place">籍贯</Option>
+                    <Option value="ch_cname">学校中文名</Option>
+                    <Option value="en_cname">学校英文名</Option>
+                </Select>
         } else {
             secondSelect =
                 <Select
@@ -230,14 +251,19 @@ export default class InfoSearch extends React.Component {
                                 loading={loading}
                                 scroll={{y: 240}}
                                 footer={() =>
-                                    <Button
-                                        type="primary"
-                                        onClick={this.exportXlsx}
-                                        disabled={!hasSelected||loading}
-                                        loading={loading}
-                                    >
-                                        导出
-                                    </Button>}
+                                    <div style={{lineHeight: '32px'}}>
+                                        <Button
+                                            type="primary"
+                                            onClick={this.exportXlsx}
+                                            disabled={!hasSelected || loading}
+                                            loading={loading}
+                                        >
+                                            导出
+                                        </Button>
+                                        <div className='pull-right'>
+                                            {`华侨总人数：${hqNumber}，留学总人数：${lxNumber}，覆盖的国家数：${countryNumber}`}
+                                        </div>
+                                    </div>}
                                 pagination={{
                                     total: this.state.data.count,
                                     pageSize: 50,
