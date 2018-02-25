@@ -183,7 +183,7 @@ export default class RelationTable extends React.Component {
                     title={()=> mode!=='search' &&<Search
                         className="editable-add-btn"
                         onSearch={this.handleAdd}
-                        enterButton
+                        enterButton="添加"
                         placeholder={type==='qj'?"请输入华侨或者留学生的护照号码":"请输入侨眷的护照号码或者身份证号码"}
                         addonBefore={
                             <Select onChange={value=>this.setState({type:value})}

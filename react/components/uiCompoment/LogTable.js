@@ -108,20 +108,40 @@ export default class LogTable extends React.Component {
 
     getAddStringLog(value) {
         let tmp = '';
-        let obj = JSON.parse(value);
-        let arr = Object.keys(obj);
-        arr.forEach(key => {
+        let arr = value.split('$$');
+        let relation = arr[arr.length-1];
+        delete arr[arr.length-1];
+        let bean = arr.join('');
+
+        let obj = JSON.parse(bean);
+        let objKey = Object.keys(obj);
+        objKey.forEach(key => {
             if (KeyNameMap[key]) {
                 tmp += `${KeyNameMap[key]}：${obj[key]}\n`
             }
+        });
+        tmp += '家庭信息：\n';
+        relation = JSON.parse(relation);
+        relation.forEach(e=>{
+            tmp += `${e.relation}：${e.ch_name}\n`;
         });
         return tmp;
     }
 
     getModifyStringLog(old_Value, new_Value) {
         let tmp = '';
-        let oldValue = JSON.parse(old_Value);
-        let newValue = JSON.parse(new_Value);
+        let oldArr = old_Value.split('$$');
+        let old_relation = oldArr[oldArr.length-1];
+        delete oldArr[oldArr.length-1];
+        let old_bean = oldArr.join('');
+
+        let newArr = new_Value.split('$$');
+        let new_relation = newArr[newArr.length-1];
+        delete newArr[newArr.length-1];
+        let new_bean = newArr.join('');
+
+        let oldValue = JSON.parse(old_bean);
+        let newValue = JSON.parse(new_bean);
         let arr = Object.keys(oldValue);
         arr.forEach(key => {
             if (oldValue[key] !== newValue[key]
@@ -129,6 +149,25 @@ export default class LogTable extends React.Component {
                 tmp += `将 ${KeyNameMap[key]} 字段的值从 ${oldValue[key]} 改为 ${newValue[key]}\n`
             }
         });
+        old_relation = JSON.parse(old_relation);
+        new_relation = JSON.parse(new_relation);
+        old_relation.forEach(e=>{
+            e.id =null;
+        });
+        new_relation.forEach(e=>{
+            e.id= null;
+        });
+        if(JSON.stringify(old_relation)!==JSON.stringify(new_relation)){
+            tmp += '将原家庭信息：\n';
+            old_relation.forEach(e=>{
+                tmp += `${e.relation}：${e.ch_name}\n`;
+            });
+            tmp += '改为：\n';
+            new_relation.forEach(e=>{
+                tmp += `${e.relation}：${e.ch_name}\n`;
+            });
+        }
+
         return tmp;
     }
 

@@ -60,7 +60,7 @@ public class LXService {
         return newBean;
     }
 
-    public VO loadByPassport(String passport_no) {
+    public LxVOwithRelation loadByPassport(String passport_no) {
         LxBean bean = lxRepository.loadByPassport(passport_no);
         LxVOwithRelation vo = null;
         if(bean!=null){

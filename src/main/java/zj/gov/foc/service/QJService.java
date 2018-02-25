@@ -57,7 +57,7 @@ public class QJService {
 
 
     @Transactional
-    public VO loadByPassport(String passport_no) {
+    public QjVOwithRelation loadByPassport(String passport_no) {
         QJBean bean = qjRepository.loadByPassport(passport_no);
         QjVOwithRelation vo = null;
         if (bean != null) {

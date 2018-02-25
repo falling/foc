@@ -20,6 +20,12 @@ import java.util.List;
  */
 public class CommonFunction {
 
+    /**
+     * 获取留学华侨的家庭成员
+     * @param relations
+     * @param relationVOList
+     * @param qjRepository
+     */
     public static void getQJRelationList(List relations,
                                   List<RelationVO> relationVOList,
                                   QJRepository qjRepository) {
@@ -34,6 +40,13 @@ public class CommonFunction {
         });
     }
 
+    /**
+     * 获取侨眷的家庭成员
+     * @param relations
+     * @param relationVOList
+     * @param hqRepository
+     * @param lxRepository
+     */
     public static void getQJRelationList(List<RelationBean> relations,
                                          List<RelationVO> relationVOList,
                                          HQRepository hqRepository,
