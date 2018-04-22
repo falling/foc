@@ -1,22 +1,37 @@
 package zj.gov.foc.vo;
 
 public class QjVO extends BaseVO{
-  private Long qj_id;
-
+  private long qj_id;
+  private String type;
   private String ch_name;
+  private String tel;
   private String sex;
   private String ethnicity;
   private String passport_no;
-  private String tel1;
-  private String tel2;
-//  private String del;
+  private String id_num;
+  private String address;
+  private String kin_name;
+  private String kin_relation;
+  private String kin_country;
+  private String kin_passport_no;
+  private String remark;
+  private String del;
 
-  public Long getQj_id() {
+
+  public long getQj_id() {
     return qj_id;
   }
 
-  public void setQj_id(Long qj_id) {
+  public void setQj_id(long qj_id) {
     this.qj_id = qj_id;
+  }
+
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
   }
 
   public String getCh_name() {
@@ -25,6 +40,14 @@ public class QjVO extends BaseVO{
 
   public void setCh_name(String ch_name) {
     this.ch_name = ch_name;
+  }
+
+  public String getTel() {
+    return tel;
+  }
+
+  public void setTel(String tel) {
+    this.tel = tel;
   }
 
   public String getSex() {
@@ -51,27 +74,67 @@ public class QjVO extends BaseVO{
     this.passport_no = passport_no;
   }
 
-  public String getTel1() {
-    return tel1;
+  public String getId_num() {
+    return id_num;
   }
 
-  public void setTel1(String tel1) {
-    this.tel1 = tel1;
+  public void setId_num(String id_num) {
+    this.id_num = id_num;
   }
 
-  public String getTel2() {
-    return tel2;
+  public String getAddress() {
+    return address;
   }
 
-  public void setTel2(String tel2) {
-    this.tel2 = tel2;
+  public void setAddress(String address) {
+    this.address = address;
   }
 
-//  public String getDel() {
-//    return del;
-//  }
-//
-//  public void setDel(String del) {
-//    this.del = del;
-//  }
+  public String getKin_name() {
+    return kin_name;
+  }
+
+  public void setKin_name(String kin_name) {
+    this.kin_name = kin_name;
+  }
+
+  public String getKin_relation() {
+    return kin_relation;
+  }
+
+  public void setKin_relation(String kin_relation) {
+    this.kin_relation = kin_relation;
+  }
+
+  public String getKin_country() {
+    return kin_country;
+  }
+
+  public void setKin_country(String kin_country) {
+    this.kin_country = kin_country;
+  }
+
+  public String getKin_passport_no() {
+    return kin_passport_no;
+  }
+
+  public void setKin_passport_no(String kin_passport_no) {
+    this.kin_passport_no = kin_passport_no;
+  }
+
+  public String getRemark() {
+    return remark;
+  }
+
+  public void setRemark(String remark) {
+    this.remark = remark;
+  }
+
+  public String getDel() {
+    return del;
+  }
+
+  public void setDel(String del) {
+    this.del = del;
+  }
 }

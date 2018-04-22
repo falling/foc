@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.sql.Date;
+import java.sql.Timestamp;
 
 @Entity
 @Table(name = "lx")
@@ -13,8 +14,9 @@ public class LxBean {
 
     @Id
     @GeneratedValue
-    private Long lx_id;
+    private long lx_id;
     private String ch_name;
+    private String tel;
     private String used_name;
     private String py_name;
     private String sex;
@@ -23,45 +25,37 @@ public class LxBean {
     private Date date_expriy;
     private Date date_birth;
     private String id_num;
-    private String o_tel;
     private String cn_tel;
-    private String cn_te2;
     private String wechat;
     private String mail;
     private String qq_num;
     private String native_place;
     private String nationality;
+    private String living_country;
     private String residence;
     private String cn_residence;
     private String present_industry;
     private String com_name;
     private String position;
-    private String education;
-    private String health;
-    private Long registrant;
+    private long registrant;
     private String photo;
     private Date reg_date;
     private String remarks;
     private String en_cname;
     private String ch_cname;
+    private String kin_name;
+    private String kin_tel;
     private String degree;
     private Date gra_date;
     private String social_services;
     private String del;
 
-    public String getSocial_services() {
-        return social_services;
-    }
 
-    public void setSocial_services(String social_services) {
-        this.social_services = social_services;
-    }
-
-    public Long getLx_id() {
+    public long getLx_id() {
         return lx_id;
     }
 
-    public void setLx_id(Long lx_id) {
+    public void setLx_id(long lx_id) {
         this.lx_id = lx_id;
     }
 
@@ -71,6 +65,14 @@ public class LxBean {
 
     public void setCh_name(String ch_name) {
         this.ch_name = ch_name;
+    }
+
+    public String getTel() {
+        return tel;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel;
     }
 
     public String getUsed_name() {
@@ -137,28 +139,12 @@ public class LxBean {
         this.id_num = id_num;
     }
 
-    public String getO_tel() {
-        return o_tel;
-    }
-
-    public void setO_tel(String o_tel) {
-        this.o_tel = o_tel;
-    }
-
     public String getCn_tel() {
         return cn_tel;
     }
 
     public void setCn_tel(String cn_tel) {
         this.cn_tel = cn_tel;
-    }
-
-    public String getCn_te2() {
-        return cn_te2;
-    }
-
-    public void setCn_te2(String cn_te2) {
-        this.cn_te2 = cn_te2;
     }
 
     public String getWechat() {
@@ -201,6 +187,14 @@ public class LxBean {
         this.nationality = nationality;
     }
 
+    public String getLiving_country() {
+        return living_country;
+    }
+
+    public void setLiving_country(String living_country) {
+        this.living_country = living_country;
+    }
+
     public String getResidence() {
         return residence;
     }
@@ -241,27 +235,11 @@ public class LxBean {
         this.position = position;
     }
 
-    public String getEducation() {
-        return education;
-    }
-
-    public void setEducation(String education) {
-        this.education = education;
-    }
-
-    public String getHealth() {
-        return health;
-    }
-
-    public void setHealth(String health) {
-        this.health = health;
-    }
-
-    public Long getRegistrant() {
+    public long getRegistrant() {
         return registrant;
     }
 
-    public void setRegistrant(Long registrant) {
+    public void setRegistrant(long registrant) {
         this.registrant = registrant;
     }
 
@@ -271,6 +249,14 @@ public class LxBean {
 
     public void setPhoto(String photo) {
         this.photo = photo;
+    }
+
+    public Date getReg_date() {
+        return reg_date;
+    }
+
+    public void setReg_date(Date reg_date) {
+        this.reg_date = reg_date;
     }
 
     public String getRemarks() {
@@ -297,6 +283,22 @@ public class LxBean {
         this.ch_cname = ch_cname;
     }
 
+    public String getKin_name() {
+        return kin_name;
+    }
+
+    public void setKin_name(String kin_name) {
+        this.kin_name = kin_name;
+    }
+
+    public String getKin_tel() {
+        return kin_tel;
+    }
+
+    public void setKin_tel(String kin_tel) {
+        this.kin_tel = kin_tel;
+    }
+
     public String getDegree() {
         return degree;
     }
@@ -305,20 +307,20 @@ public class LxBean {
         this.degree = degree;
     }
 
-    public Date getReg_date() {
-        return reg_date;
-    }
-
-    public void setReg_date(Date reg_date) {
-        this.reg_date = reg_date;
-    }
-
     public Date getGra_date() {
         return gra_date;
     }
 
     public void setGra_date(Date gra_date) {
         this.gra_date = gra_date;
+    }
+
+    public String getSocial_services() {
+        return social_services;
+    }
+
+    public void setSocial_services(String social_services) {
+        this.social_services = social_services;
     }
 
     public String getDel() {

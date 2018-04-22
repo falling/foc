@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.sql.Date;
+import java.sql.Timestamp;
 
 
 @Entity
@@ -12,8 +13,9 @@ import java.sql.Date;
 public class HQBean {
     @Id
     @GeneratedValue
-    private Long hq_id;
+    private long hq_id;
     private String ch_name;
+    private String tel;
     private String used_name;
     private String py_name;
     private String sex;
@@ -22,61 +24,30 @@ public class HQBean {
     private Date date_expriy;
     private Date date_birth;
     private String id_num;
-    private String o_tel;
     private String cn_tel;
-    private String cn_te2;
     private String wechat;
     private String mail;
     private String qq_num;
     private String native_place;
     private String nationality;
+    private String living_country;
     private String residence;
     private String cn_residence;
     private String present_industry;
     private String com_name;
     private String position;
-    private String education;
-    private String health;
-    private Long registrant;
-    private String photo;
-    private Date reg_date;
-    private String remarks;
     private String social_services;
+    private long registrant;
+    private String photo;
+    private String remarks;
+    private Date reg_date;
     private String del;
 
-    public String getSocial_services() {
-        return social_services;
-    }
-
-    public void setSocial_services(String social_services) {
-        this.social_services = social_services;
-    }
-
-    public void setPassport_no(String passport_no) {
-        this.passport_no = passport_no;
-    }
-
-    public Date getDate_expriy() {
-        return date_expriy;
-    }
-
-    public void setDate_expriy(Date date_expriy) {
-        this.date_expriy = date_expriy;
-    }
-
-    public Date getDate_birth() {
-        return date_birth;
-    }
-
-    public void setDate_birth(Date date_birth) {
-        this.date_birth = date_birth;
-    }
-
-    public Long getHq_id() {
+    public long getHq_id() {
         return hq_id;
     }
 
-    public void setHq_id(Long hq_id) {
+    public void setHq_id(long hq_id) {
         this.hq_id = hq_id;
     }
 
@@ -86,6 +57,14 @@ public class HQBean {
 
     public void setCh_name(String ch_name) {
         this.ch_name = ch_name;
+    }
+
+    public String getTel() {
+        return tel;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel;
     }
 
     public String getUsed_name() {
@@ -124,6 +103,26 @@ public class HQBean {
         return passport_no;
     }
 
+    public void setPassport_no(String passport_no) {
+        this.passport_no = passport_no;
+    }
+
+    public Date getDate_expriy() {
+        return date_expriy;
+    }
+
+    public void setDate_expriy(Date date_expriy) {
+        this.date_expriy = date_expriy;
+    }
+
+    public Date getDate_birth() {
+        return date_birth;
+    }
+
+    public void setDate_birth(Date date_birth) {
+        this.date_birth = date_birth;
+    }
+
     public String getId_num() {
         return id_num;
     }
@@ -132,28 +131,12 @@ public class HQBean {
         this.id_num = id_num;
     }
 
-    public String getO_tel() {
-        return o_tel;
-    }
-
-    public void setO_tel(String o_tel) {
-        this.o_tel = o_tel;
-    }
-
     public String getCn_tel() {
         return cn_tel;
     }
 
     public void setCn_tel(String cn_tel) {
         this.cn_tel = cn_tel;
-    }
-
-    public String getCn_te2() {
-        return cn_te2;
-    }
-
-    public void setCn_te2(String cn_te2) {
-        this.cn_te2 = cn_te2;
     }
 
     public String getWechat() {
@@ -196,6 +179,14 @@ public class HQBean {
         this.nationality = nationality;
     }
 
+    public String getLiving_country() {
+        return living_country;
+    }
+
+    public void setLiving_country(String living_country) {
+        this.living_country = living_country;
+    }
+
     public String getResidence() {
         return residence;
     }
@@ -236,27 +227,19 @@ public class HQBean {
         this.position = position;
     }
 
-    public String getEducation() {
-        return education;
+    public String getSocial_services() {
+        return social_services;
     }
 
-    public void setEducation(String education) {
-        this.education = education;
+    public void setSocial_services(String social_services) {
+        this.social_services = social_services;
     }
 
-    public String getHealth() {
-        return health;
-    }
-
-    public void setHealth(String health) {
-        this.health = health;
-    }
-
-    public Long getRegistrant() {
+    public long getRegistrant() {
         return registrant;
     }
 
-    public void setRegistrant(Long registrant) {
+    public void setRegistrant(long registrant) {
         this.registrant = registrant;
     }
 
@@ -268,20 +251,20 @@ public class HQBean {
         this.photo = photo;
     }
 
-    public Date getReg_date() {
-        return reg_date;
-    }
-
-    public void setReg_date(Date reg_date) {
-        this.reg_date = reg_date;
-    }
-
     public String getRemarks() {
         return remarks;
     }
 
     public void setRemarks(String remarks) {
         this.remarks = remarks;
+    }
+
+    public Date getReg_date() {
+        return reg_date;
+    }
+
+    public void setReg_date(Date reg_date) {
+        this.reg_date = reg_date;
     }
 
     public String getDel() {
