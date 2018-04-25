@@ -11,9 +11,8 @@ import java.util.List;
  * Description: just for excel export
  */
 public class LXExcel  implements Excel{
-    private long lx_id;
+    private Long lx_id;
     private String ch_name;
-    private String tel;
     private String used_name;
     private String py_name;
     private String sex;
@@ -22,36 +21,37 @@ public class LXExcel  implements Excel{
     private Date date_expriy;
     private Date date_birth;
     private String id_num;
+    private String o_tel;
     private String cn_tel;
+    private String cn_te2;
     private String wechat;
     private String mail;
     private String qq_num;
     private String native_place;
     private String nationality;
-    private String living_country;
     private String residence;
     private String cn_residence;
     private String present_industry;
     private String com_name;
     private String position;
+    private String education;
+    private String health;
     private String registrant_name;
     private String photo;
     private Date reg_date;
     private String remarks;
     private String en_cname;
     private String ch_cname;
-    private String kin_name;
-    private String kin_tel;
     private String degree;
     private Date gra_date;
     private String social_services;
     private List<RelationVO> relationList = new ArrayList<>();
 
-    public long getLx_id() {
+    public Long getLx_id() {
         return lx_id;
     }
 
-    public void setLx_id(long lx_id) {
+    public void setLx_id(Long lx_id) {
         this.lx_id = lx_id;
     }
 
@@ -61,14 +61,6 @@ public class LXExcel  implements Excel{
 
     public void setCh_name(String ch_name) {
         this.ch_name = ch_name;
-    }
-
-    public String getTel() {
-        return tel;
-    }
-
-    public void setTel(String tel) {
-        this.tel = tel;
     }
 
     public String getUsed_name() {
@@ -135,12 +127,28 @@ public class LXExcel  implements Excel{
         this.id_num = id_num;
     }
 
+    public String getO_tel() {
+        return o_tel;
+    }
+
+    public void setO_tel(String o_tel) {
+        this.o_tel = o_tel;
+    }
+
     public String getCn_tel() {
         return cn_tel;
     }
 
     public void setCn_tel(String cn_tel) {
         this.cn_tel = cn_tel;
+    }
+
+    public String getCn_te2() {
+        return cn_te2;
+    }
+
+    public void setCn_te2(String cn_te2) {
+        this.cn_te2 = cn_te2;
     }
 
     public String getWechat() {
@@ -183,14 +191,6 @@ public class LXExcel  implements Excel{
         this.nationality = nationality;
     }
 
-    public String getLiving_country() {
-        return living_country;
-    }
-
-    public void setLiving_country(String living_country) {
-        this.living_country = living_country;
-    }
-
     public String getResidence() {
         return residence;
     }
@@ -229,6 +229,22 @@ public class LXExcel  implements Excel{
 
     public void setPosition(String position) {
         this.position = position;
+    }
+
+    public String getEducation() {
+        return education;
+    }
+
+    public void setEducation(String education) {
+        this.education = education;
+    }
+
+    public String getHealth() {
+        return health;
+    }
+
+    public void setHealth(String health) {
+        this.health = health;
     }
 
     public String getRegistrant_name() {
@@ -277,22 +293,6 @@ public class LXExcel  implements Excel{
 
     public void setCh_cname(String ch_cname) {
         this.ch_cname = ch_cname;
-    }
-
-    public String getKin_name() {
-        return kin_name;
-    }
-
-    public void setKin_name(String kin_name) {
-        this.kin_name = kin_name;
-    }
-
-    public String getKin_tel() {
-        return kin_tel;
-    }
-
-    public void setKin_tel(String kin_tel) {
-        this.kin_tel = kin_tel;
     }
 
     public String getDegree() {
