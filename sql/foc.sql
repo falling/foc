@@ -10,167 +10,185 @@ Target Server Type    : MYSQL
 Target Server Version : 50719
 File Encoding         : 65001
 
-Date: 2018-04-22 15:22:29
+Date: 2018-01-09 20:07:50
 */
 
-SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
 -- Table structure for hq
 -- ----------------------------
 DROP TABLE IF EXISTS `hq`;
-CREATE TABLE `hq` (
-  `hq_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `ch_name` varchar(255) NOT NULL DEFAULT ' ',
-  `tel` varchar(50) NOT NULL,
-  `used_name` varchar(255) DEFAULT ' ',
-  `py_name` varchar(255) DEFAULT ' ',
-  `sex` varchar(5) DEFAULT ' ',
-  `ethnicity` varchar(255) DEFAULT ' ',
-  `passport_no` varchar(255) DEFAULT ' ',
-  `date_expriy` datetime DEFAULT NULL,
-  `date_birth` datetime DEFAULT NULL,
-  `id_num` varchar(255) DEFAULT ' ',
-  `cn_tel` varchar(255) DEFAULT ' ',
-  `wechat` varchar(255) DEFAULT ' ',
-  `mail` varchar(255) DEFAULT ' ',
-  `qq_num` varchar(255) DEFAULT ' ',
-  `native_place` varchar(255) DEFAULT ' ',
-  `nationality` varchar(255) DEFAULT ' ',
-  `living_country` varchar(50) DEFAULT NULL,
-  `residence` varchar(255) DEFAULT ' ',
-  `cn_residence` varchar(255) DEFAULT ' ',
-  `present_industry` varchar(255) DEFAULT ' ',
-  `com_name` varchar(255) DEFAULT ' ',
-  `position` varchar(255) DEFAULT ' ',
-  `social_services` varchar(255) DEFAULT NULL,
-  `registrant` int(20) DEFAULT NULL,
-  `photo` varchar(255) DEFAULT ' ',
-  `remarks` varchar(255) DEFAULT ' ',
-  `reg_date` datetime DEFAULT NULL,
-  `del` varchar(5) DEFAULT ' ',
-  PRIMARY KEY (`hq_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+CREATE TABLE hq
+(
+  hq_id            INT UNSIGNED AUTO_INCREMENT
+    PRIMARY KEY,
+  ch_name          VARCHAR(255) DEFAULT ' '  NOT NULL,
+  used_name        VARCHAR(255) DEFAULT ' '  NULL,
+  py_name          VARCHAR(255) DEFAULT ' '  NOT NULL,
+  sex              VARCHAR(5) DEFAULT ' '   NOT NULL,
+  ethnicity        VARCHAR(255) DEFAULT ' '  NOT NULL,
+  passport_no      VARCHAR(255) DEFAULT ' '  NOT NULL,
+  date_expriy      DATETIME                 NOT NULL,
+  date_birth       DATETIME                 NOT NULL,
+  id_num           VARCHAR(255) DEFAULT ' '  NOT NULL,
+  o_tel            VARCHAR(255) DEFAULT ' '  NULL,
+  cn_tel           VARCHAR(255) DEFAULT ' '  NULL,
+  cn_te2           VARCHAR(255) DEFAULT ' '  NULL,
+  wechat           VARCHAR(255) DEFAULT ' '  NULL,
+  mail             VARCHAR(255) DEFAULT ' '  NULL,
+  qq_num           VARCHAR(255) DEFAULT ' '  NULL,
+  native_place     VARCHAR(255) DEFAULT ' '  NULL,
+  nationality      VARCHAR(255) DEFAULT ' '  NULL,
+  residence        VARCHAR(255) DEFAULT ' '  NULL,
+  cn_residence     VARCHAR(255) DEFAULT ' '  NULL,
+  present_industry VARCHAR(255) DEFAULT ' '  NULL,
+  com_name         VARCHAR(255) DEFAULT ' '  NULL,
+  position         VARCHAR(255) DEFAULT ' '  NULL,
+  education        VARCHAR(255) DEFAULT ' '  NULL,
+  health           VARCHAR(255) DEFAULT ' '  NULL,
+  registrant       INT(20)                  NULL,
+  photo            VARCHAR(255) DEFAULT ' ' NULL,
+  reg_date         DATETIME                 NULL,
+  social_services  VARCHAR(255)              NULL,
+  remarks          VARCHAR(255) DEFAULT ' ' NULL,
+  del              VARCHAR(5) DEFAULT ' '   NULL
+)
+  ENGINE = InnoDB
+  DEFAULT CHARSET = utf8;
 
 -- ----------------------------
 -- Table structure for log
 -- ----------------------------
 DROP TABLE IF EXISTS `log`;
-CREATE TABLE `log` (
-  `log_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `log_date` datetime NOT NULL,
-  `identity` varchar(20) DEFAULT NULL,
-  `o_id` int(10) unsigned DEFAULT NULL,
-  `operating_user` int(10) unsigned NOT NULL,
-  `operating` varchar(10) NOT NULL DEFAULT ' ',
-  `old_value` text,
-  `new_value` text,
-  PRIMARY KEY (`log_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+CREATE TABLE log
+(
+  log_id         INT UNSIGNED AUTO_INCREMENT
+    PRIMARY KEY,
+  log_date       DATETIME                NOT NULL,
+  identity       VARCHAR(20)             NULL,
+  o_id           INT UNSIGNED            NULL,
+  operating_user INT UNSIGNED            NOT NULL,
+  operating      VARCHAR(10) DEFAULT ' ' NOT NULL,
+  old_value      TEXT                    NULL,
+  new_value      TEXT                    NULL
+)
+  ENGINE = InnoDB
+  DEFAULT CHARSET = utf8;
 
 -- ----------------------------
 -- Table structure for login
 -- ----------------------------
 DROP TABLE IF EXISTS `login`;
-CREATE TABLE `login` (
-  `login_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `login_date` datetime NOT NULL,
-  `user_id` int(10) unsigned NOT NULL,
-  `ip_id` varchar(15) NOT NULL DEFAULT ' ',
-  PRIMARY KEY (`login_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+CREATE TABLE login
+(
+  login_id   INT UNSIGNED AUTO_INCREMENT
+    PRIMARY KEY,
+  login_date DATETIME                NOT NULL,
+  user_id    INT UNSIGNED            NOT NULL,
+  ip_id      VARCHAR(15) DEFAULT ' ' NOT NULL
+)
+  ENGINE = InnoDB
+  DEFAULT CHARSET = utf8;
 
 -- ----------------------------
 -- Table structure for lx
 -- ----------------------------
 DROP TABLE IF EXISTS `lx`;
-CREATE TABLE `lx` (
-  `lx_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `ch_name` varchar(255) NOT NULL DEFAULT ' ',
-  `tel` varchar(50) NOT NULL,
-  `used_name` varchar(255) DEFAULT ' ',
-  `py_name` varchar(255) DEFAULT ' ',
-  `sex` varchar(5) DEFAULT ' ',
-  `ethnicity` varchar(255) DEFAULT ' ',
-  `passport_no` varchar(255) DEFAULT ' ',
-  `date_expriy` datetime DEFAULT NULL,
-  `date_birth` datetime DEFAULT NULL,
-  `id_num` varchar(255) DEFAULT ' ',
-  `cn_tel` varchar(255) DEFAULT ' ',
-  `wechat` varchar(255) DEFAULT ' ',
-  `mail` varchar(255) DEFAULT ' ',
-  `qq_num` varchar(255) DEFAULT ' ',
-  `native_place` varchar(255) DEFAULT ' ',
-  `nationality` varchar(255) DEFAULT ' ',
-  `living_country` varchar(50) DEFAULT NULL,
-  `residence` varchar(255) DEFAULT ' ',
-  `cn_residence` varchar(255) DEFAULT ' ',
-  `present_industry` varchar(255) DEFAULT ' ',
-  `com_name` varchar(255) DEFAULT ' ',
-  `position` varchar(255) DEFAULT ' ',
-  `registrant` int(20) DEFAULT NULL,
-  `photo` varchar(255) DEFAULT ' ',
-  `reg_date` datetime DEFAULT NULL,
-  `remarks` varchar(255) DEFAULT ' ',
-  `en_cname` varchar(255) DEFAULT ' ',
-  `ch_cname` varchar(255) DEFAULT ' ',
-  `kin_name` varchar(255) DEFAULT NULL,
-  `kin_tel` varchar(255) DEFAULT NULL,
-  `degree` varchar(255) DEFAULT ' ',
-  `gra_date` datetime DEFAULT NULL,
-  `social_services` varchar(255) DEFAULT NULL,
-  `del` varchar(5) DEFAULT ' ',
-  PRIMARY KEY (`lx_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE lx
+(
+  lx_id            INT UNSIGNED AUTO_INCREMENT
+    PRIMARY KEY,
+  ch_name          VARCHAR(255) DEFAULT ' '  NOT NULL,
+  used_name        VARCHAR(255) DEFAULT ' '  NULL,
+  py_name          VARCHAR(255) DEFAULT ' '  NOT NULL,
+  sex              VARCHAR(5) DEFAULT ' '   NOT NULL,
+  ethnicity        VARCHAR(255) DEFAULT ' '  NULL,
+  passport_no      VARCHAR(255) DEFAULT ' '  NULL,
+  date_expriy      DATETIME                 NOT NULL,
+  date_birth       DATETIME                 NOT NULL,
+  id_num           VARCHAR(255) DEFAULT ' '  NULL,
+  o_tel            VARCHAR(255) DEFAULT ' '  NULL,
+  cn_tel           VARCHAR(255) DEFAULT ' '  NULL,
+  cn_te2           VARCHAR(255) DEFAULT ' '  NULL,
+  wechat           VARCHAR(255) DEFAULT ' '  NULL,
+  mail             VARCHAR(255) DEFAULT ' '  NULL,
+  qq_num           VARCHAR(255) DEFAULT ' '  NULL,
+  native_place     VARCHAR(255) DEFAULT ' '  NULL,
+  nationality      VARCHAR(255) DEFAULT ' '  NULL,
+  residence        VARCHAR(255) DEFAULT ' '  NULL,
+  cn_residence     VARCHAR(255) DEFAULT ' '  NULL,
+  present_industry VARCHAR(255) DEFAULT ' '  NULL,
+  com_name         VARCHAR(255) DEFAULT ' '  NULL,
+  position         VARCHAR(255) DEFAULT ' '  NULL,
+  education        VARCHAR(255) DEFAULT ' '  NULL,
+  health           VARCHAR(255) DEFAULT ' '  NULL,
+  registrant       INT(20)                  NULL,
+  photo            VARCHAR(255) DEFAULT ' ' NULL,
+  reg_date         DATETIME                 NOT NULL,
+  remarks          VARCHAR(255) DEFAULT ' ' NULL,
+  en_cname         VARCHAR(255) DEFAULT ' ' NULL,
+  ch_cname         VARCHAR(255) DEFAULT ' ' NULL,
+  degree           VARCHAR(255) DEFAULT ' '  NULL,
+  gra_date         DATETIME                 NULL,
+  social_services  VARCHAR(255)              NULL,
+  del              VARCHAR(5) DEFAULT ' '   NULL
+)
+  ENGINE = InnoDB
+  DEFAULT CHARSET = utf8;
 
 -- ----------------------------
 -- Table structure for qj
 -- ----------------------------
+-- auto-generated definition
 DROP TABLE IF EXISTS `qj`;
-CREATE TABLE `qj` (
-  `qj_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `type` varchar(255) NOT NULL DEFAULT ' ',
-  `ch_name` varchar(255) NOT NULL DEFAULT ' ',
-  `tel` varchar(255) NOT NULL DEFAULT ' ',
-  `sex` varchar(5) DEFAULT ' ',
-  `ethnicity` varchar(255) DEFAULT ' ',
-  `passport_no` varchar(255) DEFAULT ' ',
-  `id_num` varchar(255) DEFAULT ' ',
-  `address` varchar(255) DEFAULT ' ',
-  `kin_name` varchar(255) DEFAULT ' ',
-  `kin_relation` varchar(255) DEFAULT ' ',
-  `kin_country` varchar(255) DEFAULT ' ',
-  `kin_passport_no` varchar(255) DEFAULT ' ',
-  `remark` varchar(255) DEFAULT ' ',
-  `del` varchar(5) DEFAULT ' ',
-  PRIMARY KEY (`qj_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Table structure for relationship
--- ----------------------------
-DROP TABLE IF EXISTS `relationship`;
-CREATE TABLE `relationship` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `o_id` int(11) DEFAULT NULL,
-  `qj_id` int(11) DEFAULT NULL,
-  `type` varchar(255) DEFAULT NULL,
-  `relation` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE qj
+(
+  qj_id       INT UNSIGNED AUTO_INCREMENT
+    PRIMARY KEY,
+  ch_name     VARCHAR(255) DEFAULT ' ' NOT NULL,
+  sex         VARCHAR(5) DEFAULT ' '  NOT NULL,
+  ethnicity   VARCHAR(255) DEFAULT ' ' NOT NULL,
+  passport_no VARCHAR(255) DEFAULT ' ' NOT NULL,
+  tel1        VARCHAR(255) DEFAULT ' ' NOT NULL,
+  tel2        VARCHAR(255) DEFAULT ' ' NOT NULL,
+  del         VARCHAR(5) DEFAULT ' '  NOT NULL
+)
+  ENGINE = InnoDB
+  DEFAULT CHARSET = utf8;
 
 -- ----------------------------
 -- Table structure for user
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
-CREATE TABLE `user` (
-  `user_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `user_name` varchar(255) NOT NULL DEFAULT ' ',
-  `pwd` varchar(255) NOT NULL DEFAULT ' ',
-  `name` varchar(255) NOT NULL DEFAULT ' ',
-  `power` varchar(255) NOT NULL DEFAULT ' ',
-  `reg_date` datetime NOT NULL,
-  `remarks` varchar(255) NOT NULL DEFAULT ' ',
-  `del` varchar(5) NOT NULL DEFAULT ' ',
-  PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+CREATE TABLE user
+(
+  user_id   INT UNSIGNED AUTO_INCREMENT
+    PRIMARY KEY,
+  user_name VARCHAR(255) DEFAULT ' '  NOT NULL,
+  pwd       VARCHAR(255) DEFAULT ' '  NOT NULL,
+  name      VARCHAR(255) DEFAULT ' '  NOT NULL,
+  power     VARCHAR(255) DEFAULT ' '  NOT NULL,
+  reg_date  DATETIME                 NOT NULL,
+  remarks   VARCHAR(255) DEFAULT ' ' NOT NULL,
+  del       VARCHAR(5) DEFAULT ' '   NOT NULL
+)
+  ENGINE = InnoDB
+  DEFAULT CHARSET = utf8;
+
+-- ----------------------------
+-- Table structure for relationShip
+-- ----------------------------
+DROP TABLE IF EXISTS `relationShip`;
+CREATE TABLE relationship
+(
+  id       INT AUTO_INCREMENT
+    PRIMARY KEY,
+  o_id     INT          NULL,
+  qj_id    INT          NULL,
+  type     VARCHAR(255) NULL,
+  relation VARCHAR(255) NULL
+)
+  ENGINE = InnoDB
+  DEFAULT CHARSET = utf8;
+
