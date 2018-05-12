@@ -1,12 +1,10 @@
 import React from 'react';
 import FormContent from "./formContent/FormContent";
-import {Input, Select, Form,message} from 'antd';
+import {Input, Select,message} from 'antd';
 import 'whatwg-fetch';
 
 const Search = Input.Search;
-const InputGroup = Input.Group;
 const Option = Select.Option;
-const FormItem = Form.Item;
 
 export default class InfoManage extends React.Component {
     constructor(props) {

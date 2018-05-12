@@ -4,7 +4,6 @@ import 'whatwg-fetch';
 import moment from 'moment';
 import PicturesWall from "../../../../uiCompoment/PicturesWall";
 import {City} from "../../../../config/City";
-import ReferenceTable from "../../../../uiCompoment/ReferenceTable";
 import LogTable from "../../../../uiCompoment/LogTable";
 
 const FormItem = Form.Item;
@@ -82,18 +81,12 @@ class Hq_lxContentForm extends React.Component {
                 values.native_place = values.native_place.join("/");
                 values.photo = this.url || this.photo;
                 this.setState({loading: true});
-
-                let postData = {};
-                postData.value = values;
-                postData.relationList = values.relation;
-                delete postData.value["relation"];
-
                 const {type} = this.props;
                 fetch(type === 'lx' ? '/updateLXInfo' : '/updateHQInfo', {
                     method: 'post',
                     credentials: 'include',
                     headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify(postData)
+                    body: JSON.stringify(values)
                 }).then(response => response.json()
                 ).then(json => {
                     this.setState({loading: false});
@@ -150,16 +143,11 @@ class Hq_lxContentForm extends React.Component {
                 values.photo = this.url;
                 values.native_place = values.native_place.join("/");
 
-                let postData = {};
-                postData.value = values;
-                postData.relationList = values.relation;
-                delete postData.value["relation"];
-
                 fetch(type === 'lx' ? '/addLXInfo' : '/addHQInfo', {
                     method: 'post',
                     credentials: 'include',
                     headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify(postData)
+                    body: JSON.stringify(values)
                 }).then(response => response.json()
                 ).then(json => {
                     this.setState({loading: false});
@@ -190,14 +178,10 @@ class Hq_lxContentForm extends React.Component {
     }
 
     setValue(props) {
-        let info = props.info;
-        let value = info.value;
+        let value = props.info;
         delete value.info;
         delete value.status;
-        value.relation = info.relationList;
-        value.relation.forEach((relation) => {
-            relation.key = relation.o_id + relation.type;
-        });
+        console.log(value);
         value.date_birth = value.date_birth ? moment(value.date_birth) : '';
         value.date_expriy = value.date_expriy ? moment(value.date_expriy) : '';
         if (this.props.type === 'lx') {
@@ -766,19 +750,6 @@ class Hq_lxContentForm extends React.Component {
                     </div>
                 </div>
                 <hr/>
-                <div>
-                    <FormItem className="form-group">
-                        {getFieldDecorator('relation', {
-                            initialValue: [],
-                        })(
-                            <ReferenceTable
-                                type={type}
-                                mode={mode}
-                            />
-                        )}
-                        <div/>
-                    </FormItem>
-                </div>
                 {(mode === 'view' || mode === 'search') &&
                 <div>
                     <hr/>

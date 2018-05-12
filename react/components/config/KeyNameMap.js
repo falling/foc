@@ -7,6 +7,8 @@ export const KeyNameMap = {
     'passport_no':'护照号码',
     'date_expriy':'护照有效期',
     'id_num':'身份证号',
+    'tel1':'联系电话',
+    'tel2':'海外联系电话',
     'o_tel':'海外联系电话',
     'cn_tel':'中国联系电话1',
     'cn_te2':'中国联系电话2',

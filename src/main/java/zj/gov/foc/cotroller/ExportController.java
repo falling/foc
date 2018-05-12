@@ -79,16 +79,6 @@ public class ExportController {
                 }
                 CellUtil.createCell(row, indexJ++, String.valueOf(field.get(t)));
             }
-            // reference
-            List<RelationVO> relationVOList = t.getRelationList();
-            for (RelationVO relationVO : relationVOList) {
-                CellUtil.createCell(titleRow,indexJ,"家庭成员姓名");
-                CellUtil.createCell(row,indexJ++,String.valueOf(relationVO.getCh_name()));
-                CellUtil.createCell(titleRow,indexJ,"性别");
-                CellUtil.createCell(row,indexJ++,String.valueOf(relationVO.getSex()));
-                CellUtil.createCell(titleRow,indexJ,"关系");
-                CellUtil.createCell(row,indexJ++,String.valueOf(relationVO.getRelation()));
-            }
 
         }
 

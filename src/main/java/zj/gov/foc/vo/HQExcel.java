@@ -1,8 +1,6 @@
 package zj.gov.foc.vo;
 
 import java.sql.Date;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by User: falling
@@ -41,7 +39,6 @@ public class HQExcel implements Excel{
     private Date reg_date;
     private String social_services;
     private String remarks;
-    private List<RelationVO> relationList = new ArrayList<>();
 
     public Long getHq_id() {
         return hq_id;
@@ -283,11 +280,4 @@ public class HQExcel implements Excel{
         this.social_services = social_services;
     }
 
-    public List<RelationVO> getRelationList() {
-        return relationList;
-    }
-
-    public void setRelationList(List<RelationVO> relationList) {
-        this.relationList = relationList;
-    }
 }

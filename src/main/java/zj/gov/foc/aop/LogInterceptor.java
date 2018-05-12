@@ -1,6 +1,5 @@
 package zj.gov.foc.aop;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -68,8 +67,6 @@ public class LogInterceptor {
         HQBean result = (HQBean) point.proceed(args);
         if (result != null) {
             String newValue = objectMapper.writeValueAsString(result);
-            HQVOWithRelation hqvoWithRelation = hqService.loadByPassport(result.getPassport_no());
-            newValue = newValue+"$$"+ objectMapper.writeValueAsString(hqvoWithRelation.getRelationList());
             logService.log(generateLogBean("hq", "添加", result.getHq_id(),
                     "", newValue));
         }
@@ -83,8 +80,6 @@ public class LogInterceptor {
         LxBean result = (LxBean) point.proceed(args);
         if (result != null) {
             String newValue = objectMapper.writeValueAsString(result);
-            LxVOwithRelation lxVOwithRelation = lxService.loadByPassport(result.getPassport_no());
-            newValue = newValue+"$$"+ objectMapper.writeValueAsString(lxVOwithRelation.getRelationList());
             logService.log(generateLogBean("lx", "添加", result.getLx_id(),
                     "", newValue));
         }
@@ -92,14 +87,12 @@ public class LogInterceptor {
         return result;
     }
 
-    @Around("execution(* zj.gov.foc.service.QJService.saveWithRelation(..))")
+    @Around("execution(* zj.gov.foc.service.QJService.saveQj(..))")
     public QJBean QJLog_add(ProceedingJoinPoint point) throws Throwable {
         Object[] args = point.getArgs();
         QJBean result = (QJBean) point.proceed(args);
         if (result != null) {
             String newValue = objectMapper.writeValueAsString(result);
-            QjVOwithRelation qjVOwithRelation = qjService.loadByPassport(result.getPassport_no());
-            newValue = newValue+"$$"+ objectMapper.writeValueAsString(qjVOwithRelation.getRelationList());
             logService.log(generateLogBean("qj", "添加", result.getQj_id(),
                     "", newValue));
         }
@@ -109,15 +102,11 @@ public class LogInterceptor {
     @Around("execution(* zj.gov.foc.service.HQService.update(..))")
     public HQBean HQLog_update(ProceedingJoinPoint point) throws Throwable {
         Object[] args = point.getArgs();
-        HQVO vo = ((HQVOWithRelation) args[0]).getValue();
+        HQVO vo = (HQVO) args[0];
         String oldValue = objectMapper.writeValueAsString(hqRepository.getById(vo.getHq_id()));
-        HQVOWithRelation hqvoWithRelation = hqService.loadByPassport(vo.getPassport_no());
-        oldValue = oldValue + "$$" + objectMapper.writeValueAsString(hqvoWithRelation.getRelationList());
         HQBean result = (HQBean) point.proceed(args);
         if (result != null) {
             String newValue = objectMapper.writeValueAsString(result);
-            HQVOWithRelation hqvoWithRelation1 = hqService.loadByPassport(result.getPassport_no());
-            newValue = newValue+"$$"+ objectMapper.writeValueAsString(hqvoWithRelation1.getRelationList());
             logService.log(generateLogBean("hq", "修改", result.getHq_id(),
                     oldValue, newValue));
         }
@@ -128,15 +117,11 @@ public class LogInterceptor {
     @Around("execution(* zj.gov.foc.service.LXService.update(..))")
     public LxBean LXLog_update(ProceedingJoinPoint point) throws Throwable {
         Object[] args = point.getArgs();
-        LxVO vo = ((LxVOwithRelation) args[0]).getValue();
+        LxVO vo = (LxVO) args[0];
         String oldValue = objectMapper.writeValueAsString(lxRepository.getById(vo.getLx_id()));
-        LxVOwithRelation lxVOwithRelation = lxService.loadByPassport(vo.getPassport_no());
-        oldValue = oldValue + "$$" + objectMapper.writeValueAsString(lxVOwithRelation.getRelationList());
         LxBean result = (LxBean) point.proceed(args);
         if (result != null) {
             String newValue = objectMapper.writeValueAsString(result);
-            LxVOwithRelation lxVOwithRelation1 = lxService.loadByPassport(result.getPassport_no());
-            newValue = newValue+"$$"+ objectMapper.writeValueAsString(lxVOwithRelation1.getRelationList());
             logService.log(generateLogBean("lx", "修改", result.getLx_id(),
                     oldValue, newValue));
         }
@@ -144,18 +129,14 @@ public class LogInterceptor {
         return result;
     }
 
-    @Around("execution(* zj.gov.foc.service.QJService.updateWithRelation(..))")
+    @Around("execution(* zj.gov.foc.service.QJService.update(..))")
     public QJBean QJLog_update(ProceedingJoinPoint point) throws Throwable {
         Object[] args = point.getArgs();
         QjVO vo = (QjVO) args[0];
         String oldValue = objectMapper.writeValueAsString(qjRepository.getById(vo.getQj_id()));
-        QjVOwithRelation qjVOwithRelation = qjService.loadByPassport(vo.getPassport_no());
-        oldValue = oldValue + "$$" + objectMapper.writeValueAsString(qjVOwithRelation.getRelationList());
         QJBean result = (QJBean) point.proceed(args);
         if (result != null) {
             String newValue = objectMapper.writeValueAsString(result);
-            QjVOwithRelation qjVOwithRelation1 = qjService.loadByPassport(result.getPassport_no());
-            newValue = newValue+"$$"+ objectMapper.writeValueAsString(qjVOwithRelation1.getRelationList());
             logService.log(generateLogBean("qj", "修改", result.getQj_id(),
                     oldValue, newValue));
         }
@@ -182,7 +163,7 @@ public class LogInterceptor {
                                     String operation,
                                     Long tableId,
                                     String oldValue,
-                                    String newValue) throws JsonProcessingException {
+                                    String newValue) {
         LogBean logBean = new LogBean();
 
         logBean.setLog_date(new Date(System.currentTimeMillis()));

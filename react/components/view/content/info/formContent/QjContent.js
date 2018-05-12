@@ -1,7 +1,6 @@
 import React from 'react';
 import 'whatwg-fetch';
 import {Form, Input, Select, message} from 'antd';
-import ReferenceTable from "../../../../uiCompoment/ReferenceTable";
 import LogTable from "../../../../uiCompoment/LogTable";
 
 const FormItem = Form.Item;
@@ -16,7 +15,6 @@ class QjContentForm extends React.Component {
             deleteLoading: false,
             fresh:0,
         };
-        this.relation = [];
         this.add = this.add.bind(this);
         this.update = this.update.bind(this);
         this.delete = this.delete.bind(this);
@@ -29,12 +27,7 @@ class QjContentForm extends React.Component {
             let info = nextProps.info;
             delete info.status;
             delete info.info;
-            let value= info.value;
-            delete value.info;
-            value.relation = info.relationList;
-            value.relation.forEach((relation)=>{
-                relation.key = relation.o_id + relation.type;
-            });
+            let value= info;
             const {fresh} = this.state;
             this.setState({fresh: fresh + 1});
             this.props.form.setFieldsValue(value);
@@ -43,14 +36,10 @@ class QjContentForm extends React.Component {
 
     componentDidMount() {
         if (this.props.info) {
-            let info = this.props.info;
-            let value= info.value;
+            let value= this.props.info;
             delete value.info;
             delete value.status;
-            value.relation = info.relationList;
-            value.relation.forEach((relation)=>{
-                relation.key = relation.o_id + relation.type;
-            });
+
             this.props.form.setFieldsValue(value);
         }
     }
@@ -109,15 +98,11 @@ class QjContentForm extends React.Component {
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
                 this.setState({loading: true});
-                let postData = {};
-                postData.value = values;
-                postData.relationList = values.relation;
-                delete postData.value["relation"];
                 fetch('/addQjInfo', {
                     method: 'post',
                     credentials: 'include',
                     headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify(postData)
+                    body: JSON.stringify(values)
                 }).then(response => response.json()
                 ).then(json => {
                     this.setState({loading: false});
@@ -137,15 +122,11 @@ class QjContentForm extends React.Component {
         this.props.form.validateFieldsAndScroll((err, values) => {
           if(!err){
               this.setState({loading: true});
-              let postData = {};
-              postData.value = values;
-              postData.relationList = values.relation;
-              delete postData.value["relation"];
               fetch('/updateQjInfo', {
                   method: 'post',
                   credentials: 'include',
                   headers: {'Content-Type': 'application/json'},
-                  body: JSON.stringify(postData)
+                  body: JSON.stringify(values)
               }).then(response => response.json()
               ).then(json => {
                   this.setState({loading: false});
@@ -277,20 +258,6 @@ class QjContentForm extends React.Component {
                     </div>
                 </div>
                 <hr/>
-                <div>
-                    <FormItem className="form-group">
-                        {getFieldDecorator('relation', {
-                            initialValue: [],
-                        })(
-                            <ReferenceTable
-                                type='qj'
-                                mode={mode}
-                            />
-                        )}
-                        <div/>
-                    </FormItem>
-
-                </div>
                 {mode==='view'&&<div>
                     <hr/>
                     <h5>修改记录</h5>

@@ -45,7 +45,6 @@ public class LXExcel  implements Excel{
     private String degree;
     private Date gra_date;
     private String social_services;
-    private List<RelationVO> relationList = new ArrayList<>();
 
     public Long getLx_id() {
         return lx_id;
@@ -317,13 +316,5 @@ public class LXExcel  implements Excel{
 
     public void setSocial_services(String social_services) {
         this.social_services = social_services;
-    }
-
-    public List<RelationVO> getRelationList() {
-        return relationList;
-    }
-
-    public void setRelationList(List<RelationVO> relationList) {
-        this.relationList = relationList;
     }
 }

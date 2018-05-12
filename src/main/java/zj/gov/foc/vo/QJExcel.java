@@ -18,7 +18,6 @@ public class QJExcel  implements Excel{
     private String passport_no;
     private String tel1;
     private String tel2;
-    private List<RelationVO> relationList = new ArrayList<>();
 
     public Long getQj_id() {
         return qj_id;
@@ -74,13 +73,5 @@ public class QJExcel  implements Excel{
 
     public void setTel2(String tel2) {
         this.tel2 = tel2;
-    }
-
-    public List<RelationVO> getRelationList() {
-        return relationList;
-    }
-
-    public void setRelationList(List<RelationVO> relationList) {
-        this.relationList = relationList;
     }
 }

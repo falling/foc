@@ -1,7 +1,5 @@
 package zj.gov.foc.vo;
 
-import java.util.List;
-
 /**
  * Created by User: falling
  * Date: 2018/2/18
@@ -9,5 +7,4 @@ import java.util.List;
  * Description:
  */
 public interface Excel {
-    List<RelationVO> getRelationList();
 }

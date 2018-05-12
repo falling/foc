@@ -20,7 +20,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.sql.Date;
-import java.util.List;
 
 /**
  * Created by User: falling
@@ -48,7 +47,7 @@ public class InfoController {
 
 
     @RequestMapping("/addHQInfo")
-    public VO addHQInfo(@RequestBody HQVOWithRelation hqvo, HttpSession httpSession) {
+    public VO addHQInfo(@RequestBody HQVO hqvo, HttpSession httpSession) {
         UserVO userVO = (UserVO) httpSession.getAttribute("user");
         if (userVO == null) {
             return Response.warning("未登录");
@@ -61,36 +60,26 @@ public class InfoController {
     }
 
     @RequestMapping("/addQjInfo")
-    public VO addQjInfo(@RequestBody QjVOwithRelation vo) {
-        QjVO qjVO = vo.getValue();
-        List<RelationVO> relationVOList = vo.getRelationList();
-        if(relationVOList.size()==0){
-            return Response.warning("请添加家庭成员");
-        }
-        if(qjService.saveWithRelation(qjVO,relationVOList)!=null){
+    public VO addQjInfo(@RequestBody QjVO qjVO) {
+        if(qjService.saveQj(qjVO)!=null){
             return Response.success("录入成功");
         }
         return Response.success("录入失败");
     }
 
     @RequestMapping("/updateQjInfo")
-    public VO updateQjInfo(@RequestBody QjVOwithRelation vo) {
-        QjVO qjVO = vo.getValue();
-        List<RelationVO> relationVOList = vo.getRelationList();
-        if(relationVOList.size()==0){
-            return Response.warning("请添加家庭成员");
-        }
-        qjService.updateWithRelation(qjVO,relationVOList);
+    public VO updateQjInfo(@RequestBody QjVO qjVO) {
+        qjService.update(qjVO);
         return Response.success("更新成功");
     }
     @RequestMapping("/addLXInfo")
-    public VO addLXInfo(@RequestBody LxVOwithRelation lxVOwithRelation, HttpSession httpSession) {
+    public VO addLXInfo(@RequestBody LxVO lxVO, HttpSession httpSession) {
         UserVO userVO = (UserVO) httpSession.getAttribute("user");
         if (userVO == null) {
             return Response.warning("未登录");
         }
 
-        if (lxService.addLX(lxVOwithRelation, userVO.getId()) != null) {
+        if (lxService.addLX(lxVO, userVO.getId()) != null) {
             return Response.success("录入成功");
         } else {
             return Response.warning("录入失败，该护照已经添加");
@@ -122,33 +111,7 @@ public class InfoController {
             }
         }
     }
-
-    @RequestMapping("/loadByPassportWithoutRelation")
-    public VO loadByPassportWithoutRelation(@RequestParam("passport_no") String passport_no,
-                                            @RequestParam("type") String type){
-        if (type.equals("lx")) {
-            VO result = lxService.loadByPassportWithoutRelation(passport_no);
-            if (result == null) {
-                return Response.warning("用户不存在");
-            } else {
-                return Response.success(result);
-            }
-        } else if (type.equals("hq")) {
-            VO result = hqService.loadByPassportWithoutRelation(passport_no);
-            if (result == null) {
-                return Response.warning("用户不存在");
-            } else {
-                return Response.success(result);
-            }
-        } else {
-            VO result = qjService.loadByPassportWithoutRelation(passport_no);
-            if (result == null) {
-                return Response.warning("用户不存在");
-            } else {
-                return Response.success(result);
-            }
-        }
-    }
+    
     @RequestMapping("/loadByPassport")
     public VO loadByPassport(@RequestParam("passport_no") String passport_no,
                              @RequestParam("type") String type){
@@ -177,7 +140,7 @@ public class InfoController {
     }
 
     @RequestMapping("/updateLXInfo")
-    public VO updateLXInfo(@RequestBody LxVOwithRelation vo) {
+    public VO updateLXInfo(@RequestBody LxVO vo) {
         if (lxService.update(vo)!=null) {
             return Response.success("更新成功");
         } else {
@@ -187,7 +150,7 @@ public class InfoController {
 
 
     @RequestMapping("/updateHQInfo")
-    public VO updateHQInfo(@RequestBody HQVOWithRelation vo) {
+    public VO updateHQInfo(@RequestBody HQVO vo) {
         if(hqService.update(vo)!=null) {
             return Response.success("更新成功");
         }else{

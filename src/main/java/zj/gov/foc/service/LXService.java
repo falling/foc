@@ -4,13 +4,11 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import zj.gov.foc.po.LxBean;
-import zj.gov.foc.po.RelationBean;
 import zj.gov.foc.repository.LXRepository;
 import zj.gov.foc.repository.QJRepository;
-import zj.gov.foc.repository.RelationRepository;
 import zj.gov.foc.repository.UserRepository;
-import zj.gov.foc.util.CommonFunction;
-import zj.gov.foc.vo.*;
+import zj.gov.foc.vo.LxVO;
+import zj.gov.foc.vo.SearchVO;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -37,12 +35,8 @@ public class LXService {
     @Autowired
     QJRepository qjRepository;
 
-    @Autowired
-    RelationRepository relationRepository;
-
     @Transactional
-    public LxBean addLX(LxVOwithRelation lxVOwithRelation, Long id) {
-        LxVO lxVO = lxVOwithRelation.getValue();
+    public LxBean addLX(LxVO lxVO, Long id) {
         if(lxRepository.loadByPassport(lxVO.getPassport_no())!=null){
             return null;
         }
@@ -52,47 +46,21 @@ public class LXService {
         bean.setDel("0");
         bean.setRemarks("");
         bean.setRegistrant(id);
-        LxBean newBean = lxRepository.save(bean);
-        if(newBean==null){
-            return null;
-        }
-        saveLxRelation(bean,lxVOwithRelation);
-        return newBean;
+        return lxRepository.save(bean);
     }
 
-    public LxVOwithRelation loadByPassport(String passport_no) {
+    public LxVO loadByPassport(String passport_no) {
         LxBean bean = lxRepository.loadByPassport(passport_no);
-        LxVOwithRelation vo = null;
+        LxVO lxVO = null;
         if(bean!=null){
-            vo = new LxVOwithRelation();
-            LxVO lxVO = new LxVO();
+            lxVO = new LxVO();
             BeanUtils.copyProperties(bean,lxVO);
             String registrant_name = userRepository
                     .getById(bean.getRegistrant())
                     .getName();
             lxVO.setRegistrant_name(registrant_name);
-            vo.setValue(lxVO);
-
-            //relation
-            List relations = relationRepository.getByOId(lxVO.getLx_id());
-            List<RelationVO> relationVOList = new ArrayList<>();
-            CommonFunction.getQJRelationList(relations,relationVOList,qjRepository);
-            vo.setRelationList(relationVOList);
         }
-        return vo;
-    }
-    public VO loadByPassportWithoutRelation(String passport_no) {
-        LxBean bean = lxRepository.loadByPassport(passport_no);
-        LxVO vo = null;
-        if(bean!=null){
-            vo = new LxVO();
-            BeanUtils.copyProperties(bean,vo);
-            String registrant_name = userRepository
-                    .getById(bean.getRegistrant())
-                    .getName();
-            vo.setRegistrant_name(registrant_name);
-        }
-        return vo;
+        return lxVO;
     }
 
     public boolean confirmPassport(String passport_no, long id) {
@@ -100,49 +68,27 @@ public class LXService {
     }
 
     @Transactional
-    public LxBean update(LxVOwithRelation lxVOwithRelation) {
-        LxVO vo = lxVOwithRelation.getValue();
+    public LxBean update(LxVO vo) {
         LxBean bean = lxRepository.getById(vo.getLx_id());
         if(bean == null) return null;
         BeanUtils.copyProperties(vo,bean);
-        LxBean lxBean = lxRepository.save(bean);
-
-        saveLxRelation(bean,lxVOwithRelation);
-        return lxBean;
-    }
-    private void saveLxRelation(LxBean bean,LxVOwithRelation lxVOwithRelation){
-        relationRepository.deletebyoId(bean.getLx_id());
-        List<RelationBean> relationBeanList = new ArrayList<>();
-        List<RelationVO> relationVOList = lxVOwithRelation.getRelationList();
-        relationVOList.forEach(e -> {
-            e.setO_id(bean.getLx_id());
-            RelationBean bean1 = new RelationBean();
-            BeanUtils.copyProperties(e, bean1);
-            bean1.setType("留学");
-            bean1.setId(null);
-            relationBeanList.add(bean1);
-        });
-        relationRepository.save(relationBeanList);
+        return lxRepository.save(bean);
     }
 
     @Transactional
     public boolean deleteLX(Long id) {
-        if(lxRepository.delete(id) ==1){
-            relationRepository.deletebyoId(id);
-            return true;
-        }
-        return false;
+        return lxRepository.delete(id) == 1;
     }
 
     @PersistenceContext
     private EntityManager entityManager;
 
-    public SearchVO<LxVOwithRelation> search(String col, String value) {
-        SearchVO<LxVOwithRelation> searchVO = new SearchVO<>();
+    public SearchVO<LxVO> search(String col, String value) {
+        SearchVO<LxVO> searchVO = new SearchVO<>();
         String sql = "SELECT * FROM lx WHERE "+col+" LIKE '%"+value+"%' AND del = '0'";
         Query query = entityManager.createNativeQuery(sql,LxBean.class);
         List<LxBean> resultList = query.getResultList();
-        List<LxVOwithRelation> returnList = new ArrayList<>();
+        List<LxVO> returnList = new ArrayList<>();
         resultList.forEach(result->{
             String registrant_name = userRepository
                     .getById(result.getRegistrant())
@@ -150,15 +96,7 @@ public class LXService {
             LxVO vo = new LxVO();
             BeanUtils.copyProperties(result,vo);
             vo.setRegistrant_name(registrant_name);
-
-            LxVOwithRelation lxVOwithRelation = new LxVOwithRelation();
-            lxVOwithRelation.setValue(vo);
-
-            List relations = relationRepository.getByOId(vo.getLx_id());
-            List<RelationVO> relationVOList = new ArrayList<>();
-            CommonFunction.getQJRelationList(relations,relationVOList,qjRepository);
-            lxVOwithRelation.setRelationList(relationVOList);
-            returnList.add(lxVOwithRelation);
+            returnList.add(vo);
         });
         searchVO.setResult(returnList);
         return searchVO;

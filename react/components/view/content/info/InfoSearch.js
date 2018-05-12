@@ -81,7 +81,6 @@ export default class InfoSearch extends React.Component {
 
     componentWillReceiveProps(nextProps) {
         //get number
-        console.log("update")
         this.getStatistics();
     }
 
@@ -100,13 +99,10 @@ export default class InfoSearch extends React.Component {
     }
 
     showData(record) {
-        let sData = {};
-        sData.value = record;
-        sData.relationList = record.relationList;
-        delete sData.value.info;
+        delete record.info;
         this.setState({
             previewVisible: true,
-            showData: sData,
+            showData: record,
         })
     }
 
@@ -128,8 +124,7 @@ export default class InfoSearch extends React.Component {
                 if (json.status > 0) {
                     let data = [];
                     json.result.forEach(e => {
-                        e.value.relationList = e.relationList;
-                        data.push(e.value);
+                        data.push(e);
                     });
                     this.setState({
                         show: true,
