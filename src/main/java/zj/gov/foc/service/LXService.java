@@ -44,7 +44,6 @@ public class LXService {
         BeanUtils.copyProperties(lxVO,bean);
         bean.setReg_date(new Date(System.currentTimeMillis()));
         bean.setDel("0");
-        bean.setRemarks("");
         bean.setRegistrant(id);
         return lxRepository.save(bean);
     }

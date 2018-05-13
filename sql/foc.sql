@@ -25,28 +25,25 @@ CREATE TABLE hq
     PRIMARY KEY,
   ch_name          VARCHAR(255) DEFAULT ' '  NOT NULL,
   used_name        VARCHAR(255) DEFAULT ' '  NULL,
-  py_name          VARCHAR(255) DEFAULT ' '  NOT NULL,
-  sex              VARCHAR(5) DEFAULT ' '   NOT NULL,
-  ethnicity        VARCHAR(255) DEFAULT ' '  NOT NULL,
-  passport_no      VARCHAR(255) DEFAULT ' '  NOT NULL,
-  date_expriy      DATETIME                 NOT NULL,
-  date_birth       DATETIME                 NOT NULL,
-  id_num           VARCHAR(255) DEFAULT ' '  NOT NULL,
-  o_tel            VARCHAR(255) DEFAULT ' '  NULL,
-  cn_tel           VARCHAR(255) DEFAULT ' '  NULL,
-  cn_te2           VARCHAR(255) DEFAULT ' '  NULL,
+  py_name          VARCHAR(255) DEFAULT ' ' NULL,
+  sex              VARCHAR(5) DEFAULT ' '   NULL,
+  ethnicity        VARCHAR(255) DEFAULT ' ' NULL,
+  passport_no      VARCHAR(255) DEFAULT ' ' NULL,
+  date_birth       DATETIME                 NULL,
+  id_num           VARCHAR(255) DEFAULT ' ' NULL,
+  o_tel            VARCHAR(255) DEFAULT ' ' NULL,
+  cn_tel           VARCHAR(255) DEFAULT ' ' NULL,
   wechat           VARCHAR(255) DEFAULT ' '  NULL,
   mail             VARCHAR(255) DEFAULT ' '  NULL,
   qq_num           VARCHAR(255) DEFAULT ' '  NULL,
   native_place     VARCHAR(255) DEFAULT ' '  NULL,
   nationality      VARCHAR(255) DEFAULT ' '  NULL,
   residence        VARCHAR(255) DEFAULT ' '  NULL,
+  residence_detail VARCHAR(255) DEFAULT ' '  NULL,
   cn_residence     VARCHAR(255) DEFAULT ' '  NULL,
   present_industry VARCHAR(255) DEFAULT ' '  NULL,
   com_name         VARCHAR(255) DEFAULT ' '  NULL,
   position         VARCHAR(255) DEFAULT ' '  NULL,
-  education        VARCHAR(255) DEFAULT ' '  NULL,
-  health           VARCHAR(255) DEFAULT ' '  NULL,
   registrant       INT(20)                  NULL,
   photo            VARCHAR(255) DEFAULT ' ' NULL,
   reg_date         DATETIME                 NULL,
@@ -101,37 +98,35 @@ CREATE TABLE lx
     PRIMARY KEY,
   ch_name          VARCHAR(255) DEFAULT ' '  NOT NULL,
   used_name        VARCHAR(255) DEFAULT ' '  NULL,
-  py_name          VARCHAR(255) DEFAULT ' '  NOT NULL,
-  sex              VARCHAR(5) DEFAULT ' '   NOT NULL,
+  py_name          VARCHAR(255) DEFAULT ' '  NULL,
+  sex              VARCHAR(5) DEFAULT ' '    NULL,
   ethnicity        VARCHAR(255) DEFAULT ' '  NULL,
   passport_no      VARCHAR(255) DEFAULT ' '  NULL,
-  date_expriy      DATETIME                 NOT NULL,
-  date_birth       DATETIME                 NOT NULL,
+  date_birth       DATETIME                  NULL,
   id_num           VARCHAR(255) DEFAULT ' '  NULL,
   o_tel            VARCHAR(255) DEFAULT ' '  NULL,
   cn_tel           VARCHAR(255) DEFAULT ' '  NULL,
-  cn_te2           VARCHAR(255) DEFAULT ' '  NULL,
   wechat           VARCHAR(255) DEFAULT ' '  NULL,
   mail             VARCHAR(255) DEFAULT ' '  NULL,
   qq_num           VARCHAR(255) DEFAULT ' '  NULL,
   native_place     VARCHAR(255) DEFAULT ' '  NULL,
   nationality      VARCHAR(255) DEFAULT ' '  NULL,
   residence        VARCHAR(255) DEFAULT ' '  NULL,
+  residence_detail VARCHAR(255) DEFAULT ' '  NULL,
   cn_residence     VARCHAR(255) DEFAULT ' '  NULL,
   present_industry VARCHAR(255) DEFAULT ' '  NULL,
   com_name         VARCHAR(255) DEFAULT ' '  NULL,
   position         VARCHAR(255) DEFAULT ' '  NULL,
-  education        VARCHAR(255) DEFAULT ' '  NULL,
-  health           VARCHAR(255) DEFAULT ' '  NULL,
   registrant       INT(20)                  NULL,
   photo            VARCHAR(255) DEFAULT ' ' NULL,
   reg_date         DATETIME                 NOT NULL,
   remarks          VARCHAR(255) DEFAULT ' ' NULL,
   en_cname         VARCHAR(255) DEFAULT ' ' NULL,
   ch_cname         VARCHAR(255) DEFAULT ' ' NULL,
-  degree           VARCHAR(255) DEFAULT ' '  NULL,
-  gra_date         DATETIME                 NULL,
-  social_services  VARCHAR(255)              NULL,
+  degree           VARCHAR(255) DEFAULT ' ' NULL,
+  social_services  VARCHAR(255) DEFAULT ' ' NULL,
+  family_name  VARCHAR(255) DEFAULT ' ' NULL,
+  family_tel   VARCHAR(255) DEFAULT ' ' NULL,
   del              VARCHAR(5) DEFAULT ' '   NULL
 )
   ENGINE = InnoDB
@@ -176,19 +171,6 @@ CREATE TABLE user
   ENGINE = InnoDB
   DEFAULT CHARSET = utf8;
 
--- ----------------------------
--- Table structure for relationShip
--- ----------------------------
-DROP TABLE IF EXISTS `relationShip`;
-CREATE TABLE relationship
-(
-  id       INT AUTO_INCREMENT
-    PRIMARY KEY,
-  o_id     INT          NULL,
-  qj_id    INT          NULL,
-  type     VARCHAR(255) NULL,
-  relation VARCHAR(255) NULL
-)
-  ENGINE = InnoDB
-  DEFAULT CHARSET = utf8;
+
+INSERT INTO  user (user_name,pwd,name,power,reg_date,del) values ('root','123456','root','admin',now(),'0')
 

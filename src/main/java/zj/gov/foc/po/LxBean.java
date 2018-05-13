@@ -20,24 +20,21 @@ public class LxBean {
     private String sex;
     private String ethnicity;
     private String passport_no;
-    private Date date_expriy;
     private Date date_birth;
     private String id_num;
     private String o_tel;
     private String cn_tel;
-    private String cn_te2;
     private String wechat;
     private String mail;
     private String qq_num;
     private String native_place;
     private String nationality;
     private String residence;
+    private String residenceDetail;
     private String cn_residence;
     private String present_industry;
     private String com_name;
     private String position;
-    private String education;
-    private String health;
     private Long registrant;
     private String photo;
     private Date reg_date;
@@ -45,9 +42,35 @@ public class LxBean {
     private String en_cname;
     private String ch_cname;
     private String degree;
-    private Date gra_date;
     private String social_services;
+    private String family_name;
+    private String family_tel;
     private String del;
+
+
+    public String getResidenceDetail() {
+        return residenceDetail;
+    }
+
+    public void setResidenceDetail(String residenceDetail) {
+        this.residenceDetail = residenceDetail;
+    }
+
+    public String getFamily_name() {
+        return family_name;
+    }
+
+    public void setFamily_name(String family_name) {
+        this.family_name = family_name;
+    }
+
+    public String getFamily_tel() {
+        return family_tel;
+    }
+
+    public void setFamily_tel(String family_tel) {
+        this.family_tel = family_tel;
+    }
 
     public String getSocial_services() {
         return social_services;
@@ -113,14 +136,6 @@ public class LxBean {
         this.passport_no = passport_no;
     }
 
-    public Date getDate_expriy() {
-        return date_expriy;
-    }
-
-    public void setDate_expriy(Date date_expriy) {
-        this.date_expriy = date_expriy;
-    }
-
     public Date getDate_birth() {
         return date_birth;
     }
@@ -153,13 +168,6 @@ public class LxBean {
         this.cn_tel = cn_tel;
     }
 
-    public String getCn_te2() {
-        return cn_te2;
-    }
-
-    public void setCn_te2(String cn_te2) {
-        this.cn_te2 = cn_te2;
-    }
 
     public String getWechat() {
         return wechat;
@@ -241,22 +249,6 @@ public class LxBean {
         this.position = position;
     }
 
-    public String getEducation() {
-        return education;
-    }
-
-    public void setEducation(String education) {
-        this.education = education;
-    }
-
-    public String getHealth() {
-        return health;
-    }
-
-    public void setHealth(String health) {
-        this.health = health;
-    }
-
     public Long getRegistrant() {
         return registrant;
     }
@@ -311,14 +303,6 @@ public class LxBean {
 
     public void setReg_date(Date reg_date) {
         this.reg_date = reg_date;
-    }
-
-    public Date getGra_date() {
-        return gra_date;
-    }
-
-    public void setGra_date(Date gra_date) {
-        this.gra_date = gra_date;
     }
 
     public String getDel() {

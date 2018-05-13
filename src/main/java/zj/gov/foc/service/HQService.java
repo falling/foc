@@ -40,7 +40,6 @@ public class HQService {
         bean.setRegistrant(userVO.getId());
         bean.setReg_date(new Date(System.currentTimeMillis()));
         bean.setDel("0");
-        bean.setRemarks("");
         return hqRepository.save(bean);
     }
 

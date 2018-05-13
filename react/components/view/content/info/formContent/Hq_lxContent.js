@@ -3,7 +3,7 @@ import {Form, Input, Select, message, DatePicker, Cascader} from 'antd';
 import 'whatwg-fetch';
 import moment from 'moment';
 import PicturesWall from "../../../../uiCompoment/PicturesWall";
-import {City} from "../../../../config/City";
+import {pc_code} from "../../../../config/pc_code";
 import LogTable from "../../../../uiCompoment/LogTable";
 
 const FormItem = Form.Item;
@@ -26,43 +26,10 @@ class Hq_lxContentForm extends React.Component {
         this.update = this.update.bind(this);
         this.getPhotoUrl = this.getPhotoUrl.bind(this);
         this.delete = this.delete.bind(this);
-        this.getChild = this.getChild.bind(this);
-        this.confirmPassport_no = this.confirmPassport_no.bind(this);
         this.setValue = this.setValue.bind(this);
-        options = this.getChild(City);
+        options = pc_code;
 
     }
-
-    confirmPassport_no(rule, value, callback) {
-        const {type} = this.props;
-        let formData = new FormData();
-        formData.append("passport_no", value);
-        formData.append("type", type);
-        formData.append("id", this.props.form.getFieldValue(`${type}_id`) || 0);
-        fetch('/confirmPassport', {
-            method: 'post',
-            credentials: 'include',
-            body: formData
-        }).then(response => response.json())
-            .then(json => {
-                if (json.status > 0) {
-                    callback("该护照已经录入");
-                } else {
-                    callback();
-                }
-            })
-    }
-
-    getChild(e) {
-        if (e) {
-            return e.map(city => ({
-                label: city.name,
-                value: city.name,
-                children: this.getChild(city.childs)
-            }))
-        }
-    }
-
 
     getPhotoUrl(url) {
         this.url = url;
@@ -181,15 +148,13 @@ class Hq_lxContentForm extends React.Component {
         let value = props.info;
         delete value.info;
         delete value.status;
-        console.log(value);
         value.date_birth = value.date_birth ? moment(value.date_birth) : '';
-        value.date_expriy = value.date_expriy ? moment(value.date_expriy) : '';
         if (this.props.type === 'lx') {
             value.gra_date = value.gra_date ? moment(value.gra_date) : '';
         }
         this.photo = value.photo;
 
-        if (value.native_place) { // 'a/b/c',[],[a,b,c],
+        if (value.native_place) { // 'a/b',[],[a,b],
             if (typeof (value.native_place) === "string") {
                 value.native_place = value.native_place.split("/")
             }
@@ -231,9 +196,8 @@ class Hq_lxContentForm extends React.Component {
                             {getFieldDecorator('ch_name', {
                                 rules: [{
                                     required: true,
-                                    pattern: /^[\u4e00-\u9fa5]+$/,
-                                    message: '请输入中文名'
-                                }, {max: 10, message: '长度最长为10'}],
+                                    message:'请输入中文名',
+                                }],
                             })(
                                 <Input
                                     disabled={mode === 'search'}
@@ -246,11 +210,7 @@ class Hq_lxContentForm extends React.Component {
                     <div className="col-md-3">
                         <FormItem className="form-group" label="拼音">
                             {getFieldDecorator('py_name', {
-                                rules: [{
-                                    required: true,
-                                    pattern: /^[a-z|A-Z| ]+$/,
-                                    message: '请输入拼音'
-                                }],
+                                initialValue: '',
                             })(
                                 <Input
                                     disabled={mode === 'search'}
@@ -264,10 +224,6 @@ class Hq_lxContentForm extends React.Component {
                         <FormItem className="form-group" label="曾用名">
                             {getFieldDecorator('used_name', {
                                 initialValue: '',
-                                rules: [{
-                                    pattern: /^[\u4e00-\u9fa5]+$/,
-                                    message: '请输入中文'
-                                }],
                             })(
                                 <Input
                                     disabled={mode === 'search'}
@@ -280,11 +236,7 @@ class Hq_lxContentForm extends React.Component {
                     <div className="col-md-2">
                         <FormItem className="form-group" label="民族">
                             {getFieldDecorator('ethnicity', {
-                                rules: [{
-                                    required: true,
-                                    pattern: /^[\u4e00-\u9fa5]+$/,
-                                    message: '请输入民族'
-                                }],
+                                initialValue: '',
                             })(
                                 <Input
                                     disabled={mode === 'search'}
@@ -298,10 +250,7 @@ class Hq_lxContentForm extends React.Component {
                     <div className="col-md-2">
                         <FormItem className="form-group" label="性别">
                             {getFieldDecorator('sex', {
-                                initialValue: '男',
-                                rules: [{
-                                    required: true,
-                                }],
+                                initialValue: '男'
                             })(
                                 <Select disabled={mode === 'search'}>
                                     <Option value="男">男</Option>
@@ -316,13 +265,7 @@ class Hq_lxContentForm extends React.Component {
                     <div className="col-md-3">
                         <FormItem className="form-group" label="护照号码">
                             {getFieldDecorator('passport_no', {
-                                validateTrigger: 'onBlur',
-                                rules: [{
-                                    required: true,
-                                    message: '请输入护照号码'
-                                }, {
-                                    validator: this.confirmPassport_no,
-                                }],
+                                initialValue: ''
                             })(
                                 <Input
                                     disabled={mode === 'search'}
@@ -333,24 +276,9 @@ class Hq_lxContentForm extends React.Component {
                         </FormItem>
                     </div>
                     <div className="col-md-3">
-                        <FormItem className="form-group" label="护照有效期">
-                            {getFieldDecorator('date_expriy', {
-                                rules: [{
-                                    required: true,
-                                    message: '请选择护照有效期'
-                                }],
-                            })(
-                                <DatePicker
-                                    disabled={mode === 'search'}
-                                    disabledDate={current => current < moment().endOf('day')}
-                                />
-                            )}
-                        </FormItem>
-                    </div>
-                    <div className="col-md-3">
                         <FormItem className="form-group" label="出生年月日">
                             {getFieldDecorator('date_birth', {
-                                rules: [{required: true, message: '请选择出生日期'}],
+                                rules: [{required: false, message: '请选择出生日期'}],
                             })(
                                 <DatePicker
                                     disabled={mode === 'search'}
@@ -362,12 +290,7 @@ class Hq_lxContentForm extends React.Component {
                     <div className="col-md-3">
                         <FormItem className="form-group" label="身份证号">
                             {getFieldDecorator('id_num', {
-                                initialValue: '',
-                                validateTrigger: 'onBlur',
-                                rules: [{
-                                    pattern: /(^[1-9]\d{5}(18|19|([23]\d))\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$)|(^[1-9]\d{5}\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{2}[0-9Xx]$)/,
-                                    message: '请输入身份证号',
-                                }],
+                                initialValue: ''
                             })(
                                 <Input
                                     disabled={mode === 'search'}
@@ -381,48 +304,33 @@ class Hq_lxContentForm extends React.Component {
                 <hr/>
                 <div className="row">
                     <div className="col-md-4">
-                        <FormItem className="form-group" label="海外联系电话">
+                        <FormItem className="form-group" label="常用电话">
                             {getFieldDecorator('o_tel', {
                                 initialValue: '',
                                 rules: [{
-                                    message: '请输入海外联系电话'
+                                    required: true,
+                                    message: '请输入常用电话'
                                 }],
                             })(
                                 <Input
                                     disabled={mode === 'search'}
-                                    placeholder="海外联系电话"
+                                    placeholder="常用电话"
                                     className="form-control border-input"
                                 />
                             )}
-                            <div/>
                         </FormItem>
                     </div>
                     <div className="col-md-4">
-                        <FormItem className="form-group" label="中国联系电话1">
+                        <FormItem className="form-group" label="中国联系电话">
                             {getFieldDecorator('cn_tel', {
                                 initialValue: '',
                             })(
                                 <Input
                                     disabled={mode === 'search'}
-                                    placeholder="中国联系电话1"
+                                    placeholder="中国联系电话"
                                     className="form-control border-input"
                                 />
                             )}
-                            <div/>
-                        </FormItem>
-                    </div>
-                    <div className="col-md-4">
-                        <FormItem className="form-group" label="中国联系电话2">
-                            {getFieldDecorator('cn_te2', {
-                                initialValue: '',
-                            })(
-                                <Input
-                                    disabled={mode === 'search'}
-                                    placeholder="中国联系电话2"
-                                    className="form-control border-input"
-                                />
-                            )}
-                            <div/>
                         </FormItem>
                     </div>
                 </div>
@@ -439,7 +347,6 @@ class Hq_lxContentForm extends React.Component {
                                     className="form-control border-input"
                                 />
                             )}
-                            <div/>
                         </FormItem>
                     </div>
                     <div className="col-md-4">
@@ -458,17 +365,12 @@ class Hq_lxContentForm extends React.Component {
                                     className="form-control border-input"
                                 />
                             )}
-                            <div/>
                         </FormItem>
                     </div>
                     <div className="col-md-4">
                         <FormItem className="form-group" label="QQ">
                             {getFieldDecorator('qq_num', {
                                 initialValue: '',
-                                rules: [{
-                                    pattern: /[1-9][0-9]{4,14}/,
-                                    message: 'qq格式不正确'
-                                }]
                             })(
                                 <Input
                                     disabled={mode === 'search'}
@@ -476,7 +378,6 @@ class Hq_lxContentForm extends React.Component {
                                     className="form-control border-input"
                                 />
                             )}
-                            <div/>
                         </FormItem>
                     </div>
                 </div>
@@ -485,11 +386,7 @@ class Hq_lxContentForm extends React.Component {
                     <div className="col-md-4">
                         <FormItem className="form-group" label="现国籍">
                             {getFieldDecorator('nationality', {
-                                rules: [{
-                                    required: true,
-                                    pattern: /^[\u4e00-\u9fa5]+$/,
-                                    message: '请输入国籍'
-                                }]
+                                initialValue: ''
                             })(
                                 <Input
                                     disabled={mode === 'search'}
@@ -497,16 +394,12 @@ class Hq_lxContentForm extends React.Component {
                                     className="form-control border-input"
                                 />
                             )}
-                            <div/>
                         </FormItem>
                     </div>
                     <div className="col-md-4">
-                        <FormItem className="form-group" label="旅居地">
+                        <FormItem className="form-group" label="现居住国">
                             {getFieldDecorator('residence', {
-                                rules: [{
-                                    required: true,
-                                    message: '请输入居旅地'
-                                }]
+                                initialValue: ''
                             })(
                                 <Input
                                     disabled={mode === 'search'}
@@ -514,17 +407,12 @@ class Hq_lxContentForm extends React.Component {
                                     className="form-control border-input"
                                 />
                             )}
-                            <div/>
                         </FormItem>
                     </div>
                     <div className="col-md-4">
-                        <FormItem className="form-group" label="中国居住地">
+                        <FormItem className="form-group" label="中国居住地详细地址">
                             {getFieldDecorator('cn_residence', {
-                                rules: [{
-                                    required: true,
-                                    pattern: /^[\u4e00-\u9fa5]+$/,
-                                    message: '请输入中国居住地'
-                                }]
+                                initialValue: ''
                             })(
                                 <Input
                                     disabled={mode === 'search'}
@@ -532,11 +420,24 @@ class Hq_lxContentForm extends React.Component {
                                     className="form-control border-input"
                                 />
                             )}
-                            <div/>
                         </FormItem>
                     </div>
                 </div>
                 <div className="row">
+                    <div className="col-md-4">
+                        <FormItem className="form-group" label="现旅居地详细地址">
+                            {getFieldDecorator('residenceDetail', {
+                                initialValue: ''
+                            })(
+                                <Input
+                                    disabled={mode === 'search'}
+                                    placeholder="旅居地"
+                                    className="form-control border-input"
+                                />
+                            )}
+                        </FormItem>
+                    </div>
+
                     <div className="col-md-4">
                         <FormItem className="form-group" label="籍贯">
                             {getFieldDecorator('native_place', {
@@ -548,7 +449,6 @@ class Hq_lxContentForm extends React.Component {
                                     placeholder="籍贯"
                                 />
                             )}
-                            <div/>
                         </FormItem>
                     </div>
                 </div>
@@ -566,7 +466,6 @@ class Hq_lxContentForm extends React.Component {
                                     className="form-control border-input"
                                 />
                             )}
-                            <div/>
                         </FormItem>
                     </div>
                     <div className="col-md-4">
@@ -580,7 +479,6 @@ class Hq_lxContentForm extends React.Component {
                                     className="form-control border-input"
                                 />
                             )}
-                            <div/>
                         </FormItem>
                     </div>
                     <div className="col-md-4">
@@ -594,7 +492,6 @@ class Hq_lxContentForm extends React.Component {
                                     className="form-control border-input"
                                 />
                             )}
-                            <div/>
                         </FormItem>
                     </div>
                 </div>
@@ -611,42 +508,89 @@ class Hq_lxContentForm extends React.Component {
                                     className="form-control border-input"
                                 />
                             )}
-                            <div/>
-                        </FormItem>
-                    </div>
-                    <div className="col-md-4">
-                        <FormItem className="form-group" label="文化程度">
-                            {getFieldDecorator('education', {
-                                initialValue: '',
-                            })(
-                                <Input
-                                    disabled={mode === 'search'}
-                                    placeholder="文化程度"
-                                    className="form-control border-input"
-                                />
-                            )}
-                            <div/>
-                        </FormItem>
-                    </div>
-                    <div className="col-md-4">
-                        <FormItem className="form-group" label="健康状态">
-                            {getFieldDecorator('health', {
-                                initialValue: '',
-                            })(
-                                <Input
-                                    disabled={mode === 'search'}
-                                    placeholder="健康状态"
-                                    className="form-control border-input"
-                                />
-                            )}
-                            <div/>
                         </FormItem>
                     </div>
                 </div>
                 <hr/>
+                {type === 'lx' &&
+                <div>
+                    <hr/>
+                    <div className="row">
+                        <div className="col-md-3">
+                            <FormItem className="form-group" label="毕业院校英文名">
+                                {getFieldDecorator('en_cname', {
+                                    initialValue: '',
+                                })(
+                                    <Input
+                                        disabled={mode === 'search'}
+                                        placeholder="毕业院校英文名"
+                                        className="form-control border-input"
+                                    />
+                                )}
+                            </FormItem>
+                        </div>
+                        <div className="col-md-3">
+                            <FormItem className="form-group" label="毕业院校中文名">
+                                {getFieldDecorator('ch_cname', {
+                                    initialValue: '',
+                                })(
+                                    <Input
+                                        disabled={mode === 'search'}
+                                        placeholder="毕业院校中文名"
+                                        className="form-control border-input"
+                                    />
+                                )}
+                            </FormItem>
+                        </div>
+                        <div className="col-md-3">
+                            <FormItem className="form-group" label="学位">
+                                {getFieldDecorator('degree', {
+                                    initialValue: '',
+                                })(
+                                    <Input
+                                        disabled={mode === 'search'}
+                                        placeholder="学位"
+                                        className="form-control border-input"
+                                    />
+                                )}
+                            </FormItem>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-md-4">
+                            <FormItem className="form-group" label="国内直系亲属名字">
+                                {getFieldDecorator('family_name', {
+                                    initialValue: '',
+                                })(
+                                    <Input
+                                        disabled={mode === 'search'}
+                                        placeholder="国内直系亲属名字"
+                                        className="form-control border-input"
+                                    />
+                                )}
+                            </FormItem>
+                        </div>
+
+                        <div className="col-md-4">
+                            <FormItem className="form-group" label="国内直系亲属联系方式">
+                                {getFieldDecorator('family_tel', {
+                                    initialValue: '',
+                                })(
+                                    <Input
+                                        disabled={mode === 'search'}
+                                        placeholder="国内直系亲属联系方式"
+                                        className="form-control border-input"
+                                    />
+                                )}
+                            </FormItem>
+                        </div>
+                    </div>
+                </div>
+                }
+                <hr/>
                 <div className="row">
                     <div className="col-md-12">
-                        <FormItem className="form-group" label="主要成就">
+                        <FormItem className="form-group" label="备注">
                             {getFieldDecorator('remarks', {
                                 initialValue: '',
                                 rules: [{
@@ -664,76 +608,6 @@ class Hq_lxContentForm extends React.Component {
                     </div>
                 </div>
 
-                {type === 'lx' &&
-                <div>
-                    <hr/>
-                    <div className="row">
-                        <div className="col-md-3">
-                            <FormItem className="form-group" label="毕业院校英文名">
-                                {getFieldDecorator('en_cname', {
-                                    rules: [{
-                                        required: true,
-                                        message: '请输入毕业院校英文名'
-                                    }],
-                                })(
-                                    <Input
-                                        disabled={mode === 'search'}
-                                        placeholder="毕业院校英文名"
-                                        className="form-control border-input"
-                                    />
-                                )}
-                                <div/>
-                            </FormItem>
-                        </div>
-                        <div className="col-md-3">
-                            <FormItem className="form-group" label="毕业院校中文名">
-                                {getFieldDecorator('ch_cname', {
-                                    rules: [{
-                                        required: true,
-                                        message: '请输入毕业院校中文名'
-                                    }],
-                                })(
-                                    <Input
-                                        disabled={mode === 'search'}
-                                        placeholder="毕业院校中文名"
-                                        className="form-control border-input"
-                                    />
-                                )}
-                                <div/>
-                            </FormItem>
-                        </div>
-                        <div className="col-md-3">
-                            <FormItem className="form-group" label="学位">
-                                {getFieldDecorator('degree', {
-                                    rules: [{
-                                        required: true,
-                                        message: '请输入学位'
-                                    }],
-                                })(
-                                    <Input
-                                        disabled={mode === 'search'}
-                                        placeholder="学位"
-                                        className="form-control border-input"
-                                    />
-                                )}
-                                <div/>
-                            </FormItem>
-                        </div>
-
-                        <div className="col-md-3">
-                            <FormItem className="form-group" label="毕业时间">
-                                {getFieldDecorator('gra_date', {
-                                    rules: [{required: true, message: '请选择毕业时间'}],
-                                })(
-                                    <DatePicker
-                                        disabled={mode === 'search'}
-                                    />
-                                )}
-                            </FormItem>
-                        </div>
-                    </div>
-                </div>
-                }
                 <hr/>
 
                 <div className="row">

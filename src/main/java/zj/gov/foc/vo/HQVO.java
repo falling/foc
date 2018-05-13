@@ -12,31 +12,34 @@ public class HQVO extends BaseVO{
     private String sex;
     private String ethnicity;
     private String passport_no;
-    private Date date_expriy;
     private Date date_birth;
     private String id_num;
     private String o_tel;
     private String cn_tel;
-    private String cn_te2;
     private String wechat;
     private String mail;
     private String qq_num;
     private String native_place;
     private String nationality;
     private String residence;
+    private String residenceDetail;
     private String cn_residence;
     private String present_industry;
     private String com_name;
     private String position;
-    private String education;
-    private String health;
     private String registrant_name;
     private String photo;
     private Date reg_date;
     private String remarks;
     private String social_services;
-//    private String del;
 
+    public String getResidenceDetail() {
+        return residenceDetail;
+    }
+
+    public void setResidenceDetail(String residenceDetail) {
+        this.residenceDetail = residenceDetail;
+    }
 
     public String getSocial_services() {
         return social_services;
@@ -102,13 +105,6 @@ public class HQVO extends BaseVO{
         this.passport_no = passport_no;
     }
 
-    public Date getDate_expriy() {
-        return date_expriy;
-    }
-
-    public void setDate_expriy(Date date_expriy) {
-        this.date_expriy = date_expriy;
-    }
 
     public Date getDate_birth() {
         return date_birth;
@@ -142,13 +138,6 @@ public class HQVO extends BaseVO{
         this.cn_tel = cn_tel;
     }
 
-    public String getCn_te2() {
-        return cn_te2;
-    }
-
-    public void setCn_te2(String cn_te2) {
-        this.cn_te2 = cn_te2;
-    }
 
     public String getWechat() {
         return wechat;
@@ -228,22 +217,6 @@ public class HQVO extends BaseVO{
 
     public void setPosition(String position) {
         this.position = position;
-    }
-
-    public String getEducation() {
-        return education;
-    }
-
-    public void setEducation(String education) {
-        this.education = education;
-    }
-
-    public String getHealth() {
-        return health;
-    }
-
-    public void setHealth(String health) {
-        this.health = health;
     }
 
     public String getRegistrant_name() {
