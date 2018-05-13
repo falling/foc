@@ -42,9 +42,10 @@ export default class InfoCreate extends React.Component {
                                                 this.setState({type: e.target.value})
                                             }}
                                             className="form-control border-input">
-                                            <option value="hq">华侨</option>
-                                            <option value="lx">留学</option>
-                                            <option value="qj">侨眷</option>
+                                            <option value="hq">华侨华人</option>
+                                            <option value="lx">留学人员</option>
+                                            <option value="qj_hq">归侨侨眷</option>
+                                            <option value="qj_lx">留学生家属</option>
                                         </select>
                                     </div>
                                 </div>

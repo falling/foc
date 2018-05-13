@@ -129,8 +129,15 @@ public class InfoController {
             } else {
                 return Response.success(result);
             }
-        } else {
-            VO result = qjService.loadByPassport(passport_no);
+        } else if(type.equals("qj_hq")){
+            VO result = qjService.loadByPassport(passport_no,"qj_hq");
+            if (result == null) {
+                return Response.warning("用户不存在");
+            } else {
+                return Response.success(result);
+            }
+        }else{
+            VO result = qjService.loadByPassport(passport_no,"qj_lx");
             if (result == null) {
                 return Response.warning("用户不存在");
             } else {

@@ -59,7 +59,8 @@ export default class InfoManage extends React.Component {
                                             <Select onChange={value=>this.setState({type:value,info:undefined})} defaultValue="hq">
                                                 <Option value="hq">华侨</Option>
                                                 <Option value="lx">留学</Option>
-                                                <Option value="qj">侨眷</Option>
+                                                <Option value="qj_hq">归侨侨眷</Option>
+                                                <Option value="qj_lx">留学生家属</Option>
                                             </Select>}
                                                 placeholder={type==='qj'?'请输入护照号码或身份证号码':'请输入护照号码'}
                                                 onSearch={value => this.search(value)}

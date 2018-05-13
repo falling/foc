@@ -139,14 +139,20 @@ CREATE TABLE lx
 DROP TABLE IF EXISTS `qj`;
 CREATE TABLE qj
 (
-  qj_id       INT UNSIGNED AUTO_INCREMENT
-    PRIMARY KEY,
+  qj_id       INT UNSIGNED AUTO_INCREMENT  PRIMARY KEY,
   ch_name     VARCHAR(255) DEFAULT ' ' NOT NULL,
   sex         VARCHAR(5) DEFAULT ' '  NOT NULL,
   ethnicity   VARCHAR(255) DEFAULT ' ' NOT NULL,
   passport_no VARCHAR(255) DEFAULT ' ' NOT NULL,
-  tel1        VARCHAR(255) DEFAULT ' ' NOT NULL,
-  tel2        VARCHAR(255) DEFAULT ' ' NOT NULL,
+  id_num      VARCHAR(255) DEFAULT ' ' NOT NULL,
+  o_tel       VARCHAR(255) DEFAULT ' ' NOT NULL,
+  family_location VARCHAR(255) DEFAULT ' ' NOT NULL,
+  remarks     VARCHAR(255) DEFAULT ' ' NULL,
+  type        VARCHAR(255) DEFAULT ' ' NULL,
+  o_name      VARCHAR(255) DEFAULT ' ' NULL,
+  o_relation  VARCHAR(255) DEFAULT ' ' NULL,
+  o_passport  VARCHAR(255) DEFAULT ' ' NULL,
+  o_residence  VARCHAR(255) DEFAULT ' ' NULL,
   del         VARCHAR(5) DEFAULT ' '  NOT NULL
 )
   ENGINE = InnoDB

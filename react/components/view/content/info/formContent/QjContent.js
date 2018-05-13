@@ -13,12 +13,11 @@ class QjContentForm extends React.Component {
         this.state = {
             loading: false,
             deleteLoading: false,
-            fresh:0,
+            fresh: 0,
         };
         this.add = this.add.bind(this);
         this.update = this.update.bind(this);
         this.delete = this.delete.bind(this);
-        this.confirmPassport_no = this.confirmPassport_no.bind(this);
     }
 
 
@@ -27,7 +26,7 @@ class QjContentForm extends React.Component {
             let info = nextProps.info;
             delete info.status;
             delete info.info;
-            let value= info;
+            let value = info;
             const {fresh} = this.state;
             this.setState({fresh: fresh + 1});
             this.props.form.setFieldsValue(value);
@@ -36,34 +35,14 @@ class QjContentForm extends React.Component {
 
     componentDidMount() {
         if (this.props.info) {
-            let value= this.props.info;
+            let value = this.props.info;
             delete value.info;
             delete value.status;
-
             this.props.form.setFieldsValue(value);
         }
     }
 
-    confirmPassport_no(rule, value, callback) {
-        let formData = new FormData();
-        formData.append("passport_no", value);
-        formData.append("id", this.props.form.getFieldValue("qj_id")||0);
-        formData.append("type", "qj");
-        fetch('/confirmPassport', {
-            method: 'post',
-            credentials: 'include',
-            body: formData
-        }).then(response => response.json())
-            .then(json => {
-                if (json.status > 0) {
-                    callback("该护照或身份证已经录入");
-                }else{
-                    callback();
-                }
-            })
-    }
-
-    delete(){
+    delete() {
         const {getFieldValue} = this.props.form;
         if (getFieldValue('passport_no') === undefined) {
             message.error("请先搜索需要修改的记录", 5);
@@ -72,16 +51,16 @@ class QjContentForm extends React.Component {
         if (!confirm('确定要删除吗?')) return;
         this.setState({deleteLoading: true});
         this.props.form.validateFieldsAndScroll((err, values) => {
-            if(!err){
+            if (!err) {
                 let formData = new FormData();
-                formData.append("id",this.props.form.getFieldValue("qj_id"))
-                formData.append("type","qj")
-                fetch("/deleteInfo",{
+                formData.append("id", this.props.form.getFieldValue("qj_id"))
+                formData.append("type", "qj")
+                fetch("/deleteInfo", {
                     method: 'post',
                     credentials: 'include',
                     body: formData
-                }).then(response=>response.json())
-                    .then(result=>{
+                }).then(response => response.json())
+                    .then(result => {
                         this.setState({deleteLoading: false});
                         if (result.status >= 0) {
                             message.success(result.info, 5);
@@ -92,7 +71,7 @@ class QjContentForm extends React.Component {
                     })
             }
         })
-        }
+    }
 
     add() {
         this.props.form.validateFieldsAndScroll((err, values) => {
@@ -120,35 +99,43 @@ class QjContentForm extends React.Component {
 
     update() {
         this.props.form.validateFieldsAndScroll((err, values) => {
-          if(!err){
-              this.setState({loading: true});
-              fetch('/updateQjInfo', {
-                  method: 'post',
-                  credentials: 'include',
-                  headers: {'Content-Type': 'application/json'},
-                  body: JSON.stringify(values)
-              }).then(response => response.json()
-              ).then(json => {
-                  this.setState({loading: false});
-                  if (json.status >= 0) {
-                      message.success(json.info, 5);
-                      this.props.form.resetFields();
-                  } else {
-                      message.error(json.info, 5);
-                  }
-              })
-          }
+            if (!err) {
+                this.setState({loading: true});
+                fetch('/updateQjInfo', {
+                    method: 'post',
+                    credentials: 'include',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(values)
+                }).then(response => response.json()
+                ).then(json => {
+                    this.setState({loading: false});
+                    if (json.status >= 0) {
+                        message.success(json.info, 5);
+                        this.props.form.resetFields();
+                    } else {
+                        message.error(json.info, 5);
+                    }
+                })
+            }
         })
     }
 
     render() {
-        const {loading, deleteLoading,fresh} = this.state;
-        const {mode} = this.props;
-        const {getFieldDecorator,getFieldValue} = this.props.form;
+        const {loading, deleteLoading, fresh} = this.state;
+        const {mode,type} = this.props;
+        const {getFieldDecorator, getFieldValue} = this.props.form;
         let o_id = getFieldValue(`qj_id`);
         return (
             <Form>
                 {getFieldDecorator('qj_id')(
+                    <Input
+                        style={{display: 'none'}}
+                        disabled
+                    />)
+                }
+                {getFieldDecorator('type', {
+                    initialValue: type,
+                })(
                     <Input
                         style={{display: 'none'}}
                         disabled
@@ -160,9 +147,8 @@ class QjContentForm extends React.Component {
                             {getFieldDecorator('ch_name', {
                                 rules: [{
                                     required: true,
-                                    pattern: /^[\u4e00-\u9fa5]+$/,
-                                    message: '请输入中文名'
-                                }, {max: 10, message: '长度最长为10'}],
+                                    message:"请输入中文名",
+                                }],
                             })(
                                 <Input
                                     disabled={mode === 'search'}
@@ -173,16 +159,22 @@ class QjContentForm extends React.Component {
                         </FormItem>
                     </div>
                     <div className="col-md-3">
-                        <FormItem className="form-group" label="身份证号或护照号">
+                        <FormItem className="form-group" label="护照号码">
                             {getFieldDecorator('passport_no', {
                                 initialValue: '',
-                                validateTrigger: 'onBlur',
-                                rules: [{
-                                    required: true,
-                                    message: '身份证号或护照号',
-                                },{
-                                    validator: this.confirmPassport_no,
-                                }],
+                            })(
+                                <Input
+                                    disabled={mode === 'search'}
+                                    placeholder="护照号码"
+                                    className="form-control border-input"
+                                />
+                            )}
+                        </FormItem>
+                    </div>
+                    <div className="col-md-3">
+                        <FormItem className="form-group" label="身份证号">
+                            {getFieldDecorator('id_num', {
+                                initialValue: '',
                             })(
                                 <Input
                                     disabled={mode === 'search'}
@@ -195,11 +187,7 @@ class QjContentForm extends React.Component {
                     <div className="col-md-3">
                         <FormItem className="form-group" label="民族">
                             {getFieldDecorator('ethnicity', {
-                                rules: [{
-                                    required: true,
-                                    pattern: /^[\u4e00-\u9fa5]+$/,
-                                    message: '请输入民族'
-                                }],
+                                initialValue: '',
                             })(
                                 <Input
                                     disabled={mode === 'search'}
@@ -207,16 +195,14 @@ class QjContentForm extends React.Component {
                                     className="form-control border-input"
                                 />
                             )}
-
                         </FormItem>
                     </div>
+                </div>
+                <div className="row">
                     <div className="col-md-2">
                         <FormItem className="form-group" label="性别">
                             {getFieldDecorator('sex', {
                                 initialValue: '男',
-                                rules: [{
-                                    required: true,
-                                }],
                             })(
                                 <Select disabled={mode === 'search'}>
                                     <Option value="男">男</Option>
@@ -229,13 +215,16 @@ class QjContentForm extends React.Component {
                 <hr/>
                 <div className="row">
                     <div className="col-md-3">
-                        <FormItem className="form-group" label="联系电话">
-                            {getFieldDecorator('tel1', {
+                        <FormItem className="form-group" label="常用电话">
+                            {getFieldDecorator('o_tel', {
                                 initialValue: '',
+                                rules: [{
+                                    required: true,
+                                }],
                             })(
                                 <Input
                                     disabled={mode === 'search'}
-                                    placeholder="联系电话1"
+                                    placeholder="常用电话"
                                     className="form-control border-input"
                                 />
                             )}
@@ -243,13 +232,13 @@ class QjContentForm extends React.Component {
                         </FormItem>
                     </div>
                     <div className="col-md-3">
-                        <FormItem className="form-group" label="海外联系电话">
-                            {getFieldDecorator('tel2', {
+                        <FormItem className="form-group" label="家庭住址">
+                            {getFieldDecorator('family_location', {
                                 initialValue: '',
                             })(
                                 <Input
                                     disabled={mode === 'search'}
-                                    placeholder="联系电话2"
+                                    placeholder="家庭住址"
                                     className="form-control border-input"
                                 />
                             )}
@@ -258,7 +247,91 @@ class QjContentForm extends React.Component {
                     </div>
                 </div>
                 <hr/>
-                {mode==='view'&&<div>
+
+                <div className="row">
+                    <div className="col-md-3">
+                        <FormItem className="form-group" label="海外亲属姓名">
+                            {getFieldDecorator('o_name', {
+                                initialValue: '',
+                            })(
+                                <Input
+                                    disabled={mode === 'search'}
+                                    placeholder="海外亲属姓名"
+                                    className="form-control border-input"
+                                />
+                            )}
+                            <div/>
+                        </FormItem>
+                    </div>
+                    <div className="col-md-3">
+                        <FormItem className="form-group" label="与海外直系亲属关系">
+                            {getFieldDecorator('o_relation', {
+                                initialValue: '夫妻',
+                            })(
+                                <Select disabled={mode === 'search'}>
+                                    <Option value="夫妻">夫妻</Option>
+                                    <Option value="兄弟姐妹">兄弟姐妹</Option>
+                                    <Option value="父子">父子</Option>
+                                    <Option value="母子">母子</Option>
+                                    <Option value="祖孙">祖孙（女）</Option>
+                                    <Option value="外祖孙">外祖孙（女）</Option>
+                                </Select>
+                            )}
+                            <div/>
+                        </FormItem>
+                    </div>
+                    <div className="col-md-3">
+                        <FormItem className="form-group" label="海外直系亲属护照号">
+                            {getFieldDecorator('o_passport', {
+                                initialValue: '',
+                            })(
+                                <Input
+                                    disabled={mode === 'search'}
+                                    placeholder="海外直系亲属护照号"
+                                    className="form-control border-input"
+                                />
+                            )}
+                            <div/>
+                        </FormItem>
+                    </div>
+                    <div className="col-md-3">
+                        <FormItem className="form-group" label="海外直系亲属旅居国">
+                            {getFieldDecorator('o_residence', {
+                                initialValue: '',
+                            })(
+                                <Input
+                                    disabled={mode === 'search'}
+                                    placeholder="海外直系亲属旅居国"
+                                    className="form-control border-input"
+                                />
+                            )}
+                            <div/>
+                        </FormItem>
+                    </div>
+                </div>
+
+                <hr/>
+                <div className="row">
+                    <div className="col-md-12">
+                        <FormItem className="form-group" label="备注">
+                            {getFieldDecorator('remarks', {
+                                initialValue: '',
+                                rules: [{
+                                    max: 100,
+                                    message: '最多输入100字'
+                                }],
+                            })(
+                                <Input.TextArea
+                                    disabled={mode === 'search'}
+                                    className="form-control border-input"
+                                />
+                            )}
+                            <div/>
+                        </FormItem>
+                    </div>
+                </div>
+                <hr/>
+                {mode === 'view' && <div>
                     <hr/>
                     <h5>修改记录</h5>
                     <LogTable

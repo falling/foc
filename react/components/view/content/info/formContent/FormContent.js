@@ -8,16 +8,6 @@ export default class FormContent extends React.Component {
         this.state = {
         };
         this.fresh = 1;
-        this.update = this.update.bind(this);
-        this.getContent = this.getContent.bind(this);
-    }
-
-    getContent(contentFormData) {
-
-    }
-
-    update() {
-
     }
     componentWillReceiveProps(nextProps) {
 
@@ -35,19 +25,26 @@ export default class FormContent extends React.Component {
                     info={info}
                     type={type}
                     mode={mode}
-                    getContent={this.getContent}
                 />
                 }
 
-                {type === 'qj' &&
+                {type === 'qj_hq'&&
                 <QjContent
                     fresh={this.fresh}
-                    getContent = {this.getContent}
                     mode={mode}
                     info={info}
+                    type='qj_hq'
                 />
                 }
 
+                {type === 'qj_lx'&&
+                <QjContent
+                    fresh={this.fresh}
+                    mode={mode}
+                    info={info}
+                    type='qj_lx'
+                />
+                }
             </div>
         )
     }

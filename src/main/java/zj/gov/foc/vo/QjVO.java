@@ -1,71 +1,135 @@
 package zj.gov.foc.vo;
 
-public class QjVO extends BaseVO{
-  private Long qj_id;
-
-  private String ch_name;
-  private String sex;
-  private String ethnicity;
-  private String passport_no;
-  private String tel1;
-  private String tel2;
+public class QjVO extends BaseVO {
+    private Long qj_id;
+    private String ch_name;
+    private String sex;
+    private String ethnicity;
+    private String passport_no;
+    private String id_num;
+    private String o_tel;
+    private String family_location;
+    private String remarks;
+    private String type;
+    private String o_name;
+    private String o_relation;
+    private String o_residence;
+    private String o_passport;
 //  private String del;
 
-  public Long getQj_id() {
-    return qj_id;
-  }
 
-  public void setQj_id(Long qj_id) {
-    this.qj_id = qj_id;
-  }
+    public String getId_num() {
+        return id_num;
+    }
 
-  public String getCh_name() {
-    return ch_name;
-  }
+    public void setId_num(String id_num) {
+        this.id_num = id_num;
+    }
 
-  public void setCh_name(String ch_name) {
-    this.ch_name = ch_name;
-  }
+    public String getO_tel() {
+        return o_tel;
+    }
 
-  public String getSex() {
-    return sex;
-  }
+    public void setO_tel(String o_tel) {
+        this.o_tel = o_tel;
+    }
 
-  public void setSex(String sex) {
-    this.sex = sex;
-  }
+    public String getFamily_location() {
+        return family_location;
+    }
 
-  public String getEthnicity() {
-    return ethnicity;
-  }
+    public void setFamily_location(String family_location) {
+        this.family_location = family_location;
+    }
 
-  public void setEthnicity(String ethnicity) {
-    this.ethnicity = ethnicity;
-  }
+    public String getRemarks() {
+        return remarks;
+    }
 
-  public String getPassport_no() {
-    return passport_no;
-  }
+    public void setRemarks(String remarks) {
+        this.remarks = remarks;
+    }
 
-  public void setPassport_no(String passport_no) {
-    this.passport_no = passport_no;
-  }
+    public String getType() {
+        return type;
+    }
 
-  public String getTel1() {
-    return tel1;
-  }
+    public void setType(String type) {
+        this.type = type;
+    }
 
-  public void setTel1(String tel1) {
-    this.tel1 = tel1;
-  }
+    public String getO_name() {
+        return o_name;
+    }
 
-  public String getTel2() {
-    return tel2;
-  }
+    public void setO_name(String o_name) {
+        this.o_name = o_name;
+    }
 
-  public void setTel2(String tel2) {
-    this.tel2 = tel2;
-  }
+    public String getO_relation() {
+        return o_relation;
+    }
+
+    public void setO_relation(String o_relation) {
+        this.o_relation = o_relation;
+    }
+
+    public String getO_residence() {
+        return o_residence;
+    }
+
+    public void setO_residence(String o_residence) {
+        this.o_residence = o_residence;
+    }
+
+    public String getO_passport() {
+        return o_passport;
+    }
+
+    public void setO_passport(String o_passport) {
+        this.o_passport = o_passport;
+    }
+
+    public Long getQj_id() {
+        return qj_id;
+    }
+
+    public void setQj_id(Long qj_id) {
+        this.qj_id = qj_id;
+    }
+
+    public String getCh_name() {
+        return ch_name;
+    }
+
+    public void setCh_name(String ch_name) {
+        this.ch_name = ch_name;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public String getEthnicity() {
+        return ethnicity;
+    }
+
+    public void setEthnicity(String ethnicity) {
+        this.ethnicity = ethnicity;
+    }
+
+    public String getPassport_no() {
+        return passport_no;
+    }
+
+    public void setPassport_no(String passport_no) {
+        this.passport_no = passport_no;
+    }
+
 
 //  public String getDel() {
 //    return del;

@@ -45,8 +45,8 @@ public class QJService {
     }
 
 
-    public QjVO loadByPassport(String passport_no) {
-        QJBean bean = qjRepository.loadByPassport(passport_no);
+    public QjVO loadByPassport(String passport_no,String type) {
+        QJBean bean = qjRepository.loadByPassport(passport_no,type);
         QjVO vo = null;
         if (bean != null) {
             vo = new QjVO();

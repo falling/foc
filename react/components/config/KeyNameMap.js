@@ -31,6 +31,11 @@ export const KeyNameMap = {
     'ch_cname':'毕业院校中文名',
     'family_tel':'国内直系亲属联系方式',
     'family_name':'国内直系亲属名字',
+    'family_location':'家庭住址',
+    'o_name':'海外亲属姓名',
+    'o_relation':'与海外直系亲属关系',
+    'o_passport':'海外直系亲属护照号',
+    'o_residence':'海外直系亲属旅居国',
     'degree':'学位',
     'gra_date':'毕业时间',
     'photo':'照片'

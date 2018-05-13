@@ -9,8 +9,8 @@ public interface QJRepository extends Repository<QJBean, Long> {
 
     QJBean save(QJBean qjVO);
 
-    @Query(value = "SELECT * FROM qj WHERE passport_no = ?1 AND del ='0'",nativeQuery = true)
-    QJBean loadByPassport(String passport_no);
+    @Query(value = "SELECT * FROM qj WHERE passport_no = ?1 AND type=?2 AND del ='0'",nativeQuery = true)
+    QJBean loadByPassport(String passport_no,String type);
 
     @Query(value = "select * from qj WHERE  qj_id = ?1 and del='0'",nativeQuery = true)
     QJBean getById(Long qj_id);
