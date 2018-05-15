@@ -191,7 +191,7 @@ public class InfoController {
         }else if (type.equals("hq")){
             return Response.success(hqService.search(col,value));
         }else{
-            return Response.success(qjService.search(col,value));
+            return Response.success(qjService.search(col,value,type));
         }
     }
 

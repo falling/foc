@@ -1,4 +1,4 @@
-import { Upload, Icon, Modal,message } from 'antd';
+import {Upload, Icon, Modal, message} from 'antd';
 import React from 'react';
 
 export default class PicturesWall extends React.Component {
@@ -7,8 +7,9 @@ export default class PicturesWall extends React.Component {
         this.state = {
             previewVisible: false,
             previewImage: '',
-            file:{},
+            file: {},
             fileList: [],
+            value:'',
         };
         this.handlePreview = this.handlePreview.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -22,47 +23,48 @@ export default class PicturesWall extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        if(nextProps.url){
-            this.setState({fileList:[
+        if(nextProps.value){
+            this.setState({
+                fileList: [
                     {
                         uid: -1,
-                        name: nextProps.url.split('_')[1],
+                        name: nextProps.value,
                         status: 'done',
-                        url: nextProps.url,
+                        url: nextProps.value,
                     }
-                ]});
+                ]
+            });
         }
-        if(nextProps.clean){
-            this.props.getUrl('');
-            this.setState({fileList:[]});
-        }
+        this.setState({value:nextProps.value})
+
     }
 
-    handleChange({fileList}){
+    handleChange({fileList}) {
         let file = fileList[0];
-        if(!file){
-            this.props.getUrl('');
-            this.setState({ fileList })
+        if (!file) {
+            this.setState({fileList, value: ''})
             return;
         }
-        if(file.status === 'done' && file.response.status>0){
+        if (file.status === 'done' && file.response.status > 0) {
             message.success("上传成功");
-            this.props.getUrl(file.response.info);
-        }else if(file.status ==='error'){
+            if (this.props.onChange) {
+                this.props.onChange(file.response.info);
+            }
+        } else if (file.status === 'error') {
             message.error("上传失败");
-        }else if(file.response && file.response.status<0){
+        } else if (file.response && file.response.status < 0) {
             message.error(file.response.info)
         }
-        this.setState({ fileList })
+        this.setState({fileList})
 
     }
 
 
     render() {
-        const { previewVisible, previewImage, fileList } = this.state;
+        const {previewVisible, previewImage, fileList} = this.state;
         const uploadButton = (
             <div>
-                <Icon type="plus" />
+                <Icon type="plus"/>
                 <div className="ant-upload-text">上传</div>
             </div>
         );
@@ -78,8 +80,8 @@ export default class PicturesWall extends React.Component {
                 >
                     {fileList.length >= 1 ? null : uploadButton}
                 </Upload>
-                <Modal visible={previewVisible} footer={null} onCancel={e=>this.setState({ previewVisible: false })}>
-                    <img style={{ width: '100%' }} src={previewImage} />
+                <Modal visible={previewVisible} footer={null} onCancel={e => this.setState({previewVisible: false})}>
+                    <img style={{width: '100%'}} src={previewImage}/>
                 </Modal>
             </div>
         );

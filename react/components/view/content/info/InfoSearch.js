@@ -29,6 +29,8 @@ export default class InfoSearch extends React.Component {
         this.showData = this.showData.bind(this);
         this.exportXlsx = this.exportXlsx.bind(this);
         this.getStatistics = this.getStatistics.bind(this);
+        this.searchValue = '';
+
         columns = [{
             title: '姓名',
             dataIndex: 'ch_name',
@@ -108,6 +110,7 @@ export default class InfoSearch extends React.Component {
 
     search(value) {
         if (!value) return;
+        this.searchValue = value;
         const {type, col} = this.state;
 
         let formData = new FormData();
@@ -122,10 +125,7 @@ export default class InfoSearch extends React.Component {
         }).then(response => response.json())
             .then(json => {
                 if (json.status > 0) {
-                    let data = [];
-                    json.result.forEach(e => {
-                        data.push(e);
-                    });
+                    let data = json.result;
                     this.setState({
                         show: true,
                         data: data,
@@ -135,13 +135,16 @@ export default class InfoSearch extends React.Component {
                     })
                 } else {
                     message.error(json.info, 5);
+                    this.setState({
+                        loading: false
+                    })
                 }
             })
 
     }
 
     render() {
-        const {display} = this.props;
+        const {display, user} = this.props;
         const {type, col, show, loading, previewVisible, showData, selectedRows, selectedRowKeys, hqNumber, lxNumber, countryNumber} = this.state;
         let secondSelect;
         if (type === 'hq') {
@@ -225,7 +228,8 @@ export default class InfoSearch extends React.Component {
                                                         defaultValue="hq">
                                                     <Option value="hq">华侨</Option>
                                                     <Option value="lx">留学</Option>
-                                                    <Option value="qj">侨眷</Option>
+                                                    <Option value="qj_hq">华侨侨眷</Option>
+                                                    <Option value="qj_lx">留学生家属</Option>
                                                 </Select>
                                                 {secondSelect}
                                             </div>
@@ -272,12 +276,16 @@ export default class InfoSearch extends React.Component {
                     </div>
                 </div>
                 <Modal width="1080px" visible={previewVisible} footer={null}
-                       onCancel={e => this.setState({previewVisible: false})}>
+                       onCancel={e => {
+                           this.setState({previewVisible: false})
+                           this.search(this.searchValue);
+                       }
+                       }>
                     {previewVisible &&
                     <FormContent
                         type={type}
                         info={showData}
-                        mode="search"
+                        mode={user.power === 'user' ? 'search' : 'view'}
                     />
                     }
                 </Modal>

@@ -78,7 +78,7 @@ public class QJService {
     @PersistenceContext
     private EntityManager entityManager;
 
-    public SearchVO<QjVO> search(String col, String value) {
+    public SearchVO<QjVO> search(String col, String value,String type) {
         SearchVO<QjVO> searchVO = new SearchVO<>();
         if(col.equals("lx_id")){
             LxBean bean = lxRepository.loadByPassport(value);
@@ -95,6 +95,9 @@ public class QJService {
 
         }else{
             String sql = "SELECT * FROM qj WHERE "+col+" LIKE '%"+value+"%' AND del = '0'";
+            if(type.startsWith("qj")){
+                sql = sql + " AND type = '" + type + "'";
+            }
             Query query = entityManager.createNativeQuery(sql,QJBean.class);
             List<QJBean> resultList = query.getResultList();
             List<QjVO> returnList = new ArrayList<>();

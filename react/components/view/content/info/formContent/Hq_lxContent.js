@@ -8,8 +8,6 @@ import LogTable from "../../../../uiCompoment/LogTable";
 
 const FormItem = Form.Item;
 const Option = Select.Option;
-let options = [];
-
 class Hq_lxContentForm extends React.Component {
     constructor(props) {
         super(props);
@@ -27,8 +25,6 @@ class Hq_lxContentForm extends React.Component {
         this.getPhotoUrl = this.getPhotoUrl.bind(this);
         this.delete = this.delete.bind(this);
         this.setValue = this.setValue.bind(this);
-        options = pc_code;
-
     }
 
     getPhotoUrl(url) {
@@ -46,7 +42,6 @@ class Hq_lxContentForm extends React.Component {
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
                 values.native_place = values.native_place.join("/");
-                values.photo = this.url || this.photo;
                 this.setState({loading: true});
                 const {type} = this.props;
                 fetch(type === 'lx' ? '/updateLXInfo' : '/updateHQInfo', {
@@ -62,8 +57,8 @@ class Hq_lxContentForm extends React.Component {
                     } else {
                         message.error(json.info, 5);
                     }
-                    this.clean = true;
-                    this.props.form.resetFields();
+                    // this.clean = true;
+                    // this.props.form.resetFields();
                 })
             }
         })
@@ -94,8 +89,8 @@ class Hq_lxContentForm extends React.Component {
             } else {
                 message.error(result.info, 5);
             }
-            this.clean = true;
-            this.props.form.resetFields();
+            // this.clean = true;
+            // this.props.form.resetFields();
         })
 
     }
@@ -278,6 +273,7 @@ class Hq_lxContentForm extends React.Component {
                     <div className="col-md-3">
                         <FormItem className="form-group" label="出生年月日">
                             {getFieldDecorator('date_birth', {
+                                initialValue: '',
                                 rules: [{required: false, message: '请选择出生日期'}],
                             })(
                                 <DatePicker
@@ -445,7 +441,7 @@ class Hq_lxContentForm extends React.Component {
                             })(
                                 <Cascader
                                     disabled={mode === 'search'}
-                                    options={options}
+                                    options={pc_code}
                                     placeholder="籍贯"
                                 />
                             )}
@@ -603,7 +599,6 @@ class Hq_lxContentForm extends React.Component {
                                     className="form-control border-input"
                                 />
                             )}
-                            <div/>
                         </FormItem>
                     </div>
                 </div>
@@ -612,15 +607,15 @@ class Hq_lxContentForm extends React.Component {
 
                 <div className="row">
                     <div className="col-md-4">
-                        <div className="form-group">
-                            <label>照片</label>
-                            <PicturesWall
-                                clean={this.clean}
-                                url={(mode === 'view' || mode === 'search') ? this.photo : ''}
-                                getUrl={this.getPhotoUrl}
-                            />
-                            <div/>
-                        </div>
+                        <FormItem className="form-group" label="照片">
+                            {getFieldDecorator('photo', {
+                                initialValue: '',
+                            })(
+                                <PicturesWall
+                                    getUrl={this.getPhotoUrl}
+                                />
+                            )}
+                        </FormItem>
                     </div>
                 </div>
                 <hr/>

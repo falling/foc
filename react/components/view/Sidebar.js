@@ -51,7 +51,7 @@ export default class Sidebar extends React.Component {
                                     <p>信息修改</p>
                                 </Link>
                             </li>
-                            {(user && user.power && user.power !== 'user') &&
+                            {(user && user.power !== 'user') &&
                             <li className={activityIndex === 4 || activityIndex === 5 ? "active" : ""}>
                                 <a data-toggle="collapse" data-parent="#accordion" href="#userManager">
                                     <i className="ti-user"/>

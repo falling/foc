@@ -5,7 +5,7 @@ export const KeyNameMap = {
     'ethnicity':'民族',
     'sex':'性别',
     'passport_no':'护照号码',
-    'date_expriy':'护照有效期',
+    'date_birth':'出生年月日',
     'id_num':'身份证号',
     'tel1':'联系电话',
     'tel2':'海外联系电话',

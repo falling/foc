@@ -38,7 +38,7 @@ export default class LogTable extends React.Component {
     };
 
     componentWillReceiveProps(nextProps) {
-        if (nextProps.o_id && nextProps.type && nextProps.fresh!==this.props.fresh) {
+        if (nextProps.o_id && nextProps.type) {
             this.setState({loading: true});
             const {o_id, type} = nextProps;
             let formData = new FormData();
