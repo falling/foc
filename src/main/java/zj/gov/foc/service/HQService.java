@@ -32,9 +32,6 @@ public class HQService {
 
     @Transactional
     public HQBean addHQ(HQVO hqvo, UserVO userVO){
-        if(hqRepository.loadByPassport(hqvo.getPassport_no())!=null){
-            return null;
-        }
         HQBean bean = new HQBean();
         BeanUtils.copyProperties(hqvo,bean);
         bean.setRegistrant(userVO.getId());

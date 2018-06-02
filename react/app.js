@@ -24,6 +24,7 @@ ReactDOM.render(
         <Router history={newHistory}>
             <Switch>
                 <Route exact path="/" component={Login}/>
+                <Route exact path="/manager/:id/:type" component={Manager}/>
                 <Route path="/manager/:id" component={Manager}/>
             </Switch>
         </Router>

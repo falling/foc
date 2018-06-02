@@ -202,9 +202,10 @@ class QjContentForm extends React.Component {
                     <div className="col-md-2">
                         <FormItem className="form-group" label="性别">
                             {getFieldDecorator('sex', {
-                                initialValue: '男',
+                                initialValue: '',
                             })(
                                 <Select disabled={mode === 'search'}>
+                                    <Option value="">请选择</Option>
                                     <Option value="男">男</Option>
                                     <Option value="女">女</Option>
                                 </Select>
@@ -220,6 +221,7 @@ class QjContentForm extends React.Component {
                                 initialValue: '',
                                 rules: [{
                                     required: true,
+                                    message: '请输入常用电话'
                                 }],
                             })(
                                 <Input
@@ -266,9 +268,10 @@ class QjContentForm extends React.Component {
                     <div className="col-md-3">
                         <FormItem className="form-group" label="与海外直系亲属关系">
                             {getFieldDecorator('o_relation', {
-                                initialValue: '夫妻',
+                                initialValue: '',
                             })(
                                 <Select disabled={mode === 'search'}>
+                                    <Option value="">请选择</Option>
                                     <Option value="夫妻">夫妻</Option>
                                     <Option value="兄弟姐妹">兄弟姐妹</Option>
                                     <Option value="父子">父子</Option>

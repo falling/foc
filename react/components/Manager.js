@@ -38,12 +38,14 @@ export default class Manager extends React.Component {
     render() {
         const {user} = this.state;
         let urlId = +this.props.match.params.id;
+        let type = this.props.match.params.type;
         return (
             <div>
                 <div className="wrapper">
                     <Sidebar
                         index={urlId}
                         user={user}
+                        type={type}
                     />
 
                     <div className="main-panel">
@@ -53,13 +55,13 @@ export default class Manager extends React.Component {
                         />
 
                         <div className="content">
-                            {urlId !== 6 && <InfoCreate display={urlId === 1}/>}
-                            <InfoSearch display={urlId === 0} user={user}/>
-                            {urlId !== 6 && <InfoManage display={urlId === 2}/>}
-                            <UserProfile display={urlId === 3}/>
+                            {urlId !== 6 && <InfoCreate display={urlId === 1} type={type}/>}
+                            <InfoSearch display={urlId === 0} user={user} type={type}/>
+                            {urlId !== 6 && <InfoManage display={urlId === 2} type={type}/>}
+                            <UserProfile display={urlId === 3} type={type}/>
                             {(user && user.power && user.power !== 'user') &&
-                            <UserCreate display={urlId === 4} user={user}/>}
-                            {(user && user.power === 'root') && <UserManage display={urlId === 5} user={user}/>}
+                            <UserCreate display={urlId === 4} user={user} type={type}/>}
+                            {(user && user.power === 'root') && <UserManage display={urlId === 5} user={user} type={type}/>}
                             {urlId === 6 && <UserPassword display={urlId === 6}/>}
                         </div>
 

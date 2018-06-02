@@ -526,6 +526,7 @@ ul.list {
 ul.list li {
     padding: 5px 2px;
     color: #FAFAFA;
+    font-size: 15px;
 }
 
 ul.list li.active {

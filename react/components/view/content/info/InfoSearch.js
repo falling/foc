@@ -84,6 +84,15 @@ export default class InfoSearch extends React.Component {
     componentWillReceiveProps(nextProps) {
         //get number
         this.getStatistics();
+        if(nextProps.type){
+            this.setState({
+                type:nextProps.type,
+                col: 'ch_name',
+                data: [],
+                selectedRowKeys: [],
+                selectedRows: [],
+            });
+        }
     }
 
     getStatistics() {
@@ -146,11 +155,12 @@ export default class InfoSearch extends React.Component {
     render() {
         const {display, user} = this.props;
         const {type, col, show, loading, previewVisible, showData, selectedRows, selectedRowKeys, hqNumber, lxNumber, countryNumber} = this.state;
-        let secondSelect;
+        let selectHTML;
+        let titleName;
         if (type === 'hq') {
-            secondSelect =
+            titleName = "华侨";
+            selectHTML =
                 <Select
-                    style={{paddingLeft: 20}}
                     dropdownMatchSelectWidth={false}
                     onChange={value => this.setState({col: value})}
                     value={col}
@@ -163,9 +173,9 @@ export default class InfoSearch extends React.Component {
                     <Option value="residence">旅居地</Option>
                 </Select>
         } else if (type === 'lx') {
-            secondSelect =
+            titleName = "留学生";
+            selectHTML =
                 <Select
-                    style={{paddingLeft: 20}}
                     dropdownMatchSelectWidth={false}
                     onChange={value => this.setState({col: value})}
                     value={col}>
@@ -178,16 +188,21 @@ export default class InfoSearch extends React.Component {
                     <Option value="en_cname">学校英文名</Option>
                 </Select>
         } else {
-            secondSelect =
+            if (type==='qj_hq'){
+                titleName = "侨眷";
+            }else{
+                titleName = "留学生家属";
+            }
+
+            selectHTML =
                 <Select
-                    style={{paddingLeft: 20}}
                     dropdownMatchSelectWidth={false}
                     onChange={value => this.setState({col: value})}
                     value={col}>
                     <Option value="ch_name">中文姓名</Option>
-                    <Option value="passport_no">护照号或身份证号码</Option>
-                    <Option value="hq_id">华侨护照号</Option>
-                    <Option value="lx_id">留学生护照号</Option>
+                    <Option value="passport_no">护照号</Option>
+                    <Option value="id_num">身份证号码</Option>
+                    <Option value="o_passport">海外直系亲属护照号</Option>
                 </Select>
         }
         let hasSelected = selectedRowKeys.length > 0;
@@ -206,7 +221,7 @@ export default class InfoSearch extends React.Component {
                 <div className="col-lg-12 col-md-12">
                     <div className="card">
                         <div className="header">
-                            <h4 className="title">信息查询</h4>
+                            <h4 className="title">{`${titleName}信息查询`}</h4>
                         </div>
                         <div className="content">
                             <div className="row">
@@ -214,24 +229,7 @@ export default class InfoSearch extends React.Component {
                                     <div className="form-group">
                                         <Search addonBefore={
                                             <div>
-                                                <Select onChange={value => {
-                                                    this.setState({
-                                                        type: value,
-                                                        col: 'ch_name',
-                                                        data: [],
-                                                        selectedRowKeys: [],
-                                                        selectedRows: [],
-                                                    });
-
-                                                }
-                                                }
-                                                        defaultValue="hq">
-                                                    <Option value="hq">华侨</Option>
-                                                    <Option value="lx">留学</Option>
-                                                    <Option value="qj_hq">华侨侨眷</Option>
-                                                    <Option value="qj_lx">留学生家属</Option>
-                                                </Select>
-                                                {secondSelect}
+                                                {selectHTML}
                                             </div>
                                         }
                                                 onSearch={value => this.search(value)}
@@ -276,11 +274,13 @@ export default class InfoSearch extends React.Component {
                     </div>
                 </div>
                 <Modal width="1080px" visible={previewVisible} footer={null}
-                       onCancel={e => {
+                       onCancel={() =>
                            this.setState({previewVisible: false})
-                           this.search(this.searchValue);
                        }
-                       }>
+                       afterClose={() =>
+                           this.search(this.searchValue)
+                       }
+                >
                     {previewVisible &&
                     <FormContent
                         type={type}

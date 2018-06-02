@@ -178,5 +178,5 @@ CREATE TABLE user
   DEFAULT CHARSET = utf8;
 
 
-INSERT INTO  user (user_name,pwd,name,power,reg_date,del) values ('root','123456','root','admin',now(),'0')
+INSERT INTO  user (user_name,pwd,name,power,reg_date,del) values ('root','root','root','root',now(),'0')
 

@@ -37,9 +37,6 @@ public class LXService {
 
     @Transactional
     public LxBean addLX(LxVO lxVO, Long id) {
-        if(lxRepository.loadByPassport(lxVO.getPassport_no())!=null){
-            return null;
-        }
         LxBean bean = new LxBean();
         BeanUtils.copyProperties(lxVO,bean);
         bean.setReg_date(new Date(System.currentTimeMillis()));

@@ -38,9 +38,9 @@ public class ExportController {
     @RequestMapping("/exporthq")
     public ResponseEntity<byte[]> exportHQ(@RequestBody List<HQExcel> list) throws IllegalAccessException, IOException {
         String[] title = new String[]{"中文名", "曾用名", "拼音","性别" ,"民族", "护照号",
-                "护照有效期", "出生年月日", "身份证号", "海外联系电话", "中国联系电话1",
-                "中国联系电话2", "微信", "电子邮箱", "QQ", "籍贯", "现国籍", "旅居地", "中国居住地", "所从事行业",
-                "公司/单位名称", "职务", "文化程度", "健康状态", "社会任职", "主要成就"};
+                "护照有效期", "出生年月日", "身份证号", "常用电话", "中国联系电话",
+                "微信", "电子邮箱", "QQ", "现国籍", "现居住国","中国居住详细地址", "现旅居地详细地址","籍贯", "所从事行业",
+                "公司/单位名称", "职务", "社会任职", "备注"};
         String[] exclude = new String[]{"relationList","hq_id","registrant_name","reg_date","photo"};
         return exportXLSX(list,"华侨",title,exclude);
     }

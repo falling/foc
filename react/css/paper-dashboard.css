@@ -285,9 +285,19 @@ hr {
     max-height: none;
     min-height: 100%;
     /*overflow: hidden;*/
-    width: 260px;
+    /*width: 260px;*/
     z-index: 4;
     box-shadow: inset -1px 0px 0px 0px #DDDDDD;
+
+    background: #2cbbe6;
+    background: -moz-linear-gradient(top, #2cbbe6 0%, rgba(19, 96, 119, 0.7) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #2cbbe6), color-stop(100%, rgba(19, 96, 119, 0.7)));
+    background: -webkit-linear-gradient(top, #2cbbe6 0%, rgba(19, 96, 119, 0.7) 100%);
+    background: -o-linear-gradient(top, #2cbbe6 0%, rgba(19, 96, 119, 0.7) 100%);
+    background: -ms-linear-gradient(top, #2cbbe6 0%, rgba(19, 96, 119, 0.7) 100%);
+    background: linear-gradient(to bottom, #2cbbe6 0%, rgba(19, 96, 119, 0.7) 100%);
+    background-size: 150% 150%;
+
 }
 
 .sidebar .sidebar-background {
@@ -304,7 +314,7 @@ hr {
 
 .sidebar,
 .off-canvas-sidebar {
-    width: 260px;
+    width: 267px;
     display: block;
     font-weight: 200;
 }
@@ -341,10 +351,11 @@ hr {
 
 .sidebar .nav li > a, .nav li > div > a,
 .off-canvas-sidebar .nav li > a {
-    margin: 10px 0px;
+    /*margin: 10px 0px;*/
     padding-left: 25px;
     padding-right: 25px;
     opacity: .7;
+    font-weight: bolder;
 }
 
 .nav li > div > a {
@@ -400,7 +411,7 @@ hr {
 .off-canvas-sidebar .nav p {
     margin: 0;
     line-height: 30px;
-    font-size: 12px;
+    font-size: 18px;
     font-weight: 600;
     text-transform: uppercase;
 }
@@ -426,7 +437,7 @@ hr {
     top: 0;
     left: 0;
     /*z-index: 2;*/
-    background: #FFFFFF;
+    /*background: #FFFFFF;*/
 }
 
 .sidebar:after, .sidebar:before, .sidebar[data-background-color="white"]:after, .sidebar[data-background-color="white"]:before,

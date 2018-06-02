@@ -55,7 +55,7 @@ public class InfoController {
         if (hqService.addHQ(hqvo, userVO)!=null) {
             return Response.success("录入成功");
         } else {
-            return Response.warning("录入失败，该护照已经录入");
+            return Response.warning("录入失败");
         }
     }
 
@@ -82,7 +82,7 @@ public class InfoController {
         if (lxService.addLX(lxVO, userVO.getId()) != null) {
             return Response.success("录入成功");
         } else {
-            return Response.warning("录入失败，该护照已经添加");
+            return Response.warning("录入失败");
         }
     }
 

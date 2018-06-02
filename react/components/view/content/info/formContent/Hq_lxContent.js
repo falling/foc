@@ -245,9 +245,10 @@ class Hq_lxContentForm extends React.Component {
                     <div className="col-md-2">
                         <FormItem className="form-group" label="性别">
                             {getFieldDecorator('sex', {
-                                initialValue: '男'
+                                initialValue: ''
                             })(
                                 <Select disabled={mode === 'search'}>
+                                    <Option value="">请选择</Option>
                                     <Option value="男">男</Option>
                                     <Option value="女">女</Option>
                                 </Select>

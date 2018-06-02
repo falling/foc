@@ -11,17 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class RouterController {
-    @RequestMapping("/")
+    @RequestMapping({"/","/manager","/manager/*","/manager/*/*"})
     public String index() {
-        return "index";
-    }
-    @RequestMapping("/manager")
-    public String manager() {
-        return "index";
-    }
-
-    @RequestMapping("/manager/*")
-    public String managers() {
         return "index";
     }
 }
