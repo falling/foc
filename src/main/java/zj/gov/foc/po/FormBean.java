@@ -35,7 +35,7 @@ public class FormBean {
         this.entry = entry;
     }
 
-    public static class EntryBean {
+    public class EntryBean {
         /**
          * serial_number : 123
          * field_1 : 选项1
@@ -640,7 +640,7 @@ public class FormBean {
             this.info_remote_ip = info_remote_ip;
         }
 
-        public static class Field56Bean {
+        public class Field56Bean {
             /**
              * province : 陕西省
              * city : 西安市
@@ -686,7 +686,7 @@ public class FormBean {
             }
         }
 
-        public static class Field57Bean {
+        public class Field57Bean {
             /**
              * province : 陕西省
              * city : 西安市
@@ -732,7 +732,7 @@ public class FormBean {
             }
         }
 
-        public static class Field18Bean {
+        public class Field18Bean {
             /**
              * province : 陕西省
              * city : 西安市
@@ -778,7 +778,7 @@ public class FormBean {
             }
         }
 
-        public static class Field35Bean {
+        public class Field35Bean {
             /**
              * province : 陕西省
              * city : 西安市
@@ -824,7 +824,7 @@ public class FormBean {
             }
         }
 
-        public static class Field43Bean {
+        public class Field43Bean {
             /**
              * province : 陕西省
              * city : 西安市
@@ -870,7 +870,7 @@ public class FormBean {
             }
         }
 
-        public static class Field44Bean {
+        public class Field44Bean {
             /**
              * province : 陕西省
              * city : 西安市

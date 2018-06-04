@@ -31,11 +31,12 @@ public class HQService {
     QJRepository qjRepository;
 
     @Transactional
-    public HQBean addHQ(HQVO hqvo, UserVO userVO){
+    public HQBean addHQ(HQVO hqvo, Long id){
         HQBean bean = new HQBean();
         BeanUtils.copyProperties(hqvo,bean);
-        bean.setRegistrant(userVO.getId());
-        bean.setReg_date(new Date(System.currentTimeMillis()));
+        bean.setRegistrant(id);
+        if (bean.getReg_date()==null)
+            bean.setReg_date(new Date(System.currentTimeMillis()));
         bean.setDel("0");
         return hqRepository.save(bean);
     }

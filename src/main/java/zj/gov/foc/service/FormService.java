@@ -1,131 +1,170 @@
 package zj.gov.foc.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import zj.gov.foc.po.FormBean;
-import zj.gov.foc.po.HQBean;
-import zj.gov.foc.po.LxBean;
-import zj.gov.foc.po.QJBean;
+import zj.gov.foc.vo.HQVO;
+import zj.gov.foc.vo.LxVO;
+import zj.gov.foc.vo.QjVO;
 
+import java.sql.Date;
+
+@Service
 public class FormService {
-    public void toHQ(FormBean formBean){
-        HQBean hqBean = new HQBean();
 
-        hqBean.setCh_name(formBean.getEntry().getField_2());
-        hqBean.setPy_name(formBean.getEntry().getField_4());
-        hqBean.setUsed_name(formBean.getEntry().getField_5());
-        hqBean.setSex(formBean.getEntry().getField_6());
-        hqBean.setEthnicity(formBean.getEntry().getField_7());
-        hqBean.setPassport_no(formBean.getEntry().getField_9());
-        hqBean.setDate_birth(java.sql.Date.valueOf(formBean.getEntry().getField_8()));
-        hqBean.setId_num(formBean.getEntry().getField_53());
-        hqBean.setO_tel(formBean.getEntry().getField_3());
-        hqBean.setCn_tel(formBean.getEntry().getField_10());
-        hqBean.setWechat(formBean.getEntry().getField_11());
-        hqBean.setMail(formBean.getEntry().getField_12());
-        hqBean.setQq_num(Integer.toString(formBean.getEntry().getField_13()));
-        hqBean.setNative_place(formBean.getEntry().getField_56().getProvince()+" "+formBean.getEntry().getField_56().getCity());
-        hqBean.setNationality(formBean.getEntry().getField_15());
-        hqBean.setResidence(formBean.getEntry().getField_16());
-        hqBean.setResidenceDetail(formBean.getEntry().getField_17());
-        hqBean.setCn_residence(formBean.getEntry().getField_18().getProvince()+" "
-                +formBean.getEntry().getField_18().getCity()+" "
-                +formBean.getEntry().getField_18().getDistrict()+" "
-                +formBean.getEntry().getField_18().getStreet());
-        hqBean.setPresent_industry(formBean.getEntry().getField_19());
-        hqBean.setCom_name(formBean.getEntry().getField_20());
-        hqBean.setPosition(formBean.getEntry().getField_21());
-        //hqBean.setRegistrant(formBean.getEntry().getCreator_name());
-        hqBean.setReg_date(java.sql.Date.valueOf(formBean.getEntry().getCreated_at()));
-        hqBean.setRemarks(formBean.getEntry().getField_23());
-        hqBean.setSocial_services(formBean.getEntry().getField_22());
-        hqBean.setDel("0");
+    @Autowired
+    QJService qjService;
+
+    @Autowired
+    HQService hqService;
+
+    @Autowired
+    LXService lxService;
+
+    public String save(FormBean bean) {
+        FormBean.EntryBean entryBean = bean.getEntry();
+
+        switch (entryBean.getField_1()){
+            case "华侨华人":
+                saveAsHQ(entryBean); break;
+            case "留学人员":
+                saveAsLX(entryBean); break;
+            case "归侨侨眷":
+                saveAsQJ(entryBean); break;
+            case "留学生家属":
+                saveAsLXJS(entryBean); break;
+        }
+
+        return "success";
     }
 
-    public void toLX(FormBean formBean){
-        LxBean lxBean = new LxBean();
+    private void saveAsHQ(FormBean.EntryBean entryBean){
+        HQVO hqvo = new HQVO();
+        hqvo.setCh_name(entryBean.getField_2());
+        hqvo.setPy_name(entryBean.getField_4());
+        hqvo.setUsed_name(entryBean.getField_5());
+        hqvo.setSex(entryBean.getField_6());
+        hqvo.setEthnicity(entryBean.getField_7());
+        hqvo.setPassport_no(entryBean.getField_9());
+        try {
+            hqvo.setDate_birth(Date.valueOf(entryBean.getField_8()));
+        }catch (Exception ignored){
+        }
+        hqvo.setId_num(entryBean.getField_53());
+        hqvo.setO_tel(entryBean.getField_3());
+        hqvo.setCn_tel(entryBean.getField_10());
+        hqvo.setWechat(entryBean.getField_11());
+        hqvo.setMail(entryBean.getField_12());
+        hqvo.setQq_num(Integer.toString(entryBean.getField_13()));
+        hqvo.setNative_place(entryBean.getField_56().getProvince()+"/"+entryBean.getField_56().getCity());
+        hqvo.setNationality(entryBean.getField_15());
+        hqvo.setResidence(entryBean.getField_16());
+        hqvo.setResidenceDetail(entryBean.getField_17());
+        hqvo.setCn_residence(entryBean.getField_18().getProvince()+" "
+                +entryBean.getField_18().getCity()+" "
+                +entryBean.getField_18().getDistrict()+" "
+                +entryBean.getField_18().getStreet());
+        hqvo.setPresent_industry(entryBean.getField_19());
+        hqvo.setCom_name(entryBean.getField_20());
+        hqvo.setPosition(entryBean.getField_21());
+        try {
+            hqvo.setReg_date(Date.valueOf(entryBean.getCreated_at().substring(0,10)));
+        }catch (Exception e){
+            hqvo.setReg_date(new Date(System.currentTimeMillis()));
+        }
+        hqvo.setRemarks(entryBean.getField_23());
+        hqvo.setSocial_services(entryBean.getField_22());
 
-        lxBean.setCh_name(formBean.getEntry().getField_2());
-        lxBean.setPy_name(formBean.getEntry().getField_24());
-        lxBean.setUsed_name(formBean.getEntry().getField_25());
-        lxBean.setSex(formBean.getEntry().getField_6());
-        lxBean.setEthnicity(formBean.getEntry().getField_7());
-        lxBean.setPassport_no(formBean.getEntry().getField_9());
-        lxBean.setDate_birth(java.sql.Date.valueOf(formBean.getEntry().getField_26()));
-        lxBean.setId_num(formBean.getEntry().getField_53());
-        lxBean.setO_tel(formBean.getEntry().getField_3());
-        lxBean.setCn_tel(formBean.getEntry().getField_27());
-        lxBean.setWechat(formBean.getEntry().getField_28());
-        lxBean.setMail(formBean.getEntry().getField_29());
-        lxBean.setQq_num(Integer.toString(formBean.getEntry().getField_30()));
-        lxBean.setNative_place(formBean.getEntry().getField_57().getProvince()+" "+formBean.getEntry().getField_57().getCity());
-        lxBean.setNationality(formBean.getEntry().getField_32());
-        lxBean.setResidence(formBean.getEntry().getField_33());
-        lxBean.setResidenceDetail(formBean.getEntry().getField_34());
-        lxBean.setCn_residence(formBean.getEntry().getField_35().getProvince()+" "
-                +formBean.getEntry().getField_35().getCity()+" "
-                +formBean.getEntry().getField_35().getDistrict()+" "
-                +formBean.getEntry().getField_35().getStreet());
-        lxBean.setPresent_industry(formBean.getEntry().getField_36());
-        lxBean.setCom_name(formBean.getEntry().getField_37());
-        lxBean.setPosition(formBean.getEntry().getField_38());
-        //lxBean.setRegistrant(formBean.getEntry().getCreator_name());
-        lxBean.setReg_date(java.sql.Date.valueOf(formBean.getEntry().getCreated_at()));
-        lxBean.setRemarks(formBean.getEntry().getField_23());
-        lxBean.setSocial_services(formBean.getEntry().getField_39());
+        hqService.addHQ(hqvo,2L);
+    }
 
-        lxBean.setEn_cname(formBean.getEntry().getField_41());
-        lxBean.setCh_cname(formBean.getEntry().getField_40());
-        lxBean.setDegree(formBean.getEntry().getField_42());
+    private void saveAsLX(FormBean.EntryBean entryBean){
+        LxVO lxVO = new LxVO();
 
-        lxBean.setFamily_name(formBean.getEntry().getField_54());
-        lxBean.setFamily_tel(formBean.getEntry().getField_55());
+        lxVO.setCh_name(entryBean.getField_2());
+        lxVO.setPy_name(entryBean.getField_24());
+        lxVO.setUsed_name(entryBean.getField_25());
+        lxVO.setSex(entryBean.getField_6());
+        lxVO.setEthnicity(entryBean.getField_7());
+        lxVO.setPassport_no(entryBean.getField_9());
+        try {
+            lxVO.setDate_birth(Date.valueOf(entryBean.getField_26()));
+        }catch (Exception ignored){
+        }
+        lxVO.setId_num(entryBean.getField_53());
+        lxVO.setO_tel(entryBean.getField_3());
+        lxVO.setCn_tel(entryBean.getField_27());
+        lxVO.setWechat(entryBean.getField_28());
+        lxVO.setMail(entryBean.getField_29());
+        lxVO.setQq_num(Integer.toString(entryBean.getField_30()));
+        lxVO.setNative_place(entryBean.getField_57().getProvince()+"/"+entryBean.getField_57().getCity());
+        lxVO.setNationality(entryBean.getField_32());
+        lxVO.setResidence(entryBean.getField_33());
+        lxVO.setResidenceDetail(entryBean.getField_34());
+        lxVO.setCn_residence(entryBean.getField_35().getProvince()+" "
+                +entryBean.getField_35().getCity()+" "
+                +entryBean.getField_35().getDistrict()+" "
+                +entryBean.getField_35().getStreet());
+        lxVO.setPresent_industry(entryBean.getField_36());
+        lxVO.setCom_name(entryBean.getField_37());
+        lxVO.setPosition(entryBean.getField_38());
+        try {
+            lxVO.setReg_date(java.sql.Date.valueOf(entryBean.getCreated_at().substring(0,10)));
+        }catch (Exception e){
+            lxVO.setReg_date(new Date(System.currentTimeMillis()));
+        }
+        lxVO.setRemarks(entryBean.getField_23());
+        lxVO.setSocial_services(entryBean.getField_39());
 
-        lxBean.setDel("0");
+        lxVO.setEn_cname(entryBean.getField_41());
+        lxVO.setCh_cname(entryBean.getField_40());
+        lxVO.setDegree(entryBean.getField_42());
 
+        lxVO.setFamily_name(entryBean.getField_54());
+        lxVO.setFamily_tel(entryBean.getField_55());
+        lxService.addLX(lxVO,2L);
 
     }
 
-    public void toQJ(FormBean formBean){
-        QJBean qjBean = new QJBean();
-
-        qjBean.setCh_name(formBean.getEntry().getField_2());
-        qjBean.setSex(formBean.getEntry().getField_6());
-        qjBean.setEthnicity(formBean.getEntry().getField_7());
-        qjBean.setPassport_no(formBean.getEntry().getField_9());
-        qjBean.setId_num(formBean.getEntry().getField_53());
-        qjBean.setO_tel(formBean.getEntry().getField_3());
-        qjBean.setFamily_location(formBean.getEntry().getField_43().getProvince()+" "
-                +formBean.getEntry().getField_43().getCity()+" "
-                +formBean.getEntry().getField_43().getDistrict()+" "
-                +formBean.getEntry().getField_43().getStreet());
-        qjBean.setRemarks(formBean.getEntry().getField_23());
-        qjBean.setO_name(formBean.getEntry().getField_45());
-        qjBean.setO_relation(formBean.getEntry().getField_47());
-        qjBean.setO_passport(formBean.getEntry().getField_49());
-        qjBean.setO_residence(formBean.getEntry().getField_51());
-        qjBean.setDel("0");
-
+    private void saveAsQJ(FormBean.EntryBean entryBean){
+        QjVO qjVO = new QjVO();
+        qjVO.setCh_name(entryBean.getField_2());
+        qjVO.setSex(entryBean.getField_6());
+        qjVO.setEthnicity(entryBean.getField_7());
+        qjVO.setPassport_no(entryBean.getField_9());
+        qjVO.setId_num(entryBean.getField_53());
+        qjVO.setO_tel(entryBean.getField_3());
+        qjVO.setFamily_location(entryBean.getField_43().getProvince()+" "
+                +entryBean.getField_43().getCity()+" "
+                +entryBean.getField_43().getDistrict()+" "
+                +entryBean.getField_43().getStreet());
+        qjVO.setRemarks(entryBean.getField_23());
+        qjVO.setO_name(entryBean.getField_45());
+        qjVO.setO_relation(entryBean.getField_47());
+        qjVO.setO_passport(entryBean.getField_49());
+        qjVO.setO_residence(entryBean.getField_51());
+        qjVO.setType("qj_hq");
+        qjService.saveQj(qjVO);
     }
 
-    public void toLXJS(FormBean formBean){
-        QJBean qjBean = new QJBean();
-
-        qjBean.setCh_name(formBean.getEntry().getField_2());
-        qjBean.setSex(formBean.getEntry().getField_6());
-        qjBean.setEthnicity(formBean.getEntry().getField_7());
-        qjBean.setPassport_no(formBean.getEntry().getField_9());
-        qjBean.setId_num(formBean.getEntry().getField_53());
-        qjBean.setO_tel(formBean.getEntry().getField_3());
-        qjBean.setFamily_location(formBean.getEntry().getField_44().getProvince()+" "
-                +formBean.getEntry().getField_44().getCity()+" "
-                +formBean.getEntry().getField_44().getDistrict()+" "
-                +formBean.getEntry().getField_44().getStreet());
-        qjBean.setRemarks(formBean.getEntry().getField_23());
-        qjBean.setO_name(formBean.getEntry().getField_46());
-        qjBean.setO_relation(formBean.getEntry().getField_48());
-        qjBean.setO_passport(formBean.getEntry().getField_50());
-        qjBean.setO_residence(formBean.getEntry().getField_52());
-        qjBean.setDel("0");
+    private void saveAsLXJS(FormBean.EntryBean entryBean){
+        QjVO qjVO = new QjVO();
+        qjVO.setCh_name(entryBean.getField_2());
+        qjVO.setSex(entryBean.getField_6());
+        qjVO.setEthnicity(entryBean.getField_7());
+        qjVO.setPassport_no(entryBean.getField_9());
+        qjVO.setId_num(entryBean.getField_53());
+        qjVO.setO_tel(entryBean.getField_3());
+        qjVO.setFamily_location(entryBean.getField_44().getProvince()+" "
+                +entryBean.getField_44().getCity()+" "
+                +entryBean.getField_44().getDistrict()+" "
+                +entryBean.getField_44().getStreet());
+        qjVO.setRemarks(entryBean.getField_23());
+        qjVO.setO_name(entryBean.getField_46());
+        qjVO.setO_relation(entryBean.getField_48());
+        qjVO.setO_passport(entryBean.getField_50());
+        qjVO.setO_residence(entryBean.getField_52());
+        qjVO.setType("qj_lx");
+        qjService.saveQj(qjVO);
     }
-
-
 }

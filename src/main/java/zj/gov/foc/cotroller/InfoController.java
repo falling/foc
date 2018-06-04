@@ -7,10 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
-import zj.gov.foc.service.HQService;
-import zj.gov.foc.service.LXService;
-import zj.gov.foc.service.QJService;
-import zj.gov.foc.service.StatisticsService;
+import zj.gov.foc.po.FormBean;
+import zj.gov.foc.service.*;
 import zj.gov.foc.util.Response;
 import zj.gov.foc.vo.*;
 
@@ -42,6 +40,9 @@ public class InfoController {
     @Autowired
     StatisticsService statisticsService;
 
+    @Autowired
+    FormService formService;
+
     @Value("${upload-path}")
     private String path;
 
@@ -52,7 +53,7 @@ public class InfoController {
         if (userVO == null) {
             return Response.warning("未登录");
         }
-        if (hqService.addHQ(hqvo, userVO)!=null) {
+        if (hqService.addHQ(hqvo, userVO.getId())!=null) {
             return Response.success("录入成功");
         } else {
             return Response.warning("录入失败");
@@ -220,6 +221,13 @@ public class InfoController {
             return Response.warning("文件为空");
         }
     }
+
+
+    @RequestMapping("/importFromJson")
+    public String saveJson(@RequestBody FormBean bean) {
+        return formService.save(bean);
+    }
+
 
 
 }

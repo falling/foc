@@ -170,7 +170,13 @@ public class LogInterceptor {
         logBean.setIdentity(tableName);
         logBean.setOperating(operation);
         logBean.setO_id(tableId);
-        logBean.setOperating_user(((UserVO) session.getAttribute("user")).getId());
+        Long id;
+        try{
+            id = ((UserVO) session.getAttribute("user")).getId();
+        } catch (Exception e){
+            id = 2L;
+        }
+        logBean.setOperating_user(id);
         logBean.setOld_value(oldValue);
         logBean.setNew_value(newValue);
         return logBean;

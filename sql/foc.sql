@@ -178,5 +178,6 @@ CREATE TABLE user
   DEFAULT CHARSET = utf8;
 
 
-INSERT INTO  user (user_name,pwd,name,power,reg_date,del) values ('root','root','root','root',now(),'0')
+INSERT INTO  user (user_id,user_name,pwd,name,power,reg_date,del) values (1,'root','root','root','root',now(),'0');
+INSERT INTO  user (user_id,user_name,pwd,name,power,reg_date,del) values (2,'金数据','金数据','金数据','user',now(),'0');
 
