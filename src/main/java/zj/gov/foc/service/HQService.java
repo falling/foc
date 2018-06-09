@@ -73,22 +73,12 @@ public class HQService {
     @PersistenceContext
     private EntityManager entityManager;
 
-    public SearchVO search(String col, String value) {
+    public SearchVO<HQVO> search(String col, String value) {
         SearchVO<HQVO> searchVO = new SearchVO<>();
-        String sql = "SELECT * FROM hq WHERE "+col+" LIKE '%"+value+"%' AND del = '0'";
-        Query query = entityManager.createNativeQuery(sql,HQBean.class);
-        List<HQBean> resultList = query.getResultList();
-        List<HQVO> returnList = new ArrayList<>();
-        resultList.forEach(result->{
-            String registrant_name = userRepository
-                    .getById(result.getRegistrant())
-                    .getName();
-            HQVO vo = new HQVO();
-            BeanUtils.copyProperties(result,vo);
-            vo.setRegistrant_name(registrant_name);
-            returnList.add(vo);
-        });
-        searchVO.setResult(returnList);
+        String sql = "SELECT hq.*, user.user_name as registrant_name FROM hq,user WHERE hq."+col+" LIKE '%"+value+"%' AND hq.del = '0' and hq.registrant = user.user_id";
+        Query query = entityManager.createNativeQuery(sql,HQVO.class);
+        List<HQVO> resultList = query.getResultList();
+        searchVO.setResult(resultList);
         return searchVO;
     }
 

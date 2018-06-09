@@ -1,6 +1,5 @@
 package zj.gov.foc.service;
 
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import zj.gov.foc.po.LogBean;
@@ -10,8 +9,10 @@ import zj.gov.foc.repository.LoginLogRepository;
 import zj.gov.foc.repository.UserRepository;
 import zj.gov.foc.vo.LogVO;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.transaction.Transactional;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -41,17 +42,13 @@ public class LogService {
         logRepository.save(logBean);
     }
 
+    @PersistenceContext
+    private EntityManager entityManager;
+
     public List<LogVO> loadLog(Long o_id, String type) {
-        List<LogVO> result = new ArrayList<>();
-        List<LogBean> list = logRepository.getLogByO_idAndType(o_id,type);
-        list.forEach(logBean -> {
-            LogVO logVO = new LogVO();
-            BeanUtils.copyProperties(logBean,logVO);
-            String operator = userRepository.getById(logBean.getOperating_user()).getName();
-            logVO.setOperating_user(operator);
-            result.add(logVO);
-        });
-        return result;
+        String sql = "SELECT user.user_name as operating_user,log.* FROM log,user WHERE log.o_id = '"+o_id+"' AND log.identity = '"+type+"' and log.operating_user = user.user_id ORDER BY log.log_date DESC";
+        Query query = entityManager.createNativeQuery(sql,LogVO.class);
+        return query.getResultList();
     }
 
     @Transactional

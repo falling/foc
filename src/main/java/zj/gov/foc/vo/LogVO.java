@@ -1,5 +1,8 @@
 package zj.gov.foc.vo;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.util.Date;
 
 /**
@@ -8,7 +11,10 @@ import java.util.Date;
  * Time: 下午12:01
  * Description:
  */
+@Entity
 public class LogVO{
+    @Id
+    @GeneratedValue
     private Long log_id;
     private String operating_user;
     private Date log_date;

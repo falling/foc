@@ -97,7 +97,7 @@ public class ExcelService {
         hqvo.setCom_name(getCellValue(row,36));
         hqvo.setPosition(getCellValue(row,38));
         try {
-            hqvo.setReg_date(Date.valueOf(getCellValue(row,57)));
+            hqvo.setReg_date(Date.valueOf(getCellValue(row,57).substring(0,10)));
         } catch (Exception e) {
             hqvo.setReg_date(new Date(System.currentTimeMillis()));
         }
@@ -134,7 +134,7 @@ public class ExcelService {
         lxVO.setCom_name(getCellValue(row,37));
         lxVO.setPosition(getCellValue(row,39));
         try {
-            lxVO.setReg_date(Date.valueOf(getCellValue(row,57)));
+            lxVO.setReg_date(Date.valueOf(getCellValue(row,57).substring(0,10)));
         } catch (Exception e) {
             lxVO.setReg_date(new Date(System.currentTimeMillis()));
         }
@@ -187,9 +187,6 @@ public class ExcelService {
         qjVO.setO_passport(getCellValue(row,52));
         qjVO.setO_residence(getCellValue(row,54));
         return qjVO;
-
-//        qjService.saveQj(qjVO);
-
     }
 
 }

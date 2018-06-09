@@ -1,8 +1,13 @@
 package zj.gov.foc.vo;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.sql.Date;
-
+@Entity
 public class LxVO extends BaseVO{
+    @Id
+    @GeneratedValue
     private Long lx_id;
     private String ch_name;
     private String used_name;

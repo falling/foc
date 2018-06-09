@@ -81,20 +81,10 @@ public class LXService {
 
     public SearchVO<LxVO> search(String col, String value) {
         SearchVO<LxVO> searchVO = new SearchVO<>();
-        String sql = "SELECT * FROM lx WHERE "+col+" LIKE '%"+value+"%' AND del = '0'";
-        Query query = entityManager.createNativeQuery(sql,LxBean.class);
-        List<LxBean> resultList = query.getResultList();
-        List<LxVO> returnList = new ArrayList<>();
-        resultList.forEach(result->{
-            String registrant_name = userRepository
-                    .getById(result.getRegistrant())
-                    .getName();
-            LxVO vo = new LxVO();
-            BeanUtils.copyProperties(result,vo);
-            vo.setRegistrant_name(registrant_name);
-            returnList.add(vo);
-        });
-        searchVO.setResult(returnList);
+        String sql = "SELECT lx.*,user.user_name as registrant_name FROM lx , user WHERE lx."+col+" LIKE '%"+value+"%' AND lx.del = '0'  and lx.registrant = user.user_id";
+        Query query = entityManager.createNativeQuery(sql,LxVO.class);
+        List<LxVO> resultList = query.getResultList();
+        searchVO.setResult(resultList);
         return searchVO;
     }
 
