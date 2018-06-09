@@ -95,4 +95,19 @@ public class HQService {
     public boolean confirmPassport(String passport_no, long id) {
         return hqRepository.confirmPassport(passport_no,id) == null;
     }
+
+    @Transactional
+    public Iterable<HQBean> save(List<HQVO> hqvoList, Long id) {
+        List<HQBean> hqBeans = new ArrayList<>();
+        hqvoList.forEach(hqvo -> {
+            HQBean bean = new HQBean();
+            BeanUtils.copyProperties(hqvo,bean);
+            bean.setRegistrant(id);
+            if (bean.getReg_date()==null)
+                bean.setReg_date(new Date(System.currentTimeMillis()));
+            bean.setDel("0");
+            hqBeans.add(bean);
+        });
+        return hqRepository.save(hqBeans);
+    }
 }

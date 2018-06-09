@@ -2,10 +2,10 @@ package zj.gov.foc.repository;
 
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.Repository;
+import org.springframework.data.repository.CrudRepository;
 import zj.gov.foc.po.LxBean;
 
-public interface LXRepository extends Repository<LxBean, Long> {
+public interface LXRepository extends CrudRepository<LxBean, Long> {
 
 
     LxBean save(LxBean lxBean);
@@ -18,7 +18,7 @@ public interface LXRepository extends Repository<LxBean, Long> {
 
     @Modifying
     @Query(value = "UPDATE lx SET del = '1' WHERE lx_id = ?1 and del='0'",nativeQuery = true)
-    int delete(Long id);
+    int deleteLx(long id);
 
     @Query(value = "select * from lx WHERE passport_no = ?1 and lx_id <> ?2 and del='0'",nativeQuery = true)
     LxBean confirmPassport(String passport_no, long id);

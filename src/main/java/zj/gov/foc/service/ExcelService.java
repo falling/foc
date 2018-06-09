@@ -1,150 +1,195 @@
 package zj.gov.foc.service;
 
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.ss.usermodel.*;
-import org.apache.poi.ss.util.CellReference;
-import zj.gov.foc.po.QJBean;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import zj.gov.foc.vo.HQVO;
 import zj.gov.foc.vo.LxVO;
 import zj.gov.foc.vo.QjVO;
+import zj.gov.foc.vo.UserVO;
 
-import java.io.FileInputStream;
-import java.io.IOException;
+import javax.servlet.http.HttpSession;
+import javax.transaction.Transactional;
+import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
+@Service
 public class ExcelService {
+    @Autowired
+    HttpSession httpSession;
 
-    public void outputExcel( String path ) {
-        try {
-            Workbook wb = new HSSFWorkbook(new FileInputStream(path));
-            DataFormatter formatter = new DataFormatter();
-            Sheet sheet = wb.getSheetAt(0);
-            for (int rowNum = 1; rowNum <= sheet.getLastRowNum(); rowNum++) {
-                Row row = sheet.getRow(rowNum);
-                if (row != null){
-                    switch (row.getCell(1).toString()){
-                        case "华侨华人":
-                            toExcelHQ(row);
-                            break;
-                        case "留学人员":
-                            toExcelLX(row);
-                            break;
-                        case "归侨侨眷":
-                            toExcelQJ(row);
-                            break;
-                        case "留学生家属":
-                            toExcelLXJS(row);
-                            break;
-                    }
+    @Autowired
+    HQService hqService;
 
+    @Autowired
+    LXService lxService;
+
+    @Autowired
+    QJService qjService;
+
+    @Transactional
+    public void saveExcel(Workbook wb) {
+        Sheet sheet = wb.getSheetAt(0);
+        List<HQVO> hqvoList = new ArrayList<>();
+        List<LxVO> lxVOList = new ArrayList<>();
+        List<QjVO> hq_qjVOList = new ArrayList<>();
+        List<QjVO> lx_qjVOList = new ArrayList<>();
+        for (int rowNum = 0; rowNum < sheet.getLastRowNum(); rowNum++) {
+            Row row = sheet.getRow(rowNum);
+            if (row != null) {
+                switch (getCellValue(row,1)) {
+                    case "华侨华人":
+                        hqvoList.add(toExcelHQ(row));
+                        break;
+                    case "留学人员":
+                        lxVOList.add(toExcelLX(row));
+                        break;
+                    case "归侨侨眷":
+                        hq_qjVOList.add(toExcelQJ(row));
+                        break;
+                    case "留学生家属":
+                        lx_qjVOList.add(toExcelLXJS(row));
+                        break;
                 }
+
             }
-
-        } catch (IOException e) {
-            e.printStackTrace();
         }
-
+        Long id = ((UserVO) httpSession.getAttribute("user")).getId();
+        hqService.save(hqvoList,id);
+        lxService.save(lxVOList,id);
+        qjService.save(hq_qjVOList);
+        qjService.save(lx_qjVOList);
     }
-    public void toExcelHQ(Row row){
+
+    private String getCellValue(Row row, int index) {
+        Cell cell = row.getCell(index);
+        return cell == null ? "" : cell.toString();
+    }
+
+    private HQVO toExcelHQ(Row row) {
         HQVO hqvo = new HQVO();
-        hqvo.setCh_name(row.getCell(2).toString());//0:序号；1：身份选择；2：姓名；
-        hqvo.setPy_name(row.getCell(4).toString());
-        hqvo.setUsed_name(row.getCell(6).toString());
-        hqvo.setSex(row.getCell(8).toString());
-        hqvo.setEthnicity(row.getCell(9).toString());
-        hqvo.setPassport_no(row.getCell(12).toString());
-        hqvo.setDate_birth(java.sql.Date.valueOf(row.getCell(10).toString()));
-        hqvo.setId_num(row.getCell(13).toString());
-        hqvo.setO_tel(row.getCell(3).toString());
-        hqvo.setCn_tel(row.getCell(14).toString());
-        hqvo.setWechat(row.getCell(16).toString());
-        hqvo.setMail(row.getCell(18).toString());
-        hqvo.setQq_num(row.getCell(20).toString());
-        hqvo.setNative_place(row.getCell(22).toString());
-        hqvo.setNationality(row.getCell(24).toString());
-        hqvo.setResidence(row.getCell(26).toString());
-        hqvo.setResidenceDetail(row.getCell(28).toString());
-        hqvo.setCn_residence(row.getCell(30).toString());
-        hqvo.setPresent_industry(row.getCell(34).toString());
-        hqvo.setCom_name(row.getCell(36).toString());
-        hqvo.setPosition(row.getCell(38).toString());
-        //hqvo.setRegistrant(formBean.getEntry().getCreator_name());
-        hqvo.setReg_date(java.sql.Date.valueOf(row.getCell(57).toString()));
-        hqvo.setRemarks(row.getCell(55).toString());
-        hqvo.setSocial_services(row.getCell(40).toString());
-        //hqvo.setDel("0");
+        hqvo.setCh_name(getCellValue(row,2));//0:序号；1：身份选择；2：姓名；
+        hqvo.setPy_name(getCellValue(row,4));
+        hqvo.setUsed_name(getCellValue(row,6));
+        hqvo.setSex(getCellValue(row,8));
+        hqvo.setEthnicity(getCellValue(row,9));
+        hqvo.setPassport_no(getCellValue(row,12));
+        try {
+            hqvo.setDate_birth(Date.valueOf(getCellValue(row,10)));
+        } catch (Exception ignored) {
+        }
+        hqvo.setId_num(getCellValue(row,13));
+        hqvo.setO_tel(getCellValue(row,3));
+        hqvo.setCn_tel(getCellValue(row,14));
+        hqvo.setWechat(getCellValue(row,16));
+        hqvo.setMail(getCellValue(row,18));
+        hqvo.setQq_num(getCellValue(row,20));
+        hqvo.setNative_place(getCellValue(row,22));
+        hqvo.setNationality(getCellValue(row,24));
+        hqvo.setResidence(getCellValue(row,26));
+        hqvo.setResidenceDetail(getCellValue(row,28));
+        hqvo.setCn_residence(getCellValue(row,30));
+        hqvo.setPresent_industry(getCellValue(row,34));
+        hqvo.setCom_name(getCellValue(row,36));
+        hqvo.setPosition(getCellValue(row,38));
+        try {
+            hqvo.setReg_date(Date.valueOf(getCellValue(row,57)));
+        } catch (Exception e) {
+            hqvo.setReg_date(new Date(System.currentTimeMillis()));
+        }
+        hqvo.setRemarks(getCellValue(row,55));
+        hqvo.setSocial_services(getCellValue(row,40));
+        return hqvo;
+
     }
-    public void toExcelLX(Row row){
+
+    private LxVO toExcelLX(Row row) {
         LxVO lxVO = new LxVO();
-        lxVO.setCh_name(row.getCell(2).toString());//0:序号；1：身份选择；2：姓名；
-        lxVO.setPy_name(row.getCell(5).toString());
-        lxVO.setUsed_name(row.getCell(7).toString());
-        lxVO.setSex(row.getCell(8).toString());
-        lxVO.setEthnicity(row.getCell(9).toString());
-        lxVO.setPassport_no(row.getCell(12).toString());
-        lxVO.setDate_birth(java.sql.Date.valueOf(row.getCell(11).toString()));
-        lxVO.setId_num(row.getCell(13).toString());
-        lxVO.setO_tel(row.getCell(3).toString());
-        lxVO.setCn_tel(row.getCell(15).toString());
-        lxVO.setWechat(row.getCell(17).toString());
-        lxVO.setMail(row.getCell(19).toString());
-        lxVO.setQq_num(row.getCell(21).toString());
-        lxVO.setNative_place(row.getCell(23).toString());
-        lxVO.setNationality(row.getCell(25).toString());
-        lxVO.setResidence(row.getCell(27).toString());
-        lxVO.setResidenceDetail(row.getCell(29).toString());
-        lxVO.setCn_residence(row.getCell(31).toString());
-        lxVO.setPresent_industry(row.getCell(35).toString());
-        lxVO.setCom_name(row.getCell(37).toString());
-        lxVO.setPosition(row.getCell(39).toString());
-        //lxVO.setRegistrant(formBean.getEntry().getCreator_name());
-        lxVO.setReg_date(java.sql.Date.valueOf(row.getCell(57).toString()));
-        lxVO.setRemarks(row.getCell(55).toString());
-        lxVO.setSocial_services(row.getCell(41).toString());
+        lxVO.setCh_name(getCellValue(row,2));//0:序号；1：身份选择；2：姓名；
+        lxVO.setPy_name(getCellValue(row,5));
+        lxVO.setUsed_name(getCellValue(row,7));
+        lxVO.setSex(getCellValue(row,8));
+        lxVO.setEthnicity(getCellValue(row,9));
+        lxVO.setPassport_no(getCellValue(row,12));
+        try {
+            lxVO.setDate_birth(Date.valueOf(getCellValue(row,11)));
+        } catch (Exception ignored) {
+        }
+        lxVO.setId_num(getCellValue(row,13));
+        lxVO.setO_tel(getCellValue(row,3));
+        lxVO.setCn_tel(getCellValue(row,15));
+        lxVO.setWechat(getCellValue(row,17));
+        lxVO.setMail(getCellValue(row,19));
+        lxVO.setQq_num(getCellValue(row,21));
+        lxVO.setNative_place(getCellValue(row,23));
+        lxVO.setNationality(getCellValue(row,25));
+        lxVO.setResidence(getCellValue(row,27));
+        lxVO.setResidenceDetail(getCellValue(row,29));
+        lxVO.setCn_residence(getCellValue(row,31));
+        lxVO.setPresent_industry(getCellValue(row,35));
+        lxVO.setCom_name(getCellValue(row,37));
+        lxVO.setPosition(getCellValue(row,39));
+        try {
+            lxVO.setReg_date(Date.valueOf(getCellValue(row,57)));
+        } catch (Exception e) {
+            lxVO.setReg_date(new Date(System.currentTimeMillis()));
+        }
+        lxVO.setRemarks(getCellValue(row,55));
+        lxVO.setSocial_services(getCellValue(row,41));
 
-        lxVO.setEn_cname(row.getCell(43).toString());
-        lxVO.setCh_cname(row.getCell(42).toString());
-        lxVO.setDegree(row.getCell(44).toString());
+        lxVO.setEn_cname(getCellValue(row,43));
+        lxVO.setCh_cname(getCellValue(row,42));
+        lxVO.setDegree(getCellValue(row,44));
 
-        lxVO.setFamily_name(row.getCell(45).toString());
-        lxVO.setFamily_tel(row.getCell(46).toString());
+        lxVO.setFamily_name(getCellValue(row,45));
+        lxVO.setFamily_tel(getCellValue(row,46));
+        return lxVO;
     }
 
 
-
-    public void toExcelQJ(Row row){
+    private QjVO toExcelQJ(Row row) {
         QjVO qjVO = new QjVO();
 
-        qjVO.setCh_name(row.getCell(2).toString());
-        qjVO.setSex(row.getCell(8).toString());
-        qjVO.setEthnicity(row.getCell(9).toString());
-        qjVO.setPassport_no(row.getCell(12).toString());
-        qjVO.setId_num(row.getCell(13).toString());
-        qjVO.setO_tel(row.getCell(3).toString());
-        qjVO.setFamily_location(row.getCell(32).toString());
-        qjVO.setRemarks(row.getCell(55).toString());
-        qjVO.setType("归侨侨眷");//用于区分侨眷和留学生家属
-        qjVO.setO_name(row.getCell(47).toString());
-        qjVO.setO_relation(row.getCell(49).toString());
-        qjVO.setO_passport(row.getCell(51).toString());
-        qjVO.setO_residence(row.getCell(53).toString());
+        qjVO.setCh_name(getCellValue(row,2));
+        qjVO.setSex(getCellValue(row,8));
+        qjVO.setEthnicity(getCellValue(row,9));
+        qjVO.setPassport_no(getCellValue(row,12));
+        qjVO.setId_num(getCellValue(row,13));
+        qjVO.setO_tel(getCellValue(row,3));
+        qjVO.setFamily_location(getCellValue(row,32));
+        qjVO.setRemarks(getCellValue(row,55));
+        qjVO.setType("qj_hq");//用于区分侨眷和留学生家属
+        qjVO.setO_name(getCellValue(row,47));
+        qjVO.setO_relation(getCellValue(row,49));
+        qjVO.setO_passport(getCellValue(row,51));
+        qjVO.setO_residence(getCellValue(row,53));
+        return qjVO;
     }
-    public void toExcelLXJS(Row row){
+
+    private QjVO toExcelLXJS(Row row) {
         QjVO qjVO = new QjVO();
 
-        qjVO.setCh_name(row.getCell(2).toString());
-        qjVO.setSex(row.getCell(8).toString());
-        qjVO.setEthnicity(row.getCell(9).toString());
-        qjVO.setPassport_no(row.getCell(12).toString());
-        qjVO.setId_num(row.getCell(13).toString());
-        qjVO.setO_tel(row.getCell(3).toString());
-        qjVO.setFamily_location(row.getCell(33).toString());
-        qjVO.setRemarks(row.getCell(55).toString());
-        qjVO.setType("留学生家属");
-        qjVO.setO_name(row.getCell(48).toString());
-        qjVO.setO_relation(row.getCell(50).toString());
-        qjVO.setO_passport(row.getCell(52).toString());
-        qjVO.setO_residence(row.getCell(54).toString());
+        qjVO.setCh_name(getCellValue(row,2));
+        qjVO.setSex(getCellValue(row,8));
+        qjVO.setEthnicity(getCellValue(row,9));
+        qjVO.setPassport_no(getCellValue(row,12));
+        qjVO.setId_num(getCellValue(row,13));
+        qjVO.setO_tel(getCellValue(row,3));
+        qjVO.setFamily_location(getCellValue(row,33));
+        qjVO.setRemarks(getCellValue(row,55));
+        qjVO.setType("qj_lx");
+        qjVO.setO_name(getCellValue(row,48));
+        qjVO.setO_relation(getCellValue(row,50));
+        qjVO.setO_passport(getCellValue(row,52));
+        qjVO.setO_residence(getCellValue(row,54));
+        return qjVO;
+
+//        qjService.saveQj(qjVO);
+
     }
 
 }

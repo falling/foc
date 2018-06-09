@@ -73,7 +73,7 @@ public class LXService {
 
     @Transactional
     public boolean deleteLX(Long id) {
-        return lxRepository.delete(id) == 1;
+        return lxRepository.deleteLx(id) == 1;
     }
 
     @PersistenceContext
@@ -96,5 +96,20 @@ public class LXService {
         });
         searchVO.setResult(returnList);
         return searchVO;
+    }
+
+    @Transactional
+    public Iterable save(List<LxVO> lxVOList, Long id) {
+        List<LxBean> lxBeans = new ArrayList<>();
+        lxVOList.forEach(lxVO -> {
+            LxBean bean = new LxBean();
+            BeanUtils.copyProperties(lxVO,bean);
+            bean.setRegistrant(id);
+            if (bean.getReg_date()==null)
+                bean.setReg_date(new Date(System.currentTimeMillis()));
+            bean.setDel("0");
+            lxBeans.add(bean);
+        });
+        return lxRepository.save(lxBeans);
     }
 }

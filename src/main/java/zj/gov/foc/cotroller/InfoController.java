@@ -1,5 +1,7 @@
 package zj.gov.foc.cotroller;
 
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -43,6 +45,9 @@ public class InfoController {
     @Autowired
     FormService formService;
 
+    @Autowired
+    ExcelService excelService;
+
     @Value("${upload-path}")
     private String path;
 
@@ -53,7 +58,7 @@ public class InfoController {
         if (userVO == null) {
             return Response.warning("未登录");
         }
-        if (hqService.addHQ(hqvo, userVO.getId())!=null) {
+        if (hqService.addHQ(hqvo, userVO.getId()) != null) {
             return Response.success("录入成功");
         } else {
             return Response.warning("录入失败");
@@ -62,7 +67,7 @@ public class InfoController {
 
     @RequestMapping("/addQjInfo")
     public VO addQjInfo(@RequestBody QjVO qjVO) {
-        if(qjService.saveQj(qjVO)!=null){
+        if (qjService.saveQj(qjVO) != null) {
             return Response.success("录入成功");
         }
         return Response.success("录入失败");
@@ -73,6 +78,7 @@ public class InfoController {
         qjService.update(qjVO);
         return Response.success("更新成功");
     }
+
     @RequestMapping("/addLXInfo")
     public VO addLXInfo(@RequestBody LxVO lxVO, HttpSession httpSession) {
         UserVO userVO = (UserVO) httpSession.getAttribute("user");
@@ -89,33 +95,33 @@ public class InfoController {
 
     @RequestMapping("/confirmPassport")
     public VO confirmPassport(@RequestParam("passport_no") String passport_no,
-                             @RequestParam("type") String type,
-                              @RequestParam("id")long id){
+                              @RequestParam("type") String type,
+                              @RequestParam("id") long id) {
         if (type.equals("lx")) {
-            if (lxService.confirmPassport(passport_no,id)) {
+            if (lxService.confirmPassport(passport_no, id)) {
                 return Response.warning("不存在");
             } else {
                 return Response.success("存在");
             }
         } else if (type.equals("hq")) {
-            if (hqService.confirmPassport(passport_no,id)) {
+            if (hqService.confirmPassport(passport_no, id)) {
                 return Response.warning("用户不存在");
             } else {
                 return Response.success("存在");
             }
 
         } else {
-            if (qjService.confirmPassport(passport_no,id)) {
+            if (qjService.confirmPassport(passport_no, id)) {
                 return Response.warning("不存在");
             } else {
                 return Response.success("存在");
             }
         }
     }
-    
+
     @RequestMapping("/loadByPassport")
     public VO loadByPassport(@RequestParam("passport_no") String passport_no,
-                             @RequestParam("type") String type){
+                             @RequestParam("type") String type) {
         if (type.equals("lx")) {
             VO result = lxService.loadByPassport(passport_no);
             if (result == null) {
@@ -130,15 +136,15 @@ public class InfoController {
             } else {
                 return Response.success(result);
             }
-        } else if(type.equals("qj_hq")){
-            VO result = qjService.loadByPassport(passport_no,"qj_hq");
+        } else if (type.equals("qj_hq")) {
+            VO result = qjService.loadByPassport(passport_no, "qj_hq");
             if (result == null) {
                 return Response.warning("用户不存在");
             } else {
                 return Response.success(result);
             }
-        }else{
-            VO result = qjService.loadByPassport(passport_no,"qj_lx");
+        } else {
+            VO result = qjService.loadByPassport(passport_no, "qj_lx");
             if (result == null) {
                 return Response.warning("用户不存在");
             } else {
@@ -149,7 +155,7 @@ public class InfoController {
 
     @RequestMapping("/updateLXInfo")
     public VO updateLXInfo(@RequestBody LxVO vo) {
-        if (lxService.update(vo)!=null) {
+        if (lxService.update(vo) != null) {
             return Response.success("更新成功");
         } else {
             return Response.warning("用户不存在");
@@ -159,9 +165,9 @@ public class InfoController {
 
     @RequestMapping("/updateHQInfo")
     public VO updateHQInfo(@RequestBody HQVO vo) {
-        if(hqService.update(vo)!=null) {
+        if (hqService.update(vo) != null) {
             return Response.success("更新成功");
-        }else{
+        } else {
             return Response.warning("用户不存在");
         }
     }
@@ -187,17 +193,17 @@ public class InfoController {
     public VO searchTable(@RequestParam("type") String type,
                           @RequestParam("value") String value,
                           @RequestParam("col") String col) {
-        if (type.equals("lx")){
-            return Response.success(lxService.search(col,value));
-        }else if (type.equals("hq")){
-            return Response.success(hqService.search(col,value));
-        }else{
-            return Response.success(qjService.search(col,value,type));
+        if (type.equals("lx")) {
+            return Response.success(lxService.search(col, value));
+        } else if (type.equals("hq")) {
+            return Response.success(hqService.search(col, value));
+        } else {
+            return Response.success(qjService.search(col, value, type));
         }
     }
 
     @RequestMapping("/statistics")
-    public long[] getStatistics(){
+    public long[] getStatistics() {
         return statisticsService.statistics();
     }
 
@@ -222,12 +228,27 @@ public class InfoController {
         }
     }
 
+    @RequestMapping("/excelUpload")
+    public VO excelUpload(@RequestParam("file") MultipartFile file) {
+        try {
+            if (!file.isEmpty()) {
+                Workbook wb = new HSSFWorkbook(file.getInputStream());
+                excelService.saveExcel(wb);
+                return Response.success("导入成功");
+            } else {
+                return Response.warning("文件为空");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Response.warning(e.getMessage());
+        }
+    }
+
 
     @RequestMapping("/importFromJson")
     public String saveJson(@RequestBody FormBean bean) {
         return formService.save(bean);
     }
-
 
 
 }

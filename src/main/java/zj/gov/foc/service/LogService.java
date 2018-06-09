@@ -53,4 +53,9 @@ public class LogService {
         });
         return result;
     }
+
+    @Transactional
+    public void saveList(List<LogBean> logList) {
+        logRepository.save(logList);
+    }
 }

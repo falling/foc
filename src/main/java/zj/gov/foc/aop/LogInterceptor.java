@@ -1,5 +1,6 @@
 package zj.gov.foc.aop;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -17,10 +18,15 @@ import zj.gov.foc.service.HQService;
 import zj.gov.foc.service.LXService;
 import zj.gov.foc.service.LogService;
 import zj.gov.foc.service.QJService;
-import zj.gov.foc.vo.*;
+import zj.gov.foc.vo.HQVO;
+import zj.gov.foc.vo.LxVO;
+import zj.gov.foc.vo.QjVO;
+import zj.gov.foc.vo.UserVO;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by User: falling
@@ -71,6 +77,70 @@ public class LogInterceptor {
                     "", newValue));
         }
 
+        return result;
+    }
+
+    @Around("execution(* zj.gov.foc.service.HQService.save(..))")
+    public Iterable HQLog_addList(ProceedingJoinPoint point) throws Throwable {
+        Object[] args = point.getArgs();
+        Iterable result = (Iterable) point.proceed(args);
+        if (result != null) {
+            List<LogBean> logList = new ArrayList<>();
+            result.forEach(re->{
+                HQBean hqBean = (HQBean) re;
+                try {
+                    String newValue = objectMapper.writeValueAsString(hqBean);
+                    logList.add(generateLogBean("hq", "添加", hqBean.getHq_id(),
+                            "", newValue));
+                } catch (JsonProcessingException e) {
+                    e.printStackTrace();
+                }
+            });
+            logService.saveList(logList);
+        }
+
+        return result;
+    }
+
+    @Around("execution(* zj.gov.foc.service.LXService.save(..))")
+    public Iterable LXLog_addList(ProceedingJoinPoint point) throws Throwable {
+        Object[] args = point.getArgs();
+        Iterable result = (Iterable) point.proceed(args);
+        if (result != null) {
+            List<LogBean> logList = new ArrayList<>();
+            result.forEach(re->{
+                LxBean bean = (LxBean) re;
+                try {
+                    String newValue = objectMapper.writeValueAsString(bean);
+                    logList.add(generateLogBean("lx", "添加", bean.getLx_id(),
+                            "", newValue));
+                } catch (JsonProcessingException e) {
+                    e.printStackTrace();
+                }
+            });
+            logService.saveList(logList);
+        }
+        return result;
+    }
+
+    @Around("execution(* zj.gov.foc.service.QJService.save(..))")
+    public Iterable QJLog_addList(ProceedingJoinPoint point) throws Throwable {
+        Object[] args = point.getArgs();
+        Iterable result = (Iterable) point.proceed(args);
+        if (result != null) {
+            List<LogBean> logList = new ArrayList<>();
+            result.forEach(re->{
+                QJBean bean = (QJBean) re;
+                try {
+                    String newValue = objectMapper.writeValueAsString(bean);
+                    logList.add(generateLogBean("qj", "添加", bean.getQj_id(),
+                            "", newValue));
+                } catch (JsonProcessingException e) {
+                    e.printStackTrace();
+                }
+            });
+            logService.saveList(logList);
+        }
         return result;
     }
 

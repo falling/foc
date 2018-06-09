@@ -2,10 +2,10 @@ package zj.gov.foc.repository;
 
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.Repository;
+import org.springframework.data.repository.CrudRepository;
 import zj.gov.foc.po.QJBean;
 
-public interface QJRepository extends Repository<QJBean, Long> {
+public interface QJRepository extends CrudRepository<QJBean, Long> {
 
     QJBean save(QJBean qjVO);
 
@@ -20,5 +20,5 @@ public interface QJRepository extends Repository<QJBean, Long> {
 
     @Modifying
     @Query(value = "update qj set del = '1' where qj_id = ?1 and del='0'",nativeQuery = true)
-    int delete(Long id);
+    int deleteQJ(Long id);
 }

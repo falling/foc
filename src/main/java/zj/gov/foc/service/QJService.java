@@ -72,7 +72,7 @@ public class QJService {
 
     @Transactional
     public boolean deleteQJ(Long id) {
-        return qjRepository.delete(id) == 1;
+        return qjRepository.deleteQJ(id) == 1;
     }
 
     @PersistenceContext
@@ -110,5 +110,16 @@ public class QJService {
             return searchVO;
 
         }
+    }
+
+    public Iterable save(List<QjVO> hq_qjVOList) {
+        List<QJBean> qjBeans = new ArrayList<>();
+        hq_qjVOList.forEach(qjVO->{
+            QJBean qjBean = new QJBean();
+            BeanUtils.copyProperties(qjVO, qjBean);
+            qjBean.setDel("0");
+            qjBeans.add(qjBean);
+        });
+        return qjRepository.save(qjBeans);
     }
 }

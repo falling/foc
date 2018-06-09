@@ -1,7 +1,7 @@
 import React from 'react';
 import {Title} from "../config/Title";
 import 'whatwg-fetch';
-import {message,Menu,Dropdown,Icon} from 'antd';
+import {message, Menu, Dropdown, Icon, Upload} from 'antd';
 import {Link} from 'react-router-dom'
 
 export default class Header extends React.Component {
@@ -9,6 +9,7 @@ export default class Header extends React.Component {
         super();
         this.state = {};
         this.sighOff = this.sighOff.bind(this);
+        this.handleChange = this.handleChange.bind(this);
         this.menu = (
             <Menu>
                 <Menu.Item key="0">
@@ -33,12 +34,30 @@ export default class Header extends React.Component {
             })
     }
 
+    handleChange({fileList}) {
+        let file = fileList[0];
+        if (file) {
+            if (file.status === 'done' && file.response.status > 0) {
+                message.success("上传成功");
+                if (this.props.onChange) {
+                    this.props.onChange(file.response.info);
+                }
+            } else if (file.status === 'error') {
+                message.error("上传失败");
+            } else if (file.response && file.response.status < 0) {
+                message.error(file.response.info)
+            }
+        }
+        this.setState({fileList})
+    }
+
     componentDidMount() {
 
     }
 
     render() {
         const {user} = this.props;
+        const {fileList} = this.state;
         return (
             <nav className="navbar navbar-default">
                 <div className="container-fluid">
@@ -52,12 +71,26 @@ export default class Header extends React.Component {
                         <div className="navbar-brand overDefault">{Title[this.props.title]}</div>
                     </div>
                     <div className="collapse navbar-collapse">
-                        {(user !== null && user.name !== null) ? <ul className="nav navbar-nav navbar-right">
+                        {(user !== null && user.name !== null) ?
+                            <ul className="nav navbar-nav navbar-right">
+                                <li>
+                                    <a>
+                                        <Upload
+                                            action="/excelUpload"
+                                            accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel"
+                                            onChange={this.handleChange}
+                                            showUploadList={false}
+                                            fileList={fileList}
+                                        >
+                                            <Icon type="upload"/> 导入数据
+                                        </Upload>
+                                    </a>
+                                </li>
                                 <li>
                                     <Dropdown overlay={this.menu}>
                                         <a>
                                             <i className="ti-user paddingRight"/>
-                                            <p>{user.name}<Icon type="down" /></p>
+                                            <p>{user.name}<Icon type="down"/></p>
                                         </a>
                                     </Dropdown>
                                 </li>

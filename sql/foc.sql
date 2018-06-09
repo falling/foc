@@ -52,7 +52,7 @@ CREATE TABLE hq
   del              VARCHAR(5) DEFAULT ' '   NULL
 )
   ENGINE = InnoDB
-  DEFAULT CHARSET = utf8;
+  DEFAULT CHARSET = utf8mb4;
 
 -- ----------------------------
 -- Table structure for log
@@ -71,7 +71,7 @@ CREATE TABLE log
   new_value      TEXT                    NULL
 )
   ENGINE = InnoDB
-  DEFAULT CHARSET = utf8;
+  DEFAULT CHARSET = utf8mb4;
 
 -- ----------------------------
 -- Table structure for login
@@ -86,7 +86,7 @@ CREATE TABLE login
   ip_id      VARCHAR(15) DEFAULT ' ' NOT NULL
 )
   ENGINE = InnoDB
-  DEFAULT CHARSET = utf8;
+  DEFAULT CHARSET = utf8mb4;
 
 -- ----------------------------
 -- Table structure for lx
@@ -130,7 +130,7 @@ CREATE TABLE lx
   del              VARCHAR(5) DEFAULT ' '   NULL
 )
   ENGINE = InnoDB
-  DEFAULT CHARSET = utf8;
+  DEFAULT CHARSET = utf8mb4;
 
 -- ----------------------------
 -- Table structure for qj
@@ -156,7 +156,7 @@ CREATE TABLE qj
   del         VARCHAR(5) DEFAULT ' '  NOT NULL
 )
   ENGINE = InnoDB
-  DEFAULT CHARSET = utf8;
+  DEFAULT CHARSET = utf8mb4;
 
 -- ----------------------------
 -- Table structure for user
@@ -175,7 +175,7 @@ CREATE TABLE user
   del       VARCHAR(5) DEFAULT ' '   NOT NULL
 )
   ENGINE = InnoDB
-  DEFAULT CHARSET = utf8;
+  DEFAULT CHARSET = utf8mb4;
 
 
 INSERT INTO  user (user_id,user_name,pwd,name,power,reg_date,del) values (1,'root','root','root','root',now(),'0');
