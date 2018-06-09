@@ -2,7 +2,7 @@ package zj.gov.foc.po;
 
 public class FormBean {
     /**
-     * form : NUqDxa
+     * form : '
      * form_name : 浙江省侨联信息登记表 V1.5
      * entry : {"serial_number":123,"field_1":"选项1","field_2":"张三","field_3":"这是一行文字","field_4":"这是一行文字","field_24":"这是一行文字","field_5":"张三","field_25":"张三","field_6":"选项1","field_7":"这是一行文字","field_8":"2018-06-02","field_26":"2018-06-02","field_9":"这是一行文字","field_53":"这是一行文字","field_10":"400-6606-892","field_27":"400-6606-892","field_11":"这是一行文字","field_28":"这是一行文字","field_12":"support@jinshuju.net","field_29":"support@jinshuju.net","field_13":123,"field_30":123,"field_56":{"province":"陕西省","city":"西安市","district":"雁塔区","street":"高新路"},"field_57":{"province":"陕西省","city":"西安市","district":"雁塔区","street":"高新路"},"field_15":"这是一行文字","field_32":"这是一行文字","field_16":"这是一行文字","field_33":"这是一行文字","field_17":"这是一行文字","field_34":"这是一行文字","field_18":{"province":"陕西省","city":"西安市","district":"雁塔区","street":"高新路"},"field_35":{"province":"陕西省","city":"西安市","district":"雁塔区","street":"高新路"},"field_43":{"province":"陕西省","city":"西安市","district":"雁塔区","street":"高新路"},"field_44":{"province":"陕西省","city":"西安市","district":"雁塔区","street":"高新路"},"field_19":"这是一行文字","field_36":"这是一行文字","field_20":"这是一行文字","field_37":"这是一行文字","field_21":"这是一行文字","field_38":"这是一行文字","field_22":"这是一行文字","field_39":"这是一行文字","field_40":"这是一行文字","field_41":"这是一行文字","field_42":"这是一行文字","field_54":"这是一行文字","field_55":"这是一行文字","field_45":"张三","field_46":"张三","field_47":"选项1","field_48":"选项1","field_49":"这是一行文字","field_50":"这是一行文字","field_51":"这是一行文字","field_52":"这是一行文字","field_23":"这是一行文字","creator_name":"小王","created_at":"2018-06-02 11:35:00 UTC","updated_at":"2018-06-02 11:35:00 UTC","info_remote_ip":"127.0.0.1"}
      */
@@ -119,8 +119,8 @@ public class FormBean {
         private String field_28;
         private String field_12;
         private String field_29;
-        private int field_13;
-        private int field_30;
+        private String field_13;
+        private String field_30;
         private Field56Bean field_56;
         private Field57Bean field_57;
         private String field_15;
@@ -320,19 +320,19 @@ public class FormBean {
             this.field_29 = field_29;
         }
 
-        public int getField_13() {
+        public String getField_13() {
             return field_13;
         }
 
-        public void setField_13(int field_13) {
+        public void setField_13(String field_13) {
             this.field_13 = field_13;
         }
 
-        public int getField_30() {
+        public String getField_30() {
             return field_30;
         }
 
-        public void setField_30(int field_30) {
+        public void setField_30(String field_30) {
             this.field_30 = field_30;
         }
 

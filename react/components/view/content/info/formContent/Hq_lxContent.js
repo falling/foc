@@ -17,20 +17,10 @@ class Hq_lxContentForm extends React.Component {
             registrant: '',
             fresh: 0,
         };
-        this.url = '';
-        this.photo = '';
-        this.clean = false;
         this.add = this.add.bind(this);
         this.update = this.update.bind(this);
-        this.getPhotoUrl = this.getPhotoUrl.bind(this);
         this.delete = this.delete.bind(this);
         this.setValue = this.setValue.bind(this);
-    }
-
-    getPhotoUrl(url) {
-        this.url = url;
-        this.photo = '';
-        this.clean = false;
     }
 
     update() {
@@ -57,8 +47,6 @@ class Hq_lxContentForm extends React.Component {
                     } else {
                         message.error(json.info, 5);
                     }
-                    // this.clean = true;
-                    // this.props.form.resetFields();
                 })
             }
         })
@@ -89,20 +77,16 @@ class Hq_lxContentForm extends React.Component {
             } else {
                 message.error(result.info, 5);
             }
-            // this.clean = true;
-            // this.props.form.resetFields();
         })
 
     }
 
     add(e) {
-        // this.props.getContent();
         e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
                 const {type} = this.props;
                 this.setState({loading: true});
-                values.photo = this.url;
                 values.native_place = values.native_place.join("/");
 
                 fetch(type === 'lx' ? '/addLXInfo' : '/addHQInfo', {
@@ -128,7 +112,6 @@ class Hq_lxContentForm extends React.Component {
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.type && nextProps.type !== this.props.type) {
-            this.clean = true;
             this.props.form.resetFields();
             return;
         }
@@ -143,11 +126,7 @@ class Hq_lxContentForm extends React.Component {
         let value = props.info;
         delete value.info;
         delete value.status;
-        value.date_birth = value.date_birth ? moment(value.date_birth) : '';
-        if (this.props.type === 'lx') {
-            value.gra_date = value.gra_date ? moment(value.gra_date) : '';
-        }
-        this.photo = value.photo;
+        value.date_birth = value.date_birth ? moment(value.date_birth) : null;
 
         if (value.native_place) { // 'a/b',[],[a,b],
             if (typeof (value.native_place) === "string") {
@@ -274,7 +253,7 @@ class Hq_lxContentForm extends React.Component {
                     <div className="col-md-3">
                         <FormItem className="form-group" label="出生年月日">
                             {getFieldDecorator('date_birth', {
-                                initialValue: '',
+                                initialValue: null,
                                 rules: [{required: false, message: '请选择出生日期'}],
                             })(
                                 <DatePicker
@@ -612,9 +591,7 @@ class Hq_lxContentForm extends React.Component {
                             {getFieldDecorator('photo', {
                                 initialValue: '',
                             })(
-                                <PicturesWall
-                                    getUrl={this.getPhotoUrl}
-                                />
+                                <PicturesWall/>
                             )}
                         </FormItem>
                     </div>

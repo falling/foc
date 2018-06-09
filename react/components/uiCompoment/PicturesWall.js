@@ -9,7 +9,7 @@ export default class PicturesWall extends React.Component {
             previewImage: '',
             file: {},
             fileList: [],
-            value:'',
+            value: '',
         };
         this.handlePreview = this.handlePreview.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -23,7 +23,7 @@ export default class PicturesWall extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        if(nextProps.value){
+        if (nextProps.value) {
             this.setState({
                 fileList: [
                     {
@@ -35,17 +35,18 @@ export default class PicturesWall extends React.Component {
                 ]
             });
         }
-        this.setState({value:nextProps.value})
+        this.setState({value: nextProps.value})
 
     }
 
     handleChange({fileList}) {
         let file = fileList[0];
         if (!file) {
-            this.setState({fileList, value: ''})
-            return;
+            if (this.props.onChange) {
+                this.props.onChange("");
+            }
         }
-        if (file.status === 'done' && file.response.status > 0) {
+        else if (file.status === 'done' && file.response.status > 0) {
             message.success("上传成功");
             if (this.props.onChange) {
                 this.props.onChange(file.response.info);

@@ -55,7 +55,7 @@ public class FormService {
         hqvo.setCn_tel(entryBean.getField_10());
         hqvo.setWechat(entryBean.getField_11());
         hqvo.setMail(entryBean.getField_12());
-        hqvo.setQq_num(Integer.toString(entryBean.getField_13()));
+        hqvo.setQq_num(entryBean.getField_13());
         hqvo.setNative_place(entryBean.getField_56().getProvince()+"/"+entryBean.getField_56().getCity());
         hqvo.setNationality(entryBean.getField_15());
         hqvo.setResidence(entryBean.getField_16());
@@ -96,7 +96,7 @@ public class FormService {
         lxVO.setCn_tel(entryBean.getField_27());
         lxVO.setWechat(entryBean.getField_28());
         lxVO.setMail(entryBean.getField_29());
-        lxVO.setQq_num(Integer.toString(entryBean.getField_30()));
+        lxVO.setQq_num(entryBean.getField_30());
         lxVO.setNative_place(entryBean.getField_57().getProvince()+"/"+entryBean.getField_57().getCity());
         lxVO.setNationality(entryBean.getField_32());
         lxVO.setResidence(entryBean.getField_33());
