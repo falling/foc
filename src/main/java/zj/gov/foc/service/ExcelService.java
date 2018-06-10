@@ -93,7 +93,7 @@ public class ExcelService {
         hqvo.setWechat(getCellValue(row,16));
         hqvo.setMail(getCellValue(row,18));
         hqvo.setQq_num(getCellValue(row,20));
-        hqvo.setNative_place(getCellValue(row,22));
+        hqvo.setNative_place(getCellValue(row,22).replace(" ","/"));
         hqvo.setNationality(getCellValue(row,24));
         hqvo.setResidence(getCellValue(row,26));
         hqvo.setResidenceDetail(getCellValue(row,28));
@@ -130,7 +130,7 @@ public class ExcelService {
         lxVO.setWechat(getCellValue(row,17));
         lxVO.setMail(getCellValue(row,19));
         lxVO.setQq_num(getCellValue(row,21));
-        lxVO.setNative_place(getCellValue(row,23));
+        lxVO.setNative_place(getCellValue(row,23).replace(" ","/"));
         lxVO.setNationality(getCellValue(row,25));
         lxVO.setResidence(getCellValue(row,27));
         lxVO.setResidenceDetail(getCellValue(row,29));
