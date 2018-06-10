@@ -32,30 +32,34 @@ public class ExcelService {
     QJService qjService;
 
     @Transactional
-    public void saveExcel(Workbook wb) {
+    public int saveExcel(Workbook wb) {
         Sheet sheet = wb.getSheetAt(0);
         List<HQVO> hqvoList = new ArrayList<>();
         List<LxVO> lxVOList = new ArrayList<>();
         List<QjVO> hq_qjVOList = new ArrayList<>();
         List<QjVO> lx_qjVOList = new ArrayList<>();
+        int count = 0;
         for (int rowNum = 0; rowNum < sheet.getLastRowNum(); rowNum++) {
             Row row = sheet.getRow(rowNum);
             if (row != null) {
                 switch (getCellValue(row,1)) {
                     case "华侨华人":
+                        count++;
                         hqvoList.add(toExcelHQ(row));
                         break;
                     case "留学人员":
+                        count++;
                         lxVOList.add(toExcelLX(row));
                         break;
                     case "归侨侨眷":
+                        count++;
                         hq_qjVOList.add(toExcelQJ(row));
                         break;
                     case "留学生家属":
+                        count++;
                         lx_qjVOList.add(toExcelLXJS(row));
                         break;
                 }
-
             }
         }
         Long id = ((UserVO) httpSession.getAttribute("user")).getId();
@@ -63,6 +67,7 @@ public class ExcelService {
         lxService.save(lxVOList,id);
         qjService.save(hq_qjVOList);
         qjService.save(lx_qjVOList);
+        return count;
     }
 
     private String getCellValue(Row row, int index) {

@@ -233,8 +233,8 @@ public class InfoController {
         try {
             if (!file.isEmpty()) {
                 Workbook wb = new HSSFWorkbook(file.getInputStream());
-                excelService.saveExcel(wb);
-                return Response.success("导入成功");
+                int count = excelService.saveExcel(wb);
+                return Response.success("导入成功,插入"+count+"条数据");
             } else {
                 return Response.warning("文件为空");
             }

@@ -1780,7 +1780,9 @@ textarea.form-control {
     color: #66615b !important;
 }
 
-.navbar-default .navbar-nav > li > a:not(.btn) {
+.navbar-default .navbar-nav > li > a:not(.btn),
+.header-item{
+    font-size: 16px;
     color: #9A9A9A;
 }
 
@@ -1788,7 +1790,9 @@ textarea.form-control {
 .navbar-default .navbar-nav > .active > a:not(.btn):hover,
 .navbar-default .navbar-nav > .active > a:not(.btn):focus,
 .navbar-default .navbar-nav > li > a:not(.btn):hover,
-.navbar-default .navbar-nav > li > a:not(.btn):focus {
+.navbar-default .navbar-nav > li > a:not(.btn):focus,
+.header-item:hover,
+.header-item:focus{
     background-color: transparent;
     border-radius: 3px;
     color: #68B3C8;

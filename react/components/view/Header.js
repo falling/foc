@@ -7,7 +7,7 @@ import {Link} from 'react-router-dom'
 export default class Header extends React.Component {
     constructor() {
         super();
-        this.state = {};
+        this.state = {loading: false};
         this.sighOff = this.sighOff.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.menu = (
@@ -36,17 +36,17 @@ export default class Header extends React.Component {
 
     handleChange({fileList}) {
         let file = fileList[0];
-        if (file) {
-            if (file.status === 'done' && file.response.status > 0) {
-                message.success("上传成功");
-                if (this.props.onChange) {
-                    this.props.onChange(file.response.info);
-                }
+        console.log(file);
+        if (file.status === 'uploading') {
+            this.setState({loading: true});
+        }
+        if (file.response) {
+            if (file.response.status > 0) {
+                message.success(file.response.info);
             } else if (file.status === 'error') {
-                message.error("上传失败");
-            } else if (file.response && file.response.status < 0) {
-                message.error(file.response.info)
+                message.error(file.response.info);
             }
+            this.setState({loading: false})
         }
         this.setState({fileList})
     }
@@ -57,7 +57,7 @@ export default class Header extends React.Component {
 
     render() {
         const {user} = this.props;
-        const {fileList} = this.state;
+        const {fileList, loading} = this.state;
         return (
             <nav className="navbar navbar-default">
                 <div className="container-fluid">
@@ -81,8 +81,15 @@ export default class Header extends React.Component {
                                             onChange={this.handleChange}
                                             showUploadList={false}
                                             fileList={fileList}
+                                            disabled={loading}
                                         >
-                                            <Icon type="upload"/> 导入数据
+                                            {!loading ?
+                                                <div className="header-item">
+                                                    <i className="ti-upload paddingRight"/>
+                                                    <p>导入数据</p>
+                                                </div>
+                                                : <i className="anticon anticon-spin anticon-loading">上传中...</i>
+                                            }
                                         </Upload>
                                     </a>
                                 </li>
