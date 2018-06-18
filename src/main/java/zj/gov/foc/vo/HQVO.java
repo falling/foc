@@ -34,8 +34,8 @@ public class HQVO extends BaseVO{
     private String registrant_name;
     private String photo;
     private Date reg_date;
-    private String remarks;
     private String social_services;
+    private String remarks;
 
     public String getResidenceDetail() {
         return residenceDetail;

@@ -7,6 +7,7 @@ import UserManage from "./view/content/user/UserManage";
 import UserCreate from "./view/content/user/UserCreate";
 import InfoCreate from "./view/content/info/InfoCreate";
 import InfoManage from "./view/content/info/InfoManage";
+import Report from "./view/content/info/Report";
 import UserProfile from "./view/content/user/UserProfile";
 import UserPassword from "./view/content/user/UserPassword";
 import 'whatwg-fetch';
@@ -58,11 +59,12 @@ export default class Manager extends React.Component {
                             {urlId !== 6 && <InfoCreate display={urlId === 1} type={type}/>}
                             <InfoSearch display={urlId === 0} user={user} type={type}/>
                             {urlId !== 6 && <InfoManage display={urlId === 2} type={type}/>}
-                            <UserProfile display={urlId === 3} type={type}/>
-                            {(user && user.power && user.power !== 'user') &&
-                            <UserCreate display={urlId === 4} user={user} type={type}/>}
+                            {urlId === 3 && <UserProfile display={urlId === 3} type={type}/>}
+                            {(user && user.power && user.power !== 'user')
+                                &&<UserCreate display={urlId === 4} user={user} type={type}/>}
                             {(user && user.power === 'root') && <UserManage display={urlId === 5} user={user} type={type}/>}
                             {urlId === 6 && <UserPassword display={urlId === 6}/>}
+                            {urlId === 7 && <Report display={urlId === 6}/>}
                         </div>
 
 

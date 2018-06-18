@@ -16,7 +16,7 @@ export const KeyNameMap = {
     'mail':'邮箱',
     'qq_num':'QQ',
     'nationality':'现国籍',
-    'residence':'现居住国',
+    'residence':'现居住国或地区',
     'residenceDetail':'现旅居地详细地址',
     'cn_residence':'中国居住地详细地址',
     'native_place':'籍贯',
@@ -35,7 +35,7 @@ export const KeyNameMap = {
     'o_name':'海外亲属姓名',
     'o_relation':'与海外直系亲属关系',
     'o_passport':'海外直系亲属护照号',
-    'o_residence':'海外直系亲属旅居国',
+    'o_residence':'海外直系亲属旅居国或地区',
     'degree':'学位',
     'gra_date':'毕业时间',
     'photo':'照片'

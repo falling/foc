@@ -298,13 +298,13 @@ class QjContentForm extends React.Component {
                         </FormItem>
                     </div>
                     <div className="col-md-3">
-                        <FormItem className="form-group" label="海外直系亲属旅居国">
+                        <FormItem className="form-group" label="海外直系亲属旅居国或地区">
                             {getFieldDecorator('o_residence', {
                                 initialValue: '',
                             })(
                                 <Input
                                     disabled={mode === 'search'}
-                                    placeholder="海外直系亲属旅居国"
+                                    placeholder="海外直系亲属旅居国或地区"
                                     className="form-control border-input"
                                 />
                             )}

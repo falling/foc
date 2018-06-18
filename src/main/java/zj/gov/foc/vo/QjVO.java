@@ -9,12 +9,12 @@ public class QjVO extends BaseVO {
     private String id_num;
     private String o_tel;
     private String family_location;
-    private String remarks;
     private String type;
     private String o_name;
     private String o_relation;
-    private String o_residence;
     private String o_passport;
+    private String o_residence;
+    private String remarks;
 //  private String del;
 
 

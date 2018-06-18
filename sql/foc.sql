@@ -148,7 +148,7 @@ CREATE TABLE qj
   o_tel       VARCHAR(255) DEFAULT ' ' NOT NULL,
   family_location VARCHAR(255) DEFAULT ' ' NOT NULL,
   remarks     VARCHAR(255) DEFAULT ' ' NULL,
-  type        VARCHAR(255) DEFAULT ' ' NULL,
+  type        VARCHAR(50) DEFAULT ' ' NULL,
   o_name      VARCHAR(255) DEFAULT ' ' NULL,
   o_relation  VARCHAR(255) DEFAULT ' ' NULL,
   o_passport  VARCHAR(255) DEFAULT ' ' NULL,
@@ -177,6 +177,10 @@ CREATE TABLE user
   ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;
 
+
+ALTER TABLE hq ADD INDEX name_tell (ch_name,o_tel,del);
+ALTER TABLE lx ADD INDEX name_tell (ch_name,o_tel,del);
+ALTER TABLE qj ADD INDEX name_tell (ch_name,o_tel,type,del);
 
 INSERT INTO  user (user_id,user_name,pwd,name,power,reg_date,del) values (1,'root','root','root','root',now(),'0');
 INSERT INTO  user (user_id,user_name,pwd,name,power,reg_date,del) values (2,'金数据','金数据','金数据','user',now(),'0');

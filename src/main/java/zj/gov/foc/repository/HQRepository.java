@@ -5,10 +5,10 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import zj.gov.foc.po.HQBean;
 
+import java.util.List;
+
 public interface HQRepository extends CrudRepository<HQBean, Long> {
 
-
-    HQBean save(HQBean hqBean);
 
     /**
      * deleteHQ
@@ -18,7 +18,6 @@ public interface HQRepository extends CrudRepository<HQBean, Long> {
     @Modifying
     @Query(value = "update hq set del = '1' where hq_id = ?1 AND del='0'",nativeQuery = true)
     int deleteHQ(long hqid);
-
 
     @Query(value = "SELECT * FROM hq WHERE passport_no = ?1 and del='0'",nativeQuery = true)
     HQBean loadByPassport(String passport_no);
@@ -33,7 +32,15 @@ public interface HQRepository extends CrudRepository<HQBean, Long> {
     @Query(value = "SELECT count(*) FROM hq WHERE del='0'",nativeQuery = true)
     long countHQ();
 
-    @Query(value = "SELECT count(DISTINCT nationality) FROM hq WHERE del='0'",nativeQuery = true)
-    long countCountry();
+    @Query(value = "select * from hq where ch_name = ?1 and o_tel = ?2 and del='0' LIMIT 1",nativeQuery = true)
+    HQBean searchIdByName_tel(String ch_name, String o_tel);
 
+    @Query(value = "select sex from hq where sex='男' or sex = '女' and del='0' ",nativeQuery = true)
+    List<String> getAllSex();
+
+    @Query(value = "select residence,count(*) from hq where del='0' and residence<>'' group by residence",nativeQuery = true)
+    List<Object[]> groupByCountry();
+
+    @Query(value = "select native_place,count(*) from hq where del='0' and native_place<>'' group by native_place", nativeQuery = true)
+    List<Object[]> groupByNativePlace();
 }

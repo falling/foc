@@ -373,13 +373,13 @@ class Hq_lxContentForm extends React.Component {
                         </FormItem>
                     </div>
                     <div className="col-md-4">
-                        <FormItem className="form-group" label="现居住国">
+                        <FormItem className="form-group" label="现居住国或地区">
                             {getFieldDecorator('residence', {
                                 initialValue: ''
                             })(
                                 <Input
                                     disabled={mode === 'search'}
-                                    placeholder="旅居地"
+                                    placeholder="现居住国或地区"
                                     className="form-control border-input"
                                 />
                             )}
@@ -407,7 +407,7 @@ class Hq_lxContentForm extends React.Component {
                             })(
                                 <Input
                                     disabled={mode === 'search'}
-                                    placeholder="旅居地"
+                                    placeholder="现旅居地详细地址"
                                     className="form-control border-input"
                                 />
                             )}

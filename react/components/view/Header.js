@@ -36,17 +36,17 @@ export default class Header extends React.Component {
 
     handleChange({fileList}) {
         let file = fileList[0];
-        console.log(file);
-        if (file.status === 'uploading') {
-            this.setState({loading: true});
-        }
         if (file.response) {
             if (file.response.status > 0) {
                 message.success(file.response.info);
             } else if (file.status === 'error') {
                 message.error(file.response.info);
             }
-            this.setState({loading: false})
+            this.setState({loading: false,fileList:[]});
+            return;
+        }
+        if (file.status === 'uploading') {
+            this.setState({loading: true});
         }
         this.setState({fileList})
     }

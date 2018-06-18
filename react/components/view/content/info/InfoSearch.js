@@ -23,7 +23,6 @@ export default class InfoSearch extends React.Component {
             selectedRowKeys: [],
             hqNumber: 0,
             lxNumber: 0,
-            countryNumber: 0,
         };
         this.search = this.search.bind(this);
         this.showData = this.showData.bind(this);
@@ -104,7 +103,6 @@ export default class InfoSearch extends React.Component {
                 this.setState({
                     hqNumber: json[0],
                     lxNumber: json[1],
-                    countryNumber: json[2],
                 });
             })
     }
@@ -260,7 +258,7 @@ export default class InfoSearch extends React.Component {
                                             导出
                                         </Button>
                                         <div className='pull-right'>
-                                            {`华侨总人数：${hqNumber}，留学总人数：${lxNumber}，覆盖的国家数：${countryNumber}`}
+                                            {`华侨总人数：${hqNumber}，留学总人数：${lxNumber}`}
                                         </div>
                                     </div>}
                                 pagination={{

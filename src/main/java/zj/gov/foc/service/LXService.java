@@ -15,7 +15,6 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 import java.sql.Date;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -37,6 +36,14 @@ public class LXService {
 
     @Transactional
     public LxBean addLX(LxVO lxVO, Long id) {
+        return getLxBean(lxVO, id);
+    }
+
+    public LxBean addLXCover(LxVO lxVO, Long id) {
+        return getLxBean(lxVO, id);
+    }
+
+    private LxBean getLxBean(LxVO lxVO, Long id) {
         LxBean bean = new LxBean();
         BeanUtils.copyProperties(lxVO,bean);
         bean.setReg_date(new Date(System.currentTimeMillis()));
@@ -86,20 +93,5 @@ public class LXService {
         List<LxVO> resultList = query.getResultList();
         searchVO.setResult(resultList);
         return searchVO;
-    }
-
-    @Transactional
-    public Iterable save(List<LxVO> lxVOList, Long id) {
-        List<LxBean> lxBeans = new ArrayList<>();
-        lxVOList.forEach(lxVO -> {
-            LxBean bean = new LxBean();
-            BeanUtils.copyProperties(lxVO,bean);
-            bean.setRegistrant(id);
-            if (bean.getReg_date()==null)
-                bean.setReg_date(new Date(System.currentTimeMillis()));
-            bean.setDel("0");
-            lxBeans.add(bean);
-        });
-        return lxRepository.save(lxBeans);
     }
 }

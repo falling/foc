@@ -1,6 +1,5 @@
 package zj.gov.foc.aop;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -14,19 +13,14 @@ import zj.gov.foc.po.QJBean;
 import zj.gov.foc.repository.HQRepository;
 import zj.gov.foc.repository.LXRepository;
 import zj.gov.foc.repository.QJRepository;
-import zj.gov.foc.service.HQService;
-import zj.gov.foc.service.LXService;
 import zj.gov.foc.service.LogService;
-import zj.gov.foc.service.QJService;
 import zj.gov.foc.vo.HQVO;
 import zj.gov.foc.vo.LxVO;
 import zj.gov.foc.vo.QjVO;
 import zj.gov.foc.vo.UserVO;
 
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 /**
  * Created by User: falling
@@ -56,115 +50,68 @@ public class LogInterceptor {
     @Autowired
     QJRepository qjRepository;
 
-    @Autowired
-    HQService hqService;
-
-    @Autowired
-    LXService lxService;
-
-    @Autowired
-    QJService qjService;
-
-
-
-    @Around("execution(* zj.gov.foc.service.HQService.addHQ(..))")
+    @Around("execution(* zj.gov.foc.service.HQService.addHQ*(..))")
     public HQBean HQLog_add(ProceedingJoinPoint point) throws Throwable {
         Object[] args = point.getArgs();
+        String methodName = point.getSignature().getName();
+        String oldValue = "";
+        HQBean oldBean = null;
+        if (methodName.endsWith("Cover")) {
+            HQVO vo = (HQVO) args[0];
+            oldBean = hqRepository.searchIdByName_tel(vo.getCh_name(), vo.getO_tel());
+            oldValue = oldBean == null ? "" : objectMapper.writeValueAsString(oldBean);
+            vo.setHq_id(oldBean != null ? oldBean.getHq_id() : null);
+        }
         HQBean result = (HQBean) point.proceed(args);
         if (result != null) {
             String newValue = objectMapper.writeValueAsString(result);
-            logService.log(generateLogBean("hq", "添加", result.getHq_id(),
-                    "", newValue));
+            logService.log(generateLogBean("hq", oldBean == null ? "添加" : "修改", result.getHq_id(),
+                    oldValue, newValue));
         }
 
         return result;
     }
 
-    @Around("execution(* zj.gov.foc.service.HQService.save(..))")
-    public Iterable HQLog_addList(ProceedingJoinPoint point) throws Throwable {
-        Object[] args = point.getArgs();
-        Iterable result = (Iterable) point.proceed(args);
-        if (result != null) {
-            List<LogBean> logList = new ArrayList<>();
-            result.forEach(re->{
-                HQBean hqBean = (HQBean) re;
-                try {
-                    String newValue = objectMapper.writeValueAsString(hqBean);
-                    logList.add(generateLogBean("hq", "添加", hqBean.getHq_id(),
-                            "", newValue));
-                } catch (JsonProcessingException e) {
-                    e.printStackTrace();
-                }
-            });
-            logService.saveList(logList);
-        }
-
-        return result;
-    }
-
-    @Around("execution(* zj.gov.foc.service.LXService.save(..))")
-    public Iterable LXLog_addList(ProceedingJoinPoint point) throws Throwable {
-        Object[] args = point.getArgs();
-        Iterable result = (Iterable) point.proceed(args);
-        if (result != null) {
-            List<LogBean> logList = new ArrayList<>();
-            result.forEach(re->{
-                LxBean bean = (LxBean) re;
-                try {
-                    String newValue = objectMapper.writeValueAsString(bean);
-                    logList.add(generateLogBean("lx", "添加", bean.getLx_id(),
-                            "", newValue));
-                } catch (JsonProcessingException e) {
-                    e.printStackTrace();
-                }
-            });
-            logService.saveList(logList);
-        }
-        return result;
-    }
-
-    @Around("execution(* zj.gov.foc.service.QJService.save(..))")
-    public Iterable QJLog_addList(ProceedingJoinPoint point) throws Throwable {
-        Object[] args = point.getArgs();
-        Iterable result = (Iterable) point.proceed(args);
-        if (result != null) {
-            List<LogBean> logList = new ArrayList<>();
-            result.forEach(re->{
-                QJBean bean = (QJBean) re;
-                try {
-                    String newValue = objectMapper.writeValueAsString(bean);
-                    logList.add(generateLogBean("qj", "添加", bean.getQj_id(),
-                            "", newValue));
-                } catch (JsonProcessingException e) {
-                    e.printStackTrace();
-                }
-            });
-            logService.saveList(logList);
-        }
-        return result;
-    }
-
-    @Around("execution(* zj.gov.foc.service.LXService.addLX(..))")
+    @Around("execution(* zj.gov.foc.service.LXService.addLX*(..))")
     public LxBean LXLog_add(ProceedingJoinPoint point) throws Throwable {
         Object[] args = point.getArgs();
+        String methodName = point.getSignature().getName();
+        String oldValue = "";
+        LxBean oldBean = null;
+        if (methodName.endsWith("Cover")) {
+            LxVO vo = (LxVO) args[0];
+            oldBean = lxRepository.searchIdByName_tel(vo.getCh_name(), vo.getO_tel());
+            oldValue = oldBean == null ? "" : objectMapper.writeValueAsString(oldBean);
+            vo.setLx_id(oldBean != null ? oldBean.getLx_id() : null);
+        }
         LxBean result = (LxBean) point.proceed(args);
         if (result != null) {
             String newValue = objectMapper.writeValueAsString(result);
-            logService.log(generateLogBean("lx", "添加", result.getLx_id(),
-                    "", newValue));
+            logService.log(generateLogBean("lx", oldBean == null ? "添加" : "修改", result.getLx_id(),
+                    oldValue, newValue));
         }
 
         return result;
     }
 
-    @Around("execution(* zj.gov.foc.service.QJService.saveQj(..))")
+    @Around("execution(* zj.gov.foc.service.QJService.saveQj*(..))")
     public QJBean QJLog_add(ProceedingJoinPoint point) throws Throwable {
         Object[] args = point.getArgs();
+
+        String methodName = point.getSignature().getName();
+        String oldValue = "";
+        QJBean oldBean = null;
+        if (methodName.endsWith("Cover")) {
+            QjVO vo = (QjVO) args[0];
+            oldBean = qjRepository.searchIdByName_tel(vo.getCh_name(), vo.getO_tel(), vo.getType());
+            oldValue = oldBean == null ? "" : objectMapper.writeValueAsString(oldBean);
+            vo.setQj_id(oldBean != null ? oldBean.getQj_id() : null);
+        }
         QJBean result = (QJBean) point.proceed(args);
         if (result != null) {
             String newValue = objectMapper.writeValueAsString(result);
-            logService.log(generateLogBean("qj", "添加", result.getQj_id(),
-                    "", newValue));
+            logService.log(generateLogBean("qj", oldBean == null ? "添加" : "修改", result.getQj_id(),
+                    oldValue, newValue));
         }
         return result;
     }
@@ -222,9 +169,9 @@ public class LogInterceptor {
         long deleteId = (long) args[0];
         boolean result = (boolean) point.proceed(args);
         String functionName = point.getSignature().getName();
-        String tableName = functionName.substring(functionName.length()-2).toLowerCase();
+        String tableName = functionName.substring(functionName.length() - 2).toLowerCase();
         if (result) {
-            logService.log(generateLogBean(tableName,"删除", deleteId, "", ""));
+            logService.log(generateLogBean(tableName, "删除", deleteId, "", ""));
         }
         return result;
     }
@@ -241,9 +188,9 @@ public class LogInterceptor {
         logBean.setOperating(operation);
         logBean.setO_id(tableId);
         Long id;
-        try{
+        try {
             id = ((UserVO) session.getAttribute("user")).getId();
-        } catch (Exception e){
+        } catch (Exception e) {
             id = 2L;
         }
         logBean.setOperating_user(id);

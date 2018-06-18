@@ -5,6 +5,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import zj.gov.foc.po.LxBean;
 
+import java.util.List;
+
 public interface LXRepository extends CrudRepository<LxBean, Long> {
 
 
@@ -29,4 +31,16 @@ public interface LXRepository extends CrudRepository<LxBean, Long> {
 
     @Query(value = "SELECT count(DISTINCT nationality) FROM lx WHERE del='0'",nativeQuery = true)
     long countCountry();
+
+    @Query(value = "select * from lx where ch_name = ?1 and o_tel = ?2 and del='0' LIMIT 1",nativeQuery = true)
+    LxBean searchIdByName_tel(String ch_name, String o_tel);
+
+    @Query(value = "select sex from lx where sex='男' or sex = '女' and del='0' ",nativeQuery = true)
+    List<String> getAllSex();
+
+    @Query(value = "select residence,count(*) from lx where del='0' and residence<>'' group by residence",nativeQuery = true)
+    Iterable<Object[]> groupByCountry();
+
+    @Query(value = "select native_place,count(*) from lx where del='0' and native_place<>'' group by native_place", nativeQuery = true)
+    List<Object[]> groupByNativePlace();
 }

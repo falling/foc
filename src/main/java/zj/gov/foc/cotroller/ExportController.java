@@ -27,35 +27,43 @@ import java.util.stream.Stream;
  */
 @Controller
 public class ExportController {
-    @RequestMapping("/exportqj")
-    public ResponseEntity<byte[]> exportQJ(@RequestBody List<QJExcel> list) throws IOException, IllegalAccessException {
-        String[] title = new String[]{"中文名","性别" ,"民族", "护照号或身份证号",
-                "联系电话1", "联系电话2","家庭成员"};
-        String[] exclude = new String[]{"relationList","qj_id"};
+    @RequestMapping("/exportqj_hq")
+    public ResponseEntity<byte[]> exportQJ_HQ(@RequestBody List<QjVO> list) throws IOException, IllegalAccessException {
+        String[] title = new String[]{"中文名","性别" ,"民族", "护照号","身份证号",
+                "常用电话", "家庭住址","海外亲属姓名","与海外直系亲属关系","海外直系亲属护照号","海外直系亲属旅居国或地区","备注"};
+        String[] exclude = new String[]{"qj_id","type","status","info"};
         return exportXLSX(list,"侨眷",title,exclude);
     }
 
+    @RequestMapping("/exportqj_lx")
+    public ResponseEntity<byte[]> exportQJ_LX(@RequestBody List<QjVO> list) throws IOException, IllegalAccessException {
+        String[] title = new String[]{"中文名","性别" ,"民族", "护照号","身份证号",
+                "常用电话", "家庭住址","海外亲属姓名","与海外直系亲属关系","海外直系亲属护照号","海外直系亲属旅居国或地区","备注"};
+        String[] exclude = new String[]{"qj_id","type","status","info"};
+        return exportXLSX(list,"留学生家属",title,exclude);
+    }
+
     @RequestMapping("/exporthq")
-    public ResponseEntity<byte[]> exportHQ(@RequestBody List<HQExcel> list) throws IllegalAccessException, IOException {
+    public ResponseEntity<byte[]> exportHQ(@RequestBody List<HQVO> list) throws IllegalAccessException, IOException {
         String[] title = new String[]{"中文名", "曾用名", "拼音","性别" ,"民族", "护照号",
-                "护照有效期", "出生年月日", "身份证号", "常用电话", "中国联系电话",
-                "微信", "电子邮箱", "QQ", "现国籍", "现居住国","中国居住详细地址", "现旅居地详细地址","籍贯", "所从事行业",
+                "出生年月日", "身份证号", "常用电话", "中国联系电话",
+                "微信", "电子邮箱", "QQ", "籍贯","现国籍", "现居住国或地区","现旅居地详细地址","中国居住详细地址", "所从事行业",
                 "公司/单位名称", "职务", "社会任职", "备注"};
-        String[] exclude = new String[]{"relationList","hq_id","registrant_name","reg_date","photo"};
+        String[] exclude = new String[]{"hq_id","registrant_name","reg_date","photo","status","info"};
         return exportXLSX(list,"华侨",title,exclude);
     }
 
     @RequestMapping("/exportlx")
-    public ResponseEntity<byte[]> exportLX(@RequestBody List<LXExcel> list) throws IOException, IllegalAccessException {
+    public ResponseEntity<byte[]> exportLX(@RequestBody List<LxVO> list) throws IOException, IllegalAccessException {
         String[] title = new String[]{"中文名", "曾用名", "拼音","性别" ,"民族", "护照号",
-                "护照有效期", "出生年月日", "身份证号", "海外联系电话", "中国联系电话1",
-                "中国联系电话2", "微信", "电子邮箱", "QQ", "籍贯", "现国籍", "旅居地", "中国居住地", "所从事行业",
-                "公司/单位名称", "职务", "文化程度", "健康状态", "社会任职", "主要成就","毕业院校英文名","毕业院校中文名","学位","毕业时间"};
-        String[] exclude = new String[]{"relationList","lx_id","registrant_name","reg_date","photo"};
+                "出生年月日", "身份证号", "常用电话", "中国联系电话",
+                "微信", "电子邮箱", "QQ", "籍贯", "现国籍","现居住国或地区", "现旅居地详细地址", "中国居住详细地址", "所从事行业",
+                "公司/单位名称", "职务", "社会任职","毕业院校英文名","毕业院校中文名","学位","国内直系亲属名字","国内直系亲属联系方式","备注"};
+        String[] exclude = new String[]{"lx_id","registrant_name","reg_date","photo","status","info"};
         return exportXLSX(list,"留学",title,exclude);
     }
 
-    private ResponseEntity<byte[]> exportXLSX(List<? extends Excel> list,
+    private ResponseEntity<byte[]> exportXLSX(List<? extends VO> list,
                                               String sheetName,
                                               String[] title,
                                               String[] exclude) throws IllegalAccessException, IOException {
@@ -68,7 +76,7 @@ public class ExportController {
         }
         //content
         int indexI = 1;
-        for (Excel t : list) {
+        for (VO t : list) {
             Row row = sh.createRow(indexI++);
             Field[] fields = t.getClass().getDeclaredFields();
             int indexJ = 0;
@@ -77,7 +85,7 @@ public class ExportController {
                if(Stream.of(exclude).anyMatch(e->e.equals(field.getName()))){
                     continue;
                 }
-                CellUtil.createCell(row, indexJ++, String.valueOf(field.get(t)));
+                CellUtil.createCell(row, indexJ++, getValue(field.get(t)));
             }
 
         }
@@ -89,5 +97,13 @@ public class ExportController {
         headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
         return new ResponseEntity<>(byteArrayInputStream.toByteArray(),
                 headers, HttpStatus.CREATED);
+    }
+
+    private String getValue(Object ob){
+        if (ob==null){
+            return "";
+        }else{
+            return String.valueOf(ob);
+        }
     }
 }

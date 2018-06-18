@@ -38,7 +38,7 @@ export default class Sidebar extends React.Component {
                                 <i className="ti-search"/>
                                 <p>信息查询</p>
                             </a>
-                            <div className="collapse in" id="search">
+                            <div className="collapse" id="search">
                                 <ul className="list">
                                     <li className={activityIndex === 0 && type === 'hq' ? "active" : ""}>
                                         <Link to="/manager/0/hq">查询华侨</Link>
@@ -60,7 +60,7 @@ export default class Sidebar extends React.Component {
                                 <i className="ti-panel"/>
                                 <p>信息录入</p>
                             </a>
-                            <div className="collapse in" id="addInfo">
+                            <div className="collapse" id="addInfo">
                                 <ul className="list">
                                     <li className={activityIndex === 1 && type === 'hq' ? "active" : ""}>
                                         <Link to="/manager/1/hq">录入华侨</Link>
@@ -83,7 +83,7 @@ export default class Sidebar extends React.Component {
                                 <i className="ti-user"/>
                                 <p>用户管理</p>
                             </a>
-                            <div className="collapse in" id="userManager">
+                            <div className="collapse" id="userManager">
                                 <ul className="list">
                                     <li className={activityIndex === 4 ? "active" : ""}>
                                         <Link to="/manager/4">创建用户</Link>
@@ -98,6 +98,12 @@ export default class Sidebar extends React.Component {
                                 </ul>
                             </div>
                         </li>}
+                        <li>
+                            <Link to="/manager/7">
+                                <i className="ti-pie-chart"/>
+                                <p>数据统计</p>
+                            </Link>
+                        </li>
                         <li>
                             <Link to="/manager/6">
                                 <i className="ti-settings"/>

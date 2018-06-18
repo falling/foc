@@ -7,14 +7,14 @@ import zj.gov.foc.po.HQBean;
 import zj.gov.foc.repository.HQRepository;
 import zj.gov.foc.repository.QJRepository;
 import zj.gov.foc.repository.UserRepository;
-import zj.gov.foc.vo.*;
+import zj.gov.foc.vo.HQVO;
+import zj.gov.foc.vo.SearchVO;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 import java.sql.Date;
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -32,6 +32,14 @@ public class HQService {
 
     @Transactional
     public HQBean addHQ(HQVO hqvo, Long id){
+        return getHqBean(hqvo, id);
+    }
+
+    @Transactional
+    public HQBean addHQCover(HQVO hqvo, Long id){
+        return getHqBean(hqvo, id);
+    }
+    private HQBean getHqBean(HQVO hqvo, Long id) {
         HQBean bean = new HQBean();
         BeanUtils.copyProperties(hqvo,bean);
         bean.setRegistrant(id);
@@ -40,6 +48,8 @@ public class HQService {
         bean.setDel("0");
         return hqRepository.save(bean);
     }
+
+
 
     @Transactional
     public boolean deleteHQ(long hqid){
@@ -84,20 +94,5 @@ public class HQService {
 
     public boolean confirmPassport(String passport_no, long id) {
         return hqRepository.confirmPassport(passport_no,id) == null;
-    }
-
-    @Transactional
-    public Iterable<HQBean> save(List<HQVO> hqvoList, Long id) {
-        List<HQBean> hqBeans = new ArrayList<>();
-        hqvoList.forEach(hqvo -> {
-            HQBean bean = new HQBean();
-            BeanUtils.copyProperties(hqvo,bean);
-            bean.setRegistrant(id);
-            if (bean.getReg_date()==null)
-                bean.setReg_date(new Date(System.currentTimeMillis()));
-            bean.setDel("0");
-            hqBeans.add(bean);
-        });
-        return hqRepository.save(hqBeans);
     }
 }

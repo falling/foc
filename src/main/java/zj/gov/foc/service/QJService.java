@@ -38,15 +38,22 @@ public class QJService {
 
     @Transactional
     public QJBean saveQj(QjVO qjVO) {
+        return getQJBean(qjVO);
+    }
+
+    public QJBean saveQjCover(QjVO qjVO) {
+        return getQJBean(qjVO);
+    }
+
+    private QJBean getQJBean(QjVO qjVO){
         QJBean qjBean = new QJBean();
         BeanUtils.copyProperties(qjVO, qjBean);
         qjBean.setDel("0");
         return qjRepository.save(qjBean);
     }
 
-
-    public QjVO loadByPassport(String passport_no,String type) {
-        QJBean bean = qjRepository.loadByPassport(passport_no,type);
+    public QjVO loadByPassport(String passport_no, String type) {
+        QJBean bean = qjRepository.loadByPassport(passport_no, type);
         QjVO vo = null;
         if (bean != null) {
             vo = new QjVO();
@@ -56,7 +63,7 @@ public class QJService {
     }
 
     public boolean confirmPassport(String passport_no, long id) {
-        return qjRepository.confirmPassport(passport_no,id) == null;
+        return qjRepository.confirmPassport(passport_no, id) == null;
     }
 
     @Transactional
@@ -65,7 +72,7 @@ public class QJService {
         if (bean == null) return null;
         BeanUtils.copyProperties(qjVO, bean);
         QJBean newBean = qjRepository.save(bean);
-        if(newBean == null) return null;
+        if (newBean == null) return null;
         return newBean;
 
     }
@@ -78,32 +85,32 @@ public class QJService {
     @PersistenceContext
     private EntityManager entityManager;
 
-    public SearchVO<QjVO> search(String col, String value,String type) {
+    public SearchVO<QjVO> search(String col, String value, String type) {
         SearchVO<QjVO> searchVO = new SearchVO<>();
-        if(col.equals("lx_id")){
+        if (col.equals("lx_id")) {
             LxBean bean = lxRepository.loadByPassport(value);
             if (bean == null) {
                 return searchVO;
             }
             return searchVO;
-        }else if(col.equals("hq_id")){
+        } else if (col.equals("hq_id")) {
             HQBean bean = hqRepository.loadByPassport(value);
             if (bean == null) {
                 return searchVO;
             }
             return searchVO;
 
-        }else{
-            String sql = "SELECT * FROM qj WHERE "+col+" LIKE '%"+value+"%' AND del = '0'";
-            if(type.startsWith("qj")){
+        } else {
+            String sql = "SELECT * FROM qj WHERE " + col + " LIKE '%" + value + "%' AND del = '0'";
+            if (type.startsWith("qj")) {
                 sql = sql + " AND type = '" + type + "'";
             }
-            Query query = entityManager.createNativeQuery(sql,QJBean.class);
+            Query query = entityManager.createNativeQuery(sql, QJBean.class);
             List<QJBean> resultList = query.getResultList();
             List<QjVO> returnList = new ArrayList<>();
-            resultList.forEach(result->{
+            resultList.forEach(result -> {
                 QjVO vo = new QjVO();
-                BeanUtils.copyProperties(result,vo);
+                BeanUtils.copyProperties(result, vo);
                 returnList.add(vo);
             });
             searchVO.setResult(returnList);
@@ -112,14 +119,4 @@ public class QJService {
         }
     }
 
-    public Iterable save(List<QjVO> hq_qjVOList) {
-        List<QJBean> qjBeans = new ArrayList<>();
-        hq_qjVOList.forEach(qjVO->{
-            QJBean qjBean = new QJBean();
-            BeanUtils.copyProperties(qjVO, qjBean);
-            qjBean.setDel("0");
-            qjBeans.add(qjBean);
-        });
-        return qjRepository.save(qjBeans);
-    }
 }

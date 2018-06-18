@@ -33,13 +33,13 @@ public class LxVO extends BaseVO{
     private String registrant_name;
     private String photo;
     private Date reg_date;
-    private String remarks;
+    private String social_services;
     private String en_cname;
     private String ch_cname;
     private String degree;
-    private String social_services;
     private String family_name;
     private String family_tel;
+    private String remarks;
 //    private String del;
 
 
