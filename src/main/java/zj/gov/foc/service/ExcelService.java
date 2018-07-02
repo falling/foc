@@ -12,7 +12,6 @@ import zj.gov.foc.vo.QjVO;
 import zj.gov.foc.vo.UserVO;
 
 import javax.servlet.http.HttpSession;
-import javax.transaction.Transactional;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +30,6 @@ public class ExcelService {
     @Autowired
     QJService qjService;
 
-    @Transactional
     public int saveExcel(Workbook wb) {
         Sheet sheet = wb.getSheetAt(0);
         List<HQVO> hqvoList = new ArrayList<>();
@@ -39,7 +37,7 @@ public class ExcelService {
         List<QjVO> hq_qjVOList = new ArrayList<>();
         List<QjVO> lx_qjVOList = new ArrayList<>();
         int count = 0;
-        for (int rowNum = 0; rowNum < sheet.getLastRowNum(); rowNum++) {
+        for (int rowNum = 0; rowNum <= sheet.getLastRowNum(); rowNum++) {
             Row row = sheet.getRow(rowNum);
             if (row != null) {
                 switch (getCellValue(row, 1)) {

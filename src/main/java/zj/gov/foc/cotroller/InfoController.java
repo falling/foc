@@ -232,6 +232,9 @@ public class InfoController {
     public VO excelUpload(@RequestParam("file") MultipartFile file) {
         try {
             if (!file.isEmpty()) {
+                if(!file.getName().endsWith("xls")){
+                    return Response.warning("只能上传xls文件");
+                }
                 Workbook wb = new HSSFWorkbook(file.getInputStream());
                 int count = excelService.saveExcel(wb);
                 return Response.success("导入成功,插入"+count+"条数据");

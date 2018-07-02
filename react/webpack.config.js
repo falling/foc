@@ -27,11 +27,8 @@ module.exports = {
     },
     plugins: [
         new UglifyJSPlugin(),
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false
-            }
-        }),
+
+        new webpack.optimize.AggressiveMergingPlugin(),//合并块
         new webpack.DefinePlugin({
             'process.env': {
                 NODE_ENV: JSON.stringify(process.env.PRODUCTION),
@@ -39,6 +36,16 @@ module.exports = {
         }),
         new webpack.HotModuleReplacementPlugin()
     ],
+    externals: {
+        'echarts': 'window.echarts',
+        'react': 'React',
+        'react-dom': 'ReactDOM',
+        'react-router-dom': 'ReactRouterDOM',
+        'antd': 'antd',
+    },
+    resolve: {
+        extensions: ['.js', '.jsx']
+    },
     module: {
         loaders: [
             {
@@ -66,7 +73,7 @@ module.exports = {
             {
                 // 图片加载器
                 test: /\.(gif|jpg|png|woff|woff2|svg|eot|otf|ttf)\??.*$/,
-                loader: 'url-loader?limit=4096&name=/images/[name].[ext]'
+                loader: 'url-loader?limit=512&name=/images/[name].[ext]'
             }
         ]
     }

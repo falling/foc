@@ -39,7 +39,7 @@ export default class Header extends React.Component {
         if (file.response) {
             if (file.response.status > 0) {
                 message.success(file.response.info);
-            } else if (file.status === 'error') {
+            } else {
                 message.error(file.response.info);
             }
             this.setState({loading: false,fileList:[]});

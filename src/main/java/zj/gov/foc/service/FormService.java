@@ -75,7 +75,7 @@ public class FormService {
         hqvo.setRemarks(entryBean.getField_23());
         hqvo.setSocial_services(entryBean.getField_22());
 
-        hqService.addHQ(hqvo,2L);
+        hqService.addHQCover(hqvo,2L);
     }
 
     private void saveAsLX(FormBean.EntryBean entryBean){
@@ -122,7 +122,7 @@ public class FormService {
 
         lxVO.setFamily_name(entryBean.getField_54());
         lxVO.setFamily_tel(entryBean.getField_55());
-        lxService.addLX(lxVO,2L);
+        lxService.addLXCover(lxVO,2L);
 
     }
 
@@ -144,7 +144,7 @@ public class FormService {
         qjVO.setO_passport(entryBean.getField_49());
         qjVO.setO_residence(entryBean.getField_51());
         qjVO.setType("qj_hq");
-        qjService.saveQj(qjVO);
+        qjService.saveQjCover(qjVO);
     }
 
     private void saveAsLXJS(FormBean.EntryBean entryBean){
@@ -165,6 +165,6 @@ public class FormService {
         qjVO.setO_passport(entryBean.getField_50());
         qjVO.setO_residence(entryBean.getField_52());
         qjVO.setType("qj_lx");
-        qjService.saveQj(qjVO);
+        qjService.saveQjCover(qjVO);
     }
 }
