@@ -1,6 +1,15 @@
 import React from 'react';
 import 'whatwg-fetch';
 import ReactEcharts from "echarts-for-react";
+import 'echarts/lib/component/tooltip';
+import 'echarts/lib/chart/bar';
+import 'echarts/lib/chart/pie';
+import 'echarts/lib/component/title';
+import 'echarts/lib/chart/map';
+import 'echarts/lib/component/legend';
+import 'echarts/lib/component/visualMap';
+import 'echarts/lib/component/toolbox';
+
 import {pc_code} from "../../../config/pc_code";
 
 require('echarts/map/js/china.js');
