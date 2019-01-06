@@ -5,6 +5,39 @@ import ReactEcharts from "echarts-for-react";
 import {pc_code} from "../../../config/pc_code";
 
 require('echarts/map/js/china.js');
+require('echarts/map/js/province/shanghai.js')
+require('echarts/map/js/province/hebei.js')
+require('echarts/map/js/province/shanxi.js')
+require('echarts/map/js/province/neimenggu.js')
+require('echarts/map/js/province/liaoning.js')
+require('echarts/map/js/province/jilin.js')
+require('echarts/map/js/province/heilongjiang.js')
+require('echarts/map/js/province/jiangsu.js')
+require('echarts/map/js/province/zhejiang.js')
+require('echarts/map/js/province/anhui.js')
+require('echarts/map/js/province/fujian.js')
+require('echarts/map/js/province/jiangxi.js')
+require('echarts/map/js/province/shandong.js')
+require('echarts/map/js/province/henan.js')
+require('echarts/map/js/province/hubei.js')
+require('echarts/map/js/province/hunan.js')
+require('echarts/map/js/province/guangdong.js')
+require('echarts/map/js/province/guangxi.js')
+require('echarts/map/js/province/hainan.js')
+require('echarts/map/js/province/sichuan.js')
+require('echarts/map/js/province/guizhou.js')
+require('echarts/map/js/province/yunnan.js')
+require('echarts/map/js/province/xizang.js')
+require('echarts/map/js/province/shanxi1.js')
+require('echarts/map/js/province/gansu.js')
+require('echarts/map/js/province/qinghai.js')
+require('echarts/map/js/province/ningxia.js')
+require('echarts/map/js/province/xinjiang.js')
+require('echarts/map/js/province/beijing.js')
+require('echarts/map/js/province/tianjin.js')
+require('echarts/map/js/province/chongqing.js')
+require('echarts/map/js/province/xianggang.js')
+require('echarts/map/js/province/aomen.js')
 var provinces = ['shanghai', 'hebei', 'shanxi', 'neimenggu', 'liaoning', 'jilin', 'heilongjiang', 'jiangsu', 'zhejiang', 'anhui', 'fujian', 'jiangxi', 'shandong', 'henan', 'hubei', 'hunan', 'guangdong', 'guangxi', 'hainan', 'sichuan', 'guizhou', 'yunnan', 'xizang', 'shanxi1', 'gansu', 'qinghai', 'ningxia', 'xinjiang', 'beijing', 'tianjin', 'chongqing', 'xianggang', 'aomen'];
 var provincesText = ['上海', '河北', '山西', '内蒙古', '辽宁', '吉林', '黑龙江', '江苏', '浙江', '安徽', '福建', '江西', '山东', '河南', '湖北', '湖南', '广东', '广西', '海南', '四川', '贵州', '云南', '西藏', '陕西', '甘肃', '青海', '宁夏', '新疆', '北京', '天津', '重庆', '香港', '澳门'];
 
@@ -274,8 +307,8 @@ export default class Report extends React.Component {
 
     changeCity(e) {
         if (e.name) {
-            let pinyin = provinces[provincesText.indexOf(e.name)];
-            require(`echarts/map/js/province/${pinyin}.js`);
+            // let pinyin = provinces[provincesText.indexOf(e.name)];
+            // require(`echarts/map/js/province/${pinyin}.js`);
             let lxdata = [];
             let hqdata = [];
 
