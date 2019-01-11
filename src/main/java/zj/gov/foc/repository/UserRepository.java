@@ -2,14 +2,14 @@ package zj.gov.foc.repository;
 
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.Repository;
+import org.springframework.data.repository.CrudRepository;
 import zj.gov.foc.po.UserBean;
 
 import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
-public interface UserRepository extends Repository<UserBean, Long> {
+public interface UserRepository extends CrudRepository<UserBean, Long> {
 
     /**
      * login
@@ -42,12 +42,12 @@ public interface UserRepository extends Repository<UserBean, Long> {
 
 
     @Modifying
-    @Query(value = "INSERT INTO user(user_name, pwd, name, power, reg_date, remarks, del) VALUES (?1,?2,?3,?4,?5,?6,?7)",nativeQuery = true)
-    int insert(String username, String password, String name, String power, Date date, String remarks, String del);
+    @Query(value = "INSERT INTO user(user_name, pwd, name, power,manager_area, reg_date, remarks, del) VALUES (?1,?2,?3,?4,?5,?6,?7,?8)",nativeQuery = true)
+    int insert(String username, String password, String name, String power, String manager_area, Date date, String remarks, String del);
 
     @Modifying
-    @Query(value = "update user set name= ?1,power = ?2 where user_id = ?3 and del='0'",nativeQuery = true)
-    int updateUserInfo(String name,String power,Long id);
+    @Query(value = "update user set name= ?1,power = ?2,manager_area=?3 where user_id = ?4 and del='0'",nativeQuery = true)
+    int updateUserInfo(String name,String power,String manager_area,Long id);
 
     @Modifying
     @Query(value = "update user set del = 1 where user_id =?1 and del='0'",nativeQuery = true)

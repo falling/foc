@@ -41,6 +41,7 @@ CREATE TABLE hq
   residence        VARCHAR(255) DEFAULT ' '  NULL,
   residence_detail VARCHAR(255) DEFAULT ' '  NULL,
   cn_residence     VARCHAR(255) DEFAULT ' '  NULL,
+  manager_area     VARCHAR(255) DEFAULT ' '  NULL,
   present_industry VARCHAR(255) DEFAULT ' '  NULL,
   com_name         VARCHAR(255) DEFAULT ' '  NULL,
   position         VARCHAR(255) DEFAULT ' '  NULL,
@@ -114,6 +115,7 @@ CREATE TABLE lx
   residence        VARCHAR(255) DEFAULT ' '  NULL,
   residence_detail VARCHAR(255) DEFAULT ' '  NULL,
   cn_residence     VARCHAR(255) DEFAULT ' '  NULL,
+  manager_area     VARCHAR(255) DEFAULT ' '  NULL,
   present_industry VARCHAR(255) DEFAULT ' '  NULL,
   com_name         VARCHAR(255) DEFAULT ' '  NULL,
   position         VARCHAR(255) DEFAULT ' '  NULL,
@@ -147,6 +149,7 @@ CREATE TABLE qj
   id_num      VARCHAR(255) DEFAULT ' ' NOT NULL,
   o_tel       VARCHAR(255) DEFAULT ' ' NOT NULL,
   family_location VARCHAR(255) DEFAULT ' ' NOT NULL,
+  manager_area     VARCHAR(255) DEFAULT ' '  NULL,
   remarks     VARCHAR(255) DEFAULT ' ' NULL,
   type        VARCHAR(50) DEFAULT ' ' NULL,
   o_name      VARCHAR(255) DEFAULT ' ' NULL,
@@ -170,6 +173,7 @@ CREATE TABLE user
   pwd       VARCHAR(255) DEFAULT ' '  NOT NULL,
   name      VARCHAR(255) DEFAULT ' '  NOT NULL,
   power     VARCHAR(255) DEFAULT ' '  NOT NULL,
+  manager_area     VARCHAR(255) DEFAULT ' '  NULL,
   reg_date  DATETIME                 NOT NULL,
   remarks   VARCHAR(255) DEFAULT ' ' NOT NULL,
   del       VARCHAR(5) DEFAULT ' '   NOT NULL
@@ -182,6 +186,6 @@ ALTER TABLE hq ADD INDEX name_tell (ch_name,o_tel,del);
 ALTER TABLE lx ADD INDEX name_tell (ch_name,o_tel,del);
 ALTER TABLE qj ADD INDEX name_tell (ch_name,o_tel,type,del);
 
-INSERT INTO  user (user_id,user_name,pwd,name,power,reg_date,del) values (1,'root','root','root','root',now(),'0');
-INSERT INTO  user (user_id,user_name,pwd,name,power,reg_date,del) values (2,'金数据','金数据','金数据','user',now(),'0');
+INSERT INTO  user (user_id,user_name,pwd,name,power,manager_area,reg_date,del) values (1,'root','root','root','root','浙江省',now(),'0');
+INSERT INTO  user (user_id,user_name,pwd,name,power,manager_area,reg_date,del) values (2,'金数据','金数据','金数据','user','浙江省',now(),'0');
 

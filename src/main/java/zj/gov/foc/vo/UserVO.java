@@ -7,9 +7,18 @@ public class UserVO extends BaseVO{
     private String pwd;
     private String name;
     private String power;
+    private String manager_area;
     private String remarks;
     private String username;
     private Date reg_date;
+
+    public String getManager_area() {
+        return manager_area;
+    }
+
+    public void setManager_area(String manager_area) {
+        this.manager_area = manager_area;
+    }
 
     public Date getReg_date() {
         return reg_date;

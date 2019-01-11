@@ -1,11 +1,10 @@
 import React from 'react';
 import 'whatwg-fetch';
 import {Form, Input, Select, message} from 'antd';
-import LogTable from "../../../../uiCompoment/LogTable";
-
+import LogTable from "components/uiCompoment/LogTable";
+import ManagerArea from "components/uiCompoment/ManagerArea"
 const FormItem = Form.Item;
 const Option = Select.Option;
-const Search = Input.Search;
 
 class QjContentForm extends React.Component {
     constructor(props) {
@@ -245,6 +244,16 @@ class QjContentForm extends React.Component {
                                 />
                             )}
                             <div/>
+                        </FormItem>
+                    </div>
+
+                    <div className="col-md-3">
+                        <FormItem className="form-group" label="管理区域">
+                            {getFieldDecorator('manager_area', {
+                                initialValue: "浙江省",
+                            })(
+                                <ManagerArea/>
+                            )}
                         </FormItem>
                     </div>
                 </div>

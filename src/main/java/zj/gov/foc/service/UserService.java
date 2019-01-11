@@ -1,5 +1,6 @@
 package zj.gov.foc.service;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import zj.gov.foc.po.UserBean;
@@ -46,7 +47,7 @@ public class UserService {
         if (userBean != null) {
             return "用户名已经存在";
         }
-        int result = userRepository.insert(user.getUsername(), "123456", user.getName(), user.getPower(), new Date(), "", "0");
+        int result = userRepository.insert(user.getUsername(), "123456", user.getName(), user.getPower(),user.getManager_area(), new Date(), "", "0");
         return result != 0 ? "创建成功" : "创建失败";
     }
 
@@ -62,18 +63,15 @@ public class UserService {
         }
 
         UserVO vo = new UserVO();
+        BeanUtils.copyProperties(bean,vo);
         vo.setId(bean.getUser_id());
-        vo.setName(bean.getName());
-        vo.setPower(bean.getPower());
         vo.setUsername(bean.getUser_name());
-        vo.setRemarks(bean.getRemarks());
-        vo.setReg_date(bean.getReg_date());
         return vo;
     }
 
     @Transactional
     public int update(UserVO user) {
-        return userRepository.updateUserInfo(user.getName(), user.getPower(), user.getId());
+        return userRepository.updateUserInfo(user.getName(), user.getPower(),user.getManager_area(),user.getId());
     }
 
     @Transactional

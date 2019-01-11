@@ -15,9 +15,18 @@ public class UserBean {
     private String pwd;
     private String name;
     private String power;
+    private String manager_area;
     private java.sql.Date reg_date;
     private String remarks;
     private String del;
+
+    public String getManager_area() {
+        return manager_area;
+    }
+
+    public void setManager_area(String manager_area) {
+        this.manager_area = manager_area;
+    }
 
     public Long getUser_id() {
         return user_id;

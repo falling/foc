@@ -2,10 +2,10 @@ import React from 'react';
 import {Form, Input, Select, message, DatePicker, Cascader} from 'antd';
 import 'whatwg-fetch';
 import moment from 'moment';
-import PicturesWall from "../../../../uiCompoment/PicturesWall";
-import {pc_code} from "../../../../config/pc_code";
-import LogTable from "../../../../uiCompoment/LogTable";
-
+import PicturesWall from "components/uiCompoment/PicturesWall";
+import {pc_code} from "components/config/pc_code";
+import LogTable from "components/uiCompoment/LogTable";
+import ManagerArea from "components/uiCompoment/ManagerArea";
 const FormItem = Form.Item;
 const Option = Select.Option;
 class Hq_lxContentForm extends React.Component {
@@ -424,6 +424,15 @@ class Hq_lxContentForm extends React.Component {
                                     options={pc_code}
                                     placeholder="籍贯"
                                 />
+                            )}
+                        </FormItem>
+                    </div>
+                    <div className="col-md-4">
+                        <FormItem className="form-group" label="管理区域">
+                            {getFieldDecorator('manager_area', {
+                                initialValue: "浙江省",
+                            })(
+                                <ManagerArea/>
                             )}
                         </FormItem>
                     </div>

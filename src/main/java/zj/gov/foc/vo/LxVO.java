@@ -27,6 +27,7 @@ public class LxVO extends BaseVO{
     private String residence;
     private String residenceDetail;
     private String cn_residence;
+    private String manager_area;
     private String present_industry;
     private String com_name;
     private String position;
@@ -42,6 +43,14 @@ public class LxVO extends BaseVO{
     private String remarks;
 //    private String del;
 
+
+    public String getManager_area() {
+        return manager_area;
+    }
+
+    public void setManager_area(String manager_area) {
+        this.manager_area = manager_area;
+    }
 
     public String getFamily_name() {
         return family_name;

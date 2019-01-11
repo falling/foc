@@ -9,6 +9,7 @@ public class QjVO extends BaseVO {
     private String id_num;
     private String o_tel;
     private String family_location;
+    private String manager_area;
     private String type;
     private String o_name;
     private String o_relation;
@@ -17,6 +18,14 @@ public class QjVO extends BaseVO {
     private String remarks;
 //  private String del;
 
+
+    public String getManager_area() {
+        return manager_area;
+    }
+
+    public void setManager_area(String manager_area) {
+        this.manager_area = manager_area;
+    }
 
     public String getId_num() {
         return id_num;

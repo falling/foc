@@ -39,6 +39,7 @@ public class HQService {
     public HQBean addHQCover(HQVO hqvo, Long id){
         return getHqBean(hqvo, id);
     }
+
     private HQBean getHqBean(HQVO hqvo, Long id) {
         HQBean bean = new HQBean();
         BeanUtils.copyProperties(hqvo,bean);

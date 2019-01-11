@@ -1,6 +1,7 @@
 import React from 'react';
 import 'whatwg-fetch';
 import {Form, Input, message, Select} from 'antd';
+import ManagerArea from "../../../uiCompoment/ManagerArea";
 
 const Search = Input.Search;
 const FormItem = Form.Item;
@@ -33,7 +34,6 @@ class UserManageForm extends React.Component {
                     delete json.info;
                     delete json.pwd;
                     delete json.remarks;
-
                     this.props.form.setFieldsValue(json);
                 } else {
                     message.error(json.info, 5);
@@ -111,7 +111,7 @@ class UserManageForm extends React.Component {
     }
 
     render() {
-        const {display,user} = this.props;
+        const {display, user} = this.props;
         const {getFieldDecorator} = this.props.form;
         const {updateLoading, deleteLoading} = this.state;
         return (
@@ -143,9 +143,8 @@ class UserManageForm extends React.Component {
                             </Form>
                             <Form>
                                 <div className="row">
-                                    <div className="col-md-12">
-                                        <FormItem className="form-group">
-                                            <label>用户名</label>
+                                    <div className="col-md-6">
+                                        <FormItem className="form-group" label="用户名">
                                             {getFieldDecorator('username')(
                                                 <Input
                                                     className="form-control border-input"
@@ -154,11 +153,8 @@ class UserManageForm extends React.Component {
                                             )}
                                         </FormItem>
                                     </div>
-                                </div>
-                                <div className="row">
-                                    <div className="col-md-12">
-                                        <FormItem className="form-group">
-                                            <label>姓名</label>
+                                    <div className="col-md-6">
+                                        <FormItem className="form-group" label="姓名">
                                             {getFieldDecorator('name', {
                                                 rules: [{required: true, message: '请输入姓名'}],
                                             })(
@@ -183,6 +179,17 @@ class UserManageForm extends React.Component {
                                             )}
                                         </FormItem>
                                     </div>
+                                    <div className="col-md-6">
+                                        <FormItem className="form-group" label="管理区域">
+                                            {getFieldDecorator('manager_area', {
+                                                initialValue: "浙江省",
+                                            })(
+                                                <ManagerArea/>
+                                            )}
+                                        </FormItem>
+                                    </div>
+                                </div>
+                                <div className="row">
                                     <div className="col-md-6">
                                         <FormItem className="form-group">
                                             <label>注册日期</label>

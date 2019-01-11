@@ -1,7 +1,7 @@
 import React from 'react';
-import {Form, Input, Select, message} from 'antd';
+import {Form, Input, Select, message, Cascader} from 'antd';
 import 'whatwg-fetch';
-
+import ManagerArea from "../../../uiCompoment/ManagerArea";
 
 const FormItem = Form.Item;
 const Option = Select.Option;
@@ -69,7 +69,7 @@ class UserCreateForm extends React.Component {
     }
 
     render() {
-        const {display,user} = this.props;
+        const {display, user} = this.props;
         const {getFieldDecorator, getFieldError} = this.props.form;
         const {loading} = this.state;
         return (
@@ -84,10 +84,13 @@ class UserCreateForm extends React.Component {
                                 <div className="row">
                                     <div className="col-md-12">
                                         <FormItem
+                                            label="用户名"
                                             className="form-group">
-                                            <label>用户名*</label>
                                             {getFieldDecorator('username', {
-                                                rules: [{required: true, message: '请输入用户名'},{max:10,message:'长度最长为10'}],
+                                                rules: [{required: true, message: '请输入用户名'}, {
+                                                    max: 10,
+                                                    message: '长度最长为10'
+                                                }],
                                             })(
                                                 <Input
                                                     placeholder="用户名"
@@ -103,15 +106,33 @@ class UserCreateForm extends React.Component {
                                 <div className="row">
                                     <div className="col-md-12">
                                         <FormItem
-                                            className="form-group">
-                                            <label>姓名*</label>
+                                            className="form-group"  label="姓名">
                                             {getFieldDecorator('name', {
-                                                rules: [{required: true, message: '请输入姓名'},{max:10,message:'长度最长为10'}],
+                                                rules: [{required: true, message: '请输入姓名'}, {
+                                                    max: 10,
+                                                    message: '长度最长为10'
+                                                }],
                                             })(
                                                 <Input
                                                     placeholder="姓名"
                                                     className="form-control border-input"
                                                 />
+                                            )}
+                                        </FormItem>
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className="col-md-12">
+                                        <FormItem className="form-group" label="管理区域">
+                                            {getFieldDecorator('manager_area', {
+                                                initialValue: "浙江省",
+                                            })(
+                                                <ManagerArea/>
+                                                // <Cascader
+                                                //     // disabled={mode === 'search'}
+                                                //     options={zj_pc_code}
+                                                //     placeholder="管理区域"
+                                                // />
                                             )}
                                         </FormItem>
                                     </div>
@@ -125,7 +146,8 @@ class UserCreateForm extends React.Component {
                                             })(
                                                 <Select>
                                                     <Option value="user">普通用户</Option>
-                                                    {(user&&user.power==='root')&&<Option value="admin">管理员</Option>}
+                                                    {(user && user.power === 'root') &&
+                                                    <Option value="admin">管理员</Option>}
                                                 </Select>
                                             )}
                                         </div>
@@ -147,9 +169,9 @@ class UserCreateForm extends React.Component {
                                             this.create(e)
                                         }}
                                         disabled={loading}
-                                    >{loading&&
-                                    <i style={{marginRight:5}} className="anticon anticon-spin anticon-loading"/>}
-                                    创建用户
+                                    >{loading &&
+                                    <i style={{marginRight: 5}} className="anticon anticon-spin anticon-loading"/>}
+                                        创建用户
                                     </button>
                                 </div>
                             </Form>

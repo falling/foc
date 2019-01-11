@@ -28,6 +28,7 @@ public class HQVO extends BaseVO{
     private String residence;
     private String residenceDetail;
     private String cn_residence;
+    private String manager_area;
     private String present_industry;
     private String com_name;
     private String position;
@@ -36,6 +37,14 @@ public class HQVO extends BaseVO{
     private Date reg_date;
     private String social_services;
     private String remarks;
+
+    public String getManager_area() {
+        return manager_area;
+    }
+
+    public void setManager_area(String manager_area) {
+        this.manager_area = manager_area;
+    }
 
     public String getResidenceDetail() {
         return residenceDetail;

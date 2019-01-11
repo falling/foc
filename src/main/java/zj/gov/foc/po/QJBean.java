@@ -18,6 +18,7 @@ public class QJBean {
   private String id_num;
   private String o_tel;
   private String family_location;
+  private String manager_area;
   private String remarks;
   private String type;
   private String o_name;
@@ -26,6 +27,14 @@ public class QJBean {
   private String o_passport;
   private String del;
 
+
+  public String getManager_area() {
+    return manager_area;
+  }
+
+  public void setManager_area(String manager_area) {
+    this.manager_area = manager_area;
+  }
 
   public String getId_num() {
     return id_num;
