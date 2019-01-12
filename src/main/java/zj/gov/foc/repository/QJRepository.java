@@ -30,9 +30,19 @@ public interface QJRepository extends CrudRepository<QJBean, Long> {
     @Query(value = "SELECT count(*) FROM qj WHERE del='0' and type = ?1 ",nativeQuery = true)
     Long count(String type);
 
+    @Query(value = "SELECT count(*) FROM qj WHERE del='0' and type = ?1 and manager_area like ?2",nativeQuery = true)
+    Long count(String qj_hq, String manager_area);
+
     @Query(value = "select sex from qj where sex='男' or sex = '女' and del='0' ",nativeQuery = true)
     List<String> getAllSex();
 
+    @Query(value = "select sex from qj where sex='男' or sex = '女' and del='0' and manager_area like ?1",nativeQuery = true)
+    List<String> getAllSex(String manager_area);
+
+
     @Query(value = "select o_residence,count(*) from qj where del='0' and type= ?1 and o_residence<>'' group by o_residence",nativeQuery = true)
     Iterable<Object[]> groupByCountry(String type);
+
+    @Query(value = "select o_residence,count(*) from qj where del='0' and type= ?1 and o_residence<>'' and manager_area like ?2 group by o_residence",nativeQuery = true)
+    List<Object[]> groupByCountry(String qj_hq, String manager_area);
 }

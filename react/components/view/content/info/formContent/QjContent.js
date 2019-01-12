@@ -248,7 +248,7 @@ class QjContentForm extends React.Component {
                     </div>
 
                     <div className="col-md-3">
-                        <FormItem className="form-group" label="管理区域">
+                        <FormItem className="form-group" label="所属侨联">
                             {getFieldDecorator('manager_area', {
                                 initialValue: "浙江省",
                             })(

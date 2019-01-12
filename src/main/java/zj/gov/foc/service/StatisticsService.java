@@ -26,30 +26,31 @@ public class StatisticsService {
     @Autowired
     QJRepository qjRepository;
 
-    public long[] statistics() {
+    public long[] statistics(String manager_area) {
         long[] result = new long[3];
-        result[0] = hqRepository.countHQ();
-        result[1] = lxRepository.countLX();
+        manager_area = manager_area + "%";
+        result[0] = hqRepository.countHQ(manager_area);
+        result[1] = lxRepository.countLX(manager_area);
         return result;
     }
 
-    public HashMap<String, Long> total() {
+    public HashMap<String, Long> total(String manager_area) {
         HashMap<String, Long> result = new HashMap<>();
-        result.put("华侨", hqRepository.countHQ());
-        result.put("留学", lxRepository.countLX());
-        result.put("侨眷", qjRepository.count("qj_hq"));
-        result.put("留学生家属", qjRepository.count("qj_lx"));
+        result.put("华侨", hqRepository.countHQ(manager_area));
+        result.put("留学", lxRepository.countLX(manager_area));
+        result.put("侨眷", qjRepository.count("qj_hq",manager_area));
+        result.put("留学生家属", qjRepository.count("qj_lx",manager_area));
         return result;
     }
 
-    public HashMap<String, Long> sex() {
+    public HashMap<String, Long> sex(String manager_area) {
         HashMap<String, Long> result = new HashMap<>();
-        List<String> sexList = hqRepository.getAllSex();
-        sexList.addAll(lxRepository.getAllSex());
-        sexList.addAll(qjRepository.getAllSex());
+        List<String> sexList = hqRepository.getAllSex(manager_area);
+        sexList.addAll(lxRepository.getAllSex(manager_area));
+        sexList.addAll(qjRepository.getAllSex(manager_area));
 
-        Long maleNumber = sexList.stream().filter(e->e.equals("男")).count();
-        Long femaleNumber = sexList.stream().filter(e->e.equals("女")).count();
+        Long maleNumber = sexList.parallelStream().filter(e->e.equals("男")).count();
+        Long femaleNumber = sexList.parallelStream().filter(e->e.equals("女")).count();
 
         result.put("男",maleNumber);
         result.put("女",femaleNumber);
@@ -58,36 +59,36 @@ public class StatisticsService {
 
     }
 
-    public HashMap<Object, Object> HQCountry() {
+    public HashMap<Object, Object> HQCountry(String manager_area) {
         HashMap<Object, Object> hqResult = new HashMap<>();
-        hqRepository.groupByCountry().forEach(e-> hqResult.put(e[0],e[1]));
+        hqRepository.groupByCountry(manager_area).forEach(e-> hqResult.put(e[0],e[1]));
         return hqResult;
     }
 
-    public HashMap<Object, Object> LXCountry() {
+    public HashMap<Object, Object> LXCountry(String manager_area) {
         HashMap<Object, Object> lxResult = new HashMap<>();
-        lxRepository.groupByCountry().forEach(e-> lxResult.put(e[0],e[1]));
+        lxRepository.groupByCountry(manager_area).forEach(e-> lxResult.put(e[0],e[1]));
         return lxResult;
     }
 
-    public HashMap<Object, Object> QJHQCountry() {
+    public HashMap<Object, Object> QJHQCountry(String manager_area) {
         HashMap<Object, Object> lxResult = new HashMap<>();
-        qjRepository.groupByCountry("qj_hq").forEach(e-> lxResult.put(e[0],e[1]));
+        qjRepository.groupByCountry("qj_hq",manager_area).forEach(e-> lxResult.put(e[0],e[1]));
         return lxResult;
     }
 
-    public HashMap<Object, Object> QJLXCountry() {
+    public HashMap<Object, Object> QJLXCountry(String manager_area) {
         HashMap<Object, Object> lxResult = new HashMap<>();
-        qjRepository.groupByCountry("qj_lx").forEach(e-> lxResult.put(e[0],e[1]));
+        qjRepository.groupByCountry("qj_lx",manager_area).forEach(e-> lxResult.put(e[0],e[1]));
         return lxResult;
     }
 
-    public HashMap<Object, Object> NativePlace() {
+    public HashMap<Object, Object> NativePlace(String manager_area) {
         HashMap<Object,Object> result = new HashMap<>();
         HashMap<Object,Object> hqlist = new HashMap<>();
         HashMap<Object,Object> lxlist = new HashMap<>();
-        hqRepository.groupByNativePlace().forEach(e->hqlist.put(e[0],e[1]));
-        lxRepository.groupByNativePlace().forEach(e->lxlist.put(e[0],e[1]));
+        hqRepository.groupByNativePlace(manager_area).forEach(e->hqlist.put(e[0],e[1]));
+        lxRepository.groupByNativePlace(manager_area).forEach(e->lxlist.put(e[0],e[1]));
         result.put("hq",hqlist);
         result.put("lx",lxlist);
         return result;

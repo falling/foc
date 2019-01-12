@@ -428,7 +428,7 @@ class Hq_lxContentForm extends React.Component {
                         </FormItem>
                     </div>
                     <div className="col-md-4">
-                        <FormItem className="form-group" label="管理区域">
+                        <FormItem className="form-group" label="所属侨联">
                             {getFieldDecorator('manager_area', {
                                 initialValue: "浙江省",
                             })(

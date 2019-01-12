@@ -123,7 +123,7 @@ class UserCreateForm extends React.Component {
                                 </div>
                                 <div className="row">
                                     <div className="col-md-12">
-                                        <FormItem className="form-group" label="管理区域">
+                                        <FormItem className="form-group" label="所属侨联">
                                             {getFieldDecorator('manager_area', {
                                                 initialValue: "浙江省",
                                             })(

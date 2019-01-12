@@ -15,6 +15,9 @@ public interface LXRepository extends CrudRepository<LxBean, Long> {
     @Query(value = "select * FROM lx where passport_no = ?1 and del='0'",nativeQuery = true)
     LxBean loadByPassport(String passport_no);
 
+    @Query(value = "select * FROM lx where passport_no = ?1 and del='0' and manager_area like ?2",nativeQuery = true)
+    LxBean loadByPassport(String value, String manager_area);
+
     @Query(value = "SELECT * FROM lx WHERE lx_id = ?1 and del='0'",nativeQuery = true)
     LxBean getById(Long lx_id);
 
@@ -29,6 +32,9 @@ public interface LXRepository extends CrudRepository<LxBean, Long> {
     @Query(value = "SELECT count(*) FROM lx WHERE del='0'",nativeQuery = true)
     long countLX();
 
+    @Query(value = "SELECT count(*) FROM lx WHERE del='0' and manager_area like ?1 ",nativeQuery = true)
+    Long countLX(String manager_area);
+
     @Query(value = "SELECT count(DISTINCT nationality) FROM lx WHERE del='0'",nativeQuery = true)
     long countCountry();
 
@@ -38,9 +44,19 @@ public interface LXRepository extends CrudRepository<LxBean, Long> {
     @Query(value = "select sex from lx where sex='男' or sex = '女' and del='0' ",nativeQuery = true)
     List<String> getAllSex();
 
+    @Query(value = "select sex from lx where sex='男' or sex = '女' and del='0' and manager_area like ?1",nativeQuery = true)
+    List<String> getAllSex(String manager_area);
+
     @Query(value = "select residence,count(*) from lx where del='0' and residence<>'' group by residence",nativeQuery = true)
     Iterable<Object[]> groupByCountry();
 
+    @Query(value = "select residence,count(*) from lx where del='0' and residence<>'' and manager_area like ?1 group by residence",nativeQuery = true)
+    List<Object[]> groupByCountry(String manager_area);
+
     @Query(value = "select native_place,count(*) from lx where del='0' and native_place<>'' group by native_place", nativeQuery = true)
     List<Object[]> groupByNativePlace();
+
+    @Query(value = "select native_place,count(*) from lx where del='0' and native_place<>'' and manager_area like ?1 group by native_place", nativeQuery = true)
+    List<Object[]> groupByNativePlace(String manager_area);
+
 }

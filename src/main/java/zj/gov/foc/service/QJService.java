@@ -85,23 +85,24 @@ public class QJService {
     @PersistenceContext
     private EntityManager entityManager;
 
-    public SearchVO<QjVO> search(String col, String value, String type) {
+    public SearchVO<QjVO> search(String col, String value, String type,String manager_area) {
         SearchVO<QjVO> searchVO = new SearchVO<>();
+        manager_area = manager_area + "%";
         if (col.equals("lx_id")) {
-            LxBean bean = lxRepository.loadByPassport(value);
+            LxBean bean = lxRepository.loadByPassport(value,manager_area);
             if (bean == null) {
                 return searchVO;
             }
             return searchVO;
         } else if (col.equals("hq_id")) {
-            HQBean bean = hqRepository.loadByPassport(value);
+            HQBean bean = hqRepository.loadByPassport(value,manager_area);
             if (bean == null) {
                 return searchVO;
             }
             return searchVO;
 
         } else {
-            String sql = "SELECT * FROM qj WHERE " + col + " LIKE '%" + value + "%' AND del = '0'";
+            String sql = "SELECT * FROM qj WHERE " + col + " LIKE '%" + value + "%' AND del = '0' and manager_area like '" + manager_area + "'";
             if (type.startsWith("qj")) {
                 sql = sql + " AND type = '" + type + "'";
             }

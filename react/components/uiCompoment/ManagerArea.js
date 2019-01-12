@@ -27,12 +27,11 @@ export default class ManagerArea extends React.Component {
 
     render() {
         const {value} = this.state;
-        console.log(value)
         return (
             <Cascader
                 // disabled={mode === 'search'}
                 options={zj_pc_code}
-                placeholder="管理区域"
+                placeholder="所属侨联"
                 value={value.split("/")}
                 onChange={this.handleChange}
             />

@@ -92,9 +92,6 @@ export default class Sidebar extends React.Component {
                                     <li className={activityIndex === 5 ? "active" : ""}>
                                         <Link to="/manager/5">管理用户</Link>
                                     </li>}
-                                    <li className={activityIndex === 3 ? "active" : ""}>
-                                        <Link to="/manager/3">修改个人信息</Link>
-                                    </li>
                                 </ul>
                             </div>
                         </li>}
@@ -105,10 +102,21 @@ export default class Sidebar extends React.Component {
                             </Link>
                         </li>
                         <li>
-                            <Link to="/manager/6">
-                                <i className="ti-settings"/>
-                                <p>修改密码</p>
-                            </Link>
+                            <a data-toggle="collapse" data-parent="#accordion" href="#userCenter">
+                                <i className="ti-id-badge"/>
+                                <p>用户中心</p>
+                            </a>
+                            <div className="collapse" id="userCenter">
+                                <ul className="list">
+                                    <li className={activityIndex === 3 ? "active" : ""}>
+                                        <Link to="/manager/3">个人信息</Link>
+                                    </li>
+                                    <li className={activityIndex === 6 ? "active" : ""}>
+                                        <Link to="/manager/6">修改密码</Link>
+                                    </li>
+
+                                </ul>
+                            </div>
                         </li>
                     </ul>
                 </div>

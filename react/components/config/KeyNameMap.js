@@ -38,5 +38,6 @@ export const KeyNameMap = {
     'o_residence':'海外直系亲属旅居国或地区',
     'degree':'学位',
     'gra_date':'毕业时间',
-    'photo':'照片'
+    'photo':'照片',
+    'manager_area':'所属侨联'
 }

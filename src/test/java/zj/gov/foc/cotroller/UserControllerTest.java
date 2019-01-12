@@ -20,7 +20,7 @@ public class UserControllerTest {
 
     @Test
     public void reg() {
-        lxService.search("ch_name","");
+        lxService.search("ch_name","","浙江省");
     }
 
     @Test

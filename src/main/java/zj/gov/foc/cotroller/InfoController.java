@@ -48,6 +48,9 @@ public class InfoController {
     @Autowired
     ExcelService excelService;
 
+    @Autowired
+    HttpSession session;
+
     @Value("${upload-path}")
     private String path;
 
@@ -193,18 +196,22 @@ public class InfoController {
     public VO searchTable(@RequestParam("type") String type,
                           @RequestParam("value") String value,
                           @RequestParam("col") String col) {
+        UserVO userVO = (UserVO) session.getAttribute("user");
+        String manager_area = userVO.getManager_area();
         if (type.equals("lx")) {
-            return Response.success(lxService.search(col, value));
+            return Response.success(lxService.search(col, value,manager_area));
         } else if (type.equals("hq")) {
-            return Response.success(hqService.search(col, value));
+            return Response.success(hqService.search(col, value,manager_area));
         } else {
-            return Response.success(qjService.search(col, value, type));
+            return Response.success(qjService.search(col, value, type,manager_area));
         }
     }
 
     @RequestMapping("/statistics")
     public long[] getStatistics() {
-        return statisticsService.statistics();
+        UserVO userVO = (UserVO) session.getAttribute("user");
+        String manager_area = userVO.getManager_area();
+        return statisticsService.statistics(manager_area);
     }
 
 
