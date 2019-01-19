@@ -1,15 +1,21 @@
 import React from 'react';
 import {Title} from "../config/Title";
 import 'whatwg-fetch';
-import {message, Menu, Dropdown, Icon, Upload} from 'antd';
+import {message, Menu, Dropdown, Icon, Upload, Drawer} from 'antd';
 import {Link} from 'react-router-dom'
+import Sidebar from "./Sidebar";
 
 export default class Header extends React.Component {
     constructor() {
         super();
-        this.state = {loading: false};
+        this.state = {
+            loading: false,
+            visible: false,
+        };
         this.sighOff = this.sighOff.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.onClose = this.onClose.bind(this);
+        this.openDrawer = this.openDrawer.bind(this);
         this.menu = (
             <Menu>
                 <Menu.Item key="0">
@@ -34,6 +40,17 @@ export default class Header extends React.Component {
             })
     }
 
+    openDrawer(){
+        this.setState({
+            visible:true,
+        });
+    }
+    onClose() {
+        this.setState({
+            visible: false,
+        });
+    }
+
     handleChange({fileList}) {
         let file = fileList[0];
         if (file.response) {
@@ -42,7 +59,7 @@ export default class Header extends React.Component {
             } else {
                 message.error(file.response.info);
             }
-            this.setState({loading: false,fileList:[]});
+            this.setState({loading: false, fileList: []});
             return;
         }
         if (file.status === 'uploading') {
@@ -62,7 +79,7 @@ export default class Header extends React.Component {
             <nav className="navbar navbar-default">
                 <div className="container-fluid">
                     <div className="navbar-header">
-                        <button type="button" className="navbar-toggle">
+                        <button onClick={this.openDrawer} type="button" className="navbar-toggle">
                             <span className="sr-only">Toggle navigation</span>
                             <span className="icon-bar bar1"/>
                             <span className="icon-bar bar2"/>
@@ -121,6 +138,19 @@ export default class Header extends React.Component {
 
                     </div>
                 </div>
+
+                <Drawer
+                    title="FOC"
+                    placement="right"
+                    closable={false}
+                    onClose={this.onClose}
+                    visible={this.state.visible}
+                >
+                    <p>Some contents...</p>
+                    <p>Some contents...</p>
+                    <p>Some contents...</p>
+                    <Sidebar/>
+                </Drawer>
             </nav>
         )
     }

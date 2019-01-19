@@ -17,8 +17,14 @@ public class UserController {
     @Autowired
     UserService userService;
 
+    @Autowired
+    HttpSession httpSession;
+
     @RequestMapping("/userLogin")
-    public VO login(@RequestParam("username") String username, @RequestParam("password") String password, HttpSession httpSession) {
+    public VO login(@RequestParam("username") String username, @RequestParam("password") String password,@RequestParam("verifyCode") String verifyCode) {
+        if (!verifyCode.equalsIgnoreCase(httpSession.getAttribute("verifyCode").toString())){
+            return Response.warning("验证码错误!");
+        }
         UserVO userVO = userService.login(username, password);
         if (userVO.getStatus() < 0)
             return userVO;
