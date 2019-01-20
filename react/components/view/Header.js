@@ -40,11 +40,12 @@ export default class Header extends React.Component {
             })
     }
 
-    openDrawer(){
+    openDrawer() {
         this.setState({
-            visible:true,
+            visible: true,
         });
     }
+
     onClose() {
         this.setState({
             visible: false,
@@ -87,7 +88,7 @@ export default class Header extends React.Component {
                         </button>
                         <div className="navbar-brand overDefault">{Title[this.props.title]}</div>
                     </div>
-                    <div className="collapse navbar-collapse">
+                    <div className="">
                         {(user !== null && user.name !== null) ?
                             <ul className="nav navbar-nav navbar-right">
                                 <li>
@@ -142,14 +143,15 @@ export default class Header extends React.Component {
                 <Drawer
                     title="FOC"
                     placement="right"
+                    width={256}
                     closable={false}
                     onClose={this.onClose}
                     visible={this.state.visible}
                 >
-                    <p>Some contents...</p>
-                    <p>Some contents...</p>
-                    <p>Some contents...</p>
-                    <Sidebar/>
+                    <Sidebar
+                        user={user}
+                        side={false}
+                    />
                 </Drawer>
             </nav>
         )

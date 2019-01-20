@@ -47,6 +47,7 @@ export default class Manager extends React.Component {
                         index={urlId}
                         user={user}
                         type={type}
+                        side={true}
                     />
 
                     <div className="main-panel">
