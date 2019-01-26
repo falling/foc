@@ -95,7 +95,7 @@ export default class Header extends React.Component {
                                     <a>
                                         <Upload
                                             action="/excelUpload"
-                                            accept="application/vnd.ms-excel"
+                                            accept="application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
                                             onChange={this.handleChange}
                                             showUploadList={false}
                                             fileList={fileList}
@@ -141,7 +141,7 @@ export default class Header extends React.Component {
                 </div>
 
                 <Drawer
-                    title="FOC"
+                    title="侨联信息系统"
                     placement="right"
                     width={256}
                     closable={false}

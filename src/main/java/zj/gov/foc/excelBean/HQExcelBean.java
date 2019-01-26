@@ -1,58 +1,65 @@
-package zj.gov.foc.vo;
+package zj.gov.foc.excelBean;
 
+import cn.afterturn.easypoi.excel.annotation.Excel;
+import cn.afterturn.easypoi.excel.annotation.ExcelTarget;
+import org.hibernate.validator.constraints.NotEmpty;
+
+import javax.validation.constraints.NotNull;
 import java.sql.Date;
-import java.util.ArrayList;
-import java.util.List;
 
-/**
- * Created by User: falling
- * Date: 2018/2/18
- * Time: 上午10:54
- * Description: just for excel export
- */
-public class LXExcel  implements Excel{
-    private Long lx_id;
+
+@ExcelTarget("华侨")
+public class HQExcelBean implements java.io.Serializable{
+    @NotEmpty
+    @NotNull
+    @Excel(orderNum = "0",name="姓名")
     private String ch_name;
-    private String used_name;
-    private String py_name;
-    private String sex;
-    private String ethnicity;
-    private String passport_no;
-    private Date date_expriy;
-    private Date date_birth;
-    private String id_num;
+    @Excel(orderNum = "1",name="常用电话")
     private String o_tel;
+    @Excel(orderNum = "2",name="拼音/外文名")
+    private String py_name;
+    @Excel(orderNum = "3",name="曾用名")
+    private String used_name;
+    @Excel(orderNum = "4",name="性别")
+    private String sex;
+    @Excel(orderNum = "5",name="民族")
+    private String ethnicity;
+    @Excel(orderNum = "6",name="出生年月" ,format = "yyyy-MM-dd")
+    private Date date_birth;
+    @Excel(orderNum = "7",name="护照号")
+    private String passport_no;
+    @Excel(orderNum = "8",name="身份证号")
+    private String id_num;
+    @Excel(orderNum = "9",name="中国联系电话")
     private String cn_tel;
-    private String cn_te2;
+    @Excel(orderNum = "10",name="微信号")
     private String wechat;
+    @Excel(orderNum = "11",name="邮箱")
     private String mail;
+    @Excel(orderNum = "12",name="QQ")
     private String qq_num;
+    @Excel(orderNum = "13",name="籍贯")
     private String native_place;
+    @Excel(orderNum = "14",name="现国籍")
     private String nationality;
+    @Excel(orderNum = "15",name="现居住国")
     private String residence;
+    @Excel(orderNum = "16",name="现旅居地详细地址")
+    private String residenceDetail;
+    @Excel(orderNum = "17",name="中国居住地详细地址/原籍地")
     private String cn_residence;
+    @Excel(orderNum = "18",name="所从事行业")
     private String present_industry;
+    @Excel(orderNum = "19",name="公司/单位名称")
     private String com_name;
+    @Excel(orderNum = "20",name="职务")
     private String position;
-    private String education;
-    private String health;
-    private String registrant_name;
-    private String photo;
-    private Date reg_date;
-    private String remarks;
-    private String en_cname;
-    private String ch_cname;
-    private String degree;
-    private Date gra_date;
+    @Excel(orderNum = "21",name="社会任职")
     private String social_services;
-
-    public Long getLx_id() {
-        return lx_id;
-    }
-
-    public void setLx_id(Long lx_id) {
-        this.lx_id = lx_id;
-    }
+    @Excel(orderNum = "22",name="所属区/县侨联")
+    private String manager_area;
+    @Excel(orderNum = "23",name="备注")
+    private String remarks;
 
     public String getCh_name() {
         return ch_name;
@@ -62,12 +69,12 @@ public class LXExcel  implements Excel{
         this.ch_name = ch_name;
     }
 
-    public String getUsed_name() {
-        return used_name;
+    public String getO_tel() {
+        return o_tel;
     }
 
-    public void setUsed_name(String used_name) {
-        this.used_name = used_name;
+    public void setO_tel(String o_tel) {
+        this.o_tel = o_tel;
     }
 
     public String getPy_name() {
@@ -76,6 +83,14 @@ public class LXExcel  implements Excel{
 
     public void setPy_name(String py_name) {
         this.py_name = py_name;
+    }
+
+    public String getUsed_name() {
+        return used_name;
+    }
+
+    public void setUsed_name(String used_name) {
+        this.used_name = used_name;
     }
 
     public String getSex() {
@@ -94,28 +109,20 @@ public class LXExcel  implements Excel{
         this.ethnicity = ethnicity;
     }
 
-    public String getPassport_no() {
-        return passport_no;
-    }
-
-    public void setPassport_no(String passport_no) {
-        this.passport_no = passport_no;
-    }
-
-    public Date getDate_expriy() {
-        return date_expriy;
-    }
-
-    public void setDate_expriy(Date date_expriy) {
-        this.date_expriy = date_expriy;
-    }
-
     public Date getDate_birth() {
         return date_birth;
     }
 
     public void setDate_birth(Date date_birth) {
         this.date_birth = date_birth;
+    }
+
+    public String getPassport_no() {
+        return passport_no;
+    }
+
+    public void setPassport_no(String passport_no) {
+        this.passport_no = passport_no;
     }
 
     public String getId_num() {
@@ -126,28 +133,12 @@ public class LXExcel  implements Excel{
         this.id_num = id_num;
     }
 
-    public String getO_tel() {
-        return o_tel;
-    }
-
-    public void setO_tel(String o_tel) {
-        this.o_tel = o_tel;
-    }
-
     public String getCn_tel() {
         return cn_tel;
     }
 
     public void setCn_tel(String cn_tel) {
         this.cn_tel = cn_tel;
-    }
-
-    public String getCn_te2() {
-        return cn_te2;
-    }
-
-    public void setCn_te2(String cn_te2) {
-        this.cn_te2 = cn_te2;
     }
 
     public String getWechat() {
@@ -198,6 +189,14 @@ public class LXExcel  implements Excel{
         this.residence = residence;
     }
 
+    public String getResidenceDetail() {
+        return residenceDetail;
+    }
+
+    public void setResidenceDetail(String residenceDetail) {
+        this.residenceDetail = residenceDetail;
+    }
+
     public String getCn_residence() {
         return cn_residence;
     }
@@ -230,44 +229,20 @@ public class LXExcel  implements Excel{
         this.position = position;
     }
 
-    public String getEducation() {
-        return education;
+    public String getSocial_services() {
+        return social_services;
     }
 
-    public void setEducation(String education) {
-        this.education = education;
+    public void setSocial_services(String social_services) {
+        this.social_services = social_services;
     }
 
-    public String getHealth() {
-        return health;
+    public String getManager_area() {
+        return manager_area;
     }
 
-    public void setHealth(String health) {
-        this.health = health;
-    }
-
-    public String getRegistrant_name() {
-        return registrant_name;
-    }
-
-    public void setRegistrant_name(String registrant_name) {
-        this.registrant_name = registrant_name;
-    }
-
-    public String getPhoto() {
-        return photo;
-    }
-
-    public void setPhoto(String photo) {
-        this.photo = photo;
-    }
-
-    public Date getReg_date() {
-        return reg_date;
-    }
-
-    public void setReg_date(Date reg_date) {
-        this.reg_date = reg_date;
+    public void setManager_area(String manager_area) {
+        this.manager_area = manager_area;
     }
 
     public String getRemarks() {
@@ -276,45 +251,5 @@ public class LXExcel  implements Excel{
 
     public void setRemarks(String remarks) {
         this.remarks = remarks;
-    }
-
-    public String getEn_cname() {
-        return en_cname;
-    }
-
-    public void setEn_cname(String en_cname) {
-        this.en_cname = en_cname;
-    }
-
-    public String getCh_cname() {
-        return ch_cname;
-    }
-
-    public void setCh_cname(String ch_cname) {
-        this.ch_cname = ch_cname;
-    }
-
-    public String getDegree() {
-        return degree;
-    }
-
-    public void setDegree(String degree) {
-        this.degree = degree;
-    }
-
-    public Date getGra_date() {
-        return gra_date;
-    }
-
-    public void setGra_date(Date gra_date) {
-        this.gra_date = gra_date;
-    }
-
-    public String getSocial_services() {
-        return social_services;
-    }
-
-    public void setSocial_services(String social_services) {
-        this.social_services = social_services;
     }
 }

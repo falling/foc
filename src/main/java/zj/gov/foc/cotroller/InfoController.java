@@ -1,7 +1,5 @@
 package zj.gov.foc.cotroller;
 
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -239,18 +237,17 @@ public class InfoController {
     public VO excelUpload(@RequestParam("file") MultipartFile file) {
         try {
             if (!file.isEmpty()) {
-                if(!file.getName().endsWith("xls")){
-                    return Response.warning("只能上传xls文件");
+                if(!file.getOriginalFilename().endsWith("xls") && !file.getOriginalFilename().endsWith("xlsx")){
+                    return Response.warning("只能上传.xls文件和.xlsx文件");
                 }
-                Workbook wb = new HSSFWorkbook(file.getInputStream());
-                int count = excelService.saveExcel(wb);
+                int count = excelService.saveExcel(file);
                 return Response.success("导入成功,插入"+count+"条数据");
             } else {
                 return Response.warning("文件为空");
             }
         } catch (Exception e) {
             e.printStackTrace();
-            return Response.warning(e.getMessage());
+            return Response.warning("excel 文件格式有误");
         }
     }
 

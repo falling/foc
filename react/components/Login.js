@@ -61,15 +61,18 @@ export default class Login extends React.Component {
 
     render() {
         const {username, password, isLoading} = this.state;
+        let backPic = require('../image/login.jpg');
         return (
             <div className="with-iconav">
                 <div className="container">
-                    <div className="login">
+                    <div className="login" style={{"backgroundImage": `url(${backPic})`}}>
                         <div className="login-container">
-                            <img src={require('../image/logo.png')}/>
-                            <img src={require('../image/name.png')}/>
-                            <div className="label">v.1.0.1</div>
+                            {/*<img src={require('../image/name.png')}/>*/}
+                            {/*<div className="label">v.1.0.1</div>*/}
                             <div className="login-form">
+                                <div style={{"font-size":"1.75em","margin-bottom":"30px","color":"red"}}>
+                                    浙江省归国华侨联合会
+                                    侨情管理信息系统</div>
                                 <div id="login_modal">
                                     <div className="input-with-icon wfull">
                                         <input type="text"

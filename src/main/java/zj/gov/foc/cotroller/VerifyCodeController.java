@@ -50,7 +50,7 @@ public class VerifyCodeController {
         g.setFont(new Font("宋体", Font.BOLD&Font.ITALIC, 20));
         for(int i = 0 ; i < 4 ;i ++){
             //随机颜色
-            g.setColor(new Color(random.nextInt(255),random.nextInt(255), random.nextInt(255)));
+            g.setColor(new Color(random.nextInt(220)+30,random.nextInt(220)+30, random.nextInt(220)+30));
             //随机字符
             int index = random.nextInt(data.length());
             String str = data.substring(index, index + 1);

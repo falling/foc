@@ -49,7 +49,11 @@ public class LxVO extends BaseVO{
     }
 
     public void setManager_area(String manager_area) {
-        this.manager_area = manager_area;
+        if (manager_area.contains(" ")){
+            this.manager_area = manager_area.replaceAll(" ","/");
+        }else{
+            this.manager_area = manager_area;
+        }
     }
 
     public String getFamily_name() {

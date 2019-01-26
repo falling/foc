@@ -49,7 +49,7 @@ export default class Sidebar extends React.Component {
                 >
                     <div style={{"padding": "18px 0px", "margin": "10px 20px", "text-align": "center"}}>
                         <a className="simple-text overDefault">
-                            FOC
+                            侨联信息系统
                         </a>
                     </div>
 

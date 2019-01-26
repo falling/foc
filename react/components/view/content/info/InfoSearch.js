@@ -246,7 +246,7 @@ export default class InfoSearch extends React.Component {
                                 rowKey={`${type}_id`}
                                 dataSource={this.state.data}
                                 loading={loading}
-                                scroll={{y: 240}}
+                                scroll={{y: 700}}
                                 footer={() =>
                                     <div style={{lineHeight: '32px'}}>
                                         <Button

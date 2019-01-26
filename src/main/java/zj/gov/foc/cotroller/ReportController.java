@@ -30,37 +30,37 @@ public class ReportController {
 
     @RequestMapping("/total")
     public HashMap<String, Long> getTotal() {
-        return statisticsService.total(getSecondManager_area());
+        return statisticsService.total();
     }
 
     @RequestMapping("/sex")
     public HashMap<String, Long> getSex() {
-        return statisticsService.sex(getSecondManager_area());
+        return statisticsService.sex();
     }
 
     @RequestMapping("/HQCountry")
     public HashMap<Object, Object> getHQCountry() {
-        return statisticsService.HQCountry(getSecondManager_area());
+        return statisticsService.HQCountry();
     }
 
     @RequestMapping("/LXCountry")
     public HashMap<Object, Object> getLXCountry() {
-        return statisticsService.LXCountry(getSecondManager_area());
+        return statisticsService.LXCountry();
     }
 
     @RequestMapping("/QJHQCountry")
     public HashMap<Object, Object> getQJHQCountry() {
-        return statisticsService.QJHQCountry(getSecondManager_area());
+        return statisticsService.QJHQCountry();
     }
 
     @RequestMapping("/QJLXCountry")
     public HashMap<Object, Object> getQJLXCountry() {
-        return statisticsService.QJLXCountry(getSecondManager_area());
+        return statisticsService.QJLXCountry();
     }
 
     @RequestMapping("/NativePlace")
     public HashMap<Object, Object> getNativePlace() {
-        return statisticsService.NativePlace(getSecondManager_area());
+        return statisticsService.NativePlace();
     }
 
     private String getSecondManager_area() {
