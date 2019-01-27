@@ -46,7 +46,7 @@ class UserPasswordForm extends React.Component {
                 let formData = new FormData();
                 formData.append("password_old", values.password_old);
                 formData.append("password", values.password);
-                fetch("/changePwd", {
+                fetch("/api/changePwd", {
                     method: 'post',
                     credentials: 'include',
                     body: formData

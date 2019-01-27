@@ -2,7 +2,12 @@ package zj.gov.foc.cotroller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import zj.gov.foc.service.UserService;
+import zj.gov.foc.util.Response;
+import zj.gov.foc.vo.UserVO;
+import zj.gov.foc.vo.VO;
 
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletResponse;
@@ -20,10 +25,25 @@ import java.util.Random;
  */
 
 @RestController
-public class VerifyCodeController {
+public class LoginController {
 
     @Autowired
     HttpSession session;
+
+    @Autowired
+    UserService userService;
+
+    @RequestMapping("/userLogin")
+    public VO login(@RequestParam("username") String username, @RequestParam("password") String password, @RequestParam("verifyCode") String verifyCode) {
+        if (!verifyCode.equalsIgnoreCase(session.getAttribute("verifyCode").toString())){
+            return Response.warning("验证码错误!");
+        }
+        UserVO userVO = userService.login(username, password);
+        if (userVO.getStatus() < 0)
+            return userVO;
+        session.setAttribute("user", userVO);
+        return Response.success();
+    }
 
     @RequestMapping("/verifyCode")
     public void verifyCode(HttpServletResponse response){

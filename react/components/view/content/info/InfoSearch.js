@@ -60,7 +60,7 @@ export default class InfoSearch extends React.Component {
     exportXlsx() {
         const {selectedRows, type} = this.state;
         this.setState({loading: true});
-        fetch(`/export${type}`, {
+        fetch(`/api/export${type}`, {
             method: 'post',
             credentials: 'include',
             headers: {'Content-Type': 'application/json;charset=utf-8'},
@@ -95,7 +95,7 @@ export default class InfoSearch extends React.Component {
     }
 
     getStatistics() {
-        fetch('/statistics', {
+        fetch('/api/statistics', {
             method: 'post',
             credentials: 'include',
         }).then(response => response.json())
@@ -125,7 +125,7 @@ export default class InfoSearch extends React.Component {
         formData.append("type", type);
         formData.append("col", col);
         this.setState({loading: true});
-        fetch('/searchTable', {
+        fetch('/api/searchTable', {
             method: 'post',
             credentials: 'include',
             body: formData

@@ -10,9 +10,9 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import zj.gov.foc.excelBean.HQExcelBean;
 import zj.gov.foc.excelBean.LXExcelBean;
 import zj.gov.foc.excelBean.QJExcelBean;
@@ -31,7 +31,8 @@ import java.util.List;
  * Time: 下午2:50
  * Description:
  */
-@Controller
+@RestController
+@RequestMapping("/api")
 public class ExportController {
     @RequestMapping("/exportqj_hq")
     public ResponseEntity<byte[]> exportQJ_HQ(@RequestBody List<QjVO> list) throws IOException {

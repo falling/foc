@@ -26,7 +26,7 @@ export default class Header extends React.Component {
     }
 
     sighOff() {
-        fetch("/sighOff", {
+        fetch("/api/sighOff", {
             method: 'post',
             credentials: 'include',
         }).then(response => response.json())

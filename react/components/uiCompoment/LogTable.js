@@ -44,7 +44,7 @@ export default class LogTable extends React.Component {
             let formData = new FormData();
             formData.append("o_id", o_id);
             formData.append("type", type);
-            fetch("/loadLog", {
+            fetch("/api/loadLog", {
                 method: 'post',
                 credentials: 'include',
                 body: formData

@@ -16,7 +16,7 @@ export default class UserProfile extends React.Component {
     }
 
     update(){
-        fetch('/updateUser',{
+        fetch('/api/updateUser',{
             method: 'post',
             credentials: 'include',
             headers: {'Content-Type': 'application/json'},
@@ -32,7 +32,7 @@ export default class UserProfile extends React.Component {
     }
 
     componentDidMount() {
-        fetch('/userInfo', {
+        fetch('/api/userInfo', {
             method: 'post',
             credentials: 'include',
         }).then(response => response.json())

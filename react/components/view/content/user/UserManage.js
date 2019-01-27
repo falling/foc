@@ -23,7 +23,7 @@ class UserManageForm extends React.Component {
     search(username) {
         let formData = new FormData();
         formData.append("username", username);
-        fetch("/searchUser", {
+        fetch("/api/searchUser", {
             method: 'post',
             credentials: 'include',
             body: formData
@@ -50,7 +50,7 @@ class UserManageForm extends React.Component {
         this.setState({updateLoading: true});
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
-                fetch('/updateUserManager', {
+                fetch('/api/updateUserManager', {
                     method: 'post',
                     credentials: 'include',
                     headers: {'Content-Type': 'application/json'},
@@ -84,7 +84,7 @@ class UserManageForm extends React.Component {
         this.setState({deleteLoading: true});
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
-                fetch('/deleteUser', {
+                fetch('/api/deleteUser', {
                     method: 'post',
                     credentials: 'include',
                     body: formData
@@ -182,7 +182,6 @@ class UserManageForm extends React.Component {
                                     <div className="col-md-6">
                                         <FormItem className="form-group" label="所属侨联">
                                             {getFieldDecorator('manager_area', {
-                                                initialValue: "浙江省",
                                             })(
                                                 <ManagerArea/>
                                             )}

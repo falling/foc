@@ -20,6 +20,7 @@ import java.util.List;
  * 报表页面的后台API
  */
 @RestController
+@RequestMapping("/api")
 public class ReportController {
 
     @Autowired

@@ -20,7 +20,7 @@ class UserCreateForm extends React.Component {
     checkName(name) {
         let formData = new FormData();
         formData.append("username", name);
-        fetch('/checkName', {
+        fetch('/api/checkName', {
             method: 'post',
             credentials: 'include',
             body: formData
@@ -42,7 +42,7 @@ class UserCreateForm extends React.Component {
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
                 this.setState({loading: true});//loading
-                fetch('/createUser', {
+                fetch('/api/createUser', {
                     method: 'post',
                     credentials: 'include',
                     headers: {'Content-Type': 'application/json'},
@@ -125,14 +125,8 @@ class UserCreateForm extends React.Component {
                                     <div className="col-md-12">
                                         <FormItem className="form-group" label="所属侨联">
                                             {getFieldDecorator('manager_area', {
-                                                initialValue: "浙江省",
                                             })(
                                                 <ManagerArea/>
-                                                // <Cascader
-                                                //     // disabled={mode === 'search'}
-                                                //     options={zj_pc_code}
-                                                //     placeholder="管理区域"
-                                                // />
                                             )}
                                         </FormItem>
                                     </div>

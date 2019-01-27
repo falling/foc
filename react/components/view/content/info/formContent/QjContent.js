@@ -54,7 +54,7 @@ class QjContentForm extends React.Component {
                 let formData = new FormData();
                 formData.append("id", this.props.form.getFieldValue("qj_id"))
                 formData.append("type", "qj")
-                fetch("/deleteInfo", {
+                fetch("/api/deleteInfo", {
                     method: 'post',
                     credentials: 'include',
                     body: formData
@@ -76,7 +76,7 @@ class QjContentForm extends React.Component {
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
                 this.setState({loading: true});
-                fetch('/addQjInfo', {
+                fetch('/api/addQjInfo', {
                     method: 'post',
                     credentials: 'include',
                     headers: {'Content-Type': 'application/json'},
@@ -100,7 +100,7 @@ class QjContentForm extends React.Component {
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
                 this.setState({loading: true});
-                fetch('/updateQjInfo', {
+                fetch('/api/updateQjInfo', {
                     method: 'post',
                     credentials: 'include',
                     headers: {'Content-Type': 'application/json'},

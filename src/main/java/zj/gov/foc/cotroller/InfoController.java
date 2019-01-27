@@ -26,6 +26,7 @@ import java.sql.Date;
  * Description:
  */
 @RestController
+@RequestMapping("/api")
 public class InfoController {
 
     @Autowired

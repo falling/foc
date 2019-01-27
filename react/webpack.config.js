@@ -34,7 +34,10 @@ module.exports = {
                 NODE_ENV: JSON.stringify(process.env.PRODUCTION),
             }
         }),
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        // new webpack.ProvidePlugin({
+        //     'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
+        // })
     ],
     externals: {
         'echarts': 'window.echarts',

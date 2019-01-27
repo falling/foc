@@ -88,7 +88,7 @@ export default class Report extends React.Component {
 
     fetchNative_Place() {
         this.setState({Native_PlaceLoading: true});
-        fetch("/NativePlace", {
+        fetch("/api/NativePlace", {
             method: 'post',
             credentials: 'include',
         }).then(response => response.json())
@@ -153,7 +153,7 @@ export default class Report extends React.Component {
 
     fetchQJ_HQCountry() {
         this.setState({QJ_HQCountryLoading: true});
-        fetch("/QJHQCountry", {
+        fetch("/api/QJHQCountry", {
             method: 'post',
             credentials: 'include',
         }).then(response => response.json())
@@ -179,7 +179,7 @@ export default class Report extends React.Component {
 
     fetchQJ_LXCountry() {
         this.setState({QJ_LXCountryLoading: true});
-        fetch("/QJLXCountry", {
+        fetch("/api/QJLXCountry", {
             method: 'post',
             credentials: 'include',
         }).then(response => response.json())
@@ -205,7 +205,7 @@ export default class Report extends React.Component {
 
     fetchSex() {
         this.setState({sexLoading: true});
-        fetch("/sex", {
+        fetch("/api/sex", {
             method: 'post',
             credentials: 'include',
         }).then(response => response.json())
@@ -219,7 +219,7 @@ export default class Report extends React.Component {
 
     fetchTotal() {
         this.setState({totalLoading: true});
-        fetch("/total", {
+        fetch("/api/total", {
             method: 'post',
             credentials: 'include',
         }).then(response => response.json())
@@ -233,7 +233,7 @@ export default class Report extends React.Component {
 
     fetchHQCountry() {
         this.setState({HQCountryLoading: true});
-        fetch("/HQCountry", {
+        fetch("/api/HQCountry", {
             method: 'post',
             credentials: 'include',
         }).then(response => response.json())
@@ -259,7 +259,7 @@ export default class Report extends React.Component {
 
     fetchLXCountry() {
         this.setState({LXCountryLoading: true});
-        fetch("/LXCountry", {
+        fetch("/api/LXCountry", {
             method: 'post',
             credentials: 'include',
         }).then(response => response.json())

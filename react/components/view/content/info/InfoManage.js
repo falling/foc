@@ -20,7 +20,7 @@ export default class InfoManage extends React.Component {
         let formData = new FormData();
         formData.append("passport_no", value);
         formData.append("type", type);
-        fetch('/loadByPassport',{
+        fetch('/api/loadByPassport',{
             method: 'post',
             credentials: 'include',
             body: formData

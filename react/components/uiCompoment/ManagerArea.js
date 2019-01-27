@@ -11,6 +11,9 @@ export default class ManagerArea extends React.Component {
         this.handleChange = this.handleChange.bind(this);
 
     }
+    // componentDidMount(props) {
+    //     this.setState({value:props.value});
+    // }
 
     componentWillReceiveProps(nextProps){
         this.setState({value:nextProps.value});
@@ -18,11 +21,10 @@ export default class ManagerArea extends React.Component {
 
     handleChange(value){
         const {onChange} = this.props
-        let v;
         if(value instanceof Array){
-            v = value.join("/");
+            value = value.join("/");
         }
-        onChange(v);
+        onChange(value);
     }
 
     render() {
@@ -30,9 +32,10 @@ export default class ManagerArea extends React.Component {
         return (
             <Cascader
                 // disabled={mode === 'search'}
+                changeOnSelect
                 options={zj_pc_code}
                 placeholder="所属侨联"
-                value={value.split("/")}
+                value={value?value.split("/"):""}
                 onChange={this.handleChange}
             />
         );

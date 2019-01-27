@@ -24,7 +24,7 @@ export default class Manager extends React.Component {
     componentDidMount() {
         //get user info
         //权限
-        fetch('/userInfo', {
+        fetch('/api/userInfo', {
             method: 'post',
             credentials: 'include',
         }).then(response => response.json())

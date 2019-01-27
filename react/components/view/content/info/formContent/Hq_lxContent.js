@@ -34,7 +34,7 @@ class Hq_lxContentForm extends React.Component {
                 values.native_place = values.native_place.join("/");
                 this.setState({loading: true});
                 const {type} = this.props;
-                fetch(type === 'lx' ? '/updateLXInfo' : '/updateHQInfo', {
+                fetch(type === 'lx' ? '/api/updateLXInfo' : '/api/updateHQInfo', {
                     method: 'post',
                     credentials: 'include',
                     headers: {'Content-Type': 'application/json'},
@@ -65,7 +65,7 @@ class Hq_lxContentForm extends React.Component {
         const {type} = this.props;
         formData.append("id", this.props.form.getFieldValue(type === 'hq' ? 'hq_id' : 'lx_id'));
         formData.append('type', type);
-        fetch('/deleteInfo', {
+        fetch('/api/deleteInfo', {
             method: 'post',
             credentials: 'include',
             body: formData
@@ -89,7 +89,7 @@ class Hq_lxContentForm extends React.Component {
                 this.setState({loading: true});
                 values.native_place = values.native_place.join("/");
 
-                fetch(type === 'lx' ? '/addLXInfo' : '/addHQInfo', {
+                fetch(type === 'lx' ? '/api/addLXInfo' : '/api/addHQInfo', {
                     method: 'post',
                     credentials: 'include',
                     headers: {'Content-Type': 'application/json'},
