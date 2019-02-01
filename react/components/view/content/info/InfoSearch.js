@@ -2,7 +2,7 @@ import React from 'react';
 import {Input, Select, message, Table, Modal, Button} from 'antd';
 import 'whatwg-fetch';
 import FormContent from "./formContent/FormContent";
-import LogTable from "../../../uiCompoment/LogTable";
+import LogTable from "components/uiCompoment/LogTable";
 
 const Search = Input.Search;
 const Option = Select.Option;

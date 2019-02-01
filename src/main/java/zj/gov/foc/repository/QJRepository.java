@@ -45,4 +45,7 @@ public interface QJRepository extends CrudRepository<QJBean, Long> {
 
     @Query(value = "select o_residence,count(*) from qj where del='0' and type= ?1 and o_residence<>'' and manager_area like ?2 group by o_residence",nativeQuery = true)
     List<Object[]> groupByCountry(String qj_hq, String manager_area);
+
+    @Query(value = "select manager_area,count(*) from qj where del='0' and type= ?1 and manager_area like ?2 group by manager_area",nativeQuery = true)
+    Iterable<Object[]> groupByManagerArea(String type,String area);
 }

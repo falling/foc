@@ -2,6 +2,7 @@ package zj.gov.foc.cotroller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import zj.gov.foc.service.StatisticsService;
 import zj.gov.foc.vo.UserVO;
@@ -58,6 +59,44 @@ public class ReportController {
     public HashMap<Object, Object> getQJLXCountry() {
         return statisticsService.QJLXCountry();
     }
+
+    @RequestMapping("/allCountry")
+    public HashMap<Object, Object> getAllCountry() {
+        HashMap<Object, Object> result = new HashMap<>();
+        result.putAll(statisticsService.HQCountry());
+        result.putAll(statisticsService.LXCountry());
+        result.putAll(statisticsService.QJHQCountry());
+        result.putAll(statisticsService.QJLXCountry());
+        return result;
+    }
+
+    @RequestMapping("/HQAreaData")
+    public HashMap<Object, Object> getHQAreaMap(@RequestParam("area") String area) {
+        return statisticsService.getHQAreaCount(area);
+    }
+    @RequestMapping("/LXAreaData")
+    public HashMap<Object, Object> getLXAreaMap(@RequestParam("area") String area) {
+        return statisticsService.getLXAreaCount(area);
+    }
+    @RequestMapping("/QJLXAreaData")
+    public HashMap<Object, Object> getQJLXAreaMap(@RequestParam("area") String area) {
+        return statisticsService.getQJLXAreaCount(area);
+    }
+    @RequestMapping("/QJHQAreaData")
+    public HashMap<Object, Object> getQJHQAreaMap( @RequestParam("area") String area) {
+        return statisticsService.getQJHQAreaCount(area);
+    }
+
+    @RequestMapping("/allAreaData")
+    public HashMap<Object, Object> getAreaMap(@RequestParam("area") String area) {
+        HashMap<Object, Object> result = new HashMap<>();
+        result.putAll(statisticsService.getHQAreaCount(area));
+        result.putAll(statisticsService.getLXAreaCount(area));
+        result.putAll(statisticsService.getQJHQAreaCount(area));
+        result.putAll(statisticsService.getQJLXAreaCount(area));
+        return result;
+    }
+
 
     @RequestMapping("/NativePlace")
     public HashMap<Object, Object> getNativePlace() {

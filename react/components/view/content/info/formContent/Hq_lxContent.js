@@ -432,7 +432,9 @@ class Hq_lxContentForm extends React.Component {
                             {getFieldDecorator('manager_area', {
                                 initialValue: "浙江省",
                             })(
-                                <ManagerArea/>
+                                <ManagerArea
+                                    disabled={mode === 'search'}
+                                />
                             )}
                         </FormItem>
                     </div>

@@ -59,4 +59,7 @@ public interface LXRepository extends CrudRepository<LxBean, Long> {
     @Query(value = "select native_place,count(*) from lx where del='0' and native_place<>'' and manager_area like ?1 group by native_place", nativeQuery = true)
     List<Object[]> groupByNativePlace(String manager_area);
 
+    @Query(value = "select manager_area,count(*) from lx where del='0' and manager_area like ?1 group by manager_area",nativeQuery = true)
+    Iterable<Object[]> groupByManagerArea(String area);
+
 }

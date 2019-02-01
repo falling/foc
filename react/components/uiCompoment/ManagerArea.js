@@ -28,10 +28,11 @@ export default class ManagerArea extends React.Component {
     }
 
     render() {
+        const {disabled} = this.props;
         const {value} = this.state;
         return (
             <Cascader
-                // disabled={mode === 'search'}
+                disabled={disabled}
                 changeOnSelect
                 options={zj_pc_code}
                 placeholder="所属侨联"

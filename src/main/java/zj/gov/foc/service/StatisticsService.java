@@ -93,4 +93,42 @@ public class StatisticsService {
         result.put("lx",lxlist);
         return result;
     }
+
+    public HashMap<Object, Object> getHQAreaCount(String area) {
+        HashMap<Object, Object> result = new HashMap<>();
+        area = getManagerArea(area);
+        hqRepository.groupByManagerArea(area).forEach(e-> result.put(e[0],e[1]));
+        return result;
+    }
+
+    public HashMap<Object, Object> getLXAreaCount(String area) {
+        HashMap<Object, Object> result = new HashMap<>();
+        area = getManagerArea(area);
+        lxRepository.groupByManagerArea(area).forEach(e-> result.put(e[0],e[1]));
+        return result;
+    }
+
+    public HashMap<Object, Object> getQJLXAreaCount(String area) {
+        HashMap<Object, Object> result = new HashMap<>();
+        area = getManagerArea(area);
+        qjRepository.groupByManagerArea("qj_lx",area).forEach(e-> result.put(e[0],e[1]));
+        return result;
+    }
+
+    public HashMap<Object, Object> getQJHQAreaCount(String area) {
+        HashMap<Object, Object> result = new HashMap<>();
+        area = getManagerArea(area);
+        qjRepository.groupByManagerArea("qj_hq",area).forEach(e-> result.put(e[0],e[1]));
+        return result;
+    }
+
+    private String getManagerArea(String area){
+        if (area.equals("浙江省")){
+            area = area + "%";
+        }else {
+            area = "浙江省/"+area + "%";
+        }
+
+        return area;
+    }
 }
