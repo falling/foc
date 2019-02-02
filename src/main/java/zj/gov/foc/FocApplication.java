@@ -12,6 +12,7 @@ import org.springframework.http.HttpStatus;
 public class FocApplication {
 
 	public static void main(String[] args) {
+		System.setProperty("java.util.concurrent.ForkJoinPool.common.parallelism", "20");
 		SpringApplication.run(FocApplication.class, args);
 	}
 

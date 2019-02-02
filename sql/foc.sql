@@ -46,11 +46,11 @@ CREATE TABLE hq
   com_name         VARCHAR(255) DEFAULT ' '  NULL,
   position         VARCHAR(255) DEFAULT ' '  NULL,
   registrant       INT(20)                  NULL,
-  photo            VARCHAR(255) DEFAULT ' ' NULL,
+  photo            VARCHAR(255) DEFAULT '' NULL,
   reg_date         DATETIME                 NULL,
   social_services  VARCHAR(255)              NULL,
-  remarks          VARCHAR(255) DEFAULT ' ' NULL,
-  del              VARCHAR(5) DEFAULT ' '   NULL
+  remarks          VARCHAR(500) DEFAULT '' NULL,
+  del              VARCHAR(5) DEFAULT ''   NULL
 )
   ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;
@@ -122,7 +122,7 @@ CREATE TABLE lx
   registrant       INT(20)                  NULL,
   photo            VARCHAR(255) DEFAULT ' ' NULL,
   reg_date         DATETIME                 NOT NULL,
-  remarks          VARCHAR(255) DEFAULT ' ' NULL,
+  remarks          VARCHAR(500) DEFAULT ' ' NULL,
   en_cname         VARCHAR(255) DEFAULT ' ' NULL,
   ch_cname         VARCHAR(255) DEFAULT ' ' NULL,
   degree           VARCHAR(255) DEFAULT ' ' NULL,
@@ -150,7 +150,7 @@ CREATE TABLE qj
   o_tel       VARCHAR(255) DEFAULT ' ' NOT NULL,
   family_location VARCHAR(255) DEFAULT ' ' NULL,
   manager_area     VARCHAR(255) DEFAULT ' '  NULL,
-  remarks     VARCHAR(255) DEFAULT ' ' NULL,
+  remarks     VARCHAR(500) DEFAULT ' ' NULL,
   type        VARCHAR(50) DEFAULT ' ' NULL,
   o_name      VARCHAR(255) DEFAULT ' ' NULL,
   o_relation  VARCHAR(255) DEFAULT ' ' NULL,

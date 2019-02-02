@@ -1,10 +1,9 @@
 package zj.gov.foc.cotroller;
 
-import cn.afterturn.easypoi.excel.ExcelExportUtil;
-import cn.afterturn.easypoi.excel.entity.ExportParams;
-import cn.afterturn.easypoi.excel.entity.enmus.ExcelType;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
+import com.alibaba.excel.EasyExcelFactory;
+import com.alibaba.excel.ExcelWriter;
+import com.alibaba.excel.metadata.BaseRowModel;
+import com.alibaba.excel.metadata.Sheet;
 import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -39,10 +38,10 @@ public class ExportController {
         List<QJExcelBean> qjExcelBeans = new ArrayList<>();
         list.forEach(qjVO -> {
             QJExcelBean excelBean = new QJExcelBean();
-            BeanUtils.copyProperties(qjVO,excelBean);
+            BeanUtils.copyProperties(qjVO, excelBean);
             qjExcelBeans.add(excelBean);
         });
-        return export("归侨侨眷",QJExcelBean.class,qjExcelBeans);
+        return export("归侨侨眷", qjExcelBeans);
     }
 
     @RequestMapping("/exportqj_lx")
@@ -50,10 +49,10 @@ public class ExportController {
         List<QJExcelBean> qjExcelBeans = new ArrayList<>();
         list.forEach(qjVO -> {
             QJExcelBean excelBean = new QJExcelBean();
-            BeanUtils.copyProperties(qjVO,excelBean);
+            BeanUtils.copyProperties(qjVO, excelBean);
             qjExcelBeans.add(excelBean);
         });
-        return export("留学生家属",QJExcelBean.class,qjExcelBeans);
+        return export("留学生家属", qjExcelBeans);
     }
 
     @RequestMapping("/exporthq")
@@ -61,10 +60,10 @@ public class ExportController {
         List<HQExcelBean> hqExcelBeanList = new ArrayList<>();
         list.forEach(qjVO -> {
             HQExcelBean excelBean = new HQExcelBean();
-            BeanUtils.copyProperties(qjVO,excelBean);
+            BeanUtils.copyProperties(qjVO, excelBean);
             hqExcelBeanList.add(excelBean);
         });
-        return export("华侨华人",HQExcelBean.class,hqExcelBeanList);
+        return export("华侨华人", hqExcelBeanList);
     }
 
     @RequestMapping("/exportlx")
@@ -72,27 +71,22 @@ public class ExportController {
         List<LXExcelBean> lxExcelBeanList = new ArrayList<>();
         list.forEach(qjVO -> {
             LXExcelBean excelBean = new LXExcelBean();
-            BeanUtils.copyProperties(qjVO,excelBean);
+            BeanUtils.copyProperties(qjVO, excelBean);
             lxExcelBeanList.add(excelBean);
         });
-        return export("留学人员",LXExcelBean.class,lxExcelBeanList);
+        return export("留学人员", lxExcelBeanList);
     }
 
-    private ResponseEntity<byte[]> export(String sheetName,Class<?> pojoClass,List list) throws IOException {
-        ExportParams params = new ExportParams();
-        params.setSheetName(sheetName);
-        params.setType(ExcelType.XSSF);
-        Workbook workbook = ExcelExportUtil.exportExcel(params,pojoClass,list);
-        Sheet sheet = workbook.getSheet(sheetName);
-        for (int i = 0; i < sheet.getLastRowNum(); i++) {
-            sheet.autoSizeColumn(i,true);
-        }
-        ByteArrayOutputStream byteArrayInputStream = new ByteArrayOutputStream();
-        workbook.write(byteArrayInputStream);
-        workbook.close();
+    private <T extends BaseRowModel> ResponseEntity<byte[]> export(String sheetName, List<T> list) {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        ExcelWriter writer = EasyExcelFactory.getWriter(out);
+        Sheet sheet = new Sheet(1, 1, list.get(0).getClass());
+        sheet.setSheetName(sheetName);
+        writer.write(list, sheet);
+        writer.finish();
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
-        return new ResponseEntity<>(byteArrayInputStream.toByteArray(),
+        return new ResponseEntity<>(out.toByteArray(),
                 headers, HttpStatus.CREATED);
     }
 }

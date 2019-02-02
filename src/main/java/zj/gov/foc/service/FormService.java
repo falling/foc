@@ -144,7 +144,7 @@ public class FormService {
         qjVO.setO_passport(entryBean.getField_49());
         qjVO.setO_residence(entryBean.getField_51());
         qjVO.setType("qj_hq");
-        qjService.saveQjCover(qjVO);
+        qjService.saveQjCover(qjVO,2L);
     }
 
     private void saveAsLXJS(FormBean.EntryBean entryBean){
@@ -165,6 +165,6 @@ public class FormService {
         qjVO.setO_passport(entryBean.getField_50());
         qjVO.setO_residence(entryBean.getField_52());
         qjVO.setType("qj_lx");
-        qjService.saveQjCover(qjVO);
+        qjService.saveQjCover(qjVO,2L);
     }
 }

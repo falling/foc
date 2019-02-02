@@ -1,10 +1,7 @@
 package zj.gov.foc.service;
 
-import cn.afterturn.easypoi.excel.ExcelImportUtil;
-import cn.afterturn.easypoi.excel.entity.ImportParams;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import com.alibaba.excel.EasyExcelFactory;
+import com.alibaba.excel.metadata.Sheet;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +15,7 @@ import zj.gov.foc.vo.QjVO;
 import zj.gov.foc.vo.UserVO;
 
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.List;
 
 @Service
@@ -34,58 +32,81 @@ public class ExcelService {
     @Autowired
     QJService qjService;
 
-    public int saveExcel(MultipartFile file) throws Exception {
-        Workbook workbook;
-        try {
-            workbook = new HSSFWorkbook(file.getInputStream());//.xls
-        }catch (Exception ignore){
-            workbook = new XSSFWorkbook(file.getInputStream());//.xlsx
-        }
-        ImportParams importParams = new ImportParams();
-        importParams.setNeedVerfiy(true);
-
+    public void saveExcel(MultipartFile file){
         Long id = ((UserVO) httpSession.getAttribute("user")).getId();
-        int count = 0;
-        int i = workbook.getSheetIndex("华侨华人");
-        importParams.setStartSheetIndex(i);
-        List<HQExcelBean> hqExcelBeanList = ExcelImportUtil.importExcel(file.getInputStream(), HQExcelBean.class,importParams);
-        hqExcelBeanList.forEach(hqExcelBean -> {
-            HQVO hqvo = new HQVO();
-            BeanUtils.copyProperties(hqExcelBean,hqvo);
-            hqService.addHQCover(hqvo,id);
-        });
-        count+=hqExcelBeanList.size();
+        new Thread(() -> {
+            long startT = System.currentTimeMillis();
+            ExcelListener<HQExcelBean> hqListener = new ExcelListener<>();
+            try {
+                EasyExcelFactory.readBySax(file.getInputStream(), new Sheet(1, 1, HQExcelBean.class), hqListener);
+                List<HQExcelBean> hqExcelBeanList = hqListener.getData();
+                hqExcelBeanList.parallelStream().forEach(hqExcelBean -> {
+                    HQVO hqvo = new HQVO();
+                    BeanUtils.copyProperties(hqExcelBean, hqvo);
+                    hqService.addHQCover(hqvo, id);
+                });
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            hqListener.clearData();
+            System.out.println("HQ: " + (System.currentTimeMillis()-startT));
+        }).start();
 
-        i = workbook.getSheetIndex("留学人员");
-        importParams.setStartSheetIndex(i);
-        List<LXExcelBean> lxExcelBeanList = ExcelImportUtil.importExcel(file.getInputStream(), LXExcelBean.class,importParams);
-        lxExcelBeanList.forEach(lxExcelBean->{
-            LxVO lxVO = new LxVO();
-            BeanUtils.copyProperties(lxExcelBean,lxVO);
-            lxService.addLXCover(lxVO,id);
-        });
+        new Thread(() -> {
+            long startT = System.currentTimeMillis();
+            ExcelListener<LXExcelBean> lxListener = new ExcelListener<>();
+            try {
+                EasyExcelFactory.readBySax(file.getInputStream(), new Sheet(2, 1, LXExcelBean.class), lxListener);
+                List<LXExcelBean> lxExcelBeanList = lxListener.getData();
+                lxExcelBeanList.parallelStream().forEach(lxExcelBean -> {
+                    LxVO lxVO = new LxVO();
+                    BeanUtils.copyProperties(lxExcelBean, lxVO);
+                    lxService.addLXCover(lxVO, id);
+                });
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            lxListener.clearData();
+            System.out.println("LX: " + (System.currentTimeMillis()-startT));
+        }).start();
 
-        count+=lxExcelBeanList.size();
-        i = workbook.getSheetIndex("归侨侨眷");
-        importParams.setStartSheetIndex(i);
-        List<QJExcelBean> qjExcelBeans = ExcelImportUtil.importExcel(file.getInputStream(), QJExcelBean.class,importParams);
-        qjExcelBeans.forEach(qj->{
-            QjVO qjVO = new QjVO();
-            BeanUtils.copyProperties(qj,qjVO);
-            qjVO.setType("qj_hq");
-            qjService.saveQjCover(qjVO);
-        });
-        count+=qjExcelBeans.size();
-        i = workbook.getSheetIndex("留学生家属");
-        importParams.setStartSheetIndex(i);
-        List<QJExcelBean> lxjsExcelBeans = ExcelImportUtil.importExcel(file.getInputStream(), QJExcelBean.class,importParams);
-        lxjsExcelBeans.forEach(qj->{
-            QjVO qjVO = new QjVO();
-            BeanUtils.copyProperties(qj,qjVO);
-            qjVO.setType("qj_lx");
-            qjService.saveQjCover(qjVO);
-        });
-        count+=lxjsExcelBeans.size();
-        return count;
+        new Thread(() -> {
+            long startT = System.currentTimeMillis();
+            ExcelListener<QJExcelBean> qjListener = new ExcelListener<>();
+            try {
+                EasyExcelFactory.readBySax(file.getInputStream(), new Sheet(3, 1, QJExcelBean.class), qjListener);
+                List<QJExcelBean> qjExcelBeans = qjListener.getData();
+                qjExcelBeans.parallelStream().forEach(qj -> {
+                    QjVO qjVO = new QjVO();
+                    BeanUtils.copyProperties(qj, qjVO);
+                    qjVO.setType("qj_hq");
+                    qjService.saveQjCover(qjVO,id);
+                });
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            System.out.println("qj_hq: " + (System.currentTimeMillis()-startT));
+            qjListener.clearData();
+        }).start();
+//        i = workbook.getSheetIndex("留学生家属");
+
+        new Thread(() -> {
+            long startT = System.currentTimeMillis();
+            ExcelListener<QJExcelBean> lxjsListener = new ExcelListener<>();
+            try {
+                EasyExcelFactory.readBySax(file.getInputStream(), new Sheet(4, 1, QJExcelBean.class), lxjsListener);
+                List<QJExcelBean> lxjsExcelBeans = lxjsListener.getData();
+                lxjsExcelBeans.parallelStream().forEach(qj -> {
+                    QjVO qjVO = new QjVO();
+                    BeanUtils.copyProperties(qj, qjVO);
+                    qjVO.setType("qj_lx");
+                    qjService.saveQjCover(qjVO,id);
+                });
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            lxjsListener.clearData();
+            System.out.println("qj_lx: " + (System.currentTimeMillis()-startT));
+        }).start();
     }
 }

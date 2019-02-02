@@ -17,7 +17,6 @@ import zj.gov.foc.service.LogService;
 import zj.gov.foc.vo.HQVO;
 import zj.gov.foc.vo.LxVO;
 import zj.gov.foc.vo.QjVO;
-import zj.gov.foc.vo.UserVO;
 
 import javax.servlet.http.HttpSession;
 import java.util.Date;
@@ -66,7 +65,7 @@ public class LogInterceptor {
         if (result != null) {
             String newValue = objectMapper.writeValueAsString(result);
             logService.log(generateLogBean("hq", oldBean == null ? "添加" : "修改", result.getHq_id(),
-                    oldValue, newValue));
+                    oldValue, newValue, (Long) args[1]));
         }
 
         return result;
@@ -88,7 +87,7 @@ public class LogInterceptor {
         if (result != null) {
             String newValue = objectMapper.writeValueAsString(result);
             logService.log(generateLogBean("lx", oldBean == null ? "添加" : "修改", result.getLx_id(),
-                    oldValue, newValue));
+                    oldValue, newValue,(Long) args[1]));
         }
 
         return result;
@@ -111,7 +110,7 @@ public class LogInterceptor {
         if (result != null) {
             String newValue = objectMapper.writeValueAsString(result);
             logService.log(generateLogBean("qj", oldBean == null ? "添加" : "修改", result.getQj_id(),
-                    oldValue, newValue));
+                    oldValue, newValue, (Long) args[1]));
         }
         return result;
     }
@@ -125,7 +124,7 @@ public class LogInterceptor {
         if (result != null) {
             String newValue = objectMapper.writeValueAsString(result);
             logService.log(generateLogBean("hq", "修改", result.getHq_id(),
-                    oldValue, newValue));
+                    oldValue, newValue, (Long) args[1]));
         }
         return result;
     }
@@ -140,7 +139,7 @@ public class LogInterceptor {
         if (result != null) {
             String newValue = objectMapper.writeValueAsString(result);
             logService.log(generateLogBean("lx", "修改", result.getLx_id(),
-                    oldValue, newValue));
+                    oldValue, newValue, (Long) args[0]));
         }
 
         return result;
@@ -155,7 +154,7 @@ public class LogInterceptor {
         if (result != null) {
             String newValue = objectMapper.writeValueAsString(result);
             logService.log(generateLogBean("qj", "修改", result.getQj_id(),
-                    oldValue, newValue));
+                    oldValue, newValue, (Long) args[1]));
         }
 
         return result;
@@ -171,7 +170,7 @@ public class LogInterceptor {
         String functionName = point.getSignature().getName();
         String tableName = functionName.substring(functionName.length() - 2).toLowerCase();
         if (result) {
-            logService.log(generateLogBean(tableName, "删除", deleteId, "", ""));
+            logService.log(generateLogBean(tableName, "删除", deleteId, "", "", (Long) args[1]));
         }
         return result;
     }
@@ -180,19 +179,14 @@ public class LogInterceptor {
                                     String operation,
                                     Long tableId,
                                     String oldValue,
-                                    String newValue) {
+                                    String newValue,
+                                    long id) {
         LogBean logBean = new LogBean();
 
         logBean.setLog_date(new Date(System.currentTimeMillis()));
         logBean.setIdentity(tableName);
         logBean.setOperating(operation);
         logBean.setO_id(tableId);
-        Long id;
-        try {
-            id = ((UserVO) session.getAttribute("user")).getId();
-        } catch (Exception e) {
-            id = 2L;
-        }
         logBean.setOperating_user(id);
         logBean.setOld_value(oldValue);
         logBean.setNew_value(newValue);

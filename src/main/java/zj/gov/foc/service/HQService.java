@@ -53,7 +53,7 @@ public class HQService {
 
 
     @Transactional
-    public boolean deleteHQ(long hqid){
+    public boolean deleteHQ(long hqid,long userId){
         return hqRepository.deleteHQ(hqid) == 1;
     }
 
@@ -73,7 +73,7 @@ public class HQService {
     }
 
     @Transactional
-    public HQBean update(HQVO vo) {
+    public HQBean update(HQVO vo,long id) {
         HQBean bean = hqRepository.getById(vo.getHq_id());
         if(bean == null) return null;
         BeanUtils.copyProperties(vo,bean);

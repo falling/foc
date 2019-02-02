@@ -24,10 +24,15 @@ public class QjVO extends BaseVO {
     }
 
     public void setManager_area(String manager_area) {
-        if (manager_area.contains(" ")){
-            this.manager_area = manager_area.replaceAll(" ","/");
-        }else{
-            this.manager_area = manager_area;
+        if (manager_area ==null){
+            this.manager_area = "浙江省";
+        }else {
+            manager_area = manager_area.trim();
+            if (manager_area.contains(" ")) {
+                this.manager_area = manager_area.replaceAll(" ", "/");
+            } else {
+                this.manager_area = manager_area;
+            }
         }
     }
 

@@ -71,7 +71,7 @@ public class LXService {
     }
 
     @Transactional
-    public LxBean update(LxVO vo) {
+    public LxBean update(LxVO vo,long id) {
         LxBean bean = lxRepository.getById(vo.getLx_id());
         if(bean == null) return null;
         BeanUtils.copyProperties(vo,bean);
@@ -79,7 +79,7 @@ public class LXService {
     }
 
     @Transactional
-    public boolean deleteLX(Long id) {
+    public boolean deleteLX(Long id,Long userId) {
         return lxRepository.deleteLx(id) == 1;
     }
 

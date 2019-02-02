@@ -94,7 +94,7 @@ export default class Header extends React.Component {
                                 <li>
                                     <a>
                                         <Upload
-                                            action="/excelUpload"
+                                            action="/api/excelUpload"
                                             accept="application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
                                             onChange={this.handleChange}
                                             showUploadList={false}
@@ -106,7 +106,7 @@ export default class Header extends React.Component {
                                                     <i className="ti-upload paddingRight"/>
                                                     <p>导入数据</p>
                                                 </div>
-                                                : <i className="anticon anticon-spin anticon-loading">上传中...</i>
+                                                : <i>上传中...</i>
                                             }
                                         </Upload>
                                     </a>

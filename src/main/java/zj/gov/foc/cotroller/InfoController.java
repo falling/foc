@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
-import zj.gov.foc.po.FormBean;
 import zj.gov.foc.service.*;
 import zj.gov.foc.util.Response;
 import zj.gov.foc.vo.*;
@@ -69,7 +68,8 @@ public class InfoController {
 
     @RequestMapping("/addQjInfo")
     public VO addQjInfo(@RequestBody QjVO qjVO) {
-        if (qjService.saveQj(qjVO) != null) {
+        UserVO userVO = (UserVO) session.getAttribute("user");
+        if (qjService.saveQj(qjVO,userVO.getId()) != null) {
             return Response.success("录入成功");
         }
         return Response.success("录入失败");
@@ -77,7 +77,8 @@ public class InfoController {
 
     @RequestMapping("/updateQjInfo")
     public VO updateQjInfo(@RequestBody QjVO qjVO) {
-        qjService.update(qjVO);
+        UserVO userVO = (UserVO) session.getAttribute("user");
+        qjService.update(qjVO,userVO.getId());
         return Response.success("更新成功");
     }
 
@@ -157,7 +158,8 @@ public class InfoController {
 
     @RequestMapping("/updateLXInfo")
     public VO updateLXInfo(@RequestBody LxVO vo) {
-        if (lxService.update(vo) != null) {
+        UserVO userVO = (UserVO) session.getAttribute("user");
+        if (lxService.update(vo,userVO.getId()) != null) {
             return Response.success("更新成功");
         } else {
             return Response.warning("用户不存在");
@@ -167,7 +169,8 @@ public class InfoController {
 
     @RequestMapping("/updateHQInfo")
     public VO updateHQInfo(@RequestBody HQVO vo) {
-        if (hqService.update(vo) != null) {
+        UserVO userVO = (UserVO) session.getAttribute("user");
+        if (hqService.update(vo,userVO.getId()) != null) {
             return Response.success("更新成功");
         } else {
             return Response.warning("用户不存在");
@@ -176,13 +179,14 @@ public class InfoController {
 
     @RequestMapping("/deleteInfo")
     public VO deleteInfo(@RequestParam("id") Long id, @RequestParam("type") String type) {
+        UserVO userVO = (UserVO) session.getAttribute("user");
         boolean result = false;
         if (type.equals("lx")) {
-            result = lxService.deleteLX(id);
+            result = lxService.deleteLX(id,userVO.getId());
         } else if (type.equals("hq")) {
-            result = hqService.deleteHQ(id);
+            result = hqService.deleteHQ(id,userVO.getId());
         } else if (type.equals("qj")) {
-            result = qjService.deleteQJ(id);
+            result = qjService.deleteQJ(id,userVO.getId());
         }
         if (result) {
             return Response.success("删除成功");
@@ -241,8 +245,8 @@ public class InfoController {
                 if(!file.getOriginalFilename().endsWith("xls") && !file.getOriginalFilename().endsWith("xlsx")){
                     return Response.warning("只能上传.xls文件和.xlsx文件");
                 }
-                int count = excelService.saveExcel(file);
-                return Response.success("导入成功,插入"+count+"条数据");
+                excelService.saveExcel(file);
+                return Response.success("文件上传成功，后台处理中");
             } else {
                 return Response.warning("文件为空");
             }
@@ -253,10 +257,10 @@ public class InfoController {
     }
 
 
-    @RequestMapping("/importFromJson")
-    public String saveJson(@RequestBody FormBean bean) {
-        return formService.save(bean);
-    }
+//    @RequestMapping("/importFromJson")
+//    public String saveJson(@RequestBody FormBean bean) {
+//        return formService.save(bean);
+//    }
 
 
 }

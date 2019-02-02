@@ -59,6 +59,7 @@ export default class InfoSearch extends React.Component {
 
     exportXlsx() {
         const {selectedRows, type} = this.state;
+        let name={hq:"华侨华人",lx:"留学人员",qj_hq:"归侨侨眷",qj_lx:"留学生家属"};
         this.setState({loading: true});
         fetch(`/api/export${type}`, {
             method: 'post',
@@ -70,7 +71,7 @@ export default class InfoSearch extends React.Component {
                 let a = document.createElement('a');
                 let url = window.URL.createObjectURL(blob);
                 a.href = url;
-                a.download = `${LogTable.formatDate(new Date().getTime())}_${type}.xlsx`;
+                a.download = `${LogTable.formatDate(new Date().getTime())}_${name[type]}.xlsx`;
                 a.click();
                 window.URL.revokeObjectURL(url);
                 this.setState({loading: false});

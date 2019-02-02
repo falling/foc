@@ -37,11 +37,11 @@ public class QJService {
     HQRepository hqRepository;
 
     @Transactional
-    public QJBean saveQj(QjVO qjVO) {
+    public QJBean saveQj(QjVO qjVO,long id) {
         return getQJBean(qjVO);
     }
 
-    public QJBean saveQjCover(QjVO qjVO) {
+    public QJBean saveQjCover(QjVO qjVO,long id) {
         return getQJBean(qjVO);
     }
 
@@ -67,7 +67,7 @@ public class QJService {
     }
 
     @Transactional
-    public QJBean update(QjVO qjVO) {
+    public QJBean update(QjVO qjVO,long id) {
         QJBean bean = qjRepository.getById(qjVO.getQj_id());
         if (bean == null) return null;
         BeanUtils.copyProperties(qjVO, bean);
@@ -78,7 +78,7 @@ public class QJService {
     }
 
     @Transactional
-    public boolean deleteQJ(Long id) {
+    public boolean deleteQJ(Long id,Long userId) {
         return qjRepository.deleteQJ(id) == 1;
     }
 

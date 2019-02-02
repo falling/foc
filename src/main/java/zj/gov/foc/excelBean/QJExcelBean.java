@@ -1,38 +1,39 @@
 package zj.gov.foc.excelBean;
 
-import cn.afterturn.easypoi.excel.annotation.Excel;
+import com.alibaba.excel.annotation.ExcelProperty;
+import com.alibaba.excel.metadata.BaseRowModel;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.validation.constraints.NotNull;
 
-public class QJExcelBean {
+public class QJExcelBean extends BaseRowModel {
   @NotEmpty
   @NotNull
-  @Excel(orderNum = "0",name="姓名")
+  @ExcelProperty(index = 0,value="姓名")
   private String ch_name;
-  @Excel(orderNum = "1",name="常用电话")
+  @ExcelProperty(index = 1,value="常用电话")
   private String o_tel;
-  @Excel(orderNum = "2",name="性别")
+  @ExcelProperty(index = 2,value="性别")
   private String sex;
-  @Excel(orderNum = "3",name="民族")
+  @ExcelProperty(index = 3,value="民族")
   private String ethnicity;
-  @Excel(orderNum = "4",name="护照号")
+  @ExcelProperty(index = 4,value="护照号")
   private String passport_no;
-  @Excel(orderNum = "5",name="身份证号")
+  @ExcelProperty(index = 5,value="身份证号")
   private String id_num;
-  @Excel(orderNum = "6",name="家庭住址")
+  @ExcelProperty(index = 6,value="家庭住址")
   private String family_location;
-  @Excel(orderNum = "7",name="海外亲属姓名")
+  @ExcelProperty(index = 7,value="海外亲属姓名")
   private String o_name;
-  @Excel(orderNum = "8",name="与海外直系亲属关系")
+  @ExcelProperty(index = 8,value="与海外直系亲属关系")
   private String o_relation;
-  @Excel(orderNum = "9",name="海外直系亲属护照号")
+  @ExcelProperty(index = 9,value="海外直系亲属护照号")
   private String o_passport;
-  @Excel(orderNum = "10",name="海外直系亲属旅居国")
+  @ExcelProperty(index = 10,value="海外直系亲属旅居国")
   private String o_residence;
-  @Excel(orderNum = "11",name="所属区/县侨联")
+  @ExcelProperty(index = 11,value="所属区/县侨联")
   private String manager_area;
-  @Excel(orderNum = "12",name="备注")
+  @ExcelProperty(index = 12,value="备注")
   private String remarks;
   private String type;
 

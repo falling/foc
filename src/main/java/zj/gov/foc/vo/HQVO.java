@@ -43,10 +43,15 @@ public class HQVO extends BaseVO{
     }
 
     public void setManager_area(String manager_area) {
-        if (manager_area.contains(" ")){
-            this.manager_area = manager_area.replaceAll(" ","/");
+        if (manager_area==null){
+            this.manager_area = "浙江省";
         }else {
-            this.manager_area = manager_area;
+            manager_area = manager_area.trim();
+            if (manager_area.contains(" ")) {
+                this.manager_area = manager_area.replaceAll(" ", "/");
+            } else {
+                this.manager_area = manager_area;
+            }
         }
     }
 
@@ -185,7 +190,16 @@ public class HQVO extends BaseVO{
     }
 
     public void setNative_place(String native_place) {
-        this.native_place = native_place;
+        if(native_place==null){
+            this.native_place = "";
+        }else {
+            native_place = native_place.trim();
+            if (native_place.contains(" ")) {
+                this.native_place = native_place.replaceAll(" ", "/");
+            } else {
+                this.native_place = native_place;
+            }
+        }
     }
 
     public String getNationality() {
