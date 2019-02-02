@@ -33,7 +33,7 @@ public class LoginInterceptor {
     @Autowired
     HttpSession httpSession;
 
-    @Around("execution(* zj.gov.foc.cotroller.UserController.login(..))")
+    @Around("execution(* zj.gov.foc.cotroller.LoginController.login(..))")
     public VO LoginLog(ProceedingJoinPoint point) throws Throwable {
         Object[] args = point.getArgs();
         VO result = (VO) point.proceed(args);
