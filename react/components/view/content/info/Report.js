@@ -41,7 +41,6 @@ require('echarts/map/js/province/tianjin.js')
 require('echarts/map/js/province/chongqing.js')
 require('echarts/map/js/province/xianggang.js')
 require('echarts/map/js/province/aomen.js')
-// var provinces = ['shanghai', 'hebei', 'shanxi', 'neimenggu', 'liaoning', 'jilin', 'heilongjiang', 'jiangsu', 'zhejiang', 'anhui', 'fujian', 'jiangxi', 'shandong', 'henan', 'hubei', 'hunan', 'guangdong', 'guangxi', 'hainan', 'sichuan', 'guizhou', 'yunnan', 'xizang', 'shanxi1', 'gansu', 'qinghai', 'ningxia', 'xinjiang', 'beijing', 'tianjin', 'chongqing', 'xianggang', 'aomen'];
 var provincesText = ['上海', '河北', '山西', '内蒙古', '辽宁', '吉林', '黑龙江', '江苏', '浙江', '安徽', '福建', '江西', '山东', '河南', '湖北', '湖南', '广东', '广西', '海南', '四川', '贵州', '云南', '西藏', '陕西', '甘肃', '青海', '宁夏', '新疆', '北京', '天津', '重庆', '香港', '澳门'];
 
 export default class Report extends React.Component {
@@ -256,7 +255,6 @@ export default class Report extends React.Component {
                 let tmpData = [];
                 let data = [];
                 Object.keys(json)
-                    .sort((a, b) => json[b] - json[a])
                     .forEach(key => {
                         let label;
                         let arr = key.split("/");
@@ -273,6 +271,7 @@ export default class Report extends React.Component {
                         }
                     });
                 Object.keys(tmpData)
+                    .sort((a, b) => tmpData[b] - tmpData[a])
                     .forEach(key=>{
                         data.push({name:key,value:tmpData[key]})
                     });

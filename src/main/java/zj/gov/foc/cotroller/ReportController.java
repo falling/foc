@@ -41,59 +41,59 @@ public class ReportController {
     }
 
     @RequestMapping("/HQCountry")
-    public HashMap<Object, Object> getHQCountry() {
+    public HashMap<Object, Long> getHQCountry() {
         return statisticsService.HQCountry();
     }
 
     @RequestMapping("/LXCountry")
-    public HashMap<Object, Object> getLXCountry() {
+    public HashMap<Object, Long> getLXCountry() {
         return statisticsService.LXCountry();
     }
 
     @RequestMapping("/QJHQCountry")
-    public HashMap<Object, Object> getQJHQCountry() {
+    public HashMap<Object, Long> getQJHQCountry() {
         return statisticsService.QJHQCountry();
     }
 
     @RequestMapping("/QJLXCountry")
-    public HashMap<Object, Object> getQJLXCountry() {
+    public HashMap<Object, Long> getQJLXCountry() {
         return statisticsService.QJLXCountry();
     }
 
     @RequestMapping("/allCountry")
-    public HashMap<Object, Object> getAllCountry() {
-        HashMap<Object, Object> result = new HashMap<>();
-        result.putAll(statisticsService.HQCountry());
-        result.putAll(statisticsService.LXCountry());
-        result.putAll(statisticsService.QJHQCountry());
-        result.putAll(statisticsService.QJLXCountry());
+    public HashMap<Object, Long> getAllCountry() {
+        HashMap<Object, Long> result = new HashMap<>();
+        statisticsService.HQCountry().forEach((k,v)-> result.merge(k,v,(x, y)->x+y));
+        statisticsService.LXCountry().forEach((k,v)-> result.merge(k,v,(x, y)->x+y));
+        statisticsService.QJHQCountry().forEach((k,v)-> result.merge(k,v,(x, y)->x+y));
+        statisticsService.QJLXCountry().forEach((k,v)-> result.merge(k,v,(x, y)->x+y));
         return result;
     }
 
     @RequestMapping("/HQAreaData")
-    public HashMap<Object, Object> getHQAreaMap(@RequestParam("area") String area) {
+    public HashMap<Object, Long> getHQAreaMap(@RequestParam("area") String area) {
         return statisticsService.getHQAreaCount(area);
     }
     @RequestMapping("/LXAreaData")
-    public HashMap<Object, Object> getLXAreaMap(@RequestParam("area") String area) {
+    public HashMap<Object, Long> getLXAreaMap(@RequestParam("area") String area) {
         return statisticsService.getLXAreaCount(area);
     }
     @RequestMapping("/QJLXAreaData")
-    public HashMap<Object, Object> getQJLXAreaMap(@RequestParam("area") String area) {
+    public HashMap<Object, Long> getQJLXAreaMap(@RequestParam("area") String area) {
         return statisticsService.getQJLXAreaCount(area);
     }
     @RequestMapping("/QJHQAreaData")
-    public HashMap<Object, Object> getQJHQAreaMap( @RequestParam("area") String area) {
+    public HashMap<Object, Long> getQJHQAreaMap( @RequestParam("area") String area) {
         return statisticsService.getQJHQAreaCount(area);
     }
 
     @RequestMapping("/allAreaData")
-    public HashMap<Object, Object> getAreaMap(@RequestParam("area") String area) {
-        HashMap<Object, Object> result = new HashMap<>();
-        result.putAll(statisticsService.getHQAreaCount(area));
-        result.putAll(statisticsService.getLXAreaCount(area));
-        result.putAll(statisticsService.getQJHQAreaCount(area));
-        result.putAll(statisticsService.getQJLXAreaCount(area));
+    public HashMap<Object, Long> getAreaMap(@RequestParam("area") String area) {
+        HashMap<Object, Long> result = new HashMap<>();
+        statisticsService.getHQAreaCount(area).forEach((k,v)-> result.merge(k,v,(x, y)->x+y));
+        statisticsService.getLXAreaCount(area).forEach((k,v)-> result.merge(k,v,(x, y)->x+y));
+        statisticsService.getQJHQAreaCount(area).forEach((k,v)-> result.merge(k,v,(x, y)->x+y));
+        statisticsService.getQJLXAreaCount(area).forEach((k,v)-> result.merge(k,v,(x, y)->x+y));
         return result;
     }
 

@@ -14,12 +14,14 @@ export default class PieModule extends React.Component {
 
     render() {
         const {data, title, loading,keyName,valueName,maxPIE} = this.props;
-        let PIEData;
+        let PIEData,total;
         if (maxPIE){
             PIEData = data.slice(0,maxPIE);
         } else {
             PIEData = data;
         }
+        total= 0;
+        data.forEach(e=>{total+=e.value});
         let option = {
             title: {
                 text: title
@@ -31,8 +33,8 @@ export default class PieModule extends React.Component {
             series: [
                 {
                     type: 'pie',
-                    radius: '55%',
-                    center: ['40%', '50%'],
+                    radius: '75%',
+                    center: ['50%', '50%'],
                     data: PIEData,
                     itemStyle: {
                         emphasis: {
@@ -50,12 +52,14 @@ export default class PieModule extends React.Component {
                 <div className="row">
                     <div className="col-md-8">
                         <ReactEcharts ref={this.ref}
+                                      style={{"margin":"60px 0px 60px 0px"}}
                                       option={option}
                                       showLoading={loading}
                         />
                     </div>
                     <div className="col-md-4">
                         <Table
+                            title={()=><h4>总人数：{total}</h4>}
                             loading={loading}
                             scroll={{y: 300}}
                             pagination={false}

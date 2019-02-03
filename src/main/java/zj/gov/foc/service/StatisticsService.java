@@ -6,6 +6,7 @@ import zj.gov.foc.repository.HQRepository;
 import zj.gov.foc.repository.LXRepository;
 import zj.gov.foc.repository.QJRepository;
 
+import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.List;
 
@@ -59,27 +60,27 @@ public class StatisticsService {
 
     }
 
-    public HashMap<Object, Object> HQCountry() {
-        HashMap<Object, Object> hqResult = new HashMap<>();
-        hqRepository.groupByCountry().forEach(e-> hqResult.put(e[0],e[1]));
+    public HashMap<Object, Long> HQCountry() {
+        HashMap<Object, Long> hqResult = new HashMap<>();
+        hqRepository.groupByCountry().forEach(e-> hqResult.put(e[0],((BigInteger) e[1]).longValue()));
         return hqResult;
     }
 
-    public HashMap<Object, Object> LXCountry() {
-        HashMap<Object, Object> lxResult = new HashMap<>();
-        lxRepository.groupByCountry().forEach(e-> lxResult.put(e[0],e[1]));
+    public HashMap<Object, Long> LXCountry() {
+        HashMap<Object, Long> lxResult = new HashMap<>();
+        lxRepository.groupByCountry().forEach(e-> lxResult.put(e[0],((BigInteger) e[1]).longValue()));
         return lxResult;
     }
 
-    public HashMap<Object, Object> QJHQCountry() {
-        HashMap<Object, Object> lxResult = new HashMap<>();
-        qjRepository.groupByCountry("qj_hq").forEach(e-> lxResult.put(e[0],e[1]));
+    public HashMap<Object, Long> QJHQCountry() {
+        HashMap<Object, Long> lxResult = new HashMap<>();
+        qjRepository.groupByCountry("qj_hq").forEach(e-> lxResult.put(e[0],((BigInteger) e[1]).longValue()));
         return lxResult;
     }
 
-    public HashMap<Object, Object> QJLXCountry() {
-        HashMap<Object, Object> lxResult = new HashMap<>();
-        qjRepository.groupByCountry("qj_lx").forEach(e-> lxResult.put(e[0],e[1]));
+    public HashMap<Object, Long> QJLXCountry() {
+        HashMap<Object, Long> lxResult = new HashMap<>();
+        qjRepository.groupByCountry("qj_lx").forEach(e-> lxResult.put(e[0],((BigInteger) e[1]).longValue()));
         return lxResult;
     }
 
@@ -94,31 +95,31 @@ public class StatisticsService {
         return result;
     }
 
-    public HashMap<Object, Object> getHQAreaCount(String area) {
-        HashMap<Object, Object> result = new HashMap<>();
+    public HashMap<Object, Long> getHQAreaCount(String area) {
+        HashMap<Object, Long> result = new HashMap<>();
         area = getManagerArea(area);
-        hqRepository.groupByManagerArea(area).forEach(e-> result.put(e[0],e[1]));
+        hqRepository.groupByManagerArea(area).forEach(e-> result.put(e[0], ((BigInteger) e[1]).longValue()));
         return result;
     }
 
-    public HashMap<Object, Object> getLXAreaCount(String area) {
-        HashMap<Object, Object> result = new HashMap<>();
+    public HashMap<Object, Long> getLXAreaCount(String area) {
+        HashMap<Object, Long> result = new HashMap<>();
         area = getManagerArea(area);
-        lxRepository.groupByManagerArea(area).forEach(e-> result.put(e[0],e[1]));
+        lxRepository.groupByManagerArea(area).forEach(e-> result.put(e[0], ((BigInteger) e[1]).longValue()));
         return result;
     }
 
-    public HashMap<Object, Object> getQJLXAreaCount(String area) {
-        HashMap<Object, Object> result = new HashMap<>();
+    public HashMap<Object, Long> getQJLXAreaCount(String area) {
+        HashMap<Object, Long> result = new HashMap<>();
         area = getManagerArea(area);
-        qjRepository.groupByManagerArea("qj_lx",area).forEach(e-> result.put(e[0],e[1]));
+        qjRepository.groupByManagerArea("qj_lx",area).forEach(e-> result.put(e[0],((BigInteger) e[1]).longValue()));
         return result;
     }
 
-    public HashMap<Object, Object> getQJHQAreaCount(String area) {
-        HashMap<Object, Object> result = new HashMap<>();
+    public HashMap<Object, Long> getQJHQAreaCount(String area) {
+        HashMap<Object, Long> result = new HashMap<>();
         area = getManagerArea(area);
-        qjRepository.groupByManagerArea("qj_hq",area).forEach(e-> result.put(e[0],e[1]));
+        qjRepository.groupByManagerArea("qj_hq",area).forEach(e-> result.put(e[0],((BigInteger) e[1]).longValue()));
         return result;
     }
 
