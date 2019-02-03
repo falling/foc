@@ -72,7 +72,7 @@ export default class PicturesWall extends React.Component {
         return (
             <div className="clearfix">
                 <Upload
-                    action="/fileUpload"
+                    action="/api/fileUpload"
                     accept="image/jpg,image/png,image/jpeg"
                     listType="picture-card"
                     fileList={fileList}

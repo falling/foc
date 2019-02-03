@@ -9,7 +9,23 @@ export default class ManagerArea extends React.Component {
             value: ""
         };
         this.handleChange = this.handleChange.bind(this);
+    }
 
+    componentWillMount() {
+        let user = sessionStorage.getItem("user");
+        if (user) {
+            this.area = JSON.parse(user).manager_area;
+            let arr = this.area.split("/");
+            if (arr[0]){
+                this.pc_code_manager = pc_code.filter(e=>e.name===arr[0]);
+            }
+            if (arr[1]){
+                this.pc_code_manager[0].children = this.pc_code_manager[0].children.filter(e=>e.name===arr[1]);
+            }
+            if (arr[2]){
+                this.pc_code_manager[0].children[0].children = this.pc_code_manager[0].children[0].children.filter(e=>e.name===arr[2]);
+            }
+        }
     }
 
     componentWillReceiveProps(nextProps){
@@ -21,32 +37,21 @@ export default class ManagerArea extends React.Component {
         if(value instanceof Array){
             value = value.join("/");
         }
-        onChange(value);
+        if (value.startsWith(this.area)){
+            onChange(value);
+        }else {
+            onChange(this.area)
+        }
     }
     render() {
         const {disabled} = this.props;
         const {value} = this.state;
-        let user = sessionStorage.getItem("user");
-        let pc_code_manager;
-        if (user){
-            let area = JSON.parse(user).manager_area;
-            let arr = area.split("/");
-            if (arr[0]){
-                pc_code_manager = pc_code.filter(e=>e.name===arr[0]);
-            }
-            if (arr[1]){
-                pc_code_manager[0].children = pc_code_manager[0].children.filter(e=>e.name===arr[1]);
-            }
-            if (arr[2]){
-                pc_code_manager[0].children[0].children = pc_code_manager[0].children[0].children.filter(e=>e.name===arr[2]);
-            }
-        }
         return (
             <Cascader
                 disabled={disabled}
                 changeOnSelect
                 fieldNames={{label: 'name', value: 'name'}}
-                options={pc_code_manager}
+                options={this.pc_code_manager}
                 expandTrigger="hover"
                 placeholder="所属侨联"
                 value={value?value.split("/"):""}

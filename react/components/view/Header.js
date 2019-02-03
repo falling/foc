@@ -97,6 +97,15 @@ export default class Header extends React.Component {
                                             action="/api/excelUpload"
                                             accept="application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
                                             onChange={this.handleChange}
+                                            beforeUpload={(file)=>{
+                                                if (file.size > 47085524) {
+                                                    this.setState({loading:false});
+                                                    message.error("上传的文件不能大于45MB");
+                                                    return false;
+                                                }else{
+                                                    return true;
+                                                }
+                                            }}
                                             showUploadList={false}
                                             fileList={fileList}
                                             disabled={loading}
