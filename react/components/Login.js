@@ -51,6 +51,7 @@ export default class Login extends React.Component {
         ).then(user => {
             this.setState({isLoading: false})
             if (user.status >= 0) {
+                sessionStorage.setItem("user",JSON.stringify(user));
                 this.props.history.push("/manager/0");
             } else {
                 message.error(user.info, 5);

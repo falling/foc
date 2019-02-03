@@ -29,6 +29,7 @@ export default class Manager extends React.Component {
             credentials: 'include',
         }).then(response => response.json())
             .then(user => {
+                sessionStorage.setItem("user",JSON.stringify(user));
                 this.setState({user: user})
             })
     }

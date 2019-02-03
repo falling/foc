@@ -42,7 +42,7 @@ public class LoginController {
         if (userVO.getStatus() < 0)
             return userVO;
         session.setAttribute("user", userVO);
-        return Response.success();
+        return Response.success(userVO);
     }
 
     @RequestMapping("/verifyCode")

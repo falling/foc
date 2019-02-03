@@ -10,8 +10,4 @@ function getChild(e) {
     }
 }
 
-function getZJChild(e) {
-    return getChild(e).filter(e=>e.value==='浙江省')
-}
-
-export const zj_pc_code = getZJChild(code);
+export const pc_code = code// getChild(code);

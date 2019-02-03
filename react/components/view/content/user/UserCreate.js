@@ -1,7 +1,7 @@
 import React from 'react';
 import {Form, Input, Select, message, Cascader} from 'antd';
 import 'whatwg-fetch';
-import ManagerArea from "../../../uiCompoment/ManagerArea";
+import ManagerArea from "components/uiCompoment/ManagerArea";
 
 const FormItem = Form.Item;
 const Option = Select.Option;
