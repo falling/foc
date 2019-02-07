@@ -88,7 +88,7 @@ public class LXService {
 
     public SearchVO<LxVO> search(String col, String value,String  manager_area) {
         SearchVO<LxVO> searchVO = new SearchVO<>();
-        String sql = "SELECT lx.*,user.user_name as registrant_name FROM lx , user WHERE lx."+col+" LIKE '%"+value+"%' AND lx.del = '0'  and lx.registrant = user.user_id and lx.manager_area like '"+ manager_area + "%'";
+        String sql = "SELECT lx.*,user.name as registrant_name FROM lx , user WHERE lx."+col+" LIKE '%"+value+"%' AND lx.del = '0'  and lx.registrant = user.user_id and lx.manager_area like '"+ manager_area + "%'";
         Query query = entityManager.createNativeQuery(sql,LxVO.class);
         List<LxVO> resultList = query.getResultList();
         searchVO.setResult(resultList);

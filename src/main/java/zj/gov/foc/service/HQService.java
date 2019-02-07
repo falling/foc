@@ -86,7 +86,7 @@ public class HQService {
 
     public SearchVO<HQVO> search(String col, String value,String manager_area) {
         SearchVO<HQVO> searchVO = new SearchVO<>();
-        String sql = "SELECT hq.*, user.user_name as registrant_name FROM hq,user WHERE hq."+col+" LIKE '%"+value+"%' AND hq.del = '0' and hq.registrant = user.user_id and hq.manager_area like '" + manager_area + "%'";
+        String sql = "SELECT hq.*, user.name as registrant_name FROM hq,user WHERE hq."+col+" LIKE '%"+value+"%' AND hq.del = '0' and hq.registrant = user.user_id and hq.manager_area like '" + manager_area + "%'";
         Query query = entityManager.createNativeQuery(sql,HQVO.class);
         List<HQVO> resultList = query.getResultList();
         searchVO.setResult(resultList);

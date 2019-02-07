@@ -46,7 +46,7 @@ public class LogService {
     private EntityManager entityManager;
 
     public List<LogVO> loadLog(Long o_id, String type) {
-        String sql = "SELECT user.user_name as operating_user,log.* FROM log,user WHERE log.o_id = '"+o_id+"' AND log.identity = '"+type+"' and log.operating_user = user.user_id ORDER BY log.log_date DESC";
+        String sql = "SELECT user.name as operating_user,log.* FROM log,user WHERE log.o_id = '"+o_id+"' AND log.identity = '"+type+"' and log.operating_user = user.user_id ORDER BY log.log_date DESC";
         Query query = entityManager.createNativeQuery(sql,LogVO.class);
         return query.getResultList();
     }
