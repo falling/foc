@@ -67,6 +67,7 @@ public class FormService {
         hqvo.setPresent_industry(entryBean.getField_19());
         hqvo.setCom_name(entryBean.getField_20());
         hqvo.setPosition(entryBean.getField_21());
+        hqvo.setManager_area(entryBean.getField_58().toString());
         try {
             hqvo.setReg_date(Date.valueOf(entryBean.getCreated_at().substring(0,10)));
         }catch (Exception e){
@@ -108,6 +109,7 @@ public class FormService {
         lxVO.setPresent_industry(entryBean.getField_36());
         lxVO.setCom_name(entryBean.getField_37());
         lxVO.setPosition(entryBean.getField_38());
+        lxVO.setManager_area(entryBean.getField_58().toString());
         try {
             lxVO.setReg_date(java.sql.Date.valueOf(entryBean.getCreated_at().substring(0,10)));
         }catch (Exception e){
@@ -144,6 +146,7 @@ public class FormService {
         qjVO.setO_passport(entryBean.getField_49());
         qjVO.setO_residence(entryBean.getField_51());
         qjVO.setType("qj_hq");
+        qjVO.setManager_area(entryBean.getField_58().toString());
         qjService.saveQjCover(qjVO,2L);
     }
 
@@ -165,6 +168,7 @@ public class FormService {
         qjVO.setO_passport(entryBean.getField_50());
         qjVO.setO_residence(entryBean.getField_52());
         qjVO.setType("qj_lx");
+        qjVO.setManager_area(entryBean.getField_58().toString());
         qjService.saveQjCover(qjVO,2L);
     }
 }

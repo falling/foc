@@ -155,10 +155,20 @@ public class FormBean {
         private String field_51;
         private String field_52;
         private String field_23;
+        private Field58Bean field_58;
         private String creator_name;
         private String created_at;
         private String updated_at;
         private String info_remote_ip;
+
+
+        public Field58Bean getField_58() {
+            return field_58;
+        }
+
+        public void setField_58(Field58Bean field_58) {
+            this.field_58 = field_58;
+        }
 
         public int getSerial_number() {
             return serial_number;
@@ -913,6 +923,57 @@ public class FormBean {
 
             public void setStreet(String street) {
                 this.street = street;
+            }
+        }
+
+        public class Field58Bean {
+            /**
+             * province : 陕西省
+             * city : 西安市
+             * district : 雁塔区
+             * street : 高新路
+             */
+
+            private String province;
+            private String city;
+            private String district;
+            private String street;
+
+            public String getProvince() {
+                return province;
+            }
+
+            public void setProvince(String province) {
+                this.province = province;
+            }
+
+            public String getCity() {
+                return city;
+            }
+
+            public void setCity(String city) {
+                this.city = city;
+            }
+
+            public String getDistrict() {
+                return district;
+            }
+
+            public void setDistrict(String district) {
+                this.district = district;
+            }
+
+            public String getStreet() {
+                return street;
+            }
+
+            public void setStreet(String street) {
+                this.street = street;
+            }
+
+            @Override
+            public String toString() {
+                return province + "/" + city + "/" + district;
             }
         }
     }

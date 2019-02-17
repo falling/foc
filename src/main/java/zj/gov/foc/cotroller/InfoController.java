@@ -40,8 +40,6 @@ public class InfoController {
     @Autowired
     StatisticsService statisticsService;
 
-    @Autowired
-    FormService formService;
 
     @Autowired
     ExcelService excelService;
@@ -255,12 +253,5 @@ public class InfoController {
             return Response.warning("excel 文件格式有误");
         }
     }
-
-
-//    @RequestMapping("/importFromJson")
-//    public String saveJson(@RequestBody FormBean bean) {
-//        return formService.save(bean);
-//    }
-
 
 }
